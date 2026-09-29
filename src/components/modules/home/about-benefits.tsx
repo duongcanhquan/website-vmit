@@ -73,23 +73,25 @@ export function AboutBenefits({
 
   return (
     <>
-      <section className="bg-mist py-16 md:py-24">
+      <section className="bg-mist">
         <div className="mx-auto grid max-w-[85%] items-stretch gap-0 lg:grid-cols-2">
-          <Reveal className="relative min-h-[380px] overflow-hidden bg-gradient-to-b from-primary/10 to-primary/30 lg:min-h-[560px]">
+          <div className="relative min-h-[420px] overflow-hidden bg-gradient-to-b from-primary/10 to-primary/30 lg:min-h-[640px]">
             <div
               aria-hidden
-              className="absolute left-1/2 top-[12%] aspect-square w-[80%] max-w-[560px] -translate-x-1/2 rounded-full bg-white/50"
+              className="absolute left-1/2 top-[14%] aspect-square w-[80%] max-w-[560px] -translate-x-1/2 rounded-full bg-white/50"
             />
-            <Image
-              src={imageUrl}
-              alt={locale === "vi" ? "Sinh viên VMIT học cùng laptop" : "VMIT student learning on a laptop"}
-              fill
-              quality={85}
-              className="object-contain object-bottom pt-8"
-              sizes="(max-width:1024px) 100vw, 42.5vw"
-            />
-          </Reveal>
-          <div className="bg-mist px-0 py-10 lg:px-12 lg:py-14">
+            <Reveal className="absolute inset-0">
+              <Image
+                src={imageUrl}
+                alt={locale === "vi" ? "Sinh viên VMIT học cùng laptop" : "VMIT student learning on a laptop"}
+                fill
+                quality={85}
+                className="object-contain object-bottom pt-12"
+                sizes="(max-width:1024px) 100vw, 42.5vw"
+              />
+            </Reveal>
+          </div>
+          <div className="bg-mist px-0 py-12 md:py-16 lg:px-12 lg:py-24">
             <Reveal>
               <p className="text-sm font-bold uppercase tracking-[0.12em] text-primary">
                 {locale === "vi" ? "Học mọi thứ" : "Learn anything"}
