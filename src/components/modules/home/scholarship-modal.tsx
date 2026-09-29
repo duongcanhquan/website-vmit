@@ -28,33 +28,34 @@ export function ScholarshipModal({ open, onClose }: ScholarshipModalProps) {
   if (!open) return null
 
   return (
-    <div className="fixed inset-0 z-[60] flex items-center justify-center bg-brand-navy/50 p-4 backdrop-blur-sm">
+    <div className="fixed inset-0 z-[60] flex items-center justify-center bg-brand-navy/55 p-4 backdrop-blur-md">
       <div
         role="dialog"
         aria-modal="true"
         aria-labelledby="scholarship-title"
-        className="relative w-full max-w-md rounded-xl bg-white p-6 shadow-xl"
+        className="relative w-full max-w-md border border-border bg-white p-8 shadow-[0_40px_80px_-40px_rgba(0,29,126,0.65)]"
       >
         <button
           type="button"
-          className="absolute right-3 top-3 text-muted hover:text-brand-navy"
+          className="absolute right-4 top-4 inline-flex size-9 items-center justify-center rounded-full text-muted transition hover:bg-brand-navy/5 hover:text-brand-navy"
           aria-label="Đóng"
           onClick={onClose}
         >
           <X className="size-5" />
         </button>
-        <h2 id="scholarship-title" className="font-display text-xl font-bold text-brand-navy">
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-red">Scholarship</p>
+        <h2 id="scholarship-title" className="mt-2 font-display text-2xl font-semibold tracking-tight text-brand-navy">
           Nhận học bổng {SITE.admissionYear}
         </h2>
-        <p className="mt-1 text-sm text-muted">Form nhanh ~30 giây. Dữ liệu sẽ nối Supabase khi bật backend.</p>
+        <p className="mt-2 text-sm text-muted">Form nhanh ~30 giây. Dữ liệu sẽ nối Supabase khi bật backend.</p>
 
         {sent ? (
-          <p className="mt-6 rounded-md bg-brand-navy/5 p-4 text-sm text-brand-navy">
+          <p className="mt-6 border border-brand-navy/10 bg-brand-navy/[0.04] p-4 text-sm text-brand-navy">
             Đã ghi nhận (UI). [VMIT: xác nhận gửi server khi có migration/API]
           </p>
         ) : (
           <form
-            className="mt-5 space-y-3"
+            className="mt-6 space-y-3"
             onSubmit={(e) => {
               e.preventDefault()
               setSent(true)
@@ -65,23 +66,23 @@ export function ScholarshipModal({ open, onClose }: ScholarshipModalProps) {
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="Họ và tên"
-              className="h-11 w-full rounded-md border border-border px-3 text-sm outline-none ring-brand-red/30 focus:ring-2"
+              className="h-12 w-full border border-border px-4 text-sm outline-none transition focus:border-brand-red/40 focus:ring-2 focus:ring-brand-red/20"
             />
             <input
               required
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
               placeholder="Số điện thoại"
-              className="h-11 w-full rounded-md border border-border px-3 text-sm outline-none ring-brand-red/30 focus:ring-2"
+              className="h-12 w-full border border-border px-4 text-sm outline-none transition focus:border-brand-red/40 focus:ring-2 focus:ring-brand-red/20"
             />
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Email (tuỳ chọn)"
-              className="h-11 w-full rounded-md border border-border px-3 text-sm outline-none ring-brand-red/30 focus:ring-2"
+              className="h-12 w-full border border-border px-4 text-sm outline-none transition focus:border-brand-red/40 focus:ring-2 focus:ring-brand-red/20"
             />
-            <Button type="submit" className="w-full">
+            <Button type="submit" size="lg" className="w-full">
               Đăng ký nhận tư vấn học bổng
             </Button>
           </form>

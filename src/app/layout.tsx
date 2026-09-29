@@ -1,17 +1,17 @@
 import type { Metadata } from "next"
-import { Sora, Source_Sans_3 } from "next/font/google"
+import { Fraunces, Manrope } from "next/font/google"
 import { SITE } from "@/constants/site"
 import "./globals.css"
 
-const sora = Sora({
-  subsets: ["latin"],
-  variable: "--font-sora",
+const fraunces = Fraunces({
+  subsets: ["latin", "vietnamese"],
+  variable: "--font-fraunces",
   display: "swap",
 })
 
-const sourceSans = Source_Sans_3({
+const manrope = Manrope({
   subsets: ["latin", "vietnamese"],
-  variable: "--font-source-sans",
+  variable: "--font-manrope",
   display: "swap",
 })
 
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="vi">
-      <body className={`${sora.variable} ${sourceSans.variable} antialiased`}>{children}</body>
+      <body className={`${fraunces.variable} ${manrope.variable} antialiased`}>{children}</body>
     </html>
   )
 }
