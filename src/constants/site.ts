@@ -1,6 +1,6 @@
 export const SITE = {
   name: "VMIT",
-  brandTagline: "",
+  brandTagline: "Journey to work excellence",
   heroHeadline: "Học tại Việt Nam · Bằng chuẩn Anh Quốc",
   accreditationBadge: "PERSON APPROVED CENTER",
   hotlineDisplay: "[VMIT: Hotline 24/7]",

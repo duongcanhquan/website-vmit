@@ -24,6 +24,11 @@ function settingUrl(value: unknown, fallback: string): string {
 export function HeroSection({ onOpenScholarship, settings }: HeroSectionProps) {
   const reduce = useReducedMotion()
   const { locale, t } = useLocale()
+  const slogan =
+    settingText(settings.hero_slogan, locale) ||
+    settingText(settings.tagline, locale) ||
+    t.hero.slogan ||
+    SITE.brandTagline
   const headline = settingText(settings.hero_headline, locale) || t.hero.headline
   const support = settingText(settings.hero_support, locale) || t.hero.support
   const year = settingText(settings.admission_year, locale) || SITE.admissionYear
@@ -83,11 +88,21 @@ export function HeroSection({ onOpenScholarship, settings }: HeroSectionProps) {
           >
             VMIT
           </motion.p>
+          {slogan ? (
+            <motion.p
+              className="mt-3 font-display text-lg italic tracking-wide text-accent-gold md:text-xl"
+              initial={reduce ? false : { opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.05 }}
+            >
+              {slogan}
+            </motion.p>
+          ) : null}
           <motion.h1
             className="mt-4 font-display text-[clamp(1.85rem,4.2vw,3.15rem)] font-medium leading-[1.2] tracking-[-0.02em] text-white"
             initial={reduce ? false : { opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.08 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
           >
             {headline}
           </motion.h1>

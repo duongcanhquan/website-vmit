@@ -48,15 +48,17 @@ export function SiteHeader({ settings = {} }: { settings?: Record<string, unknow
         <Link href={ROUTES.home} className="flex shrink-0 items-center gap-3">
           <Image
             src="/brand/logo-vmit.png"
-            alt="VMIT"
+            alt={`VMIT — ${SITE.brandTagline}`}
             width={148}
             height={58}
             className="h-auto w-[118px] object-contain md:w-[132px]"
             priority
           />
-          <div className="hidden border-l border-border pl-3 overline leading-tight text-muted sm:block">
-            <div>{badge}</div>
-            <div>APC</div>
+          <div className="hidden border-l border-border pl-3 leading-tight sm:block">
+            <p className="font-display text-xs italic text-brand-navy/80 md:text-sm">
+              {SITE.brandTagline}
+            </p>
+            <p className="mt-0.5 overline text-muted">{badge} · APC</p>
           </div>
         </Link>
 

@@ -11,6 +11,10 @@ export function SiteFooter({ settings = {} }: { settings?: Record<string, unknow
   const badge = settingText(settings.accreditation_badge, locale) || SITE.accreditationBadge
   const hotline = settingText(settings.hotline_display, locale) || t.common.hotline
   const year = settingText(settings.admission_year, locale) || SITE.admissionYear
+  const tagline =
+    settingText(settings.tagline, locale) ||
+    settingText(settings.hero_slogan, locale) ||
+    SITE.brandTagline
   const nav = [
     { href: ROUTES.about, label: t.nav.about },
     { href: ROUTES.programs, label: t.nav.programs },
@@ -25,12 +29,14 @@ export function SiteFooter({ settings = {} }: { settings?: Record<string, unknow
         <div>
           <Image
             src="/brand/logo-vmit.png"
-            alt="VMIT"
+            alt={`VMIT — ${tagline}`}
             width={148}
             height={58}
             className="h-auto w-[132px] object-contain brightness-0 invert"
           />
-          <p className="mt-5 font-display text-2xl font-medium tracking-tight text-white">VMIT</p>
+          <p className="mt-5 font-display text-xl font-medium italic tracking-tight text-accent-gold">
+            {tagline}
+          </p>
           <p className="mt-2 overline text-white/40">
             {badge} · APC
           </p>

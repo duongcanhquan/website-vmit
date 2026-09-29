@@ -22,6 +22,9 @@ export function SettingsForm({ initial }: Props) {
   const [pending, start] = useTransition()
   const [message, setMessage] = useState<string | null>(null)
   const [form, setForm] = useState({
+    hero_slogan: readPair(
+      initial.hero_slogan ?? initial.tagline ?? { vi: "Journey to work excellence", en: "Journey to work excellence" },
+    ),
     hero_headline: readPair(initial.hero_headline),
     hero_support: readPair(initial.hero_support),
     hotline_display: readPair(initial.hotline_display),
@@ -50,13 +53,14 @@ export function SettingsForm({ initial }: Props) {
     <div>
       <AdminPageHeader
         title="Cài đặt & banner"
-        description="Headline ngắn, URL ảnh banner — song ngữ VI/EN. Ưu tiên đổi ảnh hơn viết slogan dài."
+        description="Slogan chính thức Journey to work excellence, headline, URL ảnh — song ngữ VI/EN."
       />
       <AdminCard>
-        <p className="mb-4 text-sm font-bold text-brand-navy">Nội dung ngắn (VI / EN)</p>
+        <p className="mb-4 text-sm font-bold text-brand-navy">Thương hiệu & nội dung (VI / EN)</p>
         <div className="grid gap-4 md:grid-cols-2">
           {(
             [
+              "hero_slogan",
               "hero_headline",
               "hero_support",
               "hotline_display",
@@ -67,9 +71,11 @@ export function SettingsForm({ initial }: Props) {
             ] as const
           ).map((key) => {
             const pair = form[key] as { vi: string; en: string }
+            const label =
+              key === "hero_slogan" ? "Slogan logo (Journey to work excellence)" : key
             return (
               <div key={key} className="space-y-2 rounded-xl border border-border p-3 md:col-span-2">
-                <p className="text-xs font-extrabold uppercase tracking-wide text-muted">{key}</p>
+                <p className="text-xs font-extrabold uppercase tracking-wide text-muted">{label}</p>
                 <div className="grid gap-3 md:grid-cols-2">
                   <Field label="Tiếng Việt">
                     <textarea
@@ -153,7 +159,8 @@ export function SettingsForm({ initial }: Props) {
             start(async () => {
               try {
                 await saveSettingsBatch({
-                  hero_slogan: { vi: "", en: "" },
+                  hero_slogan: form.hero_slogan,
+                  tagline: form.hero_slogan.vi || form.hero_slogan.en || "Journey to work excellence",
                   hero_headline: form.hero_headline,
                   hero_support: form.hero_support,
                   hotline_display: form.hotline_display,
@@ -168,7 +175,6 @@ export function SettingsForm({ initial }: Props) {
                   campus_image_url: form.campus_image_url,
                   life_image_1_url: form.life_image_1_url,
                   life_image_2_url: form.life_image_2_url,
-                  tagline: "",
                 })
                 setMessage("Đã lưu cài đặt.")
               } catch (err) {

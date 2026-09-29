@@ -11,7 +11,7 @@ export const messages: Record<"vi" | "en", MessageTree> = {
       apply: "Xét tuyển",
     },
     hero: {
-      slogan: "",
+      slogan: "Journey to work excellence",
       headline: "Học tại Việt Nam · Bằng chuẩn Anh Quốc",
       support: "Lớp học · thư viện · lab — ánh sáng thật, không gian thực hành.",
       ctaExplore: "Xem hình ảnh",
@@ -139,7 +139,7 @@ export const messages: Record<"vi" | "en", MessageTree> = {
       apply: "Apply",
     },
     hero: {
-      slogan: "",
+      slogan: "Journey to work excellence",
       headline: "Study in Vietnam · UK-standard awards",
       support: "Classrooms, libraries, labs — real light, practice-led spaces.",
       ctaExplore: "See the visuals",

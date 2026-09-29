@@ -18,10 +18,10 @@ const jakarta = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   title: {
-    default: `${SITE.name} · ${SITE.heroHeadline}`,
+    default: `${SITE.name} | ${SITE.brandTagline}`,
     template: `%s | ${SITE.name}`,
   },
-  description: SITE.heroHeadline,
+  description: `${SITE.heroHeadline}. ${SITE.brandTagline}`,
 }
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
