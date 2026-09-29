@@ -11,9 +11,9 @@ import type { NewsPost } from "@/types/home-cms"
 const FALLBACK_COVERS = [MEDIA.newsClassroom, MEDIA.newsAnalytics, MEDIA.newsCampusLife] as const
 
 export function formatPostDate(value: string | null | undefined, locale: "vi" | "en"): string {
-  if (!value) return locale === "vi" ? "Mới cập nhật" : "Recently"
+  if (!value) return locale === "vi" ? "Mới cập nhật" : "Recently updated"
   const date = new Date(value)
-  if (Number.isNaN(date.getTime())) return locale === "vi" ? "Mới cập nhật" : "Recently"
+  if (Number.isNaN(date.getTime())) return locale === "vi" ? "Mới cập nhật" : "Recently updated"
   return new Intl.DateTimeFormat(locale === "vi" ? "vi-VN" : "en-GB", {
     day: "2-digit",
     month: "short",

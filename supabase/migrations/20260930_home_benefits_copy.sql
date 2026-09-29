@@ -28,7 +28,7 @@ set label_vi = 'giới thiệu việc làm sau tốt nghiệp', label_en = 'job 
 where label_vi = 'cam kết việc làm FDI';
 
 insert into public.impact_counters (value_text, label_vi, label_en, sort_order, is_published)
-select '+200', 'trường học chuyển tiếp', 'transfer universities',
+select '+200', 'trường học chuyển tiếp', 'partner universities for transfer',
        coalesce((select max(sort_order) from public.impact_counters), 0) + 1, true
 where not exists (select 1 from public.impact_counters where value_text = '+200');
 

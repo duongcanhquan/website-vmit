@@ -33,7 +33,7 @@ export const GENDER_OPTIONS: Option[] = [
 
 export const ADMISSION_METHOD_OPTIONS: Option[] = [
   { value: "Học bạ THPT", label: { vi: "Xét học bạ THPT", en: "High school transcript" } },
-  { value: "Điểm thi tốt nghiệp THPT", label: { vi: "Điểm thi tốt nghiệp THPT", en: "National graduation exam score" } },
+  { value: "Điểm thi tốt nghiệp THPT", label: { vi: "Điểm thi tốt nghiệp THPT", en: "National high school graduation exam score" } },
   { value: "Chứng chỉ tiếng Anh quốc tế", label: { vi: "Chứng chỉ tiếng Anh quốc tế", en: "International English certificate" } },
   { value: "Khác", label: { vi: "Khác", en: "Other" } },
 ]

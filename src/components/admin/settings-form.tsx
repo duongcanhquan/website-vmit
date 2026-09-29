@@ -87,12 +87,12 @@ export function SettingsForm({ initial }: Props) {
       initial.hero_slogan ?? initial.tagline ?? { vi: "Journey to work excellence", en: "Journey to work excellence" },
     ),
     hero_headline: readPair(
-      initial.hero_headline ?? { vi: "CỬ NHÂN THỰC HÀNH ANH QUỐC", en: "UK PRACTICE-BASED BACHELOR" },
+      initial.hero_headline ?? { vi: "CỬ NHÂN THỰC HÀNH ANH QUỐC", en: "UK PRACTICE-BASED BACHELOR'S DEGREE" },
     ),
     hero_support: readPair(
       initial.hero_support ?? {
         vi: "Chương trình học từ Anh với lộ trình học đa dạng và thực tiễn.",
-        en: "UK-designed programmes with diverse, practical learning pathways.",
+        en: "UK programmes with diverse, practical learning pathways.",
       },
     ),
     hero_cta_primary_label: readPair(
@@ -118,7 +118,7 @@ export function SettingsForm({ initial }: Props) {
       },
     ),
     hotline_display: readPair(initial.hotline_display),
-    accreditation_badge: readUrl(initial.accreditation_badge, "PERSON APPROVED CENTER"),
+    accreditation_badge: readUrl(initial.accreditation_badge, "PEARSON APPROVED CENTRE"),
     hotline_href: readUrl(initial.hotline_href, "tel:0999999999"),
     admission_year: readUrl(initial.admission_year, "2026"),
     hero_image_url: readUrl(initial.hero_image_url),

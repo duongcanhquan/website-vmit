@@ -54,7 +54,7 @@ export function AboutKeiser() {
         <div>
           <SectionHeading
             index="06"
-            eyebrow={t({ vi: "Lựa chọn chuyển tiếp sang Mỹ", en: "Progression to the USA" })}
+            eyebrow={t({ vi: "Lựa chọn chuyển tiếp sang Mỹ", en: "A US progression option" })}
             title={t(KEISER.title)}
             lead={t(KEISER.body)}
           />

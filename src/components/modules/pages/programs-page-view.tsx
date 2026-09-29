@@ -61,7 +61,7 @@ function TrackStory({ track }: { track: ProgramTrack }) {
 
       <div className="mx-auto w-full max-w-[85%] pt-16 md:pt-20">
         <p className="text-xs font-bold uppercase tracking-[0.16em] text-primary">
-          {locale === "vi" ? "Lộ trình theo học kỳ" : "Term by term"}
+          {locale === "vi" ? "Lộ trình theo học kỳ" : "Term-by-term roadmap"}
         </p>
       </div>
 

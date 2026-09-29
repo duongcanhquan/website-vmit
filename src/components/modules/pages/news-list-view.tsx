@@ -11,7 +11,7 @@ export function NewsListView({ settings, posts }: { settings: Record<string, unk
     <PageShell
       settings={settings}
       eyebrowVi="Tin tức"
-      eyebrowEn="Our blog"
+      eyebrowEn="News"
       titleVi={"Tin tức và sự\u00A0kiện"}
       titleEn={"VMIT news &\u00A0events"}
       leadVi="Hoạt động học thuật, dự án doanh nghiệp và đời sống sinh viên tại VMIT."

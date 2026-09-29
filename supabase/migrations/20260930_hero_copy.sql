@@ -15,13 +15,18 @@ set value = '{"vi":"Nhận học bổng","en":"Get a scholarship"}', updated_at 
 where key = 'hero_cta_primary_label' and value ->> 'vi' = 'Bắt đầu ngay';
 
 update public.site_settings
-set value = '{"vi":"CỬ NHÂN THỰC HÀNH ANH QUỐC","en":"UK PRACTICE-BASED BACHELOR"}', updated_at = now()
-where key = 'hero_headline' and value ->> 'vi' = 'Học mọi thứ';
+set value = '{"vi":"CỬ NHÂN THỰC HÀNH ANH QUỐC","en":"UK PRACTICE-BASED BACHELOR''S DEGREE"}', updated_at = now()
+where key = 'hero_headline'
+  and (value ->> 'vi' = 'Học mọi thứ' or value ->> 'en' = 'UK PRACTICE-BASED BACHELOR');
 
 update public.site_settings
-set value = '{"vi":"Chương trình học từ Anh với lộ trình học đa dạng và thực tiễn.","en":"UK-designed programmes with diverse, practical learning pathways."}',
+set value = '{"vi":"Chương trình học từ Anh với lộ trình học đa dạng và thực tiễn.","en":"UK programmes with diverse, practical learning pathways."}',
     updated_at = now()
-where key = 'hero_support' and value ->> 'vi' = 'Cử nhân thực hành Anh Quốc ngay tại Việt Nam.';
+where key = 'hero_support'
+  and (
+    value ->> 'vi' = 'Cử nhân thực hành Anh Quốc ngay tại Việt Nam.'
+    or value ->> 'en' = 'UK-designed programmes with diverse, practical learning pathways.'
+  );
 
 update public.site_settings
 set value = '{"vi":"Chương trình học","en":"Programmes"}', updated_at = now()

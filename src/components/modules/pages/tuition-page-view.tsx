@@ -30,9 +30,9 @@ export function TuitionPageView({
       eyebrowVi="Học phí & học bổng"
       eyebrowEn="Fees & scholarships"
       titleVi="Vốn nhẹ – Bước xa"
-      titleEn="Light investment · Far reach"
+      titleEn="Travel light – Go far"
       leadVi="Minh bạch chi phí và quỹ học bổng nhân tài."
-      leadEn="Transparent fees and a talent scholarship fund."
+      leadEn="Transparent fees and a merit scholarship fund."
       imageUrl={heroImage}
       imageAltVi="Không gian học tập VMIT"
       imageAltEn="VMIT learning spaces"
@@ -40,7 +40,7 @@ export function TuitionPageView({
       <ContentState
         status={status}
         emptyVi="Chưa có gói học phí trong CMS. Thêm tại Admin → Học phí."
-        emptyEn="No fee plans in CMS yet. Add them in Admin → Fees."
+        emptyEn="No fee plans in the CMS yet. Add them in Admin → Fees."
       />
       {status === "ok" ? (
         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">

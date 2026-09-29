@@ -193,7 +193,7 @@ function Savings() {
           <PiggyBank className="size-7" />
         </span>
         <p className="mt-6 text-xs font-black uppercase tracking-[0.2em] text-primary">
-          {t({ vi: "Hiệu quả kinh tế vượt trội", en: "Outstanding value" })}
+          {t({ vi: "Hiệu quả kinh tế vượt trội", en: "Outstanding value for money" })}
         </p>
         <p className="mt-3 text-[clamp(2rem,4vw,3.2rem)] font-black leading-tight">{t(s.headline)}</p>
         <p className="mt-3 text-white/65">{t(s.note)}</p>
@@ -226,7 +226,7 @@ function Savings() {
         <p className="text-xs text-white/45">
           {t({
             vi: "Ước tính chi phí trọn gói (học phí + sinh hoạt) theo tài liệu chương trình.",
-            en: "All-in cost estimates (tuition + living) from the programme brochure.",
+            en: "Estimated all-in costs (tuition + living), based on programme materials.",
           })}
         </p>
       </motion.div>

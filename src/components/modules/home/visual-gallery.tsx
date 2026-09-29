@@ -42,7 +42,7 @@ export function VisualGallery({ items, status, settings }: VisualGalleryProps) {
 
   const eyebrow =
     settingText(settings.gallery_eyebrow, locale) ||
-    (locale === "vi" ? "Hình ảnh campus" : "Campus visuals")
+    (locale === "vi" ? "Hình ảnh campus" : "Campus gallery")
   const title =
     settingText(settings.gallery_title, locale) ||
     (locale === "vi" ? "Một ngày tại VMIT" : "A day at VMIT")
@@ -50,7 +50,7 @@ export function VisualGallery({ items, status, settings }: VisualGalleryProps) {
     settingText(settings.gallery_lead, locale) ||
     (locale === "vi"
       ? "Lớp học, thư viện, lab, khuôn viên — để ảnh kể chuyện."
-      : "Classrooms, library, labs, quads — let the photos speak.")
+      : "Classrooms, library, labs and campus — let the photos tell the story.")
 
   if (!featured) {
     return (
@@ -60,10 +60,10 @@ export function VisualGallery({ items, status, settings }: VisualGalleryProps) {
             {status === "error"
               ? locale === "vi"
                 ? "Không tải được thư viện ảnh."
-                : "Unable to load gallery."
+                : "The gallery could not be loaded."
               : locale === "vi"
-                ? "Chưa có ảnh gallery trong CMS."
-                : "No gallery images in CMS yet."}
+                ? "Chưa có ảnh trong thư viện."
+                : "No gallery images yet."}
           </p>
         </div>
       </section>

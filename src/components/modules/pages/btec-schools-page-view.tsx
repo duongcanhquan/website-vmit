@@ -31,7 +31,7 @@ export function BtecSchoolsPageView({
       titleVi={"Các trường BTEC trên thế\u00A0giới"}
       titleEn={"BTEC universities\u00A0worldwide"}
       leadVi="HND Level 5 của VMIT được các đại học đối tác công nhận để vào năm cuối hoặc lộ trình 2+2. Danh sách do nhà trường cập nhật."
-      leadEn="VMIT’s HND Level 5 is accepted by partner universities for a final year or a 2+2 route. The college keeps this list up to date."
+      leadEn="VMIT’s HND Level 5 is recognised by partner universities for final-year entry or a 2+2 pathway. This list is updated by the college."
       imageUrl={heroImage}
       imageAltVi="Khuôn viên đại học đối tác"
       imageAltEn="A partner university campus"

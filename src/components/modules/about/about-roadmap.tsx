@@ -115,7 +115,7 @@ export function AboutRoadmap() {
           title={t({ vi: "3 năm – từ THPT đến Cử nhân Anh Quốc", en: "3 years – from high school to a UK bachelor's" })}
           lead={t({
             vi: "Mỗi chặng là một bậc năng lực được Pearson bảo chứng. Cuộn xuống để đi hết hành trình.",
-            en: "Each stage is a Pearson-assured step up. Scroll down to travel the whole journey.",
+            en: "Each stage is a level of competence certified by Pearson. Scroll down to follow the whole journey.",
           })}
           center
         />

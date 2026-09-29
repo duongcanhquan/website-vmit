@@ -22,14 +22,14 @@ export function AboutStandard() {
       <div className="relative mx-auto max-w-[85%]">
         <SectionHeading
           index="02"
-          eyebrow={t({ vi: "Chứng nhận & công nhận toàn cầu", en: "Global accreditation" })}
+          eyebrow={t({ vi: "Chứng nhận & công nhận toàn cầu", en: "Accreditation & global recognition" })}
           title={t({
             vi: "Pearson BTEC được bảo chứng bởi Chính phủ Anh",
             en: "Pearson BTEC is backed by the UK government framework",
           })}
           lead={t({
             vi: "Văn bằng đạt chuẩn học thuật quốc gia Anh, được đối soát bình đẳng với chương trình đại học chính quy.",
-            en: "A qualification benchmarked to UK national academic standards and mapped equally against full university programmes.",
+            en: "A qualification that meets UK national academic standards and is benchmarked on a par with full university programmes.",
           })}
           light
         />
@@ -77,7 +77,7 @@ export function AboutStandard() {
           <p className="mx-auto mt-3 max-w-2xl text-center text-white/60">
             {t({
               vi: "Đối chiếu chuẩn RQF Anh Quốc với hệ thống giáo dục Việt Nam và quyền lợi chuyển tiếp quốc tế.",
-              en: "UK RQF levels mapped to the Vietnamese system and international progression rights.",
+              en: "UK RQF levels mapped against the Vietnamese education system, with international progression rights.",
             })}
           </p>
 

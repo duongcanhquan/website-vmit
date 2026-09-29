@@ -41,10 +41,10 @@ const FOUNDATION: ProgramSubject[] = [
     code: "Foundation Core 01",
     level: "Foundation",
     course: "Academic English & Flipped Classroom Immersion",
-    title: { vi: "Tiếng Anh phản xạ học thuật & Lớp học đảo ngược", en: "Reflexive academic English & flipped classroom" },
+    title: { vi: "Tiếng Anh phản xạ học thuật & Lớp học đảo ngược", en: "Instinctive academic English & the flipped classroom" },
     hook: {
       vi: "Không còn học vẹt ngữ pháp để đi thi. Tiếng Anh trở thành công cụ tranh biện và làm việc tự nhiên như tiếng mẹ đẻ.",
-      en: "No more memorising grammar for a test. English becomes a tool you debate and work in, as naturally as your first language.",
+      en: "No more rote-learning grammar for tests. English becomes a tool for debating and working, as natural as your mother tongue.",
     },
     learn: [
       {
@@ -53,20 +53,20 @@ const FOUNDATION: ProgramSubject[] = [
       },
       {
         vi: "Lớp học đảo ngược: xem micro-learning ở nhà, lên lớp 100% là tranh biện, thuyết trình và đàm phán.",
-        en: "A flipped classroom: micro-lessons at home, and every class hour spent on debate, presentation and negotiation.",
+        en: "Flipped classroom: micro-lessons at home, with 100% of class time spent on debate, presentations and negotiation.",
       },
       {
         vi: "Làm chủ 800+ thuật ngữ học thuật, kinh tế và công nghệ, đọc trơn giáo trình Pearson UK.",
-        en: "Master 800+ academic, business and technology terms, and read Pearson UK material with ease.",
+        en: "Master 800+ academic, business and technology terms, and read Pearson UK materials fluently.",
       },
     ],
     benefit: {
       vi: "Phá bỏ nỗi sợ nói sai, tự tin thuyết trình trước đám đông. Từ mất gốc lên tương đương IELTS 5.0–5.5+ / B2 CEFR chỉ sau một học kỳ.",
-      en: "Lose the fear of getting it wrong and present with confidence. Go from a weak start to about IELTS 5.0–5.5+ / CEFR B2 in one term.",
+      en: "Lose the fear of making mistakes and present confidently to any audience. Go from the basics to the equivalent of IELTS 5.0–5.5+ / CEFR B2 in just one term.",
     },
     artifact: {
       vi: "Video thuyết trình phản biện dự án cá nhân, 100% tiếng Anh, phong thái doanh nhân quốc tế.",
-      en: "A video of you defending a personal project, entirely in English, with an international business presence.",
+      en: "A video of you defending a personal project, entirely in English, with the poise of an international professional.",
     },
     tools: ["ELSA Speak Pro AI", "Oxford Academic E-learning", "Quizlet", "BBC Learning English"],
     image: MEDIA.seminar,
@@ -75,7 +75,7 @@ const FOUNDATION: ProgramSubject[] = [
     id: "fc-02",
     code: "Foundation Core 02",
     level: "Foundation",
-    course: "AI Power Mastery & Multi-Agent Workflow",
+    course: "AI Power Mastery & Multi-Agent Workflows",
     title: { vi: "Huấn luyện AI chuyên sâu & Điều phối AI Agents", en: "Advanced AI training & AI agent orchestration" },
     hook: {
       vi: "Đừng chỉ dùng AI để tán gẫu. Biến AI thành gia sư 1-1 và đội nhân viên ảo, tăng 300% năng suất học và làm.",
@@ -88,20 +88,20 @@ const FOUNDATION: ProgramSubject[] = [
       },
       {
         vi: "Dựng mạng trợ lý AI riêng (Custom GPTs, Claude Projects) để tóm tắt sách, vẽ mindmap và vá lỗ hổng kiến thức.",
-        en: "Build your own assistants (Custom GPTs, Claude Projects) to summarise books, draw mind maps and close knowledge gaps.",
+        en: "Build your own network of AI assistants (Custom GPTs, Claude Projects) to summarise books, draw mind maps and fill knowledge gaps.",
       },
       {
         vi: "Điều phối AI Agents tự động tìm tài liệu, phân tích số liệu và viết báo cáo chuyên nghiệp.",
-        en: "Coordinate AI agents that find sources, analyse numbers and draft professional reports.",
+        en: "Orchestrate AI agents that automatically find sources, analyse data and write professional reports.",
       },
     ],
     benefit: {
       vi: "Năng lực của nhân sự công nghệ thế hệ mới: xử lý khối lượng nghiên cứu trong 2 giờ thay vì 2 ngày, làm chủ công nghệ trước khi AI thay thế người khác.",
-      en: "The edge of a new-generation tech worker: do two days of research in two hours, and own the technology before it replaces anyone.",
+      en: "The edge of a next-generation tech professional: get two days of research done in two hours, and master AI rather than be replaced by it.",
     },
     artifact: {
       vi: "Hệ thống trợ lý AI cá nhân dùng suốt 2 năm học, cùng đề án tự động hóa quy trình cho một doanh nghiệp SME.",
-      en: "A personal AI assistant system for the two years of study, plus a workflow automation proposal for an SME.",
+      en: "A personal AI assistant system for your two years of study, plus a workflow automation proposal for an SME.",
     },
     tools: ["ChatGPT Plus/Team", "Claude 3.5 Sonnet", "Microsoft Copilot", "Notion AI", "Gamma App", "Perplexity Pro"],
     image: IMG.aiAgents,
@@ -111,32 +111,32 @@ const FOUNDATION: ProgramSubject[] = [
     code: "Foundation Core 03",
     level: "Foundation",
     course: "Critical Thinking & Academic Research Skills",
-    title: { vi: "Tư duy phản biện & Kỹ năng nghiên cứu chuẩn quốc tế", en: "Critical thinking & international research skills" },
+    title: { vi: "Tư duy phản biện & Kỹ năng nghiên cứu chuẩn quốc tế", en: "Critical thinking & international-standard research skills" },
     hook: {
       vi: "Thế giới ngập tin giả và thông tin rác. Môn học dạy bạn nhìn xuyên dữ liệu, đặt đúng câu hỏi và bảo vệ luận điểm sắc bén.",
-      en: "The world is full of fake news and noise. Learn to see through the data, ask the right question and defend a sharp argument.",
+      en: "The world is flooded with fake news and junk information. Learn to see through the data, ask the right questions and defend a sharp argument.",
     },
     learn: [
       {
         vi: "Phân biệt Fact và Opinion, nhận diện các kiểu ngụy biện thường gặp.",
-        en: "Separate fact from opinion and spot the most common fallacies.",
+        en: "Separate fact from opinion and spot common logical fallacies.",
       },
       {
         vi: "Trích dẫn Harvard, liêm chính học thuật và kỹ thuật chống đạo văn chuẩn Pearson UK.",
-        en: "Harvard referencing, academic integrity and plagiarism-proof writing to the Pearson UK standard.",
+        en: "Harvard referencing, academic integrity and anti-plagiarism techniques to the Pearson UK standard.",
       },
       {
         vi: "Quản lý dự án Agile/Scrum và làm việc nhóm hiệu suất cao trong môi trường đa văn hóa.",
-        en: "Agile/Scrum project work and high-performing teamwork across cultures.",
+        en: "Agile/Scrum project management and high-performance teamwork in multicultural settings.",
       },
     ],
     benefit: {
       vi: "Bản lĩnh của một nhà nghiên cứu độc lập: không bị dắt mũi bởi thông tin sai lệch, biết cấu trúc báo cáo thuyết phục cả chuyên gia khó tính nhất.",
-      en: "The backbone of an independent researcher: never led by misinformation, and able to structure a report that convinces the toughest expert.",
+      en: "The confidence of an independent researcher: never misled by false information, and able to structure a report that convinces even the toughest expert.",
     },
     artifact: {
       vi: "Báo cáo nghiên cứu chuẩn Harvard, quét Turnitin đạt chỉ số trùng lặp an toàn dưới 15%.",
-      en: "A Harvard-style research report that passes Turnitin under a safe 15% similarity.",
+      en: "A Harvard-referenced research report with a safe Turnitin similarity score below 15%.",
     },
     tools: ["Turnitin", "Miro Board", "Trello Scrum", "Google Workspace", "Grammarly Premium"],
     image: MEDIA.library,
@@ -148,11 +148,11 @@ const DATA: ProgramSubject[] = [
     id: "da-01",
     code: "Unit 1",
     level: "RQF Level 4",
-    course: "Programming with Python & AI Code Assistant",
-    title: { vi: "Lập trình Python thực chiến & Trợ lý code AI", en: "Hands-on Python & AI code assistants" },
+    course: "Programming with Python & AI Code Assistants",
+    title: { vi: "Lập trình Python thực chiến & Trợ lý code AI", en: "Hands-on Python programming & AI coding assistants" },
     hook: {
       vi: "Bắt đầu từ con số 0. Không cần giỏi toán để viết code: bạn học tư duy logic và biến AI thành cộng sự lập trình 24/7.",
-      en: "Start from zero. You don’t need to be a maths whizz: learn logical thinking and make AI your round-the-clock coding partner.",
+      en: "Start from zero. You don’t need to be a maths whizz to code: learn logical thinking and make AI your 24/7 coding partner.",
     },
     learn: [
       {
@@ -165,16 +165,16 @@ const DATA: ProgramSubject[] = [
       },
       {
         vi: "Tự động hóa: script cào dữ liệu web và xử lý tệp Excel/CSV hàng trăm nghìn dòng trong tích tắc.",
-        en: "Automation: scripts that scrape the web and process Excel/CSV files of hundreds of thousands of rows in seconds.",
+        en: "Automation: web-scraping scripts, and processing Excel/CSV files with hundreds of thousands of rows in seconds.",
       },
     ],
     benefit: {
       vi: "Biến việc thủ công mất hàng tuần thành một nút bấm chạy vài giây. Làm chủ ngôn ngữ phổ biến nhất thế giới về dữ liệu và AI.",
-      en: "Turn weeks of manual work into a button that runs in seconds, in the world’s most popular language for data and AI.",
+      en: "Turn weeks of manual work into a single click that runs in seconds, and master the world’s most popular language for data and AI.",
     },
     artifact: {
       vi: "Ứng dụng Python tự cào giá hàng nghìn sản phẩm trên Shopee/Lazada và gửi báo cáo phân tích về Telegram.",
-      en: "A Python app that scrapes prices of thousands of Shopee/Lazada products and sends an analysis to Telegram.",
+      en: "A Python app that scrapes prices for thousands of Shopee/Lazada products and sends analysis reports to Telegram.",
     },
     tools: ["Python 3.12", "VS Code", "GitHub", "Beautiful Soup", "GitHub Copilot"],
     image: IMG.python,
@@ -187,7 +187,7 @@ const DATA: ProgramSubject[] = [
     title: { vi: "Thiết kế & Quản trị cơ sở dữ liệu SQL doanh nghiệp", en: "Enterprise SQL database design & management" },
     hook: {
       vi: "90% bài test tuyển Data Analyst bắt đầu bằng SQL. Đây là chìa khóa mở cửa vào kho dữ liệu khổng lồ của doanh nghiệp.",
-      en: "90% of data analyst hiring tests start with SQL. It is the key to a company’s biggest data stores.",
+      en: "90% of data analyst recruitment tests start with SQL. It is the key that unlocks a company’s vast data stores.",
     },
     learn: [
       {
@@ -200,12 +200,12 @@ const DATA: ProgramSubject[] = [
       },
       {
         vi: "Tối ưu hiệu năng truy vấn (Index Tuning) trên hệ thống phục vụ hàng triệu người dùng.",
-        en: "Query performance tuning (indexes) on systems that serve millions of users.",
+        en: "Query performance tuning (index tuning) on systems that serve millions of users.",
       },
     ],
     benefit: {
       vi: "Nói chuyện trôi chảy với kho dữ liệu doanh nghiệp, trích xuất tức thì mọi số liệu kinh doanh phức tạp mà Giám đốc tài chính hay Marketing cần.",
-      en: "Speak fluently with company data and pull any complex business figure the CFO or marketing lead asks for, on the spot.",
+      en: "Speak fluently with company databases and instantly pull any complex business figure the CFO or Marketing Director needs.",
     },
     artifact: {
       vi: "CSDL bán lẻ chuẩn hóa với 500.000 bản ghi thực tế, kèm kho 50 câu SQL nghiệp vụ phục vụ quản trị.",
@@ -222,25 +222,25 @@ const DATA: ProgramSubject[] = [
     title: { vi: "Toán ứng dụng & Phân tích định lượng trong kinh doanh", en: "Applied maths & quantitative business analysis" },
     hook: {
       vi: "Không học toán lý thuyết trừu tượng. Đây là thứ toán giúp sàn thương mại điện tử biết khách hàng sẽ mua gì tiếp theo.",
-      en: "No abstract theory. This is the maths that tells an online marketplace what a customer will buy next.",
+      en: "No abstract maths theory. This is the maths that tells an online marketplace what a customer will buy next.",
     },
     learn: [
       {
         vi: "Thống kê mô tả và suy diễn: trung bình, trung vị, độ lệch chuẩn, phân phối chuẩn.",
-        en: "Descriptive and inferential statistics: mean, median, standard deviation, the normal distribution.",
+        en: "Descriptive and inferential statistics: mean, median, standard deviation and the normal distribution.",
       },
       {
         vi: "Kiểm định giả thuyết kinh doanh và thiết kế A/B Testing để tối ưu chuyển đổi.",
-        en: "Business hypothesis testing and A/B test design to lift conversion.",
+        en: "Business hypothesis testing and A/B test design to optimise conversion.",
       },
       {
         vi: "Đại số tuyến tính căn bản và ma trận tương quan, nền tảng của các thuật toán AI.",
-        en: "Basic linear algebra and correlation matrices, the ground floor of AI algorithms.",
+        en: "Basic linear algebra and correlation matrices, the foundation of AI algorithms.",
       },
     ],
     benefit: {
       vi: "Tư duy dựa trên bằng chứng: dùng con số chứng minh một chiến dịch marketing thành công hay thất bại, không đoán mò theo cảm tính.",
-      en: "Evidence-based thinking: prove with numbers whether a campaign worked, instead of guessing.",
+      en: "Evidence-based thinking: use numbers to prove whether a marketing campaign succeeded or failed, instead of relying on gut feeling.",
     },
     artifact: {
       vi: "Báo cáo định lượng đo hiệu quả A/B Testing giữa hai mẫu trang thanh toán thương mại điện tử.",
@@ -254,10 +254,10 @@ const DATA: ProgramSubject[] = [
     code: "Unit 8",
     level: "RQF Level 4",
     course: "Python for Data Science & Exploratory Data Analysis",
-    title: { vi: "Lập trình khoa học dữ liệu & Khai phá khám phá (EDA)", en: "Data science programming & exploratory analysis" },
+    title: { vi: "Lập trình khoa học dữ liệu & Khai phá khám phá (EDA)", en: "Data science programming & exploratory data analysis (EDA)" },
     hook: {
       vi: "Biến những bảng tính khổng lồ hỗn độn thành bức tranh biết kể chuyện, lộ ra xu hướng kinh doanh ẩn giấu.",
-      en: "Turn huge, messy spreadsheets into pictures that tell a story and reveal hidden business trends.",
+      en: "Turn huge, messy spreadsheets into visuals that tell a story and reveal hidden business trends.",
     },
     learn: [
       {
@@ -279,7 +279,7 @@ const DATA: ProgramSubject[] = [
     },
     artifact: {
       vi: "Bộ Notebook phân tích hành vi mua sắm của 50.000 khách hàng, chỉ rõ lý do khách bỏ giỏ hàng.",
-      en: "A notebook analysing the shopping behaviour of 50,000 customers and why they abandon their carts.",
+      en: "A set of notebooks analysing the shopping behaviour of 50,000 customers and pinpointing why they abandon their carts.",
     },
     tools: ["NumPy", "Pandas", "Matplotlib", "Seaborn", "Google Colab", "Kaggle Datasets"],
     image: IMG.eda,
@@ -292,25 +292,25 @@ const DATA: ProgramSubject[] = [
     title: { vi: "Trí tuệ kinh doanh (BI) & Thiết kế Executive Dashboard", en: "Business intelligence & executive dashboard design" },
     hook: {
       vi: "Kỹ năng được săn đón nhất trong phòng họp điều hành: bảng điều khiển giúp Tổng Giám đốc ra quyết định trong 3 giây.",
-      en: "The most wanted skill in the boardroom: a dashboard that lets a CEO decide in three seconds.",
+      en: "The most sought-after skill in the boardroom: a dashboard that lets a CEO decide in three seconds.",
     },
     learn: [
       {
         vi: "Kiến trúc kho dữ liệu: Data Warehouse, Data Mart và ETL Pipeline chuẩn doanh nghiệp.",
-        en: "Data warehouse architecture: warehouses, data marts and enterprise ETL pipelines.",
+        en: "Data warehouse architecture: data warehouses, data marts and enterprise-grade ETL pipelines.",
       },
       {
         vi: "Mô hình đa chiều Star Schema, Snowflake Schema và công thức tính toán phức tạp bằng DAX.",
-        en: "Star and snowflake schemas, and complex measures written in DAX.",
+        en: "Multidimensional star and snowflake schemas, and complex calculations in DAX.",
       },
       {
         vi: "Tâm lý học thị giác: chọn đúng biểu đồ, phối màu tương phản, phân tầng thông tin cho lãnh đạo.",
-        en: "Visual psychology: the right chart, strong contrast and a clear hierarchy for senior leaders.",
+        en: "Visual psychology: choosing the right chart, strong contrast and a clear information hierarchy for leaders.",
       },
     ],
     benefit: {
       vi: "Trở thành cánh tay phải của Ban lãnh đạo: thay tệp Excel dài bằng dashboard sống, bấm đâu số liệu nhảy theo thời gian thực tới đó.",
-      en: "Become leadership’s right hand: replace long Excel files with a live dashboard that responds wherever they click.",
+      en: "Become the leadership team’s right hand: replace long Excel files with a live dashboard that updates in real time wherever they click.",
     },
     artifact: {
       vi: "Executive BI Dashboard tương tác giám sát dòng tiền, doanh thu bán lẻ và KPI nhân viên theo thời gian thực.",
@@ -323,7 +323,7 @@ const DATA: ProgramSubject[] = [
     id: "da-06",
     code: "Unit 25",
     level: "RQF Level 5",
-    course: "Applied Machine Learning & Predictive Modeling",
+    course: "Applied Machine Learning & Predictive Modelling",
     title: { vi: "Học máy ứng dụng & Dự báo kinh doanh", en: "Applied machine learning & business forecasting" },
     hook: {
       vi: "Nâng cấp từ phân tích chuyện đã qua sang dự đoán chuyện sắp tới: dạy máy tính nhìn thấu hành vi tương lai của khách hàng.",
@@ -332,11 +332,11 @@ const DATA: ProgramSubject[] = [
     learn: [
       {
         vi: "Học có giám sát: hồi quy tuyến tính, Decision Tree, Random Forest.",
-        en: "Supervised learning: linear regression, decision trees, random forests.",
+        en: "Supervised learning: linear regression, decision trees and random forests.",
       },
       {
         vi: "Phân cụm khách hàng bằng K-Means để cá nhân hóa chiến dịch bán lẻ.",
-        en: "Customer clustering with K-Means to personalise retail campaigns.",
+        en: "Customer segmentation with K-Means clustering to personalise retail campaigns.",
       },
       {
         vi: "Đánh giá và tối ưu mô hình: Confusion Matrix, Precision/Recall, ROC-AUC.",
@@ -345,7 +345,7 @@ const DATA: ProgramSubject[] = [
     ],
     benefit: {
       vi: "Xây thuật toán dự báo rủi ro tín dụng, hoặc nhận ra khách hàng sắp hủy dịch vụ để doanh nghiệp kịp giữ chân.",
-      en: "Build models that forecast credit risk, or flag customers about to leave so the business can keep them.",
+      en: "Build models that forecast credit risk, or flag customers about to cancel so the business can retain them in time.",
     },
     artifact: {
       vi: "Mô hình Machine Learning dự báo khách hàng rời bỏ (Customer Churn Prediction) đạt độ chính xác trên 88%.",
@@ -380,11 +380,11 @@ const DATA: ProgramSubject[] = [
     ],
     benefit: {
       vi: "Tự tin ứng tuyển vào tập đoàn và kỳ lân công nghệ, làm chủ hạ tầng đám mây hiện đại mà nhiều chương trình truyền thống chưa dạy.",
-      en: "Apply to tech groups and unicorns with confidence, owning cloud infrastructure many traditional programmes still skip.",
+      en: "Apply with confidence to major corporations and tech unicorns, with command of modern cloud infrastructure that many traditional programmes still don’t teach.",
     },
     artifact: {
       vi: "Data Pipeline tự động đẩy dữ liệu bán hàng lên Cloud Data Warehouse và kích hoạt phân tích tự động.",
-      en: "A data pipeline that pushes sales data into a cloud warehouse and triggers analysis automatically.",
+      en: "A data pipeline that automatically pushes sales data into a cloud data warehouse and triggers automated analysis.",
     },
     tools: ["Amazon Web Services", "Google Cloud Platform", "BigQuery", "Docker"],
     image: IMG.cloud,
@@ -393,16 +393,16 @@ const DATA: ProgramSubject[] = [
     id: "da-08",
     code: "Unit 16",
     level: "RQF Level 5 · 30 credits",
-    course: "Computing Research Project & 80h On-Job Training",
+    course: "Computing Research Project & 80-Hour On-the-Job Training",
     title: { vi: "Đồ án nghiên cứu công nghệ & Thực tập FDI", en: "Computing research project & FDI internship" },
     hook: {
       vi: "Không thi tốt nghiệp. Bạn trải qua 80 giờ giải bài toán thật tại doanh nghiệp FDI và bảo vệ dự án trước hội đồng Pearson UK.",
-      en: "No final exam. Spend 80 hours solving real problems inside an FDI company, then defend your project before a Pearson UK panel.",
+      en: "No graduation exam. Spend 80 hours solving real problems inside an FDI company, then defend your project before a Pearson UK panel.",
     },
     learn: [
       {
         vi: "Quy trình dự án nghiên cứu độc lập: khảo sát, thu thập mẫu, phân tích và đề xuất giải pháp kỹ thuật.",
-        en: "An independent research process: fieldwork, sampling, analysis and a technical recommendation.",
+        en: "The independent research process: surveys, data sampling, analysis and technical recommendations.",
       },
       {
         vi: "80 giờ On-job training tại tập đoàn đối tác như Samsung, Viettel, FPT, Foxconn.",
@@ -410,12 +410,12 @@ const DATA: ProgramSubject[] = [
       },
       {
         vi: "Viết báo cáo kỹ thuật chuẩn quốc tế và thuyết trình trước hội đồng thẩm định độc lập của Pearson Anh Quốc.",
-        en: "International-standard technical writing and a presentation to an independent Pearson UK panel.",
+        en: "International-standard technical reports and a presentation to an independent Pearson UK assessment panel.",
       },
     ],
     benefit: {
       vi: "Tốt nghiệp không chỉ với tấm bằng, mà với portfolio hoàn chỉnh, kinh nghiệm làm việc thật và cơ hội hợp đồng lao động chính thức.",
-      en: "Graduate with more than a certificate: a complete portfolio, real work experience and a shot at a formal job offer.",
+      en: "Graduate with more than a qualification: a complete portfolio, real work experience and a chance at a permanent employment contract.",
     },
     artifact: {
       vi: "Portfolio công khai trên GitHub/LinkedIn, cùng đồ án giải bài toán dữ liệu thật cho doanh nghiệp FDI đối tác.",
@@ -431,7 +431,7 @@ const BUSINESS: ProgramSubject[] = [
     id: "bm-01",
     code: "Unit 1",
     level: "RQF Level 4",
-    course: "Business and the Business Environment in Digital Age",
+    course: "The Contemporary Business Environment in the Digital Age",
     title: { vi: "Môi trường kinh doanh toàn cầu & Tư duy khởi nghiệp số", en: "The global business environment & digital start-up thinking" },
     hook: {
       vi: "Hiểu luật chơi của kinh tế toàn cầu, nhìn thấu thị trường và vẽ mô hình kinh doanh triệu đô trên một trang giấy.",
@@ -448,7 +448,7 @@ const BUSINESS: ProgramSubject[] = [
       },
       {
         vi: "Ứng dụng AI vận hành văn phòng số: soạn văn bản thương mại, tóm tắt hợp đồng, khảo sát thị trường.",
-        en: "AI for the digital office: drafting business documents, summarising contracts and running market surveys.",
+        en: "AI for the digital office: drafting business documents, summarising contracts and conducting market research.",
       },
     ],
     benefit: {
@@ -457,7 +457,7 @@ const BUSINESS: ProgramSubject[] = [
     },
     artifact: {
       vi: "Bản phân tích Business Model Canvas cho một thương hiệu bán lẻ thật, kèm đề án chuyển đổi số văn phòng.",
-      en: "A Business Model Canvas for a real retail brand, plus a digital office transformation proposal.",
+      en: "A Business Model Canvas analysis for a real retail brand, plus a digital office transformation proposal.",
     },
     tools: ["Business Model Canvas", "Notion AI", "ChatGPT Team", "Miro", "Canva Pro"],
     image: IMG.canvas,
@@ -467,10 +467,10 @@ const BUSINESS: ProgramSubject[] = [
     code: "Unit 2",
     level: "RQF Level 4",
     course: "Marketing Planning & Digital Growth Funnel",
-    title: { vi: "Kế hoạch marketing số & Chiến lược tăng trưởng", en: "Digital marketing planning & growth funnel" },
+    title: { vi: "Kế hoạch marketing số & Chiến lược tăng trưởng", en: "Digital marketing planning & growth strategy" },
     hook: {
       vi: "Khách hàng không mua sản phẩm, họ mua giải pháp cho vấn đề của họ. Học cách dựng cỗ máy thu hút khách hàng tự động.",
-      en: "Customers don’t buy products, they buy solutions to their problems. Build a machine that attracts them automatically.",
+      en: "Customers don’t buy products; they buy solutions to their problems. Learn to build a machine that attracts customers automatically.",
     },
     learn: [
       {
@@ -488,7 +488,7 @@ const BUSINESS: ProgramSubject[] = [
     ],
     benefit: {
       vi: "Tiêu từng đồng ngân sách marketing thông minh, tạo chiến dịch thu hút hàng nghìn khách tiềm năng mà không lãng phí.",
-      en: "Spend every marketing dollar wisely and run campaigns that bring in thousands of leads without waste.",
+      en: "Spend every penny of your marketing budget wisely and run campaigns that attract thousands of leads without waste.",
     },
     artifact: {
       vi: "Kế hoạch Digital Marketing toàn diện cho sản phẩm mới, kèm bộ thông điệp quảng cáo và ngân sách chi tiết.",
@@ -505,7 +505,7 @@ const BUSINESS: ProgramSubject[] = [
     title: { vi: "Kế toán quản trị & Kiểm soát dòng tiền cho nhà lãnh đạo", en: "Management accounting & cash flow control for leaders" },
     hook: {
       vi: "Doanh thu là phù phiếm, lợi nhuận là điểm số, dòng tiền mới là sự sống còn. Làm chủ ngôn ngữ tài chính của doanh nghiệp.",
-      en: "Revenue is vanity, profit is the score, cash flow is survival. Master the financial language of a business.",
+      en: "Revenue is vanity, profit is the score, cash flow is survival. Master the financial language of business.",
     },
     learn: [
       {
@@ -518,7 +518,7 @@ const BUSINESS: ProgramSubject[] = [
       },
       {
         vi: "Lập ngân sách hoạt động và dự báo dòng tiền để ngăn nguy cơ mất thanh khoản.",
-        en: "Operating budgets and cash forecasts that head off a liquidity crisis.",
+        en: "Operating budgets and cash flow forecasts that head off a liquidity crisis.",
       },
     ],
     benefit: {
@@ -545,7 +545,7 @@ const BUSINESS: ProgramSubject[] = [
     learn: [
       {
         vi: "Sản xuất tinh gọn: Lean Management, 5S, Kaizen và giao hàng đúng hạn Just-In-Time.",
-        en: "Lean production: Lean Management, 5S, Kaizen and just-in-time delivery.",
+        en: "Lean production: Lean Management, 5S, Kaizen and Just-in-Time delivery.",
       },
       {
         vi: "Chuỗi cung ứng thông minh: dự báo nhu cầu, tồn kho tối ưu theo EOQ, chọn nhà cung cấp.",
@@ -558,11 +558,11 @@ const BUSINESS: ProgramSubject[] = [
     ],
     benefit: {
       vi: "Rà soát và cắt 20–30% chi phí thừa trong vận hành nhà máy hay chuỗi cửa hàng, biến bộ máy cồng kềnh thành cỗ máy tốc độ cao.",
-      en: "Find and cut 20–30% of wasted cost in a factory or store chain, and turn a heavy operation into a fast one.",
+      en: "Identify and cut 20–30% of excess costs in a factory or store chain, and turn a bloated organisation into a high-speed machine.",
     },
     artifact: {
       vi: "Bộ SOP chuẩn và sơ đồ chuỗi cung ứng chống đứt gãy cho một chuỗi phân phối bán lẻ.",
-      en: "A set of SOPs and a disruption-proof supply chain map for a retail distribution chain.",
+      en: "A standard SOP set and a disruption-resistant supply chain map for a retail distribution chain.",
     },
     tools: ["ERP Odoo", "Base Wework", "Trello Kanban", "Lucidchart"],
     image: IMG.supply,
@@ -575,7 +575,7 @@ const BUSINESS: ProgramSubject[] = [
     title: { vi: "Thương mại điện tử & Bán lẻ đa kênh (Omnichannel)", en: "E-commerce & omnichannel retail" },
     hook: {
       vi: "Kinh doanh thời nay không biên giới. Bạn tự tay dựng gian hàng thương mại điện tử chuyên nghiệp bán ra toàn cầu.",
-      en: "Business has no borders now. Build a professional online store that sells to the world.",
+      en: "Today’s business has no borders. Build your own professional online store that sells worldwide.",
     },
     learn: [
       {
@@ -593,7 +593,7 @@ const BUSINESS: ProgramSubject[] = [
     ],
     benefit: {
       vi: "Vận hành gian hàng TMĐT từ A đến Z: kéo traffic miễn phí từ SEO, livestream bán hàng và giữ khách quay lại mua lần 2, lần 3.",
-      en: "Run an online store end to end: free traffic from SEO, live selling, and customers who come back again and again.",
+      en: "Run an online store end to end: drive free traffic through SEO, sell via livestreams, and win repeat customers.",
     },
     artifact: {
       vi: "Gian hàng thực chiến chuẩn SEO trên Shopee/TikTok Shop, đủ quy trình fulfillment và báo cáo tồn kho.",
@@ -606,11 +606,11 @@ const BUSINESS: ProgramSubject[] = [
     id: "bm-06",
     code: "Unit 3 & 4",
     level: "RQF Level 4",
-    course: "Leadership, Human Resource Management & Organizational Culture",
+    course: "Leadership, Human Resource Management & Organisational Culture",
     title: { vi: "Lãnh đạo, Nghệ thuật đắc nhân tâm & Quản trị nhân sự", en: "Leadership, people skills & human resource management" },
     hook: {
       vi: "Mọi thất bại trong kinh doanh đều bắt nguồn từ bài toán con người. Học cách dùng người, giữ người và truyền cảm hứng.",
-      en: "Every business failure starts as a people problem. Learn to hire, keep and inspire people.",
+      en: "Every business failure starts as a people problem. Learn to manage, retain and inspire people.",
     },
     learn: [
       {
@@ -623,7 +623,7 @@ const BUSINESS: ProgramSubject[] = [
       },
       {
         vi: "Luật lao động Việt Nam, văn hóa gắn kết và đàm phán giải quyết xung đột Win–Win.",
-        en: "Vietnamese labour law, a culture that binds, and win–win conflict negotiation.",
+        en: "Vietnamese labour law, an engaged workplace culture and win–win conflict negotiation.",
       },
     ],
     benefit: {
@@ -632,7 +632,7 @@ const BUSINESS: ProgramSubject[] = [
     },
     artifact: {
       vi: "Sổ tay Văn hóa doanh nghiệp và bộ quy chế đánh giá hiệu suất theo OKR cho doanh nghiệp 50 nhân sự.",
-      en: "A company culture handbook and an OKR performance framework for a 50-person business.",
+      en: "A company culture handbook and an OKR performance appraisal framework for a 50-person business.",
     },
     tools: ["DISC Assessment", "HRM System", "OKR Dashboard"],
     image: MEDIA.studentsCollab,
@@ -641,11 +641,11 @@ const BUSINESS: ProgramSubject[] = [
     id: "bm-07",
     code: "Unit 43 & 8",
     level: "RQF Level 4/5",
-    course: "Business Strategy & Innovation Commercialisation",
-    title: { vi: "Hoạch định chiến lược kinh doanh & Đổi mới sáng tạo", en: "Business strategy & innovation commercialisation" },
+    course: "Business Strategy, Innovation & Commercialisation",
+    title: { vi: "Hoạch định chiến lược kinh doanh & Đổi mới sáng tạo", en: "Strategic business planning & innovation" },
     hook: {
       vi: "Đừng lao vào đại dương đỏ đầy đối thủ. Học cách tạo ra khoảng thị trường mới chưa ai cạnh tranh.",
-      en: "Don’t fight in a red ocean full of rivals. Learn to create new market space no one is competing for.",
+      en: "Don’t fight in a red ocean full of rivals. Learn to create new market space where no one is competing yet.",
     },
     learn: [
       {
@@ -654,7 +654,7 @@ const BUSINESS: ProgramSubject[] = [
       },
       {
         vi: "Design Thinking: thấu cảm người dùng, xác định vấn đề, làm mẫu thử nhanh (Prototyping).",
-        en: "Design thinking: empathise, define the problem, prototype fast.",
+        en: "Design thinking: empathise with users, define the problem and prototype fast.",
       },
       {
         vi: "Đánh giá khả thi thương mại và định giá chim mồi (Decoy Pricing) khi thâm nhập thị trường mới.",
@@ -667,7 +667,7 @@ const BUSINESS: ProgramSubject[] = [
     },
     artifact: {
       vi: "Đề án Chiến lược tăng trưởng & Thương mại hóa sản phẩm đổi mới sáng tạo trình Ban Giám hiệu.",
-      en: "A growth and innovation commercialisation strategy presented to the academic board.",
+      en: "A growth and innovation commercialisation strategy presented to the college leadership.",
     },
     tools: ["Design Thinking Miro", "BCG Matrix", "Ansoff Matrix", "Strategy Canvas"],
     image: IMG.strategy,
@@ -689,11 +689,11 @@ const BUSINESS: ProgramSubject[] = [
       },
       {
         vi: "80 giờ thực tập quản trị tại doanh nghiệp đối tác, tập đoàn đa quốc gia và hệ sinh thái EQuest.",
-        en: "80 hours of management practice with partner companies, multinationals and the EQuest network.",
+        en: "An 80-hour management internship with partner companies, multinationals and the EQuest ecosystem.",
       },
       {
         vi: "Thuyết trình gọi vốn (Pitch Deck) và đàm phán hợp đồng với nhà đầu tư, đối tác chiến lược.",
-        en: "Pitch decks and contract negotiation with investors and strategic partners.",
+        en: "Investor pitches (pitch decks) and contract negotiation with investors and strategic partners.",
       },
     ],
     benefit: {
@@ -702,7 +702,7 @@ const BUSINESS: ProgramSubject[] = [
     },
     artifact: {
       vi: "Hồ sơ đề án quản trị bảo vệ thành công trước Hội đồng Pearson và doanh nghiệp, kèm thư mời làm việc.",
-      en: "A management project defended before Pearson and the business, together with a job offer letter.",
+      en: "A management project successfully defended before a Pearson panel and the business, plus a job offer letter.",
     },
     tools: ["Pitch Deck", "Feasibility Report", "EQuest network", "Live business setting"],
     image: IMG.pitching,

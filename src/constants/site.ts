@@ -2,7 +2,7 @@ export const SITE = {
   name: "VMIT",
   brandTagline: "Journey to work excellence",
   heroHeadline: "Cử nhân thực hành Anh Quốc",
-  accreditationBadge: "PERSON APPROVED CENTER",
+  accreditationBadge: "PEARSON APPROVED CENTRE",
   hotlineDisplay: "0999999999",
   hotlineHref: "tel:0999999999",
   admissionYear: "2026",

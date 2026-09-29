@@ -50,12 +50,12 @@ export function TestimonialsSection({
         </Reveal>
         {status === "error" ? (
           <p className="mt-8 text-center text-sm text-muted">
-            {locale === "vi" ? "Không tải được đánh giá." : "Unable to load testimonials."}
+            {locale === "vi" ? "Không tải được đánh giá." : "Testimonials could not be loaded."}
           </p>
         ) : null}
         {status === "empty" ? (
           <p className="mt-8 text-center text-sm text-muted">
-            {locale === "vi" ? "Chưa có đánh giá trong CMS." : "No testimonials in CMS yet."}
+            {locale === "vi" ? "Chưa có đánh giá." : "No testimonials yet."}
           </p>
         ) : null}
         {status === "ok" ? (
@@ -125,15 +125,15 @@ export function BlogTeaser({
 
         {status === "error" ? (
           <p className="mt-8 text-center text-sm text-muted">
-            {locale === "vi" ? "Không tải được tin tức." : "Unable to load news."}
+            {locale === "vi" ? "Không tải được tin tức." : "News could not be loaded."}
           </p>
         ) : null}
 
         {status === "empty" ? (
           <p className="mt-8 text-center text-sm text-muted">
             {locale === "vi"
-              ? "Chưa có tin tức. Thêm bài tại Admin → Tin tức / Bài viết."
-              : "No posts yet. Add them in Admin → News / Posts."}
+              ? "Chưa có tin tức."
+              : "No news yet."}
           </p>
         ) : null}
 

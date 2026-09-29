@@ -95,7 +95,7 @@ export function AboutPractice() {
         <SectionHeading
           index="03"
           eyebrow={t({ vi: "Tính thực chiến đột phá", en: "Built for work" })}
-          title={t({ vi: "Vì sao doanh nghiệp săn đón sinh viên BTEC?", en: "Why employers compete for BTEC graduates" })}
+          title={t({ vi: "Vì sao doanh nghiệp săn đón sinh viên BTEC?", en: "Why do employers seek out BTEC graduates?" })}
           lead={t({
             vi: "Năm nguyên tắc biến lớp học thành môi trường văn phòng quốc tế.",
             en: "Five principles that turn the classroom into an international workplace.",

@@ -23,7 +23,7 @@ export const DEMO_TESTIMONIALS: HomeCmsProps["testimonials"] = [
     quote_vi:
       "Lớp nhỏ, giảng viên sửa bài từng người. Học hoàn toàn bằng tiếng Anh nên sau một năm mình tự tin thuyết trình trước doanh nghiệp.",
     quote_en:
-      "Small classes and tutors who give one-to-one feedback. Studying fully in English made me confident presenting to employers within a year.",
+      "Small classes, and tutors who give one-to-one feedback. Studying entirely in English gave me the confidence to present to employers within a year.",
     avatar_url: MEDIA.avatarLan,
   },
   {
@@ -34,7 +34,7 @@ export const DEMO_TESTIMONIALS: HomeCmsProps["testimonials"] = [
     quote_vi:
       "Mình chọn VMIT vì lộ trình song bằng Pearson BTEC và Cao đẳng. Học phí hợp lý hơn du học mà vẫn theo chuẩn Anh Quốc.",
     quote_en:
-      "I chose VMIT for the dual Pearson BTEC and college award pathway. It costs far less than studying abroad but keeps the UK standard.",
+      "I chose VMIT for its dual Pearson BTEC and college diploma pathway. It costs far less than studying abroad but still meets UK standards.",
     avatar_url: MEDIA.avatarMinh,
   },
 ]
@@ -56,7 +56,7 @@ const DEMO_POST_BODIES: Record<string, { vi: string; en: string }> = {
 <h3>Thông tin khóa học</h3>
 <table><tbody>
 <tr><th><p>Hạng mục</p></th><th><p>Chi tiết</p></th></tr>
-<tr><td><p>Văn bằng</p></td><td><p>Pearson BTEC HND Level 5 + Cao đẳng Quốc gia</p></td></tr>
+<tr><td><p>Văn bằng</p></td><td><p>Pearson BTEC HND Level 5 + Cao đẳng chính quy</p></td></tr>
 <tr><td><p>Thời gian</p></td><td><p>2,5 năm (5 học kỳ)</p></td></tr>
 <tr><td><p>Ngôn ngữ</p></td><td><p>Tiếng Anh (có lớp bổ trợ)</p></td></tr>
 </tbody></table>

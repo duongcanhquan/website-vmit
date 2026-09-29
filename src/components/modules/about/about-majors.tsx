@@ -24,7 +24,7 @@ export function AboutMajors() {
       <div className="mx-auto max-w-[85%]">
         <SectionHeading
           index="07"
-          eyebrow={t({ vi: "Hai ngành đào tạo mũi nhọn", en: "Two flagship majors" })}
+          eyebrow={t({ vi: "Hai ngành đào tạo mũi nhọn", en: "Two flagship programmes" })}
           title={t({ vi: "Chọn hướng đi – VMIT APC Hà Nội", en: "Choose your path – VMIT APC Hanoi" })}
           center
         />
@@ -179,7 +179,7 @@ export function AboutCredits() {
     <section className="bg-mist py-8">
       <div className="mx-auto max-w-[85%] text-xs leading-relaxed text-muted-soft">
         <p className="font-semibold text-muted">
-          {t({ vi: "Nguồn ảnh Đại học Sunderland & Keiser", en: "University of Sunderland & Keiser photo credits" })}
+          {t({ vi: "Nguồn ảnh Đại học Sunderland & Keiser", en: "Photo credits: University of Sunderland & Keiser University" })}
         </p>
         <p className="mt-1">
           {ABOUT_CREDITS.map((credit, i) => (

@@ -307,9 +307,9 @@ export const SUNDERLAND = {
       tab: { vi: "Du học Anh 1 năm", en: "1 year in the UK" },
       image: ABOUT_MEDIA.london,
       points: [
-        { vi: "Học trực tiếp tại Campus Sunderland hoặc Campus London", en: "Study at the Sunderland or London campus" },
+        { vi: "Học trực tiếp tại Campus Sunderland hoặc Campus London", en: "Study in person at the Sunderland or London campus" },
         { vi: "Môi trường đa văn hóa, thư viện số, mạng lưới việc làm quốc tế", en: "Multicultural campus, digital library, global career network" },
-        { vi: "Graduate Visa: ở lại Anh làm việc 2 năm sau tốt nghiệp", en: "Graduate Visa: stay and work in the UK for 2 years" },
+        { vi: "Graduate Visa: ở lại Anh làm việc 2 năm sau tốt nghiệp", en: "Graduate Visa: stay and work in the UK for 2 years after graduation" },
       ] as L[],
       degree: {
         vi: "Cử nhân Quản trị Kinh doanh (BA Hons) hoặc Cử nhân Công nghệ (BSc Hons) do Đại học Sunderland cấp chính quy.",
@@ -321,20 +321,20 @@ export const SUNDERLAND = {
       tab: { vi: "Top-up tại Việt Nam", en: "Top-up in Vietnam" },
       image: ABOUT_MEDIA.sunderlandLibrary,
       points: [
-        { vi: "Học chương trình năm cuối của Sunderland ngay tại Việt Nam qua đối tác liên kết", en: "Complete Sunderland's final year in Vietnam via partner institutions" },
-        { vi: "Tiết kiệm tối đa chi phí ăn ở, sinh hoạt tại Anh", en: "Save on UK living and accommodation costs" },
-        { vi: "Vừa đi làm tích lũy kinh nghiệm, vừa học tối / cuối tuần", en: "Work and gain experience while studying evenings / weekends" },
+        { vi: "Học chương trình năm cuối của Sunderland ngay tại Việt Nam qua đối tác liên kết", en: "Take Sunderland's final-year programme in Vietnam through a partner institution" },
+        { vi: "Tiết kiệm tối đa chi phí ăn ở, sinh hoạt tại Anh", en: "Maximise savings on UK accommodation and living costs" },
+        { vi: "Vừa đi làm tích lũy kinh nghiệm, vừa học tối / cuối tuần", en: "Work and gain experience while studying in the evenings / at weekends" },
       ] as L[],
       degree: {
         vi: "Bằng Cử nhân chính quy của Đại học Sunderland giống hệt sinh viên học tại Anh, được Bộ GD&ĐT Việt Nam công nhận.",
-        en: "The same University of Sunderland bachelor's degree as UK-based students, recognised by Vietnam's Ministry of Education.",
+        en: "The same University of Sunderland bachelor's degree as UK-based students, recognised by Vietnam's Ministry of Education and Training.",
       },
     },
   ],
   savings: {
     abroad: { vi: "Du học tự túc tại Anh 3–4 năm", en: "3–4 years self-funded in the UK" },
     abroadValue: { vi: "1,8 – 2,5 tỷ", en: "VND 1.8 – 2.5bn" },
-    vmit: { vi: "Lộ trình VMIT 2 + 1 năm Top-up", en: "VMIT route: 2 + 1 top-up year" },
+    vmit: { vi: "Lộ trình VMIT 2 + 1 năm Top-up", en: "VMIT route: 2 years + 1-year top-up" },
     vmitValue: { vi: "≈ 30 – 40%", en: "≈ 30 – 40%" },
     headline: { vi: "Tiết kiệm hơn 1 tỷ đồng", en: "Save over VND 1 billion" },
     note: {
@@ -348,7 +348,7 @@ export const KEISER = {
   title: { vi: "Đại học Keiser (Mỹ)", en: "Keiser University (USA)" },
   body: {
     vi: "Bên cạnh Sunderland, sinh viên VMIT có đặc quyền chuyển tiếp sang Đại học Keiser – thành viên hệ sinh thái Tập đoàn EQuest – với chính sách chuyển đổi tín chỉ và ưu đãi 30% học phí nội bộ.",
-    en: "Alongside Sunderland, VMIT students can transfer to Keiser University – part of the EQuest ecosystem – with credit transfer and a 30% internal tuition discount.",
+    en: "Alongside Sunderland, VMIT students enjoy the privilege of transferring to Keiser University – a member of the EQuest ecosystem – with credit transfer and a 30% internal tuition discount.",
   },
   perk: { vi: "Ưu đãi học phí nội bộ", en: "Internal tuition discount" },
   more: { vi: "Hoặc chuyển tiếp tới các đại học đối tác tại", en: "Or transfer to partner universities in" },
@@ -367,7 +367,7 @@ export const MAJORS: { code: string; title: L; en: string; body: L; skills: stri
     en: "Computing – Data Analytics",
     body: {
       vi: "Ứng dụng AI, Python, SQL, Tableau/Power BI trong phân tích dữ liệu kinh doanh: xử lý dữ liệu lớn, khai phá xu hướng tiêu dùng, dự báo kinh doanh cho công ty công nghệ, ngân hàng, bán lẻ.",
-      en: "Apply AI, Python, SQL and Tableau/Power BI to business data: big-data processing, consumer trend mining and forecasting for tech firms, banks and retailers.",
+      en: "Apply AI, Python, SQL and Tableau/Power BI to business data analysis: big-data processing, consumer-trend mining and business forecasting for tech firms, banks and retailers.",
     },
     skills: ["AI", "Python", "SQL", "Power BI", "Tableau", "Forecasting"],
     image: MEDIA.newsAnalytics,
@@ -378,7 +378,7 @@ export const MAJORS: { code: string; title: L; en: string; body: L; skills: stri
     en: "Business Management",
     body: {
       vi: "Tư duy quản trị hiện đại: chiến lược, tài chính doanh nghiệp, digital marketing, quản lý dự án – sẵn sàng làm trợ lý ban giám đốc, quản trị vận hành hoặc khởi nghiệp.",
-      en: "Modern management thinking: strategy, corporate finance, digital marketing and project management – ready for executive assistant, operations or start-up roles.",
+      en: "Modern management thinking: strategy, corporate finance, digital marketing and project management – ready to work as an executive assistant or in operations management, or to launch your own start-up.",
     },
     skills: ["Strategy", "Finance", "Digital Marketing", "Project Mgmt", "Leadership"],
     image: ABOUT_MEDIA.pitching,
@@ -390,38 +390,38 @@ export const COMMITMENTS: { title: L; body: L }[] = [
     title: { vi: "Song bằng danh giá", en: "A prestigious dual degree" },
     body: {
       vi: "Bằng Cao đẳng chính quy Việt Mỹ và Bằng BTEC HND Level 5 do Pearson Anh Quốc cấp.",
-      en: "A Viet My college diploma plus the BTEC HND Level 5 awarded by Pearson UK.",
+      en: "A Viet My formal college diploma plus the BTEC HND Level 5 awarded by Pearson UK.",
     },
   },
   {
     title: { vi: "100% việc làm tại FDI & MNCs", en: "100% FDI & MNC job placement" },
     body: {
       vi: "Cam kết giới thiệu việc làm tại các tập đoàn đối tác liên kết của EQuest.",
-      en: "Guaranteed job referrals to EQuest's partner corporations.",
+      en: "A commitment to refer you to jobs at EQuest's affiliated partner corporations.",
     },
   },
   {
     title: { vi: "70% thực hành thực chiến", en: "70% hands-on practice" },
     body: {
       vi: "Giảng viên là chuyên gia, giám đốc đang điều hành doanh nghiệp thực tế.",
-      en: "Taught by experts and executives who run real businesses.",
+      en: "Taught by experts and executives who currently run real businesses.",
     },
   },
   {
     title: { vi: "IELTS 6.5+ & chuyển tiếp toàn cầu", en: "IELTS 6.5+ & global progression" },
     body: {
       vi: "Foundation tiếng Anh học thuật, bảo đảm đủ điều kiện liên thông Sunderland (UK) hoặc Keiser (Mỹ).",
-      en: "Academic English Foundation to qualify for Sunderland (UK) or Keiser (USA) top-up.",
+      en: "An academic English Foundation that ensures you qualify for progression to Sunderland (UK) or Keiser (USA).",
     },
   },
 ]
 
 export const ADMISSION_CTA = {
-  eyebrow: { vi: "Chính sách tuyển sinh", en: "Admission policy" },
+  eyebrow: { vi: "Chính sách tuyển sinh", en: "Admissions policy" },
   title: { vi: "Vốn nhẹ – Bước xa", en: "Light start – Go far" },
   body: {
     vi: "Hỗ trợ tài chính ban đầu: chỉ từ 15 triệu VNĐ đóng đợt 1 để hoàn tất thủ tục nhập học và trở thành sinh viên quốc tế.",
-    en: "Initial financial support: from just VND 15 million for the first instalment to complete enrolment and become an international student.",
+    en: "Initial financial support: pay just VND 15 million as your first instalment to complete enrolment and become an international student.",
   },
   amount: "15",
   unit: { vi: "triệu VNĐ · đợt 1", en: "million VND · 1st instalment" },

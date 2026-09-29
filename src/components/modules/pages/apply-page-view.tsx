@@ -75,7 +75,7 @@ export function ApplyPageView({
 }) {
   const { locale, t } = useLocale()
   const vi = locale === "vi"
-  const steps = vi ? ["Cá nhân", "Học vấn & nguyện vọng", "Xác nhận"] : ["Details", "Education & choice", "Confirm"]
+  const steps = vi ? ["Cá nhân", "Học vấn & nguyện vọng", "Xác nhận"] : ["Personal details", "Education & programme", "Confirm"]
   const [step, setStep] = useState(0)
   const [form, setForm] = useState<Form>(EMPTY)
   const [trackingCode, setTrackingCode] = useState<string | null>(null)
@@ -126,7 +126,7 @@ export function ApplyPageView({
       program: form.program,
       website: form.website,
       details,
-    }).catch(() => ({ ok: false as const, error: vi ? "Gửi thất bại, vui lòng thử lại." : "Submission failed, please try again." }))
+    }).catch(() => ({ ok: false as const, error: vi ? "Gửi thất bại, vui lòng thử lại." : "Submission failed. Please try again." }))
     setLoading(false)
     if (result.ok) setTrackingCode(result.data)
     else setError(result.error)
@@ -139,7 +139,10 @@ export function ApplyPageView({
     [vi ? "Tỉnh / thành" : "Province", form.province],
     [vi ? "Trường THPT" : "High school", form.high_school],
     [vi ? "Chương trình" : "Programme", PROGRAM_OPTIONS.find((o) => o.value === form.program)?.label[locale] ?? form.program],
-    [vi ? "Hình thức xét tuyển" : "Admission route", form.admission_method],
+    [
+      vi ? "Hình thức xét tuyển" : "Admission route",
+      ADMISSION_METHOD_OPTIONS.find((o) => o.value === form.admission_method)?.label[locale] ?? form.admission_method,
+    ],
   ]
 
   return (
@@ -175,12 +178,12 @@ export function ApplyPageView({
           {trackingCode ? (
             <div className="mt-8 rounded-xl border border-border bg-surface p-6 shadow-hairline md:p-8">
               <p className="font-display text-2xl font-medium text-brand-navy">
-                {vi ? "Đã ghi nhận hồ sơ" : "Application recorded"}
+                {vi ? "Đã ghi nhận hồ sơ" : "Application received"}
               </p>
               <p className="mt-2 text-sm text-muted">
                 {vi
                   ? "Phòng tuyển sinh sẽ gọi cho bạn trong 1–2 ngày làm việc. Giữ lại mã hồ sơ dưới đây để tra cứu khi cần."
-                  : "Admissions will call you within 1–2 working days. Keep the reference below for any follow-up."}
+                  : "Our admissions team will call you within 1–2 working days. Please keep the reference number below for future enquiries."}
               </p>
               <p className="mt-3 font-display text-3xl text-primary">{trackingCode}</p>
             </div>
@@ -210,7 +213,7 @@ export function ApplyPageView({
                       {pick(GENDER_OPTIONS)}
                     </select>
                   </FieldBox>
-                  <FieldBox label={vi ? "Số điện thoại" : "Phone"} required>
+                  <FieldBox label={vi ? "Số điện thoại" : "Phone number"} required>
                     <input required type="tel" autoComplete="tel" inputMode="tel" className={inputClass} {...text("phone")} />
                   </FieldBox>
                   <FieldBox label="Email" required>
@@ -232,7 +235,7 @@ export function ApplyPageView({
                   <FieldBox label={vi ? "Trường THPT" : "High school"} required wide>
                     <input required className={inputClass} {...text("high_school")} />
                   </FieldBox>
-                  <FieldBox label={vi ? "Năm tốt nghiệp THPT" : "Graduation year"}>
+                  <FieldBox label={vi ? "Năm tốt nghiệp THPT" : "High school graduation year"}>
                     <select className={inputClass} {...text("graduation_year")}>
                       <option value="">{vi ? "— Chọn —" : "— Select —"}</option>
                       {graduationYears().map((year) => (
@@ -245,7 +248,7 @@ export function ApplyPageView({
                       {pick(ADMISSION_METHOD_OPTIONS)}
                     </select>
                   </FieldBox>
-                  <FieldBox label={vi ? "Điểm TB học bạ / điểm thi" : "GPA or exam score"}>
+                  <FieldBox label={vi ? "Điểm TB học bạ / điểm thi" : "Transcript average or exam score"}>
                     <input className={inputClass} placeholder={vi ? "Ví dụ: 7.5" : "e.g. 7.5"} {...text("score")} />
                   </FieldBox>
                   <FieldBox label={vi ? "Trình độ tiếng Anh" : "English level"}>
@@ -264,10 +267,10 @@ export function ApplyPageView({
               {step === 2 ? (
                 <div className="space-y-5">
                   <div className="grid gap-4 sm:grid-cols-2">
-                    <FieldBox label={vi ? "Họ tên phụ huynh" : "Parent / guardian"}>
+                    <FieldBox label={vi ? "Họ tên phụ huynh" : "Parent / guardian name"}>
                       <input className={inputClass} {...text("parent_name")} />
                     </FieldBox>
-                    <FieldBox label={vi ? "SĐT phụ huynh" : "Parent phone"}>
+                    <FieldBox label={vi ? "SĐT phụ huynh" : "Parent / guardian phone"}>
                       <input type="tel" inputMode="tel" className={inputClass} {...text("parent_phone")} />
                     </FieldBox>
                     <FieldBox label={vi ? "Bạn biết VMIT qua" : "How did you hear about VMIT?"} wide>
@@ -275,7 +278,7 @@ export function ApplyPageView({
                         {pick(SOURCE_OPTIONS)}
                       </select>
                     </FieldBox>
-                    <FieldBox label={vi ? "Câu hỏi / ghi chú cho phòng tuyển sinh" : "Questions for admissions"} wide>
+                    <FieldBox label={vi ? "Câu hỏi / ghi chú cho phòng tuyển sinh" : "Questions or notes for our admissions team"} wide>
                       <textarea
                         rows={3}
                         className={cn(inputClass, "h-auto py-3")}
@@ -322,7 +325,7 @@ export function ApplyPageView({
                         : "Submitting…"
                       : vi
                         ? "Gửi hồ sơ"
-                        : "Submit"
+                        : "Submit application"
                     : vi
                       ? "Tiếp tục"
                       : "Continue"}

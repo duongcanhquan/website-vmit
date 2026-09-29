@@ -33,7 +33,7 @@ const COPY = {
     subjects: "subjects",
     artifacts: "portfolio pieces",
     tools: "tools mastered",
-    learn: "What the subject gives you",
+    learn: "What this subject gives you",
     benefit: "Career edge",
     artifact: "What you leave with",
     toolsLabel: "Tools you master",

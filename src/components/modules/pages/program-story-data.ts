@@ -112,17 +112,17 @@ const foundationSteps = [
       },
       {
         vi: "Làm việc nhóm theo Agile/Scrum và quản lý thời gian số.",
-        en: "Work in Agile/Scrum teams and manage time digitally.",
+        en: "Work in Agile/Scrum teams and manage your time with digital tools.",
       },
     ],
     tools: ["Miro", "Trello", "Turnitin", "Google Workspace", "Grammarly"],
     application: {
       vi: "Viết báo cáo học thuật và bảo vệ quan điểm trước giảng viên cùng doanh nghiệp.",
-      en: "Write an academic report and defend it before faculty and a business audience.",
+      en: "Write academic reports and defend your position before lecturers and employers.",
     },
     output: {
       vi: "Báo cáo chuẩn Harvard, kiểm Turnitin dưới 15% similarity.",
-      en: "A Harvard-style report that stays under 15% similarity on Turnitin.",
+      en: "A Harvard-referenced report scoring under 15% similarity on Turnitin.",
     },
   },
 ]
@@ -135,35 +135,35 @@ const dataSteps = [
     unit: "Unit 1 · Programming + AI Foundation",
     title: { vi: "Lập trình Python", en: "Python programming" },
     learn: [
-      { vi: "Tư duy giải thuật và Python hiện đại.", en: "Algorithms and modern Python." },
+      { vi: "Tư duy giải thuật và Python hiện đại.", en: "Algorithmic thinking and modern Python." },
       { vi: "Dùng Copilot và ChatGPT để viết, rồi tự kiểm thử code.", en: "Use Copilot and ChatGPT to draft code, then test it yourself." },
-      { vi: "Tiếng Anh chuyên ngành dữ liệu.", en: "English for data work." },
+      { vi: "Tiếng Anh chuyên ngành dữ liệu.", en: "Technical English for data." },
     ],
     tools: ["Python", "VS Code", "GitHub", "Colab"],
     application: {
       vi: "Cào, lọc và làm sạch tệp dữ liệu thô hàng trăm nghìn dòng.",
-      en: "Collect, filter and clean raw files of hundreds of thousands of rows.",
+      en: "Scrape, filter and clean raw data files with hundreds of thousands of rows.",
     },
     output: {
       vi: "Ứng dụng Python tự xử lý và trích xuất báo cáo doanh số.",
-      en: "A first Python app that cleans data and exports a sales report.",
+      en: "A Python app that processes data and generates sales reports automatically.",
     },
   },
   {
     id: "d-2",
     image: MEDIA.newsAnalytics,
     code: { vi: "Học kỳ 2", en: "Term 2" },
-    unit: "Unit 4 · Database Design · Unit 3 · Professional Practice",
+    unit: "Unit 4 · Database Design & Development · Unit 3 · Professional Practice",
     title: { vi: "Cơ sở dữ liệu SQL", en: "SQL databases" },
     learn: [
       { vi: "Thiết kế CSDL quan hệ chuẩn hóa: ERD và 3NF.", en: "Design a normalised relational database: ERD and 3NF." },
-      { vi: "Viết SQL phức tạp: JOIN, window functions, subqueries.", en: "Write serious SQL: JOIN, window functions and subqueries." },
-      { vi: "Làm việc nhóm theo Agile/Scrum.", en: "Work as an Agile/Scrum team." },
+      { vi: "Viết SQL phức tạp: JOIN, window functions, subqueries.", en: "Write complex SQL: JOINs, window functions and subqueries." },
+      { vi: "Làm việc nhóm theo Agile/Scrum.", en: "Work in Agile/Scrum teams." },
     ],
     tools: ["PostgreSQL", "MySQL", "DBeaver", "Lucidchart", "Jira"],
     application: {
       vi: "Truy vấn dữ liệu người dùng và đối soát giao dịch từ ERP/CRM.",
-      en: "Query user data and reconcile transactions from an ERP or CRM.",
+      en: "Query user data and reconcile transactions from ERP/CRM systems.",
     },
     output: {
       vi: "CSDL bán lẻ chuẩn hóa và kho 50 câu SQL cho báo cáo quản trị.",
@@ -177,18 +177,18 @@ const dataSteps = [
     unit: "Unit 14 · Maths for Computing · Unit 8 · Data Analytics",
     title: { vi: "Toán ứng dụng", en: "Applied mathematics" },
     learn: [
-      { vi: "Xác suất, kiểm định giả thuyết và A/B testing.", en: "Probability, hypothesis tests and A/B testing." },
-      { vi: "Xử lý dữ liệu lớn với NumPy và Pandas.", en: "Work large tables with NumPy and Pandas." },
-      { vi: "Trực quan hóa với Matplotlib và Seaborn.", en: "Visualise with Matplotlib and Seaborn." },
+      { vi: "Xác suất, kiểm định giả thuyết và A/B testing.", en: "Probability, hypothesis testing and A/B testing." },
+      { vi: "Xử lý dữ liệu lớn với NumPy và Pandas.", en: "Process large datasets with NumPy and Pandas." },
+      { vi: "Trực quan hóa với Matplotlib và Seaborn.", en: "Data visualisation with Matplotlib and Seaborn." },
     ],
     tools: ["Pandas", "NumPy", "Seaborn", "Jupyter"],
     application: {
       vi: "Phân tích hành vi khách thương mại điện tử và tối ưu tỷ lệ chuyển đổi.",
-      en: "Read e-commerce behaviour and improve a campaign’s conversion rate.",
+      en: "Analyse e-commerce customer behaviour and optimise conversion rates.",
     },
     output: {
       vi: "Báo cáo định lượng hành vi tiêu dùng và kết quả A/B testing.",
-      en: "A quantitative report on buying behaviour and an A/B test.",
+      en: "A quantitative report on consumer behaviour and A/B test results.",
     },
   },
   {
@@ -198,18 +198,18 @@ const dataSteps = [
     unit: "Unit 26 · Big Data Analytics & Visualisation · Unit 6 · Pearson-set Project",
     title: { vi: "Dashboard điều hành", en: "Executive dashboards" },
     learn: [
-      { vi: "Kho dữ liệu, data mart và luồng ETL.", en: "Data warehouses, data marts and ETL flows." },
-      { vi: "Mô hình Star Schema và Snowflake.", en: "Star and snowflake models." },
-      { vi: "Thiết kế dashboard theo cách người ra quyết định thực sự đọc số.", en: "Design a dashboard the way a decision-maker actually reads numbers." },
+      { vi: "Kho dữ liệu, data mart và luồng ETL.", en: "Data warehouses, data marts and ETL pipelines." },
+      { vi: "Mô hình Star Schema và Snowflake.", en: "Star and snowflake schemas." },
+      { vi: "Thiết kế dashboard theo cách người ra quyết định thực sự đọc số.", en: "Design dashboards around how decision-makers actually read numbers." },
     ],
     tools: ["Power BI", "Tableau", "DAX", "Power Query"],
     application: {
       vi: "Bảng điều khiển doanh thu và dòng tiền để ban giám đốc nhìn trong vài giây.",
-      en: "A revenue and cash dashboard a board can read in a few seconds.",
+      en: "A revenue and cash flow dashboard the board can read in seconds.",
     },
     output: {
       vi: "Executive BI Dashboard thời gian thực cho chuỗi bán lẻ hoặc ngân hàng.",
-      en: "A live executive BI dashboard for a retail chain or a bank.",
+      en: "A real-time executive BI dashboard for a retail chain or bank.",
     },
   },
   {
@@ -220,38 +220,38 @@ const dataSteps = [
     title: { vi: "Machine learning", en: "Machine learning" },
     learn: [
       { vi: "Học có giám sát và không giám sát: hồi quy, Random Forest, K-Means.", en: "Supervised and unsupervised learning: regression, Random Forest, K-Means." },
-      { vi: "Đánh giá mô hình bằng Precision, Recall và ROC-AUC.", en: "Judge a model with precision, recall and ROC-AUC." },
-      { vi: "Đưa mô hình lên AWS hoặc Google Cloud.", en: "Deploy the model on AWS or Google Cloud." },
+      { vi: "Đánh giá mô hình bằng Precision, Recall và ROC-AUC.", en: "Evaluate models with precision, recall and ROC-AUC." },
+      { vi: "Đưa mô hình lên AWS hoặc Google Cloud.", en: "Deploy models to AWS or Google Cloud." },
     ],
     tools: ["Scikit-Learn", "XGBoost", "AWS", "BigQuery"],
     application: {
       vi: "Dự báo khách hàng sắp rời bỏ và gợi ý sản phẩm bán kèm.",
-      en: "Predict which customers may leave, and suggest a related product.",
+      en: "Predict which customers are about to churn and recommend cross-sell products.",
     },
     output: {
       vi: "Mô hình dự báo rời bỏ chạy trên hạ tầng cloud.",
-      en: "A churn model running on cloud infrastructure.",
+      en: "A churn prediction model running on cloud infrastructure.",
     },
   },
   {
     id: "d-6",
     image: MEDIA.newsCareer,
     code: { vi: "Học kỳ 6", en: "Term 6" },
-    unit: "Unit 16 · Research Project + 80 giờ thực tập FDI",
+    unit: "Unit 16 · Computing Research Project + 80-hour FDI internship",
     title: { vi: "Đồ án và thực tập", en: "Capstone and internship" },
     learn: [
       { vi: "Nghiên cứu độc lập theo chuẩn Pearson.", en: "An independent research project to the Pearson standard." },
-      { vi: "80 giờ thực chiến tại doanh nghiệp FDI hoặc tập đoàn đa quốc gia.", en: "80 hours inside an FDI company or a multinational." },
-      { vi: "An toàn dữ liệu và cách làm việc toàn cầu.", en: "Data security and a global way of working." },
+      { vi: "80 giờ thực chiến tại doanh nghiệp FDI hoặc tập đoàn đa quốc gia.", en: "80 hours of hands-on work at an FDI company or multinational." },
+      { vi: "An toàn dữ liệu và cách làm việc toàn cầu.", en: "Data security and ways of working in global teams." },
     ],
     tools: ["GitHub", "LinkedIn", "Data stack"],
     application: {
       vi: "Xử lý dữ liệu vận hành thật tại Samsung, Viettel, FPT và các đối tác.",
-      en: "Work live operating data with partners such as Samsung, Viettel and FPT.",
+      en: "Handle real operational data at Samsung, Viettel, FPT and other partners.",
     },
     output: {
       vi: "Portfolio công khai trên GitHub/LinkedIn và đánh giá thực tập.",
-      en: "A public GitHub and LinkedIn portfolio, plus an internship review.",
+      en: "A public GitHub and LinkedIn portfolio, plus an internship evaluation.",
     },
   },
 ]
@@ -261,21 +261,21 @@ const businessSteps = [
     id: "b-1",
     image: MEDIA.studentsCollab,
     code: { vi: "Học kỳ 1", en: "Term 1" },
-    unit: "Unit 1 · Business Environment + Business English + AI",
+    unit: "Unit 1 · The Contemporary Business Environment + Business English + AI",
     title: { vi: "Tư duy kinh doanh", en: "Business thinking" },
     learn: [
-      { vi: "Đọc môi trường kinh doanh bằng PESTLE, SWOT và Porter’s 5 Forces.", en: "Read a market with PESTLE, SWOT and Porter’s Five Forces." },
-      { vi: "Dùng AI để soạn hợp đồng và lập kế hoạch vận hành.", en: "Use AI to draft a contract and plan the work." },
-      { vi: "Tiếng Anh thương mại và thuyết trình quốc tế.", en: "Business English and an international presentation." },
+      { vi: "Đọc môi trường kinh doanh bằng PESTLE, SWOT và Porter’s 5 Forces.", en: "Analyse the business environment with PESTLE, SWOT and Porter’s Five Forces." },
+      { vi: "Dùng AI để soạn hợp đồng và lập kế hoạch vận hành.", en: "Use AI to draft contracts and plan operations." },
+      { vi: "Tiếng Anh thương mại và thuyết trình quốc tế.", en: "Business English and presenting to international audiences." },
     ],
     tools: ["Business Model Canvas", "Notion", "ChatGPT", "Canva"],
     application: {
       vi: "Đánh giá sức khỏe cạnh tranh của một doanh nghiệp bán lẻ tại Việt Nam.",
-      en: "Assess the competitive health of a real Vietnamese retailer.",
+      en: "Assess the competitive health of a retail business in Vietnam.",
     },
     output: {
       vi: "Bản Business Model Canvas và đề xuất chuyển đổi số văn phòng.",
-      en: "A finished Business Model Canvas and an office digital plan.",
+      en: "A Business Model Canvas and a digital office transformation proposal.",
     },
   },
   {
@@ -285,18 +285,18 @@ const businessSteps = [
     unit: "Unit 2 · Marketing Processes & Planning · Unit 5 · Accounting Principles",
     title: { vi: "Marketing và tài chính", en: "Marketing and finance" },
     learn: [
-      { vi: "Định vị thương hiệu và phễu digital marketing.", en: "Brand positioning and a digital marketing funnel." },
-      { vi: "Đọc bảng cân đối, kết quả kinh doanh và lưu chuyển tiền tệ.", en: "Read a balance sheet, income statement and cash flow." },
-      { vi: "Tính điểm hòa vốn, quản trị chi phí và lập ngân sách.", en: "Find the break-even point, control cost and build a budget." },
+      { vi: "Định vị thương hiệu và phễu digital marketing.", en: "Brand positioning and digital marketing funnels." },
+      { vi: "Đọc bảng cân đối, kết quả kinh doanh và lưu chuyển tiền tệ.", en: "Read balance sheets, income statements and cash flow statements." },
+      { vi: "Tính điểm hòa vốn, quản trị chi phí và lập ngân sách.", en: "Break-even analysis, cost control and budgeting." },
     ],
     tools: ["GA4", "Meta Ads", "Excel", "CapCut"],
     application: {
       vi: "Một chiến dịch đa kênh, tính được hòa vốn và ROI.",
-      en: "A multi-channel campaign with a break-even point and an ROI.",
+      en: "A multichannel campaign with a calculated break-even point and ROI.",
     },
     output: {
       vi: "Kế hoạch digital marketing gắn với dự toán dòng tiền.",
-      en: "A digital marketing plan tied to a cash forecast.",
+      en: "A digital marketing plan tied to a cash flow forecast.",
     },
   },
   {
@@ -304,41 +304,41 @@ const businessSteps = [
     image: MEDIA.campusFacility,
     code: { vi: "Học kỳ 3", en: "Term 3" },
     unit: "Unit 26 · Principles of Operations Management · Unit 54 · E-Commerce & Strategy",
-    title: { vi: "Chuỗi cung ứng và TMĐT", en: "Supply chain and commerce" },
+    title: { vi: "Chuỗi cung ứng và TMĐT", en: "Supply chain and e-commerce" },
     learn: [
-      { vi: "Chuỗi cung ứng tinh gọn: Lean, JIT và quản lý kho EOQ.", en: "A lean supply chain: Lean, JIT and EOQ inventory." },
+      { vi: "Chuỗi cung ứng tinh gọn: Lean, JIT và quản lý kho EOQ.", en: "Lean supply chains: Lean, JIT and EOQ inventory management." },
       { vi: "Bán lẻ đa kênh và sàn thương mại điện tử.", en: "Omnichannel retail and marketplace selling." },
-      { vi: "Tối ưu chuyển đổi và quy trình giao hàng.", en: "Conversion rate and the fulfilment flow." },
+      { vi: "Tối ưu chuyển đổi và quy trình giao hàng.", en: "Optimising conversion and the fulfilment process." },
     ],
     tools: ["Shopee", "TikTok Shop", "Shopify", "Odoo"],
     application: {
       vi: "Dựng kho và gian hàng thật, đo chi phí logistics và hoàn đơn.",
-      en: "Run a real store and warehouse, and measure logistics and returns.",
+      en: "Set up a real warehouse and store, and measure logistics and return costs.",
     },
     output: {
       vi: "Gian hàng thương mại điện tử đủ SEO, fulfillment và báo cáo tồn kho.",
-      en: "A live store with SEO, fulfilment and an inventory report.",
+      en: "An SEO-optimised online store with fulfilment and inventory reporting.",
     },
   },
   {
     id: "b-4",
     image: MEDIA.aboutStudent,
     code: { vi: "Học kỳ 4", en: "Term 4" },
-    unit: "Unit 3 · Human Resource Management · Unit 4 · Leadership",
+    unit: "Unit 3 · Human Resource Management · Unit 4 · Leadership & Management",
     title: { vi: "Nhân sự và lãnh đạo", en: "People and leadership" },
     learn: [
       { vi: "Lãnh đạo tình huống và đọc tính cách qua DISC, MBTI.", en: "Situational leadership, and reading people with DISC and MBTI." },
-      { vi: "Tuyển dụng, hội nhập và đánh giá KPI/OKR.", en: "Hiring, onboarding and KPI/OKR reviews." },
-      { vi: "Luật lao động Việt Nam và cách giải xung đột.", en: "Vietnamese labour law and how to resolve a conflict." },
+      { vi: "Tuyển dụng, hội nhập và đánh giá KPI/OKR.", en: "Recruitment, onboarding and KPI/OKR appraisals." },
+      { vi: "Luật lao động Việt Nam và cách giải xung đột.", en: "Vietnamese labour law and conflict resolution." },
     ],
     tools: ["DISC", "HRM", "KPI Dashboard"],
     application: {
       vi: "Khung năng lực và chính sách giữ người cho công ty khoảng 50 nhân sự.",
-      en: "A capability framework and a retention policy for a 50-person company.",
+      en: "A competency framework and retention policy for a company of around 50 staff.",
     },
     output: {
       vi: "Sổ tay văn hóa và bộ quy chế KPI/OKR cho doanh nghiệp vừa.",
-      en: "A culture handbook and a KPI/OKR rulebook for an SME.",
+      en: "A culture handbook and a KPI/OKR policy framework for a mid-sized business.",
     },
   },
   {
@@ -348,39 +348,39 @@ const businessSteps = [
     unit: "Unit 43 · Business Strategy · Unit 8 · Innovation & Commercialisation",
     title: { vi: "Chiến lược tăng trưởng", en: "Growth strategy" },
     learn: [
-      { vi: "Đại dương xanh và cạnh tranh bằng khác biệt.", en: "Blue ocean thinking and competing by being different." },
-      { vi: "Design Thinking để làm ra sản phẩm mới.", en: "Design thinking for a new product." },
-      { vi: "Thẩm định khả thi và cách vào một thị trường mới.", en: "Test whether it can sell, and how to enter a new market." },
+      { vi: "Đại dương xanh và cạnh tranh bằng khác biệt.", en: "Blue Ocean Strategy and competing through differentiation." },
+      { vi: "Design Thinking để làm ra sản phẩm mới.", en: "Design thinking to create new products." },
+      { vi: "Thẩm định khả thi và cách vào một thị trường mới.", en: "Feasibility assessment and how to enter a new market." },
     ],
     tools: ["Miro", "Ansoff", "BCG", "Design Thinking"],
     application: {
       vi: "Nghiên cứu một thị trường ngách và kế hoạch tung sản phẩm.",
-      en: "Study a niche and plan the launch that meets the competitor.",
+      en: "Research a niche market and plan a product launch.",
     },
     output: {
       vi: "Đề án chiến lược tăng trưởng trình ban giám hiệu.",
-      en: "A growth and commercialisation proposal for the academic board.",
+      en: "A growth strategy proposal presented to the college leadership.",
     },
   },
   {
     id: "b-6",
     image: MEDIA.heroCampusUk,
     code: { vi: "Học kỳ 6", en: "Term 6" },
-    unit: "Unit 19 · Research Project + 80 giờ thực tập quản lý",
-    title: { vi: "Khởi nghiệp và thực tập", en: "Venture and internship" },
+    unit: "Unit 19 · Research Project + 80-hour management internship",
+    title: { vi: "Khởi nghiệp và thực tập", en: "Start-up and internship" },
     learn: [
       { vi: "Đề án nghiên cứu kinh doanh theo chuẩn Pearson.", en: "A business research project to the Pearson standard." },
-      { vi: "80 giờ thực tập quản trị trong hệ sinh thái EQuest và tập đoàn đa quốc gia.", en: "80 management hours inside the EQuest network and a multinational." },
-      { vi: "Đàm phán hợp đồng và pitching gọi vốn.", en: "Contract negotiation and a funding pitch." },
+      { vi: "80 giờ thực tập quản trị trong hệ sinh thái EQuest và tập đoàn đa quốc gia.", en: "An 80-hour management internship in the EQuest ecosystem and multinationals." },
+      { vi: "Đàm phán hợp đồng và pitching gọi vốn.", en: "Contract negotiation and investor pitching." },
     ],
-    tools: ["Pitch Deck", "Thẩm định"],
+    tools: ["Pitch Deck", "Feasibility Study"],
     application: {
       vi: "Giải một điểm nghẽn vận hành hoặc một hướng mở thị trường thật.",
-      en: "Solve a real operating bottleneck or a real market expansion.",
+      en: "Tackle a real operational bottleneck or a real market expansion opportunity.",
     },
     output: {
       vi: "Đề án bảo vệ trước hội đồng Pearson và doanh nghiệp, kèm thư giới thiệu việc làm.",
-      en: "A defence before the Pearson board and the company, plus a job reference.",
+      en: "A project defended before a Pearson panel and the business, plus a letter of recommendation.",
     },
   },
 ]
@@ -414,44 +414,44 @@ function mapSteps(
 
 export function programStory(locale: Locale): ProgramStory {
   return {
-    heroEyebrow: "Journey to the World Excellence",
+    heroEyebrow: "Journey to World-Class Excellence",
     heroTitle: line(locale, {
       vi: "Ba chương trình.\nMỘT CÁCH HỌC THỰC CHIẾN HIỆU QUẢ",
-      en: "Three programmes.\nONE HANDS-ON WAY TO LEARN THAT WORKS",
+      en: "Three programmes.\nONE EFFECTIVE, HANDS-ON APPROACH",
     }),
     heroLead: line(locale, {
       vi: "Song bằng Cao đẳng chính quy và Pearson BTEC Level 5. Qua môn bằng dự án, không bằng bài thi nhồi nhét. Học qua thực hành.",
-      en: "A formal college diploma plus Pearson BTEC Level 5. Pass by projects, not crammed exams. Learn by doing.",
+      en: "A dual award: a formal college diploma and a Pearson BTEC Level 5. Pass through projects, not crammed exams. Learn by doing.",
     }),
-    scrollHint: line(locale, { vi: "Xem ba chương trình", en: "See the three programmes" }),
-    guaranteesTitle: line(locale, { vi: "Bốn điều VMIT giữ", en: "Four things VMIT stands behind" }),
+    scrollHint: line(locale, { vi: "Xem ba chương trình", en: "Explore the three programmes" }),
+    guaranteesTitle: line(locale, { vi: "Bốn điều VMIT giữ", en: "Four promises VMIT keeps" }),
     guarantees: [
       {
-        title: line(locale, { vi: "Học bằng dự án", en: "Assignment-based" }),
+        title: line(locale, { vi: "Học bằng dự án", en: "Project-based learning" }),
         body: line(locale, {
           vi: "Không thi lý thuyết nhồi nhét. Sản phẩm được thẩm định hai lớp, có giám sát của Pearson UK.",
-          en: "No crammed theory exam. The project is reviewed twice, with Pearson UK in the loop.",
+          en: "No crammed theory exams. Every piece of work is verified at two levels, under Pearson UK oversight.",
         }),
       },
       {
-        title: line(locale, { vi: "Song bằng", en: "Two awards" }),
+        title: line(locale, { vi: "Song bằng", en: "Dual qualifications" }),
         body: line(locale, {
           vi: "Cao đẳng chính quy Việt Nam và Pearson BTEC HND Level 5, được công nhận tại hơn 100 quốc gia.",
-          en: "A Vietnamese college diploma and a Pearson BTEC HND Level 5, recognised in more than 100 countries.",
+          en: "A Vietnamese formal college diploma and the Pearson BTEC HND Level 5, recognised in more than 100 countries.",
         }),
       },
       {
-        title: line(locale, { vi: "Năm cuối quốc tế", en: "A final year abroad" }),
+        title: line(locale, { vi: "Năm cuối quốc tế", en: "An international final year" }),
         body: line(locale, {
           vi: "Hai năm tại APC Hà Nội, rồi một năm cuối tại Sunderland (Anh), Macquarie (Úc) hoặc Keiser (Mỹ).",
-          en: "Two years at APC Hanoi, then a final year at Sunderland, Macquarie or Keiser.",
+          en: "Two years at APC Hanoi, then a final year at Sunderland (UK), Macquarie (Australia) or Keiser (USA).",
         }),
       },
       {
-        title: line(locale, { vi: "Việc làm khởi điểm", en: "A starting salary" }),
+        title: line(locale, { vi: "Việc làm khởi điểm", en: "Starting salaries" }),
         body: line(locale, {
           vi: "Data Analytics 15–22 triệu/tháng. Business Management 12–18 triệu/tháng.",
-          en: "Data Analytics 15–22 million VND a month. Business Management 12–18 million.",
+          en: "Data Analytics: 15–22 million VND/month. Business Management: 12–18 million VND/month.",
         }),
       },
     ],
@@ -460,16 +460,16 @@ export function programStory(locale: Locale): ProgramStory {
     toolsLabel: line(locale, { vi: "Công cụ", en: "Tools" }),
     applyLabel: line(locale, {
       vi: "Đăng ký xét học bạ & nhận tư vấn lộ trình 1-1",
-      en: "Apply with your transcript and book a 1-1 consult",
+      en: "Apply with your transcript & get 1-1 pathway advice",
     }),
-    closeEyebrow: line(locale, { vi: "Vốn nhẹ — bước xa", en: "A lighter start" }),
+    closeEyebrow: line(locale, { vi: "Vốn nhẹ — bước xa", en: "Invest less — go further" }),
     closeTitle: line(locale, {
       vi: "Vào học từ 15 triệu. Ra trường với việc làm đã nói rõ mức lương.",
-      en: "Start from 15 million VND. Leave with a salary the programme states up front.",
+      en: "Start from 15 million VND. Graduate into a job with a clearly stated salary.",
     }),
     closeLead: line(locale, {
       vi: "Học phí chia theo kỳ. Hợp đồng hướng tới mức 12–22 triệu đồng mỗi tháng, tùy ngành.",
-      en: "Fees are paid by term. The employment promise sits between 12 and 22 million VND a month, depending on the programme.",
+      en: "Tuition is paid term by term. The contract targets a salary of 12–22 million VND a month, depending on the programme.",
     }),
     tracks: [
       {
@@ -479,13 +479,13 @@ export function programStory(locale: Locale): ProgramStory {
         standard: line(locale, { vi: "Học kỳ tiền đề · AI Accelerator", en: "Foundation term · AI Accelerator" }),
         promise: line(locale, {
           vi: "Không lo mất gốc tiếng Anh. Tự tin bước vào chuẩn Anh.",
-          en: "A weak English start is not a closed door.",
+          en: "Weak English? No problem. Step confidently into a UK-standard programme.",
         }),
         lead: line(locale, {
           vi: "Nếu tiếng Anh chưa vững, liệu có học nổi chương trình Anh? Trước chuyên ngành, mọi tân sinh viên đi qua Foundation Bootcamp: phản xạ ngôn ngữ, AI thành trợ thủ, và cách học học thuật cho hai năm phía trước.",
-          en: "Can you start a UK programme if English is still shaky? Before the major, every new student takes the Foundation Bootcamp: a language reflex, AI as a study partner, and the academic habits for the two years ahead.",
+          en: "Worried your English isn’t strong enough for a UK programme? Before starting their major, every new student completes the Foundation Bootcamp: English speaking reflexes, AI as a study assistant, and the academic skills for the two years ahead.",
         }),
-        salary: line(locale, { vi: "Cửa ngõ vào cả hai ngành", en: "The door into both majors" }),
+        salary: line(locale, { vi: "Cửa ngõ vào cả hai ngành", en: "The gateway to both majors" }),
         image: MEDIA.seminar,
         steps: mapSteps(locale, foundationSteps),
       },
@@ -493,16 +493,16 @@ export function programStory(locale: Locale): ProgramStory {
         id: "data-analytics",
         index: "02",
         name: "Data Analytics",
-        standard: "Pearson BTEC Higher National in Computing · RQF Level 5",
+        standard: "Pearson BTEC Higher National Diploma in Computing · RQF Level 5",
         promise: line(locale, {
           vi: "Từ con số 0 thành chuyên viên phân tích dữ liệu trong hai năm.",
           en: "From zero to a working data analyst in two years.",
         }),
         lead: line(locale, {
           vi: "Samsung, Viettel, FPT, Shopee, Techcombank, Foxconn đang thiếu người đọc được dữ liệu và nói được tiếng Anh. Việt Nam đang thiếu hơn 150.000 chuyên viên phân tích có năng lực thực chiến. Ngành này đi hết sáu học kỳ, lương khởi điểm 15–22 triệu đồng mỗi tháng.",
-          en: "Samsung, Viettel, FPT, Shopee, Techcombank and Foxconn need people who can read data and work in English. Vietnam is short more than 150,000 analysts who can do the job. Six terms, with a starting salary of 15–22 million VND a month.",
+          en: "Samsung, Viettel, FPT, Shopee, Techcombank and Foxconn are short of people who can read data and work in English. Vietnam faces a shortfall of more than 150,000 job-ready data analysts. The programme runs over six terms, with starting salaries of 15–22 million VND a month.",
         }),
-        salary: line(locale, { vi: "15–22 triệu/tháng", en: "15–22 million VND / month" }),
+        salary: line(locale, { vi: "15–22 triệu/tháng", en: "15–22 million VND/month" }),
         image: MEDIA.lab,
         steps: mapSteps(locale, dataSteps),
       },
@@ -510,16 +510,16 @@ export function programStory(locale: Locale): ProgramStory {
         id: "business-management",
         index: "03",
         name: "Business Management",
-        standard: "Pearson BTEC Higher National in Business · Management Pathway",
+        standard: "Pearson BTEC Higher National Diploma in Business · Management Pathway",
         promise: line(locale, {
           vi: "Nhà quản lý trẻ biết dùng AI, đọc tài chính và điều hành thật.",
-          en: "A young manager who can use AI, read the numbers and run the work.",
+          en: "Young managers who use AI, read the financials and run real operations.",
         }),
         lead: line(locale, {
           vi: "Kinh doanh số không còn là giáo trình đóng băng. Sáu học kỳ đưa bạn qua marketing, tài chính, thương mại điện tử, nhân sự và chiến lược, rồi 80 giờ thực tập quản lý. Lương khởi điểm 12–18 triệu đồng mỗi tháng.",
-          en: "Digital business is not a frozen textbook. Six terms take you through marketing, finance, commerce, people and strategy, then 80 hours of management practice. Starting salary 12–18 million VND a month.",
+          en: "Digital business is no longer a frozen textbook. Six terms take you through marketing, finance, e-commerce, HR and strategy, followed by an 80-hour management internship. Starting salaries are 12–18 million VND a month.",
         }),
-        salary: line(locale, { vi: "12–18 triệu/tháng", en: "12–18 million VND / month" }),
+        salary: line(locale, { vi: "12–18 triệu/tháng", en: "12–18 million VND/month" }),
         image: MEDIA.studentsCollab,
         steps: mapSteps(locale, businessSteps),
       },
