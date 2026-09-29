@@ -28,3 +28,32 @@ where title_en = 'FDI career outcomes';
 update public.pillars
 set description_en = 'Committed career guidance linked to our partner companies.', updated_at = now()
 where description_en = 'Career guidance connected to partner enterprises.';
+
+-- Drop "APC" and the "Hanoi" suffix from the college name everywhere it is stored.
+update public.pathway_steps
+set note_vi = replace(note_vi, 'Song bằng VMIT · APC', 'Song bằng Cao đẳng chính quy · Pearson'),
+    note_en = replace(replace(note_en, 'VMIT · APC dual award', 'Dual award · College diploma · Pearson'),
+                      'Dual award · VMIT · APC', 'Dual award · College diploma · Pearson'),
+    updated_at = now()
+where note_vi like '%APC%' or note_en like '%APC%';
+
+update public.pathway_steps
+set title_vi = regexp_replace(replace(title_vi, ' · APC', ''), '\s*\mAPC\M', '', 'g'),
+    title_en = regexp_replace(replace(title_en, ' · APC', ''), '\s*\mAPC\M', '', 'g'),
+    note_vi = regexp_replace(replace(note_vi, ' · APC', ''), '\s*\mAPC\M', '', 'g'),
+    note_en = regexp_replace(replace(note_en, ' · APC', ''), '\s*\mAPC\M', '', 'g'),
+    updated_at = now()
+where title_vi like '%APC%' or title_en like '%APC%' or note_vi like '%APC%' or note_en like '%APC%';
+
+update public.pillars
+set description_vi = regexp_replace(description_vi, '\s*\mAPC\M', '', 'g'),
+    description_en = regexp_replace(description_en, '\s*\mAPC\M', '', 'g'),
+    updated_at = now()
+where description_vi like '%APC%' or description_en like '%APC%';
+
+update public.site_settings
+set value = replace(replace(regexp_replace(replace(value::text, ' · APC', ''), '\s*\mAPC\M', '', 'g'),
+                            'Việt Mỹ Hà Nội', 'Việt Mỹ'),
+                    'Viet My College Hanoi', 'Viet My College')::jsonb,
+    updated_at = now()
+where value::text like '%APC%' or value::text like '%Việt Mỹ Hà Nội%' or value::text like '%College Hanoi%';

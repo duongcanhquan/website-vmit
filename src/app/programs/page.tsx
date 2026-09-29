@@ -7,7 +7,7 @@ export const revalidate = 120
 export const metadata: Metadata = {
   title: "Chương trình",
   description:
-    "Foundation Bootcamp, Data Analytics và Business Management. Song bằng APC và Pearson BTEC HND Level 5, học bằng dự án.",
+    "Foundation Bootcamp, Data Analytics và Business Management. Song bằng Cao đẳng chính quy và Pearson BTEC HND Level 5, học bằng dự án.",
 }
 
 export default async function ChuongTrinhPage() {

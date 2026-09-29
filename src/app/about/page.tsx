@@ -7,7 +7,7 @@ export const revalidate = 120
 export const metadata: Metadata = {
   title: "Cử nhân thực hành Anh Quốc Pearson BTEC HND",
   description:
-    "Song bằng Cao đẳng chính quy & Pearson BTEC HND Level 5 tại Cao đẳng Việt Mỹ Hà Nội, liên thông 1 năm lấy bằng Cử nhân Đại học Sunderland (UK) hoặc Keiser (Mỹ).",
+    "Song bằng Cao đẳng chính quy & Pearson BTEC HND Level 5 tại Cao đẳng Việt Mỹ, liên thông 1 năm lấy bằng Cử nhân Đại học Sunderland (UK) hoặc Keiser (Mỹ).",
 }
 
 export default async function VeVmitPage() {

@@ -443,8 +443,8 @@ export function programStory(locale: Locale): ProgramStory {
       {
         title: line(locale, { vi: "Năm cuối quốc tế", en: "An international final year" }),
         body: line(locale, {
-          vi: "Hai năm tại APC Hà Nội, rồi một năm cuối tại Sunderland (Anh), Macquarie (Úc) hoặc Keiser (Mỹ).",
-          en: "Two years at APC Hanoi, then a final year at Sunderland (UK), Macquarie (Australia) or Keiser (USA).",
+          vi: "Hai năm tại VMIT, rồi một năm cuối tại Sunderland (Anh), Macquarie (Úc) hoặc Keiser (Mỹ).",
+          en: "Two years at VMIT, then a final year at Sunderland (UK), Macquarie (Australia) or Keiser (USA).",
         }),
       },
       {

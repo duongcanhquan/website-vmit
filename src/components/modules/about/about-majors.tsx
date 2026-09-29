@@ -25,7 +25,7 @@ export function AboutMajors() {
         <SectionHeading
           index="07"
           eyebrow={t({ vi: "Hai ngành đào tạo mũi nhọn", en: "Two flagship programmes" })}
-          title={t({ vi: "Chọn hướng đi – VMIT APC Hà Nội", en: "Choose your path – VMIT APC Hanoi" })}
+          title={t({ vi: "Chọn hướng đi – VMIT", en: "Choose your path – VMIT" })}
           center
         />
         <div className="mt-14 grid gap-8 lg:grid-cols-2">

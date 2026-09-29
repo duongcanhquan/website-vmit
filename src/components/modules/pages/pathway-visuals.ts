@@ -56,16 +56,16 @@ export const LINE_FRAMES: Frame[] = [
   },
   {
     src: "/media/pathway/line-green.jpg",
-    altVi: "Tàu Green Line trên cao tại Hà Nội lúc hoàng hôn",
-    altEn: "The Green Line elevated train over Hanoi at dusk",
+    altVi: "Tàu Green Line trên cao lúc hoàng hôn",
+    altEn: "The Green Line elevated train at dusk",
   },
 ]
 
 export const PROOF_FRAMES: Frame[] = [
   {
     src: ABOUT_MEDIA.dualDegree,
-    altVi: "Song bằng APC và Pearson",
-    altEn: "APC and Pearson dual award",
+    altVi: "Song bằng Cao đẳng chính quy và Pearson",
+    altEn: "College diploma and Pearson dual award",
   },
   {
     src: ABOUT_MEDIA.sunderlandStPeters,

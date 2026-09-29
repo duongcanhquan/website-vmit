@@ -96,7 +96,7 @@ export const messages: Record<"vi" | "en", MessageTree> = {
       cta: "Xem lộ trình đầy đủ",
       steps: [
         { step: "01", title: "Foundation / IELTS", note: "Nền tảng học thuật" },
-        { step: "02", title: "BTEC HND Level 5", note: "Song bằng VMIT · APC" },
+        { step: "02", title: "BTEC HND Level 5", note: "Song bằng Cao đẳng chính quy · Pearson" },
         { step: "03", title: "Top-up quốc tế", note: "2+1 / 2+2 · UK · US · AU" },
       ],
     },
@@ -224,7 +224,7 @@ export const messages: Record<"vi" | "en", MessageTree> = {
       cta: "See the full pathway",
       steps: [
         { step: "01", title: "Foundation / IELTS", note: "Academic foundation" },
-        { step: "02", title: "BTEC HND Level 5", note: "Dual award · VMIT · APC" },
+        { step: "02", title: "BTEC HND Level 5", note: "Dual award · College diploma · Pearson" },
         { step: "03", title: "International top-up", note: "2+1 / 2+2 · UK · US · AU" },
       ],
     },

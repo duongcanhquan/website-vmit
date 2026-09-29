@@ -33,8 +33,8 @@ export const ABOUT_HERO = {
   title: { vi: "Cử nhân thực hành Anh Quốc", en: "The UK practical bachelor's" },
   highlight: { vi: "Pearson BTEC Level 5", en: "Pearson BTEC Level 5" },
   lead: {
-    vi: "Song bằng Cao đẳng chính quy & BTEC HND UK tại Cao đẳng Việt Mỹ Hà Nội (hệ sinh thái EQuest) — liên thông 1 năm lấy bằng Cử nhân Đại học Sunderland (Vương quốc Anh).",
-    en: "A dual award – formal college diploma & UK BTEC HND – at Viet My College Hanoi (EQuest ecosystem), plus a one-year top-up to a University of Sunderland (UK) bachelor's degree.",
+    vi: "Song bằng Cao đẳng chính quy & BTEC HND UK tại Cao đẳng Việt Mỹ (hệ sinh thái EQuest) — liên thông 1 năm lấy bằng Cử nhân Đại học Sunderland (Vương quốc Anh).",
+    en: "A dual award – formal college diploma & UK BTEC HND – at Viet My College (EQuest ecosystem), plus a one-year top-up to a University of Sunderland (UK) bachelor's degree.",
   },
   ctaJourney: { vi: "Khám phá lộ trình", en: "Explore the journey" },
   chips: [
@@ -43,7 +43,7 @@ export const ABOUT_HERO = {
     { vi: "240 tín chỉ CATS", en: "240 CATS credits" },
   ] as L[],
   route: [
-    { vi: "Hà Nội", en: "Hanoi" },
+    { vi: "Việt Nam", en: "Vietnam" },
     { vi: "London", en: "London" },
     { vi: "Sunderland", en: "Sunderland" },
   ] as L[],
@@ -56,8 +56,8 @@ export const ABOUT_STATEMENT: L = {
 }
 
 export const ABOUT_STATEMENT_NOTE: L = {
-  vi: "Tốt nghiệp tại Cao đẳng Việt Mỹ Hà Nội, người học nhận đồng thời Bằng Cao đẳng chính quy và Bằng Pearson BTEC HND Anh Quốc — sẵn sàng gia nhập tập đoàn FDI/MNCs hoặc liên thông 1 năm cuối lấy bằng Cử nhân Đại học Sunderland.",
-  en: "Graduates of Viet My College Hanoi receive both a formal college diploma and a UK Pearson BTEC HND — ready to join FDI companies and multinationals, or to top up to a University of Sunderland bachelor's degree in one final year.",
+  vi: "Tốt nghiệp tại Cao đẳng Việt Mỹ, người học nhận đồng thời Bằng Cao đẳng chính quy và Bằng Pearson BTEC HND Anh Quốc — sẵn sàng gia nhập tập đoàn FDI/MNCs hoặc liên thông 1 năm cuối lấy bằng Cử nhân Đại học Sunderland.",
+  en: "Graduates of Viet My College receive both a formal college diploma and a UK Pearson BTEC HND — ready to join FDI companies and multinationals, or to top up to a University of Sunderland bachelor's degree in one final year.",
 }
 
 export type JourneyStop = {
@@ -260,8 +260,8 @@ export const GRADES: L[] = [
 export const VMIT_MODEL = {
   title: { vi: "Mô hình VMIT chuẩn quốc tế", en: "The international-standard VMIT model" },
   body: {
-    vi: "Tại Cao đẳng Việt Mỹ Hà Nội (Tập đoàn Giáo dục EQuest), chương trình BTEC được chuẩn hóa thành thương hiệu VMIT – Viet My International Training, theo mô hình thành công của Saigon Business School (SBS) tại TP.HCM.",
-    en: "At Viet My College Hanoi (EQuest Education Group), the BTEC programme is standardised under the VMIT brand – Viet My International Training – following the proven model of Saigon Business School (SBS) in Ho Chi Minh City.",
+    vi: "Tại Cao đẳng Việt Mỹ (Tập đoàn Giáo dục EQuest), chương trình BTEC được chuẩn hóa thành thương hiệu VMIT – Viet My International Training, theo mô hình thành công của Saigon Business School (SBS) tại TP.HCM.",
+    en: "At Viet My College (EQuest Education Group), the BTEC programme is standardised under the VMIT brand – Viet My International Training – following the proven model of Saigon Business School (SBS) in Ho Chi Minh City.",
   },
   campuses: [
     { vi: "168 Trịnh Văn Bô, Hà Nội", en: "168 Trinh Van Bo, Hanoi" },
@@ -270,7 +270,7 @@ export const VMIT_MODEL = {
   diplomas: [
     {
       title: { vi: "Bằng Cao đẳng chính quy", en: "Formal college diploma" },
-      issuer: { vi: "Hiệu trưởng Cao đẳng Việt Mỹ Hà Nội cấp theo quy định Nhà nước", en: "Issued by the Principal of Viet My College Hanoi under state regulations" },
+      issuer: { vi: "Hiệu trưởng Cao đẳng Việt Mỹ cấp theo quy định Nhà nước", en: "Issued by the Principal of Viet My College under state regulations" },
     },
     {
       title: { vi: "Bằng Pearson BTEC HND Level 5", en: "Pearson BTEC HND Level 5" },

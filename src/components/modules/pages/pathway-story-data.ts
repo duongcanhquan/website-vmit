@@ -99,7 +99,7 @@ const vi: PathwayStory = {
   pass: {
     label: "Boarding pass",
     train: "VMIT Express",
-    from: ["Khởi hành", "Tuổi 18 · Hà\u00A0Nội"],
+    from: ["Khởi hành", "Tuổi 18 · Việt\u00A0Nam"],
     to: ["Điểm đến", "Thế giới"],
     rows: [
       ["Hạng vé", "Pearson BTEC"],
@@ -166,8 +166,8 @@ const vi: PathwayStory = {
       when: "Cuối năm 2 · Cán đích Cử nhân thực hành",
       time: "Tuổi 20",
       status: "Đổi tuyến",
-      body: "Song bằng trong tay: Cao đẳng chính quy APC và Pearson BTEC HND Level\u00A05. Bạn chọn một trong bốn Line — đi làm ngay, sang Anh, chuyển tiếp toàn cầu, hoặc học năm cuối ngay tại Việt Nam.",
-      marks: ["Song bằng APC + BTEC", "Bốn lối ra"],
+      body: "Song bằng trong tay: Cao đẳng chính quy và Pearson BTEC HND Level\u00A05. Bạn chọn một trong bốn Line — đi làm ngay, sang Anh, chuyển tiếp toàn cầu, hoặc học năm cuối ngay tại Việt Nam.",
+      marks: ["Song bằng Cao đẳng + BTEC", "Bốn lối ra"],
     },
   ],
   routesEyebrow: "Four Lines",
@@ -180,8 +180,8 @@ const vi: PathwayStory = {
       name: "Red Line",
       epithet: "Direct Career Express",
       destination: "Tập đoàn FDI & đa quốc gia",
-      body: "Nhận song bằng chính quy APC và BTEC HND Anh Quốc, rồi bước thẳng vào tập đoàn FDI và doanh nghiệp đa quốc gia ở tuổi 20 — với tác phong làm việc quốc tế.",
-      points: ["Song bằng APC + BTEC HND", "Vào việc ở tuổi 20", "Mạng lưới FDI / MNC"],
+      body: "Nhận song bằng Cao đẳng chính quy và BTEC HND Anh Quốc, rồi bước thẳng vào tập đoàn FDI và doanh nghiệp đa quốc gia ở tuổi 20 — với tác phong làm việc quốc tế.",
+      points: ["Song bằng Cao đẳng + BTEC HND", "Vào việc ở tuổi 20", "Mạng lưới FDI / MNC"],
     },
     {
       id: "tuyen-xanh-duong",
@@ -211,7 +211,7 @@ const vi: PathwayStory = {
   proofEyebrow: "Tấm vé",
   proofTitle: "Vì sao Station cuối mở được cửa thế giới",
   proofLead:
-    "Pearson BTEC HND Level 5 tại Cao đẳng Việt Mỹ Hà Nội là hộ chiếu học thuật: song bằng trong nước, và 240 tín chỉ được hơn 300 đại học đối tác nhận vào năm cuối.",
+    "Pearson BTEC HND Level 5 tại Cao đẳng Việt Mỹ là hộ chiếu học thuật: song bằng trong nước, và 240 tín chỉ được hơn 300 đại học đối tác nhận vào năm cuối.",
   proofFacts: [
     { value: "1844", label: "Pearson, London — tổ chức khảo thí lớn, hơn 1 triệu người tốt nghiệp mỗi năm trên 70 quốc gia." },
     { value: "RQF", label: "HNC Level 4 và HND Level 5 được Ofqual, cơ quan văn bằng của Chính phủ Anh, cấp mã trong khung RQF." },
@@ -267,9 +267,9 @@ const vi: PathwayStory = {
     },
   ],
   awardEyebrow: "Song bằng",
-  awardTitle: "APC trong nước. Pearson từ London. Năm cuối tại Sunderland.",
+  awardTitle: "Cao đẳng trong nước. Pearson từ London. Năm cuối tại Sunderland.",
   awardLead:
-    "Tốt nghiệp VMIT là hai văn bằng: Cao đẳng chính quy do APC cấp, và Pearson BTEC HND Level 5 do Anh Quốc cấp. Đại học Sunderland — công lập, từ 1901 — nhận tín chỉ đó cho đúng một năm cuối.",
+    "Tốt nghiệp VMIT là hai văn bằng: Cao đẳng chính quy trong nước, và Pearson BTEC HND Level 5 do Anh Quốc cấp. Đại học Sunderland — công lập, từ 1901 — nhận tín chỉ đó cho đúng một năm cuối.",
   awardOptions: [
     {
       title: "Sang Anh một năm",
@@ -356,7 +356,7 @@ const en: PathwayStory = {
   pass: {
     label: "Boarding pass",
     train: "VMIT Express",
-    from: ["From", "Age 18 · Hanoi"],
+    from: ["From", "Age 18 · Vietnam"],
     to: ["To", "The world"],
     rows: [
       ["Class", "Pearson BTEC"],
@@ -468,7 +468,7 @@ const en: PathwayStory = {
   proofEyebrow: "The ticket",
   proofTitle: "Why the final station opens doors to the world",
   proofLead:
-    "The Pearson BTEC HND Level 5 at Viet My College Hanoi is an academic passport: a dual award at home, plus 240 credits that more than 300 partner universities accept for final-year entry.",
+    "The Pearson BTEC HND Level 5 at Viet My College is an academic passport: a dual award at home, plus 240 credits that more than 300 partner universities accept for final-year entry.",
   proofFacts: [
     { value: "1844", label: "Pearson, London — a leading awarding organisation, with more than 1 million graduates a year in over 70 countries." },
     { value: "RQF", label: "HNC Level 4 and HND Level 5 are regulated by Ofqual, the UK Government’s qualifications regulator, and listed on the RQF." },

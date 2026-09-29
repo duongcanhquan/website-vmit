@@ -25,7 +25,7 @@ export function AboutDualDegree() {
         <div>
           <SectionHeading
             index="04"
-            eyebrow={t({ vi: "Triển khai tại Cao đẳng Việt Mỹ Hà Nội", en: "Delivered at Viet My College Hanoi" })}
+            eyebrow={t({ vi: "Triển khai tại Cao đẳng Việt Mỹ", en: "Delivered at Viet My College" })}
             title={t(VMIT_MODEL.title)}
             lead={t(VMIT_MODEL.body)}
           />
