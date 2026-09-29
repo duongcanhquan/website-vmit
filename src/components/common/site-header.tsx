@@ -1,6 +1,5 @@
 "use client"
 
-import Image from "next/image"
 import Link from "next/link"
 import { useEffect, useState } from "react"
 import { Menu, Phone, X } from "lucide-react"
@@ -19,9 +18,9 @@ export function SiteHeader({
 }) {
   const { locale, setLocale, t } = useLocale()
   const badge = settingText(settings.accreditation_badge, locale) || SITE.accreditationBadge
-  const hotline = settingText(settings.hotline_display, locale) || t.common.hotline
+  const hotline = settingText(settings.hotline_display, locale) || "0999999999"
   const year = settingText(settings.admission_year, locale) || SITE.admissionYear
-  const hotlineHref = settingText(settings.hotline_href, locale) || SITE.hotlineHref
+  const hotlineHref = settingText(settings.hotline_href, locale) || "tel:0999999999"
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
 
@@ -35,6 +34,8 @@ export function SiteHeader({
   const nav = [
     { href: ROUTES.about, label: t.nav.about },
     { href: ROUTES.programs, label: t.nav.programs },
+    { href: "#mon-hoc", label: locale === "vi" ? "Môn học" : "Subjects" },
+    { href: "#tin-tuc", label: locale === "vi" ? "Tin tức" : "Blog" },
     { href: ROUTES.pathway, label: t.nav.pathway },
     { href: ROUTES.tuition, label: t.nav.tuition },
     { href: ROUTES.studentLife, label: t.nav.studentLife },
@@ -47,28 +48,33 @@ export function SiteHeader({
       <div
         className={cn(
           "hidden border-b md:block",
-          light ? "border-white/15 bg-transparent text-white" : "border-border bg-surface text-brand-navy",
+          light ? "border-white/20 bg-black/10 text-white" : "border-border bg-surface text-brand-navy",
         )}
       >
-        <div className="mx-auto flex max-w-[85%] items-center justify-between py-3">
+        <div className="mx-auto flex max-w-[85%] items-center justify-between gap-6 py-3">
           <div>
-            <p className="text-2xl font-black tracking-tight">
-              {SITE.name}
-              <span className="text-primary">.</span>
+            <p
+              className={cn(
+                "text-base font-black uppercase tracking-[0.06em] md:text-lg lg:text-xl",
+                light ? "text-white" : "text-brand-navy",
+              )}
+            >
+              {badge}
             </p>
-            <p className={cn("text-xs italic", light ? "text-white/80" : "text-muted")}>
-              {SITE.brandTagline}
-            </p>
-          </div>
-          <div className="flex items-center gap-4 text-sm font-medium">
-            <a href={hotlineHref} className="inline-flex items-center gap-2 hover:text-primary">
-              <Phone className="size-3.5" />
+            <a
+              href={hotlineHref}
+              className={cn(
+                "mt-1 inline-flex items-center gap-2 text-sm font-semibold md:text-base",
+                light ? "text-white/95 hover:text-white" : "text-primary hover:text-accent-teal-hover",
+              )}
+            >
+              <Phone className="size-4 stroke-[2]" />
               {hotline}
             </a>
-            <span className={cn("text-xs uppercase tracking-wide", light ? "text-white/60" : "text-muted")}>
-              {badge}
-            </span>
           </div>
+          <p className={cn("hidden text-sm italic lg:block", light ? "text-white/75" : "text-muted")}>
+            {SITE.brandTagline}
+          </p>
         </div>
       </div>
 
@@ -77,39 +83,18 @@ export function SiteHeader({
           "mx-auto max-w-[calc(85%+2rem)] transition-all duration-300 md:mx-[7.5%]",
           scrolled || !overHero
             ? "border-b border-border bg-surface/95 shadow-hairline backdrop-blur-md"
-            : "bg-white/20 backdrop-blur-sm",
+            : "bg-white/25 backdrop-blur-sm",
         )}
       >
-        <div className="flex h-16 items-center justify-between gap-4 px-4 md:h-[4.5rem] md:px-5">
-          <Link href={ROUTES.home} className="flex shrink-0 items-center gap-3 md:hidden">
-            <Image
-              src="/brand/logo-vmit.png"
-              alt={`VMIT — ${SITE.brandTagline}`}
-              width={120}
-              height={48}
-              className="h-auto w-[100px] object-contain"
-              priority
-            />
-          </Link>
-          <Link href={ROUTES.home} className="hidden shrink-0 items-center gap-3 md:flex">
-            <Image
-              src="/brand/logo-vmit.png"
-              alt={`VMIT — ${SITE.brandTagline}`}
-              width={140}
-              height={55}
-              className={cn("h-auto w-[120px] object-contain", light && "brightness-0 invert")}
-              priority
-            />
-          </Link>
-
-          <nav className="hidden items-center gap-1 lg:flex">
+        <div className="flex h-16 items-center justify-between gap-4 px-4 md:h-[4.25rem] md:px-5">
+          <nav className="hidden flex-1 items-center gap-1 lg:flex">
             {nav.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "px-3 py-2 text-sm font-medium transition hover:text-primary",
-                  light ? "text-white" : "text-brand-navy/80",
+                  "px-3 py-2 text-sm font-semibold transition hover:text-primary",
+                  light ? "text-white" : "text-brand-navy/85",
                 )}
               >
                 {item.label}
@@ -117,10 +102,10 @@ export function SiteHeader({
             ))}
           </nav>
 
-          <div className="hidden items-center gap-2 md:flex">
+          <div className="ml-auto flex items-center gap-2">
             <div
               className={cn(
-                "inline-flex rounded-[3px] border p-0.5 text-[11px] font-semibold uppercase tracking-wider",
+                "hidden rounded-[3px] border p-0.5 text-[11px] font-semibold uppercase tracking-wider md:inline-flex",
                 light ? "border-white/30" : "border-border bg-surface",
               )}
             >
@@ -147,28 +132,32 @@ export function SiteHeader({
               href={ROUTES.apply}
               className={cn(
                 buttonVariants({ size: "default", variant: "primary" }),
-                "clip-cta min-w-0 rounded-none px-8 py-6 font-bold uppercase tracking-wide",
+                "clip-cta hidden min-w-0 rounded-none px-8 py-6 font-bold uppercase tracking-wide md:inline-flex",
               )}
             >
               {t.nav.apply} {year}
             </Link>
+            <button
+              type="button"
+              className={cn(
+                "inline-flex size-10 items-center justify-center rounded-[3px] border lg:hidden",
+                light ? "border-white/40 text-white" : "border-border bg-surface text-brand-navy",
+              )}
+              aria-label={t.common.menu}
+              onClick={() => setOpen((v) => !v)}
+            >
+              {open ? <X className="size-5" /> : <Menu className="size-5" />}
+            </button>
           </div>
-
-          <button
-            type="button"
-            className={cn(
-              "inline-flex size-10 items-center justify-center rounded-[3px] border lg:hidden",
-              light ? "border-white/40 text-white" : "border-border bg-surface text-brand-navy",
-            )}
-            aria-label={t.common.menu}
-            onClick={() => setOpen((v) => !v)}
-          >
-            {open ? <X className="size-5" /> : <Menu className="size-5" />}
-          </button>
         </div>
 
         {open ? (
           <div className="border-t border-border bg-primary px-4 py-4 lg:hidden">
+            <a href={hotlineHref} className="mb-3 flex items-center gap-2 text-sm font-bold text-white">
+              <Phone className="size-4" />
+              {hotline}
+            </a>
+            <p className="mb-3 text-sm font-black uppercase tracking-wide text-white">{badge}</p>
             <div className="mb-3 inline-flex rounded-[3px] border border-white/30 p-0.5 text-[11px] font-semibold uppercase">
               {(["vi", "en"] as const).map((code) => (
                 <button

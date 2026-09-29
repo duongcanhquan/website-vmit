@@ -39,21 +39,29 @@ export function Field({
 }
 
 export const inputClass =
-  "h-11 w-full rounded-xl border border-border bg-white px-3 text-sm font-medium outline-none focus:border-brand-red/40 focus:ring-2 focus:ring-brand-red/15"
+  "h-11 w-full rounded-[3px] border border-border bg-white px-3 text-sm font-medium outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15"
 
 export const textareaClass =
-  "min-h-24 w-full rounded-xl border border-border bg-white px-3 py-2 text-sm font-medium outline-none focus:border-brand-red/40 focus:ring-2 focus:ring-brand-red/15"
+  "min-h-24 w-full rounded-[3px] border border-border bg-white px-3 py-2 text-sm font-medium outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15"
 
 export function AdminCard({ children, className }: { children: ReactNode; className?: string }) {
   return (
-    <div className={cn("rounded-2xl border border-border bg-white p-5 shadow-sm", className)}>{children}</div>
+    <div className={cn("rounded-[3px] border border-border bg-white p-5 shadow-hairline", className)}>
+      {children}
+    </div>
   )
 }
 
 export function EmptyState({ message }: { message: string }) {
-  return <p className="rounded-2xl border border-dashed border-border bg-white px-4 py-10 text-center text-muted">{message}</p>
+  return (
+    <p className="rounded-[3px] border border-dashed border-border bg-white px-4 py-10 text-center text-muted">
+      {message}
+    </p>
+  )
 }
 
 export function ErrorState({ message }: { message: string }) {
-  return <p className="rounded-2xl border border-brand-red/20 bg-brand-red/5 px-4 py-4 text-sm text-brand-red">{message}</p>
+  return (
+    <p className="rounded-[3px] border border-primary/20 bg-primary/5 px-4 py-4 text-sm text-primary">{message}</p>
+  )
 }

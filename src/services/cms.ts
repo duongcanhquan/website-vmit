@@ -202,10 +202,27 @@ export async function getPublishedPosts() {
     const supabase = await publicClient()
     const { data, error } = await supabase
       .from("posts")
-      .select("id, slug, title_vi, title_en, excerpt_vi, excerpt_en, cover_url, published_at")
+      .select(
+        "id, slug, title_vi, title_en, excerpt_vi, excerpt_en, cover_url, author_name, published_at",
+      )
       .eq("is_published", true)
       .order("published_at", { ascending: false })
       .limit(6)
+    if (error) return { status: "error" as const, message: error.message, data: [] }
+    return { status: data?.length ? ("ok" as const) : ("empty" as const), data: data ?? [] }
+  } catch (err) {
+    return { status: "error" as const, message: err instanceof Error ? err.message : "Lỗi", data: [] }
+  }
+}
+
+export async function getPublishedSubjects() {
+  try {
+    const supabase = await publicClient()
+    const { data, error } = await supabase
+      .from("subjects")
+      .select("id, title_vi, title_en, count_label_vi, count_label_en, icon_url, hover_icon_url, sort_order")
+      .eq("is_published", true)
+      .order("sort_order")
     if (error) return { status: "error" as const, message: error.message, data: [] }
     return { status: data?.length ? ("ok" as const) : ("empty" as const), data: data ?? [] }
   } catch (err) {

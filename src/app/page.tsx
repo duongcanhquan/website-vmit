@@ -8,6 +8,7 @@ import {
   getPublishedPillars,
   getPublishedPosts,
   getPublishedPricing,
+  getPublishedSubjects,
   getPublishedTestimonials,
   getSettingsMap,
 } from "@/services/cms"
@@ -24,6 +25,7 @@ export default async function Page() {
     gallery,
     testimonials,
     posts,
+    subjects,
   ] = await Promise.all([
     getSettingsMap(),
     getPublishedCourses(),
@@ -35,6 +37,7 @@ export default async function Page() {
     getPublishedGallery(),
     getPublishedTestimonials(),
     getPublishedPosts(),
+    getPublishedSubjects(),
   ])
 
   return (
@@ -61,6 +64,8 @@ export default async function Page() {
         testimonialsStatus: testimonials.status,
         posts: posts.data,
         postsStatus: posts.status,
+        subjects: subjects.data,
+        subjectsStatus: subjects.status,
       }}
     />
   )

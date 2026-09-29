@@ -31,6 +31,7 @@ export const ADMIN_NAV_GROUPS: AdminNavGroup[] = [
     label: "Đào tạo & lộ trình",
     items: [
       { href: "/admin/chuong-trinh", label: "Chương trình" },
+      { href: "/admin/mon-hoc", label: "Môn học", hint: "Lưới MÔN HỌC trang chủ" },
       { href: "/admin/lo-trinh", label: "Lộ trình quốc tế" },
       { href: "/admin/tru-cot", label: "Trụ đột phá & số liệu" },
       { href: "/admin/hoc-phi", label: "Học phí" },
@@ -42,7 +43,7 @@ export const ADMIN_NAV_GROUPS: AdminNavGroup[] = [
     items: [
       { href: "/admin/doi-tac", label: "Đối tác" },
       { href: "/admin/doi-ngu", label: "Đội ngũ" },
-      { href: "/admin/bai-viet", label: "Bài viết" },
+      { href: "/admin/bai-viet", label: "Tin tức / Blog", hint: "OUR BLOG trên trang chủ" },
       { href: "/admin/faq", label: "FAQ" },
       { href: "/admin/danh-gia", label: "Đánh giá" },
     ],

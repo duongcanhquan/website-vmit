@@ -8,12 +8,12 @@ export default async function Page() {
   if (error) return <ErrorState message={error.message} />
   return (
     <SimpleCrud
-      title="Bài viết"
-      description="Journal / tin tức song ngữ."
+      title="Tin tức / Blog"
+      description="Section Tin tức trên trang chủ (OUR BLOG). Sửa tiêu đề, excerpt, ảnh cover VI/EN."
       table="posts"
       rows={data ?? []}
       newDefaults={{
-        slug: "",
+        slug: `tin-${Date.now().toString().slice(-6)}`,
         title: "",
         title_vi: "",
         title_en: "",
@@ -23,10 +23,10 @@ export default async function Page() {
         body: "",
         body_vi: "",
         body_en: "",
-        cover_url: "",
+        cover_url: "/media/banners/students-seminar.jpg",
         author_name: "VMIT",
-        is_published: false,
-        published_at: null,
+        is_published: true,
+        published_at: new Date().toISOString(),
       }}
       fields={[
         { key: "slug", label: "Slug", kind: "text" },

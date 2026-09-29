@@ -1,10 +1,10 @@
 export const SITE = {
   name: "VMIT",
   brandTagline: "Journey to work excellence",
-  heroHeadline: "Học tại Việt Nam · Bằng chuẩn Anh Quốc",
+  heroHeadline: "Học mọi thứ",
   accreditationBadge: "PERSON APPROVED CENTER",
-  hotlineDisplay: "[VMIT: Hotline 24/7]",
-  hotlineHref: "tel:",
+  hotlineDisplay: "0999999999",
+  hotlineHref: "tel:0999999999",
   admissionYear: "2026",
 } as const
 

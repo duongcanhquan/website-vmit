@@ -22,6 +22,7 @@ type CrudTable =
   | "faqs"
   | "testimonials"
   | "posts"
+  | "subjects"
 
 type Props = {
   title: string
@@ -177,6 +178,9 @@ export function SimpleCrud({ title, description, table, fields, rows, newDefault
                       payload.title = payload.title_vi
                       payload.excerpt = payload.excerpt_vi
                       payload.body = payload.body_vi
+                      if (!payload.published_at && payload.is_published) {
+                        payload.published_at = new Date().toISOString()
+                      }
                     }
                     await upsertRow(table, payload)
                     setEditing(null)

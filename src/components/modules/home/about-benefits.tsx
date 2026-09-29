@@ -20,34 +20,34 @@ const benefits = {
     {
       icon: BookOpen,
       title: "Chương trình thực hành",
-      desc: "BTEC Data Analytics & Business Management theo chuẩn Pearson HND.",
+      desc: "BTEC Data Analytics & Business Management theo chuẩn Pearson HND — học làm thật trên dự án.",
     },
     {
       icon: Award,
       title: "Song bằng danh giá",
-      desc: "Pearson BTEC HND Level 5 (UK) kết hợp bằng Cao đẳng Quốc gia APC.",
+      desc: "Pearson BTEC HND Level 5 (UK) kết hợp bằng Cao đẳng Quốc gia APC trong một lộ trình.",
     },
     {
       icon: Users,
       title: "Chuyên gia & đối tác",
-      desc: "Giảng viên thực chiến và mạng lưới doanh nghiệp FDI.",
+      desc: "Giảng viên thực chiến và mạng lưới doanh nghiệp FDI đồng hành tới việc làm.",
     },
   ],
   en: [
     {
       icon: BookOpen,
       title: "Practice-led programmes",
-      desc: "BTEC Data Analytics & Business Management to Pearson HND standards.",
+      desc: "BTEC Data Analytics & Business Management to Pearson HND standards — learn by doing.",
     },
     {
       icon: Award,
       title: "Dual awards",
-      desc: "Pearson BTEC HND Level 5 (UK) with the national APC college award.",
+      desc: "Pearson BTEC HND Level 5 (UK) with the national APC college award in one pathway.",
     },
     {
       icon: Users,
       title: "Experts & partners",
-      desc: "Practitioner tutors and an FDI employer network.",
+      desc: "Practitioner tutors and an FDI employer network toward employability.",
     },
   ],
 } as const
@@ -73,29 +73,31 @@ export function AboutBenefits({
 
   return (
     <>
-      <section className="bg-mist py-16 md:py-20">
+      <section className="bg-mist py-16 md:py-24">
         <div className="mx-auto grid max-w-[85%] items-stretch gap-0 lg:grid-cols-2">
-          <Reveal className="relative min-h-[320px] lg:min-h-full">
+          <Reveal className="relative min-h-[380px] lg:min-h-[560px]">
             <Image src={imageUrl} alt="" fill className="object-cover" sizes="(max-width:1024px) 100vw, 42.5vw" />
           </Reveal>
-          <div className="bg-mist px-0 py-10 lg:px-12 lg:py-16">
+          <div className="bg-mist px-0 py-10 lg:px-12 lg:py-14">
             <Reveal>
-              <p className="overline">{locale === "vi" ? "Học mọi thứ" : "Learn anything"}</p>
-              <h2 className="mt-3 text-3xl font-black tracking-tight text-brand-navy md:text-4xl">
+              <p className="text-sm font-bold uppercase tracking-[0.12em] text-primary">
+                {locale === "vi" ? "Học mọi thứ" : "Learn anything"}
+              </p>
+              <h2 className="mt-3 text-3xl font-black tracking-tight text-brand-navy md:text-[2.5rem] md:leading-tight">
                 {locale === "vi" ? "Lợi ích học tập tại VMIT" : "Benefits of learning at VMIT"}
               </h2>
-              <p className="mt-4 text-muted">{aboutLead}</p>
+              <p className="mt-4 text-base text-muted md:text-lg">{aboutLead}</p>
             </Reveal>
-            <div className="mt-8 space-y-5">
+            <div className="mt-10 space-y-6">
               {items.map((item, index) => (
                 <Reveal key={item.title} delay={0.06 * index}>
-                  <article className="group flex gap-4 bg-surface p-5 shadow-hairline transition hover:bg-primary hover:text-white">
-                    <div className="flex size-[70px] shrink-0 items-center justify-center bg-sky text-primary transition group-hover:bg-white/15 group-hover:text-white">
-                      <item.icon className="size-8 stroke-[1.5]" />
+                  <article className="group flex cursor-pointer gap-5 bg-surface p-6 shadow-hairline transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary hover:text-white hover:shadow-[0_12px_30px_-8px_rgba(30,178,166,0.45)] md:p-7">
+                    <div className="flex size-[88px] shrink-0 items-center justify-center bg-sky text-primary transition duration-300 group-hover:bg-white/15 group-hover:text-white">
+                      <item.icon className="size-10 stroke-[1.5]" />
                     </div>
-                    <div>
-                      <h3 className="text-xl font-bold">{item.title}</h3>
-                      <p className="mt-2 text-sm leading-relaxed text-[#999] transition group-hover:text-white/90">
+                    <div className="min-w-0 pt-1">
+                      <h3 className="text-xl font-bold md:text-2xl">{item.title}</h3>
+                      <p className="mt-3 text-base leading-relaxed text-muted-soft transition duration-300 group-hover:text-white/90 md:text-[1.05rem]">
                         {item.desc}
                       </p>
                     </div>

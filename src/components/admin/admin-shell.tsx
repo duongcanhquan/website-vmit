@@ -66,7 +66,7 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
           <button
             type="button"
             onClick={() => void logout()}
-            className="mt-8 w-full rounded-xl border border-border px-3 py-2 text-sm font-bold text-brand-red transition hover:bg-mist"
+            className="mt-8 w-full rounded-[3px] border border-border px-3 py-2 text-sm font-bold text-primary transition duration-300 hover:bg-mist"
           >
             Đăng xuất
           </button>

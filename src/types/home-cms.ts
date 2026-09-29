@@ -69,6 +69,18 @@ export type HomeCmsProps = {
     excerpt_en?: string | null
     cover_url?: string | null
     slug?: string | null
+    author_name?: string | null
+    published_at?: string | null
   }>
   postsStatus: CmsStatus
+  subjects: Array<{
+    id: string
+    title_vi: string
+    title_en: string
+    count_label_vi: string
+    count_label_en: string
+    icon_url: string | null
+    hover_icon_url: string | null
+  }>
+  subjectsStatus: CmsStatus
 }

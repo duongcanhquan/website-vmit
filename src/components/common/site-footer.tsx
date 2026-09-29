@@ -24,7 +24,7 @@ export function SiteFooter({ settings = {} }: { settings?: Record<string, unknow
   ]
 
   return (
-    <footer className="bg-[#eeeeee] text-brand-navy">
+    <footer className="bg-footer text-brand-navy">
       <div className="mx-auto grid max-w-[85%] gap-10 py-14 md:grid-cols-[1.4fr_1fr_1fr]">
         <div>
           <Image

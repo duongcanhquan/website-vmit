@@ -12,11 +12,16 @@ export const messages: Record<"vi" | "en", MessageTree> = {
     },
     hero: {
       slogan: "Journey to work excellence",
-      headline: "Học tại Việt Nam · Bằng chuẩn Anh Quốc",
-      support: "Lớp học · thư viện · lab — ánh sáng thật, không gian thực hành.",
+      headline: "Học mọi thứ",
+      support: "Cử nhân thực hành Anh Quốc ngay tại Việt Nam.",
       ctaExplore: "Xem hình ảnh",
       ctaScholarship: "Nhận học bổng",
       ctaApply: "Cổng xét tuyển",
+    },
+    common: {
+      hotline: "0999999999",
+      close: "Đóng",
+      menu: "Menu",
     },
     trust: {
       label: "Đối tác & mạng lưới quốc tế",
@@ -123,11 +128,6 @@ export const messages: Record<"vi" | "en", MessageTree> = {
       contact: "Liên hệ",
       rights: "All rights reserved.",
     },
-    common: {
-      hotline: "[VMIT: Hotline 24/7]",
-      close: "Đóng",
-      menu: "Menu",
-    },
   },
   en: {
     nav: {
@@ -140,8 +140,8 @@ export const messages: Record<"vi" | "en", MessageTree> = {
     },
     hero: {
       slogan: "Journey to work excellence",
-      headline: "Study in Vietnam · UK-standard awards",
-      support: "Classrooms, libraries, labs — real light, practice-led spaces.",
+      headline: "Learn anything",
+      support: "A UK practice-based bachelor pathway in Vietnam.",
       ctaExplore: "See the visuals",
       ctaScholarship: "Get a scholarship",
       ctaApply: "Admissions portal",
@@ -252,7 +252,7 @@ export const messages: Record<"vi" | "en", MessageTree> = {
       rights: "All rights reserved.",
     },
     common: {
-      hotline: "[VMIT: Hotline 24/7]",
+      hotline: "0999999999",
       close: "Close",
       menu: "Menu",
     },

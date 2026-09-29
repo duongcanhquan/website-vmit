@@ -96,6 +96,7 @@ type CrudTable =
   | "faqs"
   | "testimonials"
   | "posts"
+  | "subjects"
 
 export async function upsertRow(table: CrudTable, payload: Record<string, unknown>) {
   const { supabase } = await requireStaff()

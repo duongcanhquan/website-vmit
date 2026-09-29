@@ -17,6 +17,8 @@
   --color-border: #e8e8e8;
   --color-surface: #ffffff;
   --color-footer: #eeeeee;
+  --color-hero-sky: #9fd4f0;
+  --color-muted-soft: #999999;
   --gradient-hero: linear-gradient(90deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.25) 55%, rgba(0, 0, 0, 0.15) 100%);
   --gradient-section: linear-gradient(180deg, #f8f8f8 0%, #ffffff 100%);
   --gradient-soft: linear-gradient(145deg, #ffffff 0%, #f8f8f8 100%);
@@ -33,17 +35,22 @@
   --color-accent-gold: #1eb2a6;
   --color-accent-cobalt: #1eb2a6;
   --color-accent-teal: #1eb2a6;
+  --color-accent-teal-hover: #169b90;
   --color-sky: #f0fafa;
+  --color-hero-sky: #9fd4f0;
   --color-mist: #f8f8f8;
   --color-background: #f8f8f8;
   --color-foreground: #1c1c1c;
   --color-muted: #666666;
+  --color-muted-soft: #999999;
   --color-border: #e8e8e8;
   --color-surface: #ffffff;
+  --color-footer: #eeeeee;
   --color-primary: #1eb2a6;
   --color-primary-foreground: #ffffff;
   --color-secondary: #1c1c1c;
   --color-secondary-foreground: #ffffff;
+  --shadow-button: 0 24px 36px -11px rgb(0 0 0 / 9%);
   --font-sans: var(--font-body);
   --font-display: var(--font-display);
   --radius-lg: 0.2rem;
@@ -80,11 +87,17 @@ body {
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #1eb2a6;
+  color: var(--color-primary);
+  border: none;
+  text-decoration: none;
 }
 
 .shadow-hairline {
   box-shadow: var(--shadow-hairline);
+}
+
+.shadow-button {
+  box-shadow: var(--shadow-button);
 }
 
 .clip-cta {
