@@ -23,7 +23,7 @@ export default async function Page() {
         body: "",
         body_vi: "",
         body_en: "",
-        cover_url: "/media/banners/students-seminar.jpg",
+        cover_url: "/media/news/classroom.jpg",
         author_name: "VMIT",
         is_published: true,
         published_at: new Date().toISOString(),

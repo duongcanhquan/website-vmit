@@ -33,7 +33,7 @@ type Post = {
   published_at?: string | null
 }
 
-const fallbackCovers = [MEDIA.seminar, MEDIA.studentsStudy, MEDIA.studentsCollab] as const
+const fallbackCovers = [MEDIA.newsClassroom, MEDIA.newsAnalytics, MEDIA.newsCampusLife] as const
 
 function formatPostDate(value: string | null | undefined, locale: "vi" | "en"): string {
   if (!value) return locale === "vi" ? "Mới cập nhật" : "Recently"

@@ -11,6 +11,11 @@ export const MEDIA = {
   international: "/media/banners/international-friends.jpg",
   lectureHall: "/media/banners/lecture-hall.jpg",
   campusArchitecture: "/media/banners/campus-architecture.jpg",
+  newsClassroom: "/media/news/classroom.jpg",
+  newsAnalytics: "/media/news/analytics.jpg",
+  newsCampusLife: "/media/news/campus-life.jpg",
+  newsLab: "/media/news/lab.jpg",
+  newsCareer: "/media/news/career.jpg",
 } as const
 
 export type BannerItem = {
