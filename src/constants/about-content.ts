@@ -24,14 +24,14 @@ export const ABOUT_SECTIONS: { id: string; label: L }[] = [
   { id: "song-bang", label: { vi: "Song bằng", en: "Dual degree" } },
   { id: "sunderland", label: { vi: "Sunderland", en: "Sunderland" } },
   { id: "keiser", label: { vi: "Keiser & toàn cầu", en: "Keiser & global" } },
-  { id: "nganh-hoc", label: { vi: "Ngành học", en: "Majors" } },
+  { id: "nganh-hoc", label: { vi: "Chương trình", en: "Programmes" } },
   { id: "cam-ket", label: { vi: "Cam kết", en: "Commitments" } },
 ]
 
 export const ABOUT_HERO = {
   eyebrow: { vi: "VMIT · Viet My International Training", en: "VMIT · Viet My International Training" },
   title: { vi: "Cử nhân thực hành Anh Quốc", en: "The UK practical bachelor's" },
-  highlight: { vi: "Pearson BTEC HND Level 5", en: "Pearson BTEC HND Level 5" },
+  highlight: { vi: "Pearson BTEC Level 5", en: "Pearson BTEC Level 5" },
   lead: {
     vi: "Song bằng Cao đẳng chính quy & BTEC HND UK tại Cao đẳng Việt Mỹ Hà Nội (hệ sinh thái EQuest) — liên thông 1 năm lấy bằng Cử nhân Đại học Sunderland (Vương quốc Anh).",
     en: "A dual Vietnamese college diploma & UK BTEC HND at Viet My College Hanoi (EQuest ecosystem) — with a one-year top-up to a University of Sunderland (UK) bachelor's degree.",

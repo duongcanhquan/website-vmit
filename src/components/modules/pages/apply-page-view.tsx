@@ -23,8 +23,8 @@ export function ApplyPageView({
   const steps = useMemo(
     () =>
       locale === "vi"
-        ? (["Thông tin cá nhân", "Nguyện vọng ngành", "Xác nhận hồ sơ"] as const)
-        : (["Personal details", "Programme choice", "Confirm application"] as const),
+        ? (["Cá nhân", "Ngành học", "Xác nhận"] as const)
+        : (["Details", "Programme", "Confirm"] as const),
     [locale],
   )
   const [step, setStep] = useState(0)
@@ -80,7 +80,7 @@ export function ApplyPageView({
               <li
                 key={label}
                 className={cn(
-                  "flex-1 rounded-xl px-2 py-2.5 text-center text-[11px] font-bold uppercase tracking-wide",
+                  "flex min-w-0 flex-1 items-center justify-center whitespace-nowrap rounded-[3px] px-2 py-2 text-center text-[11px] font-bold leading-tight",
                   index <= step
                     ? "bg-brand-navy text-white"
                     : "border border-border bg-surface text-muted",
@@ -97,7 +97,9 @@ export function ApplyPageView({
                 {locale === "vi" ? "Đã ghi nhận hồ sơ" : "Application recorded"}
               </p>
               <p className="mt-2 text-sm text-muted">
-                {locale === "vi" ? "Mã theo dõi:" : "Tracking code:"}
+                {locale === "vi"
+                  ? "Phòng tuyển sinh đã nhận hồ sơ và sẽ liên hệ với bạn. Khi hòm thư được bật, bản sao đăng ký cũng được gửi tới bộ phận tuyển sinh."
+                  : "Admissions has your application and will contact you. A copy is emailed to the admissions desk once mail delivery is switched on."}
               </p>
               <p className="mt-2 font-display text-3xl text-accent-gold">{trackingCode}</p>
             </div>
@@ -123,6 +125,7 @@ export function ApplyPageView({
                     className={inputClass}
                   />
                   <input
+                    required
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}

@@ -2,105 +2,72 @@
 
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
+import Image from "next/image"
 import { MotionImage } from "@/components/common/motion-image"
 import { HoverLift, Reveal } from "@/components/common/reveal"
+import { programStory } from "@/components/modules/pages/program-story-data"
 import { useLocale } from "@/components/providers/locale-provider"
 import { buttonVariants } from "@/components/ui/button"
-import { MEDIA } from "@/constants/media"
 import { ROUTES, SITE } from "@/constants/site"
 import { pickLocale, settingText } from "@/lib/i18n/locale-text"
 import { cn } from "@/lib/utils"
 import type { CmsStatus } from "@/types/home-cms"
 
-const programCoverFallbacks = [MEDIA.lab, MEDIA.studentsCollab, MEDIA.library] as const
-
-export function ProgramsPreview({
-  courses,
-  status,
-}: {
-  courses: Array<{
-    id: string
-    slug: string
-    title_vi: string
-    title_en: string
-    summary_vi: string
-    summary_en: string
-    cover_url?: string | null
-  }>
-  status: CmsStatus
-}) {
+export function ProgramsPreview() {
   const { locale, t } = useLocale()
+  const story = programStory(locale)
   return (
     <section id="nganh-hoc" className="bg-mist py-16 md:py-20">
       <div className="mx-auto max-w-[85%]">
         <Reveal>
-          <p className="overline text-center">{t.programs.eyebrow}</p>
-          <h2 className="mt-3 text-center text-3xl font-black tracking-tight text-brand-navy md:text-4xl">
-            {t.programs.title}
+          <h2 className="@container mx-auto w-full max-w-3xl text-center font-black leading-tight tracking-tight text-brand-navy">
+            {story.heroTitle.split("\n").map((line) => (
+              <span key={line} className="block whitespace-nowrap text-[clamp(1.15rem,7cqi,2.25rem)]">
+                {line}
+              </span>
+            ))}
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-center text-body-lg text-muted">{t.programs.lead}</p>
+          <p className="mx-auto mt-4 max-w-2xl text-center text-body-lg text-muted">{story.heroLead}</p>
         </Reveal>
-        {status === "error" ? (
-          <p className="mt-8 text-center text-sm text-muted">
-            {locale === "vi" ? "Không tải được chương trình." : "Unable to load programmes."}
-          </p>
-        ) : null}
-        {status === "empty" ? (
-          <p className="mt-8 text-center text-sm text-muted">
-            {locale === "vi"
-              ? "Chưa có chương trình. Thêm tại Admin → Chương trình."
-              : "No programmes yet. Add them in Admin → Programmes."}
-          </p>
-        ) : null}
-        {status === "ok" ? (
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
-            {courses.map((item, index) => {
-              const cover =
-                item.cover_url || programCoverFallbacks[index % programCoverFallbacks.length]
-              const title = locale === "vi" ? item.title_vi : item.title_en
-              const summary = locale === "vi" ? item.summary_vi : item.summary_en
-              return (
-                <Reveal key={item.id} delay={0.08 * index}>
-                  <HoverLift className="h-full">
-                    <Link
-                      href={ROUTES.programs}
-                      className="group flex h-full flex-col overflow-hidden rounded-[3px] border border-border bg-surface shadow-hairline transition hover:border-primary"
-                    >
-                      <div className="relative aspect-[16/10] overflow-hidden bg-sky">
-                        <MotionImage
-                          src={cover}
-                          alt={title}
-                          fill
-                          sizes="(max-width:768px) 100vw, 28vw"
-                          frameClassName="absolute inset-0"
-                          className="object-cover transition duration-500 group-hover:scale-105"
-                        />
-                        <span className="absolute left-3 top-3 inline-flex size-9 items-center justify-center bg-primary text-sm font-black text-white">
-                          0{index + 1}
-                        </span>
-                      </div>
-                      <div className="flex flex-1 flex-col p-6 md:p-7">
-                        <h3 className="text-xl font-bold tracking-tight text-brand-navy transition group-hover:text-primary">
-                          {title}
-                        </h3>
-                        <p className="mt-3 flex-1 text-sm leading-relaxed text-muted md:text-base">
-                          {summary}
-                        </p>
-                        <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary">
-                          {t.programs.view}
-                          <ArrowRight className="size-4 transition group-hover:translate-x-0.5" />
-                        </span>
-                      </div>
-                    </Link>
-                  </HoverLift>
-                </Reveal>
-              )
-            })}
-          </div>
-        ) : null}
+        <div className="mt-10 grid gap-5 md:grid-cols-3">
+          {story.tracks.map((track, index) => (
+            <Reveal key={track.id} delay={0.08 * index}>
+              <HoverLift className="h-full">
+                <Link
+                  href={`${ROUTES.programs}#${track.id}`}
+                  className="group flex h-full flex-col overflow-hidden rounded-[3px] border border-border bg-surface shadow-hairline transition duration-150 hover:border-primary active:scale-[0.99]"
+                >
+                  <div className="relative aspect-[16/10] overflow-hidden bg-sky">
+                    <Image
+                      src={track.image}
+                      alt=""
+                      fill
+                      sizes="(max-width:768px) 100vw, 28vw"
+                      className="object-cover transition duration-500 group-hover:scale-105"
+                    />
+                    <span className="absolute left-3 top-3 inline-flex size-9 items-center justify-center bg-primary text-sm font-black text-white">
+                      {track.index}
+                    </span>
+                  </div>
+                  <div className="flex flex-1 flex-col p-6 md:p-7">
+                    <h3 className="text-xl font-bold tracking-tight text-brand-navy transition group-hover:text-primary">
+                      {track.name}
+                    </h3>
+                    <p className="mt-3 flex-1 text-sm leading-relaxed text-muted md:text-base">{track.promise}</p>
+                    <p className="mt-4 text-sm font-bold text-primary">{track.salary}</p>
+                    <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary">
+                      {t.programs.view}
+                      <ArrowRight className="size-4 transition group-hover:translate-x-0.5" />
+                    </span>
+                  </div>
+                </Link>
+              </HoverLift>
+            </Reveal>
+          ))}
+        </div>
         <div className="mt-10 text-center">
           <Link href={ROUTES.programs} className={cn(buttonVariants({ variant: "primary", size: "lg" }))}>
-            {locale === "vi" ? "Tất cả chương trình" : "All programmes"}
+            {locale === "vi" ? "Xem đủ sáu học kỳ" : "See all six terms"}
             <ArrowRight className="size-4" />
           </Link>
         </div>
@@ -249,7 +216,7 @@ export function StudentLifePreview({ settings }: { settings: Record<string, unkn
   const img1 = String(settings.life_image_1_url ?? "/media/students-collab.jpg").replaceAll('"', "")
   const img2 = String(settings.life_image_2_url ?? "/media/students-study.jpg").replaceAll('"', "")
   return (
-    <section id="doi-song" className="bg-mist py-20">
+    <section id="student-life" className="bg-mist py-20">
       <div className="mx-auto max-w-7xl px-4">
         <Reveal>
           <p className="overline text-accent-cobalt">{t.life.eyebrow}</p>

@@ -12,8 +12,8 @@ export function NewsListView({ settings, posts }: { settings: Record<string, unk
       settings={settings}
       eyebrowVi="Tin tức"
       eyebrowEn="Our blog"
-      titleVi="Tin tức & sự kiện VMIT"
-      titleEn="VMIT news & events"
+      titleVi={"Tin tức và sự\u00A0kiện"}
+      titleEn={"VMIT news &\u00A0events"}
       leadVi="Hoạt động học thuật, dự án doanh nghiệp và đời sống sinh viên tại VMIT."
       leadEn="Academic highlights, employer projects and student life at VMIT."
       imageUrl={MEDIA.newsCampusLife}

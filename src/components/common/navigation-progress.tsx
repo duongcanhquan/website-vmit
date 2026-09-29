@@ -13,12 +13,16 @@ export function NavigationProgress() {
   const [width, setWidth] = useState(0)
 
   useEffect(() => {
+    const onStart = () => {
+      setWidth(16)
+      setPhase("run")
+    }
     const onClick = (event: MouseEvent) => {
       if (event.defaultPrevented || isModified(event)) return
       const anchor = (event.target as HTMLElement | null)?.closest("a")
       if (!anchor || anchor.target === "_blank" || anchor.hasAttribute("download")) return
       const raw = anchor.getAttribute("href")
-      if (!raw || raw.startsWith("mailto:") || raw.startsWith("tel:")) return
+      if (!raw || raw.startsWith("mailto:") || raw.startsWith("tel:") || raw.startsWith("#")) return
       let url: URL
       try {
         url = new URL(anchor.href, window.location.href)
@@ -28,20 +32,24 @@ export function NavigationProgress() {
       if (url.origin !== window.location.origin) return
       const samePage = url.pathname === window.location.pathname && url.search === window.location.search
       if (samePage && url.hash) {
-        const target = document.querySelector(url.hash)
+        const id = decodeURIComponent(url.hash.slice(1))
+        const target = id ? document.getElementById(id) : null
         if (target) {
           event.preventDefault()
           target.scrollIntoView({ behavior: "smooth", block: "start" })
-          window.history.pushState(null, "", `${url.pathname}${url.search}${url.hash}`)
+          window.history.pushState(null, "", `${url.pathname}${url.search}#${id}`)
         }
         return
       }
       if (samePage) return
-      setWidth(16)
-      setPhase("run")
+      onStart()
     }
     document.addEventListener("click", onClick)
-    return () => document.removeEventListener("click", onClick)
+    window.addEventListener("vmit-navigate", onStart)
+    return () => {
+      document.removeEventListener("click", onClick)
+      window.removeEventListener("vmit-navigate", onStart)
+    }
   }, [])
 
   useEffect(() => {
@@ -53,15 +61,6 @@ export function NavigationProgress() {
       window.clearTimeout(slow)
     }
   }, [phase])
-
-  useEffect(() => {
-    const hash = window.location.hash
-    if (!hash) return
-    const timer = window.setTimeout(() => {
-      document.querySelector(hash)?.scrollIntoView({ behavior: "smooth", block: "start" })
-    }, 40)
-    return () => window.clearTimeout(timer)
-  }, [pathname])
 
   useEffect(() => {
     if (phase !== "run") return

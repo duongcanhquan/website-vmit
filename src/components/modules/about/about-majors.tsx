@@ -7,7 +7,7 @@ import { ArrowRight, Award, Briefcase, Hammer, Languages, Phone } from "lucide-r
 import { useLocale } from "@/components/providers/locale-provider"
 import { buttonVariants } from "@/components/ui/button"
 import { ABOUT_CREDITS, ADMISSION_CTA, COMMITMENTS, MAJORS } from "@/constants/about-content"
-import { ROUTES, SITE } from "@/constants/site"
+import { ROUTES } from "@/constants/site"
 import { settingText } from "@/lib/i18n/locale-text"
 import { cn } from "@/lib/utils"
 import { CountUp, GridBackdrop, SectionHeading, useT } from "./about-shared"
@@ -89,7 +89,6 @@ export function AboutCommitments({ settings }: { settings: Record<string, unknow
   const { locale, t: messages } = useLocale()
   const reduce = useReducedMotion()
   const hotline = settingText(settings.hotline_display, locale) || messages.common.hotline
-  const year = settingText(settings.admission_year, locale) || SITE.admissionYear
 
   return (
     <section id="cam-ket" className="relative scroll-mt-20 overflow-hidden bg-[#0a1615] py-24 text-white md:py-32">
@@ -146,7 +145,7 @@ export function AboutCommitments({ settings }: { settings: Record<string, unknow
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/90 md:text-lg">{t(ADMISSION_CTA.body)}</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link href={ROUTES.apply} className={cn(buttonVariants({ variant: "secondary", size: "lg" }))}>
-                {messages.nav.apply} {year}
+                {messages.nav.apply}
                 <ArrowRight className="size-4" />
               </Link>
               <a

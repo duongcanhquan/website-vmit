@@ -71,11 +71,23 @@ body {
   line-height: 1.65;
 }
 
+h1,
+h2,
+h3 {
+  text-wrap: pretty;
+}
+
 .font-display {
   font-family: var(--font-roboto), ui-sans-serif, system-ui, sans-serif;
   letter-spacing: 0;
   font-weight: 700;
   line-height: 1.2;
+}
+
+.font-menu {
+  font-family: var(--font-menu), var(--font-roboto), ui-sans-serif, system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.01em;
 }
 
 .text-body-lg {

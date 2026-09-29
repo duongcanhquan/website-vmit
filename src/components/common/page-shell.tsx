@@ -7,8 +7,7 @@ import { SiteFooter } from "@/components/common/site-footer"
 import { SiteHeader } from "@/components/common/site-header"
 import { useLocale } from "@/components/providers/locale-provider"
 import { buttonVariants } from "@/components/ui/button"
-import { ROUTES, SITE } from "@/constants/site"
-import { settingText } from "@/lib/i18n/locale-text"
+import { ROUTES } from "@/constants/site"
 import { cn } from "@/lib/utils"
 
 type PageShellProps = {
@@ -41,7 +40,6 @@ export function PageShell({
   showApplyCta = true,
 }: PageShellProps) {
   const { locale, t } = useLocale()
-  const year = settingText(settings.admission_year, locale) || SITE.admissionYear
   const title = locale === "vi" ? titleVi : titleEn
   const lead = locale === "vi" ? leadVi : leadEn
   const eyebrow = locale === "vi" ? eyebrowVi : eyebrowEn
@@ -51,7 +49,7 @@ export function PageShell({
     <>
       <SiteHeader settings={settings} overHero />
       <main className="bg-mist">
-        <section className="relative flex min-h-[45vh] items-center justify-center overflow-hidden md:min-h-[50vh]">
+        <section className="relative flex min-h-[34vh] items-center justify-center overflow-hidden md:min-h-[50vh]">
           {imageUrl ? (
             <div className="absolute inset-0">
               <MotionImage
@@ -70,23 +68,25 @@ export function PageShell({
             <div className="absolute inset-0 bg-primary" />
           )}
 
-          <div className="relative z-10 mx-auto max-w-[85%] px-4 py-28 text-center text-white md:py-32">
+          <div className="relative z-10 mx-auto max-w-[92%] px-1 py-20 text-center text-white md:max-w-[85%] md:py-32">
             <p className="overline !text-white/80">{eyebrow}</p>
-            <h1 className="mt-3 text-[clamp(2rem,4.5vw,3.25rem)] font-black tracking-tight">{title}</h1>
-            <p className="mx-auto mt-4 max-w-2xl text-base text-white/85 md:text-lg">{lead}</p>
+            <h1 className="@container mt-3 w-full font-black leading-tight tracking-tight">
+              <span className="block whitespace-nowrap text-[clamp(1.15rem,6.8cqi,3.1rem)]">{title}</span>
+            </h1>
+            <p className="mx-auto mt-4 max-w-2xl text-balance text-base text-white/85 md:text-lg">{lead}</p>
             {showApplyCta ? (
               <Link
                 href={ROUTES.apply}
                 className={cn(buttonVariants({ variant: "primary", size: "lg" }), "mt-8")}
               >
-                {t.nav.apply} {year}
+                {t.nav.apply}
                 <ArrowRight className="size-4" />
               </Link>
             ) : null}
           </div>
         </section>
 
-        <div className="mx-auto max-w-[85%] py-14 md:py-20">{children}</div>
+        <div className="mx-auto max-w-[92%] py-12 md:max-w-[85%] md:py-20">{children}</div>
       </main>
       <SiteFooter settings={settings} />
     </>

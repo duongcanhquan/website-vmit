@@ -8,7 +8,6 @@ import {
   ApplyCta,
   PathwayPreview,
   ProgramsPreview,
-  TuitionTeaser,
 } from "@/components/modules/home/funnel-sections"
 import { HeroSection } from "@/components/modules/home/hero-section"
 import { ScholarshipModal } from "@/components/modules/home/scholarship-modal"
@@ -43,7 +42,7 @@ export default function HomePage({ cms }: { cms: HomeCmsProps }) {
           counters={cms.counters}
           countersStatus={cms.countersStatus}
         />
-        <ProgramsPreview courses={cms.courses} status={cms.coursesStatus} />
+        <ProgramsPreview />
         <SubjectsGrid items={subjects} status="ok" />
         <PathwayPreview
           steps={cms.pathway}
@@ -53,7 +52,6 @@ export default function HomePage({ cms }: { cms: HomeCmsProps }) {
         <TrustMarquee partners={cms.partners} status={cms.partnersStatus} />
         <TestimonialsSection items={testimonials} status="ok" />
         <BlogTeaser items={posts} status="ok" />
-        <TuitionTeaser plans={cms.pricing} status={cms.pricingStatus} settings={cms.settings} />
         <ApplyCta />
       </main>
       <SiteFooter settings={cms.settings} />

@@ -76,7 +76,7 @@ export type PathwayStory = {
 const vi: PathwayStory = {
   skip: "Bỏ qua hành trình, tới cam kết",
   heroEyebrow: "Journey to the World Excellence",
-  heroTitle: "Hành trình vươn ra biển lớn",
+  heroTitle: "Hành trình vươn ra biển\u00A0lớn",
   heroLead:
     "VMIT là một chuyến tàu mang bạn tới những xứ sở của kiến thức và trải nghiệm phong phú của thế giới học tập suốt đời.",
   scrollHint: "Enter the line",
@@ -305,7 +305,7 @@ const vi: PathwayStory = {
 const en: PathwayStory = {
   skip: "Skip the journey to the commitments",
   heroEyebrow: "Journey to the World Excellence",
-  heroTitle: "A journey out to the open sea",
+  heroTitle: "A journey out to the open\u00A0sea",
   heroLead:
     "VMIT is a train that carries you to lands of knowledge, and into the rich experience of a lifelong world of learning.",
   scrollHint: "Enter the line",

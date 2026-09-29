@@ -52,7 +52,10 @@ export const ADMIN_NAV_GROUPS: AdminNavGroup[] = [
   {
     id: "leads",
     label: "Tuyển sinh",
-    items: [{ href: "/admin/ho-so", label: "Hồ sơ & form", hint: "Xét tuyển · học bổng · liên hệ" }],
+    items: [
+      { href: "/admin/ho-so", label: "Hồ sơ & form", hint: "Xét tuyển · học bổng · liên hệ" },
+      { href: "/admin/bai-test", label: "Bài test IELTS", hint: "Điểm placement và bài làm" },
+    ],
   },
 ]
 

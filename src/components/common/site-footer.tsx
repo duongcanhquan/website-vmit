@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import Link from "next/link"
+import { SiteLink } from "@/components/common/site-link"
 import { SocialLinks } from "@/components/common/social-links"
 import { useLocale } from "@/components/providers/locale-provider"
 import { ROUTES, SITE } from "@/constants/site"
@@ -17,9 +17,9 @@ export function SiteFooter({ settings = {} }: { settings?: Record<string, unknow
   const badge = settingText(settings.accreditation_badge, locale) || SITE.accreditationBadge
   const hotline = settingText(settings.hotline_display, locale) || t.common.hotline
   const email = settingUrl(settings.contact_email, "admissions@vmit.edu.vn")
+  const savedAddress = settingText(settings.contact_address, locale).trim()
   const address =
-    settingText(settings.contact_address, locale) ||
-    (locale === "vi" ? "[VMIT: địa chỉ cơ sở]" : "[VMIT: campus address]")
+    !savedAddress || savedAddress.includes("[VMIT:") ? SITE.campusAddress : savedAddress
   const tagline =
     settingText(settings.tagline, locale) ||
     settingText(settings.hero_slogan, locale) ||
@@ -30,6 +30,7 @@ export function SiteFooter({ settings = {} }: { settings?: Record<string, unknow
     { href: ROUTES.programs, label: t.nav.programs },
     { href: ROUTES.subjects, label: t.nav.subjects },
     { href: ROUTES.btecSchools, label: t.nav.btecSchools },
+    { href: ROUTES.englishTest, label: t.nav.englishTest },
     { href: ROUTES.news, label: t.nav.news },
     { href: ROUTES.apply, label: t.nav.apply },
   ]
@@ -55,12 +56,12 @@ export function SiteFooter({ settings = {} }: { settings?: Record<string, unknow
           <ul className="space-y-4 text-sm font-medium">
             {nav.map((item) => (
               <li key={item.href}>
-                <Link
+                <SiteLink
                   href={item.href}
                   className="text-muted transition duration-150 before:mr-2 before:text-primary before:content-['⟶'] hover:text-primary active:text-primary"
                 >
                   {item.label}
-                </Link>
+                </SiteLink>
               </li>
             ))}
           </ul>
@@ -72,11 +73,6 @@ export function SiteFooter({ settings = {} }: { settings?: Record<string, unknow
             {email}
           </a>
           <p className="mt-2 text-sm text-muted">{address}</p>
-          <p className="mt-6 text-xs text-muted">
-            <Link href="/admin/dang-nhap" className="font-semibold text-primary/80 hover:text-primary hover:underline">
-              Cổng quản trị
-            </Link>
-          </p>
         </div>
       </div>
       <div className="border-t border-black/5 py-4 text-center text-xs text-muted">

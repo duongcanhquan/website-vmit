@@ -10,13 +10,13 @@ function revalidatePublic() {
   clearCmsCache()
   revalidateTag("cms")
   revalidatePath("/")
-  revalidatePath("/tin-tuc", "layout")
-  revalidatePath("/chuong-trinh")
-  revalidatePath("/lo-trinh")
-  revalidatePath("/hoc-phi")
-  revalidatePath("/ve-vmit")
-  revalidatePath("/xet-tuyen")
-  revalidatePath("/truong-btec")
+  revalidatePath("/news", "layout")
+  revalidatePath("/programs")
+  revalidatePath("/pathway")
+  revalidatePath("/tuition")
+  revalidatePath("/about")
+  revalidatePath("/apply")
+  revalidatePath("/btec-schools")
   revalidatePath("/admin", "layout")
 }
 
@@ -149,22 +149,14 @@ export async function createAdmissionApplication(input: {
   email?: string
   program: string
 }) {
-  const { createClient } = await import("@/lib/supabase/server")
-  const supabase = await createClient()
-  const tracking_code = `VMIT-${Date.now().toString().slice(-8)}`
-  const { data, error } = await supabase
-    .from("admission_applications")
-    .insert({
-      full_name: input.full_name,
-      phone: input.phone,
-      email: input.email || null,
-      program: input.program,
-      tracking_code,
-    })
-    .select("tracking_code")
-    .single()
-  if (error) throw new Error(error.message)
-  return data.tracking_code as string
+  const { saveAdmission } = await import("@/lib/leads")
+  const saved = await saveAdmission({
+    full_name: input.full_name,
+    phone: input.phone,
+    email: input.email?.trim() || "",
+    program: input.program,
+  })
+  return saved.trackingCode
 }
 
 export async function createScholarshipLead(input: {

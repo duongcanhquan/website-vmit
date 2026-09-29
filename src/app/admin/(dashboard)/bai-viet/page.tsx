@@ -9,7 +9,7 @@ export default async function Page() {
   return (
     <SimpleCrud
       title="Tin tức / Blog"
-      description="Bài viết hiện ở mục Tin tức trang chủ và trang /tin-tuc. Nội dung soạn bằng trình soạn thảo đầy đủ (font, màu, link, ảnh, bảng, video)."
+      description="Bài viết hiện ở mục Tin tức trang chủ và trang /news. Có thể đăng từ Admin hoặc qua cổng POST /api/tin-tuc (khóa NEWS_API_KEY), kèm ảnh bìa và ảnh trong bài."
       table="posts"
       rows={data ?? []}
       newDefaults={{

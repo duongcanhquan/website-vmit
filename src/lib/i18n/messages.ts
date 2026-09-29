@@ -4,10 +4,11 @@ export const messages: Record<"vi" | "en", MessageTree> = {
   vi: {
     nav: {
       about: "VMIT",
-      programs: "Ngành học",
+      programs: "Chương trình",
       pathway: "Lộ trình",
       subjects: "Môn học",
       btecSchools: "Trường BTEC",
+      englishTest: "Test IELTS",
       news: "Tin tức",
       tuition: "Học phí",
       studentLife: "Đời sống SV",
@@ -16,7 +17,7 @@ export const messages: Record<"vi" | "en", MessageTree> = {
     hero: {
       slogan: "Journey to work excellence",
       headline: "Học mọi thứ",
-      support: "Cử nhân thực hành Anh Quốc ngay tại Việt Nam.",
+      support: "Cử nhân thực hành Anh\u00A0Quốc ngay tại Việt\u00A0Nam.",
       ctaExplore: "Xem hình ảnh",
       ctaScholarship: "Nhận học bổng",
       ctaApply: "Cổng xét tuyển",
@@ -50,7 +51,7 @@ export const messages: Record<"vi" | "en", MessageTree> = {
         {
           id: "programs",
           eyebrow: "Trụ 2",
-          title: "Ngành học thực hành",
+          title: "Chương trình thực hành",
           description: "BTEC Data Analytics & BTEC Business Management + Foundation IELTS.",
         },
         {
@@ -68,9 +69,9 @@ export const messages: Record<"vi" | "en", MessageTree> = {
       ],
     },
     programs: {
-      eyebrow: "Chương trình",
-      title: "Chương trình đào tạo",
-      lead: "Hai ngành BTEC trọng điểm và Foundation IELTS — chuẩn Anh Quốc, học tại Việt Nam.",
+      eyebrow: "",
+      title: "Chương trình",
+      lead: "Học kỳ tiền đề, rồi Data Analytics hoặc Business Management. Song bằng APC và Pearson BTEC HND Level 5.",
       view: "Xem chương trình",
       items: [
         {
@@ -112,7 +113,7 @@ export const messages: Record<"vi" | "en", MessageTree> = {
     },
     apply: {
       eyebrow: "Tuyển sinh",
-      title: "Cổng xét tuyển trực tuyến",
+      title: "Cổng xét tuyển trực\u00A0tuyến",
       lead: "Form 3 bước · biên nhận tự động · mã theo dõi hồ sơ.",
       cta: "Bắt đầu xét tuyển",
     },
@@ -139,6 +140,7 @@ export const messages: Record<"vi" | "en", MessageTree> = {
       pathway: "Pathway",
       subjects: "Subjects",
       btecSchools: "BTEC schools",
+      englishTest: "IELTS test",
       news: "News",
       tuition: "Fees",
       studentLife: "Student life",
@@ -147,7 +149,7 @@ export const messages: Record<"vi" | "en", MessageTree> = {
     hero: {
       slogan: "Journey to work excellence",
       headline: "Learn anything",
-      support: "A UK practice-based bachelor pathway in Vietnam.",
+      support: "A UK practice-based bachelor pathway in\u00A0Vietnam.",
       ctaExplore: "See the visuals",
       ctaScholarship: "Get a scholarship",
       ctaApply: "Admissions portal",
@@ -194,9 +196,9 @@ export const messages: Record<"vi" | "en", MessageTree> = {
       ],
     },
     programs: {
-      eyebrow: "Programmes",
-      title: "What you can study",
-      lead: "Two flagship BTEC pathways plus IELTS Foundation — UK standards, studied in Vietnam.",
+      eyebrow: "",
+      title: "Programmes",
+      lead: "A foundation term, then Data Analytics or Business Management. An APC diploma and a Pearson BTEC HND Level 5.",
       view: "View programme",
       items: [
         {
@@ -238,7 +240,7 @@ export const messages: Record<"vi" | "en", MessageTree> = {
     },
     apply: {
       eyebrow: "Admissions",
-      title: "Online application portal",
+      title: "Online application\u00A0portal",
       lead: "Three-step form · automatic receipt · application tracking code.",
       cta: "Start your application",
     },

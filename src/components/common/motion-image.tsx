@@ -26,7 +26,7 @@ export function MotionImage({
         initial={reduce ? false : { scale: 1.04, opacity: 0.85 }}
         whileInView={reduce ? undefined : { scale: 1, opacity: 1 }}
         whileHover={reduce ? undefined : { scale: zoom }}
-        viewport={{ once: true, amount: 0.35 }}
+        viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
       >
         <Image alt={alt} className={cn("object-cover", className)} {...props} />

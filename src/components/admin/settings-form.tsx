@@ -28,7 +28,7 @@ function readUrl(raw: unknown, fallback = ""): string {
 const PAGE_LINK_HINTS = [
   { label: "Trang chủ", href: ROUTES.home },
   { label: "VMIT", href: ROUTES.about },
-  { label: "Ngành học", href: ROUTES.programs },
+  { label: "Chương trình", href: ROUTES.programs },
   { label: "Lộ trình", href: ROUTES.pathway },
   { label: "Trường BTEC", href: ROUTES.btecSchools },
   { label: "Học phí", href: ROUTES.tuition },
@@ -100,10 +100,11 @@ export function SettingsForm({ initial }: Props) {
     social_facebook: readUrl(initial.social_facebook, "https://www.facebook.com/"),
     social_tiktok: readUrl(initial.social_tiktok, "https://www.tiktok.com/"),
     contact_email: readUrl(initial.contact_email, "admissions@vmit.edu.vn"),
+    admissions_notify_email: readUrl(initial.admissions_notify_email, "admissions@vmit.edu.vn"),
     contact_address: readPair(
       initial.contact_address ?? {
-        vi: "[VMIT: địa chỉ cơ sở]",
-        en: "[VMIT: campus address]",
+        vi: "168 Trịnh Văn Bô, Xuân Phương, Hà Nội",
+        en: "168 Trịnh Văn Bô, Xuân Phương, Hà Nội",
       },
     ),
     hotline_display: readPair(initial.hotline_display),
@@ -169,7 +170,7 @@ export function SettingsForm({ initial }: Props) {
 
         <p className="mb-4 mt-10 text-sm font-bold text-brand-navy">2. Nút trên banner + link trang</p>
         <p className="mb-3 text-xs text-muted">
-          Link nội bộ: đường dẫn site (vd <code>/xet-tuyen</code>). Link ngoài: đầy đủ https://…
+          Link nội bộ: đường dẫn site (vd <code>/apply</code>). Link ngoài: đầy đủ https://…
           Dùng <code>#hoc-bong</code> để mở popup học bổng.
         </p>
         <div className="mb-4 flex flex-wrap gap-2">
@@ -227,9 +228,9 @@ export function SettingsForm({ initial }: Props) {
           </Field>
         </div>
 
-        <p className="mb-4 mt-10 text-sm font-bold text-brand-navy">3. Mạng xã hội</p>
+        <p className="mb-4 mt-10 text-sm font-bold text-brand-navy">3. Icon Facebook và TikTok trên menu</p>
         <div className="grid gap-4 md:grid-cols-2">
-          <Field label="Facebook URL">
+          <Field label="Facebook — link khi bấm icon">
             <input
               className={inputClass}
               value={form.social_facebook}
@@ -237,7 +238,7 @@ export function SettingsForm({ initial }: Props) {
               placeholder="https://www.facebook.com/..."
             />
           </Field>
-          <Field label="TikTok URL">
+          <Field label="TikTok — link khi bấm icon">
             <input
               className={inputClass}
               value={form.social_tiktok}
@@ -266,6 +267,14 @@ export function SettingsForm({ initial }: Props) {
                 className={inputClass}
                 value={form.contact_email}
                 onChange={(e) => setUrl("contact_email", e.target.value)}
+              />
+            </Field>
+            <Field label="Hòm thư nhận đăng ký mới">
+              <input
+                className={inputClass}
+                value={form.admissions_notify_email}
+                onChange={(e) => setUrl("admissions_notify_email", e.target.value)}
+                placeholder="admissions@vmit.edu.vn"
               />
             </Field>
             <Field label="Hotline href (tel:)">
@@ -367,6 +376,7 @@ export function SettingsForm({ initial }: Props) {
                   social_facebook: form.social_facebook,
                   social_tiktok: form.social_tiktok,
                   contact_email: form.contact_email,
+                  admissions_notify_email: form.admissions_notify_email,
                   contact_address: form.contact_address,
                   hotline_display: form.hotline_display,
                   about_lead: form.about_lead,

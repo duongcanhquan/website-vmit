@@ -9,7 +9,7 @@ export default async function Page() {
   return (
     <SimpleCrud
       title="Lộ trình"
-      description="Các bước hiện trên khối lộ trình của trang chủ. Trang /lo-trinh là câu chuyện đã thiết kế riêng."
+      description="Các bước hiện trên khối lộ trình của trang chủ. Trang /pathway là câu chuyện đã thiết kế riêng."
       table="pathway_steps"
       rows={data ?? []}
       newDefaults={{

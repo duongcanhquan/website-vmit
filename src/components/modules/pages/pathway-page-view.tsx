@@ -72,8 +72,8 @@ export function PathwayPageView({ settings }: { settings: Record<string, unknown
           <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/20 to-transparent" />
           <Reveal className="relative z-10 mx-auto w-full max-w-[85%] py-36 md:py-44">
             <p className="text-sm font-bold uppercase tracking-[0.14em] text-white/90">{story.heroEyebrow}</p>
-            <h1 className="mt-3 max-w-3xl text-[clamp(2.35rem,5vw,3.6rem)] font-black leading-[1.12] tracking-tight">
-              {story.heroTitle}
+            <h1 className="@container mt-3 w-full max-w-4xl font-black leading-[1.12] tracking-tight">
+              <span className="block whitespace-nowrap text-[clamp(1.2rem,7.4cqi,3.5rem)]">{story.heroTitle}</span>
             </h1>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-white/95 md:text-lg">{story.heroLead}</p>
             <div className="mt-8 flex flex-wrap gap-3">
@@ -115,7 +115,7 @@ export function PathwayPageView({ settings }: { settings: Record<string, unknown
             <p className="mt-4 max-w-xl text-muted">{story.journeyLead}</p>
           </div>
 
-          <div className="sticky top-16 z-30 border-b border-border bg-surface/95 backdrop-blur md:top-28 lg:hidden">
+          <div className="sticky top-[4.25rem] z-30 border-b border-border bg-surface/95 backdrop-blur lg:hidden">
             <div className="mx-auto flex w-full max-w-[85%] items-center gap-3 py-2">
               <nav aria-label={story.stationNav} className="flex">
                 {story.stations.map((item, index) => (
@@ -201,7 +201,7 @@ export function PathwayPageView({ settings }: { settings: Record<string, unknown
             <p className="mt-4 max-w-xl text-muted">{story.routesLead}</p>
           </div>
 
-          <div className="sticky top-16 z-30 border-b border-border bg-surface/95 backdrop-blur md:top-28 lg:hidden">
+          <div className="sticky top-[4.25rem] z-30 border-b border-border bg-surface/95 backdrop-blur lg:hidden">
             <div className="mx-auto flex w-full max-w-[85%] items-center gap-3 py-3">
               <span className="size-2.5 shrink-0 rounded-full bg-primary" />
               <p className="min-w-0 truncate text-sm font-semibold">
@@ -497,12 +497,6 @@ export function PathwayPageView({ settings }: { settings: Record<string, unknown
               >
                 {t.nav.apply}
                 <ArrowRight className="size-4" />
-              </Link>
-              <Link
-                href={ROUTES.tuition}
-                className={cn(buttonVariants({ size: "lg" }), "border border-white/30 bg-transparent text-white shadow-none hover:bg-white hover:text-primary")}
-              >
-                {t.nav.tuition}
               </Link>
             </div>
           </div>

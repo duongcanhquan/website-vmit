@@ -75,7 +75,7 @@ const DEMO_POST_BODIES: Record<string, { vi: string; en: string }> = {
 <tr><td><p>Thời gian</p></td><td><p>2,5 năm (5 học kỳ)</p></td></tr>
 <tr><td><p>Ngôn ngữ</p></td><td><p>Tiếng Anh (có lớp bổ trợ)</p></td></tr>
 </tbody></table>
-<p>Hồ sơ xét tuyển đợt tiếp theo vẫn đang mở. Xem chi tiết tại <a href="/xet-tuyen">Cổng xét tuyển</a>.</p>`,
+<p>Hồ sơ xét tuyển đợt tiếp theo vẫn đang mở. Xem chi tiết tại <a href="/apply">Cổng xét tuyển</a>.</p>`,
     en: `<p>On 15 September, <strong>VMIT</strong> officially opened its <strong><span style="color:#1eb2a6">2026 BTEC HND Data Analytics</span></strong> intake with more than 120 new students from 18 provinces.</p>
 <h2>Real projects from week three</h2>
 <p>Students learn in small groups of <mark data-color="#fef08a" style="background-color:#fef08a">up to 25 per class</mark> and start live data projects in the third week of term.</p>
@@ -85,7 +85,7 @@ const DEMO_POST_BODIES: Record<string, { vi: string; en: string }> = {
 <li>Introduction to SQL and databases</li>
 <li>Academic English levels 1–2</li>
 </ul>
-<p>Applications for the next round are open on the <a href="/xet-tuyen">admissions portal</a>.</p>`,
+<p>Applications for the next round are open on the <a href="/apply">admissions portal</a>.</p>`,
   },
   "demo-post-powerbi": {
     vi: `<p>Trong 6 tuần, nhóm 5 sinh viên năm 2 ngành Data Analytics đã xây dựng bộ <strong>dashboard vận hành bằng Power BI</strong> cho một nhà máy linh kiện điện tử tại Bắc Ninh.</p>

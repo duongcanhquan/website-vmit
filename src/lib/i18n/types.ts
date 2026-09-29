@@ -7,6 +7,7 @@ export type MessageTree = {
     pathway: string
     subjects: string
     btecSchools: string
+    englishTest: string
     news: string
     tuition: string
     studentLife: string

@@ -16,7 +16,6 @@ import { AboutStandard } from "@/components/modules/about/about-standard"
 import { AboutStatement } from "@/components/modules/about/about-statement"
 import { AboutSunderland } from "@/components/modules/about/about-sunderland"
 import { useLocale } from "@/components/providers/locale-provider"
-import { settingText } from "@/lib/i18n/locale-text"
 import type { CmsStatus } from "@/types/home-cms"
 
 type Partner = { id: string; name: string; logo_url: string | null }
@@ -118,15 +117,12 @@ export function AboutPageView({
   team: TeamMember[]
   teamStatus: CmsStatus
 }) {
-  const { locale } = useLocale()
-  const year = settingText(settings.admission_year, locale)
-
   return (
     <>
       <SiteHeader settings={settings} overHero />
       <AboutProgress />
       <main>
-        <AboutHero year={year} />
+        <AboutHero />
         <AboutStatement />
         <AboutRoadmap />
         <AboutStandard />

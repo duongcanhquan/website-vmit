@@ -8,7 +8,7 @@ import { ArrowDown, ArrowRight, BadgeCheck, MapPin } from "lucide-react"
 import { useLocale } from "@/components/providers/locale-provider"
 import { buttonVariants } from "@/components/ui/button"
 import { ABOUT_HERO, ABOUT_MEDIA } from "@/constants/about-content"
-import { ROUTES, SITE } from "@/constants/site"
+import { ROUTES } from "@/constants/site"
 import { cn } from "@/lib/utils"
 import { GridBackdrop, useT } from "./about-shared"
 
@@ -22,7 +22,7 @@ const PINS = [
 ]
 const ROUTE_PATH = "M14 78 C 24 40, 40 26, 52 30 S 78 70, 86 58"
 
-export function AboutHero({ year }: { year?: string }) {
+export function AboutHero() {
   const t = useT()
   const { t: messages } = useLocale()
   const reduce = useReducedMotion()
@@ -43,7 +43,7 @@ export function AboutHero({ year }: { year?: string }) {
 
       <motion.div
         style={reduce ? undefined : { opacity: fade }}
-        className="relative z-10 mx-auto grid min-h-[100svh] max-w-[85%] items-center gap-14 pb-24 pt-40 lg:grid-cols-[1.05fr_1fr] lg:pt-44"
+        className="relative z-10 mx-auto grid min-h-[100svh] max-w-[92%] items-center gap-10 pb-16 pt-28 md:max-w-[85%] md:gap-14 md:pb-24 md:pt-40 lg:grid-cols-[1.05fr_1fr] lg:pt-44"
       >
         <div>
           <motion.p
@@ -56,18 +56,18 @@ export function AboutHero({ year }: { year?: string }) {
             {t(ABOUT_HERO.eyebrow)}
           </motion.p>
 
-          <h1 className="mt-6 text-[clamp(2.4rem,5.4vw,4.4rem)] font-black leading-[1.05] tracking-tight">
+          <h1 className="@container mt-6 w-full font-black leading-[1.05] tracking-[-0.03em]">
             <span className="sr-only">
               {t(ABOUT_HERO.title)} — {t(ABOUT_HERO.highlight)}
             </span>
-            <span aria-hidden className="block">
+            <span aria-hidden className="block whitespace-nowrap text-[clamp(1.05rem,6.8cqi,4rem)]">
               {words.map((word, i) => (
                 <motion.span
                   key={`${word}-${i}`}
-                  className="mr-[0.25em] inline-block"
-                  initial={reduce ? false : { opacity: 0, y: "0.6em", rotateX: -60 }}
-                  animate={{ opacity: 1, y: 0, rotateX: 0 }}
-                  transition={{ duration: 0.8, ease, delay: 0.15 + i * 0.08 }}
+                  className="mr-[0.22em] inline-block last:mr-0"
+                  initial={reduce ? false : { opacity: 0, y: "0.35em" }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.55, ease, delay: 0.08 + i * 0.05 }}
                 >
                   {word}
                 </motion.span>
@@ -75,10 +75,10 @@ export function AboutHero({ year }: { year?: string }) {
             </span>
             <motion.span
               aria-hidden
-              className="mt-2 block bg-gradient-to-r from-primary via-[#5fe0d4] to-white bg-clip-text text-transparent"
-              initial={reduce ? false : { opacity: 0, x: -24 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.9, ease, delay: 0.55 }}
+              className="mt-1 block whitespace-nowrap bg-gradient-to-r from-primary via-[#5fe0d4] to-white bg-clip-text text-[clamp(1.05rem,6.8cqi,4rem)] text-transparent"
+              initial={reduce ? false : { opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease, delay: 0.35 }}
             >
               {t(ABOUT_HERO.highlight)}
             </motion.span>
@@ -114,7 +114,7 @@ export function AboutHero({ year }: { year?: string }) {
           <motion.div
             initial={reduce ? false : { opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease, delay: 1.1 }}
+            transition={{ duration: 0.55, ease, delay: 0.2 }}
             className="mt-9 flex flex-wrap gap-3"
           >
             <a href="#lo-trinh" className={cn(buttonVariants({ variant: "primary", size: "lg" }))}>
@@ -128,7 +128,7 @@ export function AboutHero({ year }: { year?: string }) {
                 "border border-white/30 bg-transparent text-white shadow-none hover:bg-white hover:text-primary",
               )}
             >
-              {messages.nav.apply} {year || SITE.admissionYear}
+              {messages.nav.apply}
               <ArrowRight className="size-4" />
             </Link>
           </motion.div>
@@ -245,7 +245,7 @@ export function AboutHero({ year }: { year?: string }) {
         className="absolute bottom-6 left-1/2 z-10 hidden -translate-x-1/2 flex-col items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-white/60 md:flex"
         initial={reduce ? false : { opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.8 }}
+        transition={{ delay: 0.6 }}
       >
         {t({ vi: "Bắt đầu hành trình", en: "Start the journey" })}
         <span className="flex h-9 w-5 justify-center rounded-full border border-white/40 pt-1.5">

@@ -20,6 +20,18 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      { source: "/chuong-trinh", destination: "/programs", permanent: true },
+      { source: "/ve-vmit", destination: "/about", permanent: true },
+      { source: "/lo-trinh", destination: "/pathway", permanent: true },
+      { source: "/hoc-phi", destination: "/tuition", permanent: true },
+      { source: "/xet-tuyen", destination: "/apply", permanent: true },
+      { source: "/tin-tuc", destination: "/news", permanent: true },
+      { source: "/tin-tuc/:slug", destination: "/news/:slug", permanent: true },
+      { source: "/truong-btec", destination: "/btec-schools", permanent: true },
+    ]
+  },
 }
 
 export default nextConfig

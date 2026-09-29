@@ -9,7 +9,7 @@ export default async function Page() {
   return (
     <SimpleCrud
       title="Chương trình"
-      description="Ngành học BTEC / Foundation — song ngữ."
+      description="Chương trình BTEC / Foundation — song ngữ."
       table="courses"
       rows={data ?? []}
       newDefaults={{
