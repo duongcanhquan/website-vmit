@@ -401,7 +401,7 @@ const en: PathwayStory = {
       when: "Year 1 · Semesters 2 and 3 · 8 UK-standard specialist units",
       time: "Year 1",
       status: "On time",
-      body: "No rote learning. You step into a specialist’s role and solve real problems from multinational case studies. 70% of study time is hands-on practice.",
+      body: "No rote learning. You step into a specialist’s role and solve real problems from multinational case studies. 70% of study time is hands-on\u00A0practice.",
       marks: ["8 UK-standard units", "70% hands-on"],
     },
     {
@@ -412,7 +412,7 @@ const en: PathwayStory = {
       when: "Year 2 · Semesters 4 and 5 · 7 advanced units and a major project",
       time: "Year 2",
       status: "On time",
-      body: "Quality is verified at two levels: an internal board and Pearson UK experts. You reach the end of this station with an interview-ready portfolio.",
+      body: "Quality is verified at two levels: an internal board and Pearson UK experts. You reach the end of this station with an interview\u2011ready\u00A0portfolio.",
       marks: ["Pearson UK verification", "Interview-ready portfolio"],
     },
     {
@@ -452,7 +452,7 @@ const en: PathwayStory = {
       id: "tuyen-tim",
       name: "Purple Line",
       epithet: "Global Transfer",
-      destination: "300+ universities worldwide",
+      destination: "300+ universities\u00A0worldwide",
       body: "Transfer to Switzerland, Singapore, South Korea, the USA or Australia through a network of more than 300 universities that recognise all 240 credits of the BTEC HND Level 5.",
       points: ["Switzerland · SHMS", "Singapore · PSB / SIM", "South Korea · Chosun", "USA · Keiser · Australia · Macquarie"],
     },
