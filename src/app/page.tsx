@@ -6,12 +6,25 @@ import {
   getPublishedPartners,
   getPublishedPathway,
   getPublishedPillars,
+  getPublishedPosts,
   getPublishedPricing,
+  getPublishedTestimonials,
   getSettingsMap,
 } from "@/services/cms"
 
 export default async function Page() {
-  const [settings, courses, partners, pillars, counters, pathway, pricing, gallery] = await Promise.all([
+  const [
+    settings,
+    courses,
+    partners,
+    pillars,
+    counters,
+    pathway,
+    pricing,
+    gallery,
+    testimonials,
+    posts,
+  ] = await Promise.all([
     getSettingsMap(),
     getPublishedCourses(),
     getPublishedPartners(),
@@ -20,6 +33,8 @@ export default async function Page() {
     getPublishedPathway(),
     getPublishedPricing(),
     getPublishedGallery(),
+    getPublishedTestimonials(),
+    getPublishedPosts(),
   ])
 
   return (
@@ -42,6 +57,10 @@ export default async function Page() {
         pricingStatus: pricing.status,
         gallery: gallery.data,
         galleryStatus: gallery.status,
+        testimonials: testimonials.data,
+        testimonialsStatus: testimonials.status,
+        posts: posts.data,
+        postsStatus: posts.status,
       }}
     />
   )

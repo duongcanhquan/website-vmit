@@ -49,9 +49,9 @@ export function PageShell({
 
   return (
     <>
-      <SiteHeader settings={settings} />
+      <SiteHeader settings={settings} overHero />
       <main className="bg-mist">
-        <section className="relative overflow-hidden pt-24 md:pt-28">
+        <section className="relative flex min-h-[45vh] items-center justify-center overflow-hidden md:min-h-[50vh]">
           {imageUrl ? (
             <div className="absolute inset-0">
               <MotionImage
@@ -64,19 +64,16 @@ export function PageShell({
                 className="object-cover object-center"
                 zoom={1.03}
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-brand-navy/90 via-brand-navy/70 to-brand-navy/40" />
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/50 via-transparent to-brand-navy/20" />
+              <div className="absolute inset-0 bg-black/55" />
             </div>
           ) : (
-            <div className="absolute inset-0 bg-gradient-to-br from-brand-navy via-[#15233a] to-brand-navy" />
+            <div className="absolute inset-0 bg-primary" />
           )}
 
-          <div className="relative z-10 mx-auto max-w-7xl px-4 pb-14 pt-16 md:pb-20 md:pt-20">
-            <p className="overline text-accent-gold/90">{eyebrow}</p>
-            <h1 className="mt-3 max-w-3xl font-display text-[clamp(2rem,4.5vw,3.35rem)] font-medium leading-[1.15] tracking-[-0.02em] text-white">
-              {title}
-            </h1>
-            <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/80 md:text-lg">{lead}</p>
+          <div className="relative z-10 mx-auto max-w-[85%] px-4 py-28 text-center text-white md:py-32">
+            <p className="overline !text-white/80">{eyebrow}</p>
+            <h1 className="mt-3 text-[clamp(2rem,4.5vw,3.25rem)] font-black tracking-tight">{title}</h1>
+            <p className="mx-auto mt-4 max-w-2xl text-base text-white/85 md:text-lg">{lead}</p>
             {showApplyCta ? (
               <Link
                 href={ROUTES.apply}
@@ -89,7 +86,7 @@ export function PageShell({
           </div>
         </section>
 
-        <div className="mx-auto max-w-7xl px-4 py-14 md:py-20">{children}</div>
+        <div className="mx-auto max-w-[85%] py-14 md:py-20">{children}</div>
       </main>
       <SiteFooter settings={settings} />
     </>
@@ -112,7 +109,7 @@ export function ContentState({
   const { locale } = useLocale()
   if (status === "ok") return null
   return (
-    <p className="rounded-xl border border-border bg-surface px-5 py-6 text-sm text-muted shadow-hairline">
+    <p className="rounded-[3px] border border-border bg-surface px-5 py-6 text-sm text-muted shadow-hairline">
       {status === "error"
         ? locale === "vi"
           ? errorVi

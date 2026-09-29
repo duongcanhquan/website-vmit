@@ -181,3 +181,34 @@ export async function getPublishedTeam() {
     return { status: "error" as const, message: err instanceof Error ? err.message : "Lỗi", data: [] }
   }
 }
+
+export async function getPublishedTestimonials() {
+  try {
+    const supabase = await publicClient()
+    const { data, error } = await supabase
+      .from("testimonials")
+      .select("id, author_name, author_role_vi, author_role_en, quote_vi, quote_en, avatar_url, sort_order")
+      .eq("is_published", true)
+      .order("sort_order")
+    if (error) return { status: "error" as const, message: error.message, data: [] }
+    return { status: data?.length ? ("ok" as const) : ("empty" as const), data: data ?? [] }
+  } catch (err) {
+    return { status: "error" as const, message: err instanceof Error ? err.message : "Lỗi", data: [] }
+  }
+}
+
+export async function getPublishedPosts() {
+  try {
+    const supabase = await publicClient()
+    const { data, error } = await supabase
+      .from("posts")
+      .select("id, slug, title_vi, title_en, excerpt_vi, excerpt_en, cover_url, published_at")
+      .eq("is_published", true)
+      .order("published_at", { ascending: false })
+      .limit(6)
+    if (error) return { status: "error" as const, message: error.message, data: [] }
+    return { status: data?.length ? ("ok" as const) : ("empty" as const), data: data ?? [] }
+  } catch (err) {
+    return { status: "error" as const, message: err instanceof Error ? err.message : "Lỗi", data: [] }
+  }
+}

@@ -3,24 +3,24 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-xl text-sm font-semibold tracking-wide transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-gold/40 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 active:scale-[0.98]",
+  "group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-[3px] text-sm font-semibold tracking-wide transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
         primary:
-          "bg-accent-gold text-brand-navy hover:-translate-y-0.5 hover:bg-[#b8924f]",
+          "bg-primary text-white shadow-[0_24px_36px_-11px_rgb(0_0_0_/_9%)] hover:bg-[#169b90]",
         secondary:
-          "bg-brand-navy text-white hover:-translate-y-0.5 hover:bg-[#15233a]",
+          "bg-white text-primary shadow-[0_24px_36px_-11px_rgb(0_0_0_/_9%)] hover:bg-mist",
         outline:
-          "border border-white/50 bg-transparent text-white hover:bg-white/10",
+          "border border-white/70 bg-white text-primary hover:bg-white/90",
         outlineNavy:
-          "border border-border bg-surface text-brand-navy hover:-translate-y-0.5 hover:border-brand-navy/30 hover:bg-mist",
-        ghost: "rounded-lg text-brand-navy hover:bg-mist",
+          "border border-border bg-surface text-brand-navy hover:border-primary hover:text-primary",
+        ghost: "rounded-md text-brand-navy hover:bg-mist hover:text-primary",
       },
       size: {
         default: "h-11 min-w-[44px] px-5 text-[15px]",
         sm: "h-9 min-w-[44px] px-4 text-sm",
-        lg: "h-12 min-w-[44px] px-6 text-base",
+        lg: "h-12 min-w-[44px] px-7 text-base",
         xl: "h-14 min-w-[44px] px-8 text-base md:text-lg",
       },
     },

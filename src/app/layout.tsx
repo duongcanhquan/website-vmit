@@ -1,18 +1,13 @@
 import type { Metadata } from "next"
-import { Fraunces, Plus_Jakarta_Sans } from "next/font/google"
+import { Roboto } from "next/font/google"
 import { LocaleProvider } from "@/components/providers/locale-provider"
 import { SITE } from "@/constants/site"
 import "./globals.css"
 
-const fraunces = Fraunces({
+const roboto = Roboto({
   subsets: ["latin", "vietnamese"],
-  variable: "--font-fraunces",
-  display: "swap",
-})
-
-const jakarta = Plus_Jakarta_Sans({
-  subsets: ["latin", "vietnamese"],
-  variable: "--font-jakarta",
+  weight: ["300", "400", "500", "700", "900"],
+  variable: "--font-roboto",
   display: "swap",
 })
 
@@ -27,7 +22,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="vi">
-      <body className={`${fraunces.variable} ${jakarta.variable} antialiased`}>
+      <body className={`${roboto.variable} font-sans antialiased`}>
         <LocaleProvider>{children}</LocaleProvider>
       </body>
     </html>

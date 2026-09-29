@@ -24,29 +24,28 @@ export function SiteFooter({ settings = {} }: { settings?: Record<string, unknow
   ]
 
   return (
-    <footer className="border-t border-white/10 bg-brand-navy text-white">
-      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 md:grid-cols-[1.4fr_1fr_1fr]">
+    <footer className="bg-[#eeeeee] text-brand-navy">
+      <div className="mx-auto grid max-w-[85%] gap-10 py-14 md:grid-cols-[1.4fr_1fr_1fr]">
         <div>
           <Image
             src="/brand/logo-vmit.png"
             alt={`VMIT — ${tagline}`}
             width={148}
             height={58}
-            className="h-auto w-[132px] object-contain brightness-0 invert"
+            className="h-auto w-[132px] object-contain"
           />
-          <p className="mt-5 font-display text-xl font-medium italic tracking-tight text-accent-gold">
-            {tagline}
-          </p>
-          <p className="mt-2 overline text-white/40">
+          <p className="mt-5 font-bold italic text-primary">{tagline}</p>
+          <p className="mt-3 text-sm text-muted">
             {badge} · APC
           </p>
+          <p className="mt-4 text-sm text-muted">{hotline}</p>
         </div>
         <div>
-          <p className="overline text-white/40">{t.footer.nav}</p>
-          <ul className="mt-4 space-y-2.5 text-sm font-medium">
+          <h3 className="mb-6 text-lg font-medium">{t.footer.nav}</h3>
+          <ul className="space-y-4 text-sm font-medium">
             {nav.map((item) => (
               <li key={item.href}>
-                <Link href={item.href} className="text-white/75 transition hover:text-accent-gold">
+                <Link href={item.href} className="text-muted transition before:mr-2 before:text-primary before:content-['⟶'] hover:text-primary">
                   {item.label}
                 </Link>
               </li>
@@ -54,12 +53,12 @@ export function SiteFooter({ settings = {} }: { settings?: Record<string, unknow
           </ul>
         </div>
         <div>
-          <p className="overline text-white/40">{t.footer.contact}</p>
-          <p className="mt-4 text-sm font-medium text-white/80">{hotline}</p>
-          <p className="mt-2 text-sm text-white/45">[VMIT: địa chỉ / email]</p>
+          <h3 className="mb-6 text-lg font-medium">{t.footer.contact}</h3>
+          <p className="text-sm text-muted">{hotline}</p>
+          <p className="mt-2 text-sm text-muted">[VMIT: địa chỉ / email]</p>
         </div>
       </div>
-      <div className="border-t border-white/10 py-4 text-center text-xs tracking-wide text-white/35">
+      <div className="border-t border-black/5 py-4 text-center text-xs text-muted">
         © {new Date().getFullYear()} {SITE.name}. {t.footer.rights}
       </div>
     </footer>

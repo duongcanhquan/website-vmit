@@ -3,18 +3,16 @@
 import { useState } from "react"
 import { SiteFooter } from "@/components/common/site-footer"
 import { SiteHeader } from "@/components/common/site-header"
+import { AboutBenefits } from "@/components/modules/home/about-benefits"
 import {
   ApplyCta,
-  PathwayPreview,
   ProgramsPreview,
-  StudentLifePreview,
   TuitionTeaser,
 } from "@/components/modules/home/funnel-sections"
 import { HeroSection } from "@/components/modules/home/hero-section"
-import { PillarsBento } from "@/components/modules/home/pillars-bento"
 import { ScholarshipModal } from "@/components/modules/home/scholarship-modal"
+import { BlogTeaser, TestimonialsSection } from "@/components/modules/home/social-proof"
 import { TrustMarquee } from "@/components/modules/home/trust-marquee"
-import { VisualGallery } from "@/components/modules/home/visual-gallery"
 import { MEDIA } from "@/constants/media"
 import { resolveMediaUrl } from "@/lib/media"
 import type { HomeCmsProps } from "@/types/home-cms"
@@ -31,25 +29,20 @@ export default function HomePage({ cms }: { cms: HomeCmsProps }) {
 
   return (
     <>
-      <SiteHeader settings={cms.settings} />
+      <SiteHeader settings={cms.settings} overHero />
       <main>
         <HeroSection settings={heroSettings} onOpenScholarship={() => setScholarshipOpen(true)} />
-        <TrustMarquee partners={cms.partners} status={cms.partnersStatus} />
-        <PillarsBento
-          pillars={cms.pillars}
+        <AboutBenefits
+          settings={cms.settings}
           counters={cms.counters}
-          pillarsStatus={cms.pillarsStatus}
           countersStatus={cms.countersStatus}
+          imageUrl={String(heroSettings.campus_image_url)}
         />
-        <VisualGallery items={cms.gallery} status={cms.galleryStatus} settings={cms.settings} />
+        <TrustMarquee partners={cms.partners} status={cms.partnersStatus} />
         <ProgramsPreview courses={cms.courses} status={cms.coursesStatus} />
-        <PathwayPreview
-          steps={cms.pathway}
-          status={cms.pathwayStatus}
-          campusUrl={String(heroSettings.campus_image_url)}
-        />
+        <TestimonialsSection items={cms.testimonials} status={cms.testimonialsStatus} />
+        <BlogTeaser items={cms.posts} status={cms.postsStatus} />
         <TuitionTeaser plans={cms.pricing} status={cms.pricingStatus} settings={cms.settings} />
-        <StudentLifePreview settings={heroSettings} />
         <ApplyCta />
       </main>
       <SiteFooter settings={cms.settings} />

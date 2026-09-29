@@ -51,4 +51,24 @@ export type HomeCmsProps = {
     is_featured: boolean
   }>
   galleryStatus: CmsStatus
+  testimonials: Array<{
+    id: string
+    author_name: string
+    author_role_vi?: string | null
+    author_role_en?: string | null
+    quote_vi: string
+    quote_en: string
+    avatar_url?: string | null
+  }>
+  testimonialsStatus: CmsStatus
+  posts: Array<{
+    id: string
+    title_vi: string
+    title_en: string
+    excerpt_vi?: string | null
+    excerpt_en?: string | null
+    cover_url?: string | null
+    slug?: string | null
+  }>
+  postsStatus: CmsStatus
 }
