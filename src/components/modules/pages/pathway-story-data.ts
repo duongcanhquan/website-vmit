@@ -1,0 +1,527 @@
+import type { Locale } from "@/lib/i18n/types"
+
+export const STATION_IDS = ["ga-0", "ga-1", "ga-2", "ga-3", "ga-interchange"] as const
+export const ROUTE_IDS = ["tuyen-do", "tuyen-xanh-duong", "tuyen-tim", "tuyen-xanh-la"] as const
+
+export type StationId = (typeof STATION_IDS)[number]
+export type RouteId = (typeof ROUTE_IDS)[number]
+
+export type Station = {
+  id: StationId
+  code: string
+  title: string
+  subtitle: string
+  when: string
+  body: string
+  marks: string[]
+}
+
+export type RouteLine = {
+  id: RouteId
+  name: string
+  epithet: string
+  body: string
+  points: string[]
+}
+
+export type Region = {
+  name: string
+  schools: string[]
+  perks: string[]
+}
+
+export type PathwayStory = {
+  skip: string
+  heroEyebrow: string
+  heroTitle: string
+  heroLead: string
+  scrollHint: string
+  stationNav: string
+  journeyEyebrow: string
+  journeyTitle: string
+  journeyLead: string
+  nowAt: string
+  stations: Station[]
+  routesEyebrow: string
+  routesTitle: string
+  routesLead: string
+  routes: RouteLine[]
+  proofEyebrow: string
+  proofTitle: string
+  proofLead: string
+  proofFacts: { value: string; label: string }[]
+  levelCaption: string
+  levelHeads: [string, string, string, string]
+  levels: { level: string; rqf: string; vn: string; benefit: string; highlight?: boolean }[]
+  practiceEyebrow: string
+  practiceTitle: string
+  practice: { title: string; body: string }[]
+  awardEyebrow: string
+  awardTitle: string
+  awardLead: string
+  awardOptions: { title: string; points: string[]; outcome: string }[]
+  awardNote: string
+  networkEyebrow: string
+  networkTitle: string
+  networkLead: string
+  regions: Region[]
+  closeEyebrow: string
+  closeTitle: string
+  closeLead: string
+  majors: { title: string; body: string }[]
+  commitmentsTitle: string
+  commitments: string[]
+}
+
+const vi: PathwayStory = {
+  skip: "Bỏ qua hành trình, tới cam kết",
+  heroEyebrow: "Subway to the World",
+  heroTitle: "Chuyến tàu vươn ra thế giới",
+  heroLead:
+    "Lộ trình VMIT là một tuyến tàu điện ngầm: từ bỡ ngỡ tuổi 18 đến Cử nhân quốc tế tự tin ở tuổi 20. Năm ga trên tàu, rồi bốn tuyến rẽ ra biển lớn.",
+  scrollHint: "Cuộn để lên tàu",
+  stationNav: "Các ga trên lộ trình",
+  journeyEyebrow: "Năm ga",
+  journeyTitle: "Từ sân ga tuổi 18 đến trạm trung chuyển tuổi 20",
+  journeyLead:
+    "Mỗi ga là một lần chuyển hóa. Bạn giữ nhịp. Tàu không tự chạy hộ câu chuyện.",
+  nowAt: "Đang ở",
+  stations: [
+    {
+      id: "ga-0",
+      code: "Ga 0",
+      title: "Khởi hành",
+      subtitle: "Vốn nhẹ, bước xa",
+      when: "Mùa hè tuổi 18 · Tốt nghiệp THPT",
+      body: "Chỉ từ 15 triệu đồng nhập học đợt đầu. Áp lực tài chính tiền tỷ ở lại sân ga. Bạn nhận vé và bước lên chuyến tàu quốc tế.",
+      marks: ["Từ 15 triệu đồng", "Vé lên tàu"],
+    },
+    {
+      id: "ga-1",
+      code: "Ga 1",
+      title: "Foundation",
+      subtitle: "Bứt phá tiếng Anh",
+      when: "Học kỳ 1 · Tháng 0–6 · Tiếng Anh học thuật và kỹ năng",
+      body: "Nhúng 100% môi trường tiếng Anh thực chiến. Phản xạ giao tiếp và thuyết trình thay cho nỗi sợ. Chuẩn ga này: IELTS 5.5–6.0+.",
+      marks: ["100% tiếng Anh thực chiến", "IELTS 5.5–6.0+"],
+    },
+    {
+      id: "ga-2",
+      code: "Ga 2",
+      title: "HNC Level 4",
+      subtitle: "Nhập môn thực chiến",
+      when: "Năm 1 · Học kỳ 2 và 3 · 8 units chuyên ngành chuẩn Anh",
+      body: "Không thi vẹt. Bạn nhập vai chuyên viên và giải bài toán thật từ case study của tập đoàn đa quốc gia. 70% thời lượng là thực hành.",
+      marks: ["8 units chuẩn Anh", "70% thực hành"],
+    },
+    {
+      id: "ga-3",
+      code: "Ga 3",
+      title: "HND Level 5",
+      subtitle: "Làm chủ dự án",
+      when: "Năm 2 · Học kỳ 4 và 5 · 7 units nâng cao và đồ án",
+      body: "Chất lượng được thẩm định hai tầng: hội đồng nội bộ và chuyên gia Pearson Anh Quốc. Cuối ga là một portfolio sẵn sàng cho vòng phỏng vấn.",
+      marks: ["Thẩm định Pearson UK", "Portfolio phỏng vấn"],
+    },
+    {
+      id: "ga-interchange",
+      code: "Trạm",
+      title: "Trung chuyển",
+      subtitle: "Tuổi 20 tỏa sáng",
+      when: "Cuối năm 2 · Cán đích Cử nhân thực hành",
+      body: "Song bằng trong tay: Cao đẳng chính quy APC và Pearson BTEC HND Level 5. Bạn chọn một trong bốn tuyến — đi làm ngay, sang Anh, chuyển tiếp toàn cầu, hoặc học năm cuối ngay tại Việt Nam.",
+      marks: ["Song bằng APC + BTEC", "Bốn lối ra"],
+    },
+  ],
+  routesEyebrow: "Tuổi 20",
+  routesTitle: "Bốn tuyến rời trạm trung chuyển",
+  routesLead: "Cùng một vé HND. Bốn đích khác nhau. Bạn chọn sau khi đã đứng vững.",
+  routes: [
+    {
+      id: "tuyen-do",
+      name: "Tuyến Đỏ",
+      epithet: "Direct Career Express",
+      body: "Nhận song bằng chính quy APC và BTEC HND Anh Quốc, rồi bước thẳng vào tập đoàn FDI và doanh nghiệp đa quốc gia ở tuổi 20 — với tác phong làm việc quốc tế.",
+      points: ["Song bằng APC + BTEC HND", "Vào việc ở tuổi 20", "Mạng lưới FDI / MNC"],
+    },
+    {
+      id: "tuyen-xanh-duong",
+      name: "Tuyến Xanh dương",
+      epithet: "Sunderland UK Flight",
+      body: "Bay sang Anh học đúng một năm cuối tại campus London hoặc Sunderland. Bằng Cử nhân danh dự của Đại học Sunderland, kèm Graduate Route Visa ở lại Anh hai năm làm việc.",
+      points: ["Top-up 1 năm tại Anh", "BA (Hons) hoặc BSc (Hons)", "Graduate Visa 2 năm"],
+    },
+    {
+      id: "tuyen-tim",
+      name: "Tuyến Tím",
+      epithet: "Global Transfer",
+      body: "Chuyển tiếp sang Thụy Sĩ, Singapore, Hàn Quốc, Mỹ hoặc Úc nhờ mạng lưới hơn 300 trường công nhận trọn 240 tín chỉ của bằng BTEC HND Level 5.",
+      points: ["Thụy Sĩ · SHMS", "Singapore · PSB / SIM", "Hàn Quốc · Chosun", "Mỹ · Keiser · Úc · Macquarie"],
+    },
+    {
+      id: "tuyen-xanh-la",
+      name: "Tuyến Xanh lá",
+      epithet: "Home top-up",
+      body: "Học năm cuối của Đại học Sunderland ngay tại Việt Nam, hình thức hybrid. Ban ngày đi làm, buổi tối học lấy bằng Cử nhân chính quy, giữ lại khoảng 80% chi phí so với sang Anh.",
+      points: ["Năm cuối tại Việt Nam", "Ngày làm, tối học", "Tiết kiệm khoảng 80% chi phí"],
+    },
+  ],
+  proofEyebrow: "Tấm vé",
+  proofTitle: "Vì sao ga cuối mở được cửa thế giới",
+  proofLead:
+    "Pearson BTEC HND Level 5 tại Cao đẳng Việt Mỹ Hà Nội là hộ chiếu học thuật: song bằng trong nước, và 240 tín chỉ được hơn 300 đại học đối tác nhận vào năm cuối.",
+  proofFacts: [
+    { value: "1844", label: "Pearson, London — tổ chức khảo thí lớn, hơn 1 triệu người tốt nghiệp mỗi năm trên 70 quốc gia." },
+    { value: "RQF", label: "HNC Level 4 và HND Level 5 được Ofqual, cơ quan văn bằng của Chính phủ Anh, cấp mã trong khung RQF." },
+    { value: "240", label: "Tín chỉ CATS — tương đương 120 ECTS và trọn hai năm đầu cử nhân Anh. Cửa top-up mở từ đây." },
+  ],
+  levelCaption: "Bậc BTEC và quyền chuyển tiếp",
+  levelHeads: ["Cấp độ", "Chuẩn Anh", "Tại Việt Nam", "Chuyển tiếp"],
+  levels: [
+    {
+      level: "BTEC Level 3",
+      rqf: "Tương đương A-Levels / tú tài Anh",
+      vn: "Tốt nghiệp THPT",
+      benefit: "Vào thẳng năm 1 đại học quốc tế",
+    },
+    {
+      level: "BTEC Level 4 · HNC",
+      rqf: "Năm 1 đại học Anh · 120 tín chỉ",
+      vn: "Năm 1 cao đẳng chính quy",
+      benefit: "Chuyển tiếp năm 2",
+    },
+    {
+      level: "BTEC Level 5 · HND",
+      rqf: "Năm 2 đại học Anh · 240 tín chỉ",
+      vn: "Tốt nghiệp cao đẳng chính quy · song bằng",
+      benefit: "Top-up 1 năm lấy cử nhân",
+      highlight: true,
+    },
+    {
+      level: "Level 6 · Top-up",
+      rqf: "Bằng Cử nhân đại học",
+      vn: "Bằng đại học chính quy",
+      benefit: "Làm việc toàn cầu hoặc học thẳng thạc sĩ",
+    },
+  ],
+  practiceEyebrow: "Trên tàu",
+  practiceTitle: "Học để làm được việc",
+  practice: [
+    {
+      title: "Không thi vẹt",
+      body: "Năng lực được chấm qua hồ sơ dự án. Mỗi assignment là một bài toán thật — từ các tập đoàn như Apple, Unilever, VinFast, Shopee.",
+    },
+    {
+      title: "Portfolio mang đi phỏng vấn",
+      body: "Báo cáo thị trường, phân tích Power BI hoặc Tableau, kế hoạch marketing đa kênh đã được thẩm định.",
+    },
+    {
+      title: "Tác phong văn phòng quốc tế",
+      body: "Làm việc nhóm, tiến độ Gantt, Agile, rồi pitching bằng tiếng Anh chuyên ngành trước hội đồng doanh nghiệp.",
+    },
+    {
+      title: "Thẩm định hai tầng",
+      body: "Hội đồng nội bộ chấm chéo. Giám sát viên Pearson Anh Quốc phúc tra ngẫu nhiên. Đầu ra không chỉ do một người chấm.",
+    },
+  ],
+  awardEyebrow: "Song bằng",
+  awardTitle: "APC trong nước. Pearson từ London. Năm cuối tại Sunderland.",
+  awardLead:
+    "Tốt nghiệp VMIT là hai văn bằng: Cao đẳng chính quy do APC cấp, và Pearson BTEC HND Level 5 do Anh Quốc cấp. Đại học Sunderland — công lập, từ 1901 — nhận tín chỉ đó cho đúng một năm cuối.",
+  awardOptions: [
+    {
+      title: "Sang Anh một năm",
+      points: [
+        "Campus Sunderland hoặc London",
+        "Thư viện số, thực tập tại Anh",
+        "Graduate Route Visa làm việc 2 năm",
+      ],
+      outcome: "BA (Hons) Quản trị kinh doanh hoặc BSc (Hons) Công nghệ, do Đại học Sunderland cấp.",
+    },
+    {
+      title: "Học năm cuối tại Việt Nam",
+      points: [
+        "Chương trình năm cuối Sunderland, liên kết khảo thí",
+        "Không mang chi phí sinh hoạt Anh",
+        "Ngày đi làm, tối hoặc cuối tuần lên lớp",
+      ],
+      outcome: "Cùng bằng Cử nhân chính quy của Sunderland, được Bộ GD&ĐT Việt Nam công nhận.",
+    },
+  ],
+  awardNote:
+    "So với tự túc 3–4 năm tại Anh, lộ trình này tiết kiệm hơn 1 tỷ đồng. Nhánh Keiser University (Mỹ, hệ sinh thái EQuest) có ưu đãi học phí 30%.",
+  networkEyebrow: "300+ trường",
+  networkTitle: "Tuyến tím đi những đâu",
+  networkLead:
+    "Pearson Degree Finder nối HND Level 5 với đại học đối tác. VMIT chủ động chọn quốc gia — không khóa một cổng duy nhất.",
+  regions: [
+    {
+      name: "Vương quốc Anh",
+      schools: ["Sunderland — Sunderland và London", "Huddersfield, Middlesex, Greenwich", "Oxford Brookes, Northampton"],
+      perks: ["Đúng 1 năm cuối", "BA (Hons) / BSc (Hons)", "Graduate Visa 2 năm"],
+    },
+    {
+      name: "Châu Âu",
+      schools: ["Thụy Sĩ: SHMS, César Ritz, Hotel Institute Montreux", "Ireland: Griffith College, National College of Ireland", "Phần Lan và Hà Lan: HAMK, The Hague"],
+      perks: ["Thêm 1–1,5 năm", "Thụy Sĩ: thực tập hưởng lương 6 tháng", "Cơ hội việc làm khối Schengen"],
+    },
+    {
+      name: "Châu Á",
+      schools: ["Singapore: SIM, PSB Academy, Kaplan", "Hàn Quốc: Chosun, SolBridge", "Malaysia: Sunway, Taylor's"],
+      perks: ["Bằng Anh hoặc Úc tại Singapore / Malaysia", "Hàn Quốc: lộ trình 2+2", "Gần Việt Nam, chi phí vừa"],
+    },
+    {
+      name: "Bắc Mỹ",
+      schools: ["Mỹ: Keiser University, Troy University", "Canada: Thompson Rivers, George Brown College"],
+      perks: ["Công nhận năm 1 và năm 2", "Keiser: học bổng nội bộ 30%", "OPT tại Mỹ 1–3 năm"],
+    },
+    {
+      name: "Châu Đại Dương",
+      schools: ["Úc: Macquarie, Deakin, Griffith", "New Zealand: Waikato, Otago Polytechnic"],
+      perks: ["Thêm 1–1,5 năm", "Bằng theo khung AQF", "Post-study visa Úc 2–4 năm"],
+    },
+  ],
+  closeEyebrow: "Hai ngành",
+  closeTitle: "Hai ngành mũi nhọn. Bốn cam kết.",
+  closeLead: "Hai ngành dẫn đầu kỷ nguyên số. Bốn cam kết đi cùng tấm vé, không phải khẩu hiệu gắn sau.",
+  majors: [
+    {
+      title: "Data Analytics",
+      body: "Phân tích dữ liệu kinh doanh, BI, Python, SQL và AI.",
+    },
+    {
+      title: "Business Management",
+      body: "Quản trị kinh doanh số, tài chính, marketing đa kênh và khởi nghiệp.",
+    },
+  ],
+  commitmentsTitle: "Bốn cam kết",
+  commitments: [
+    "Song bằng danh giá: Cao đẳng chính quy và BTEC HND Anh Quốc.",
+    "100% việc làm tại mạng lưới tập đoàn FDI và doanh nghiệp đa quốc gia.",
+    "70% thời lượng là thực hành dự án cùng chuyên gia doanh nghiệp.",
+    "Chuẩn đầu ra IELTS 6.5+ và lộ trình chuyển tiếp sang đại học đối tác Pearson.",
+  ],
+}
+
+const en: PathwayStory = {
+  skip: "Skip the journey to the commitments",
+  heroEyebrow: "Subway to the World",
+  heroTitle: "A line that leaves the country",
+  heroLead:
+    "The VMIT pathway is a metro line: from a hesitant 18 to a confident international graduate at 20. Five stations on the train, then four lines out into the world.",
+  scrollHint: "Scroll to board",
+  stationNav: "Stations on the pathway",
+  journeyEyebrow: "Five stations",
+  journeyTitle: "From the platform at 18 to the interchange at 20",
+  journeyLead: "Each station is a transformation. You set the pace.",
+  nowAt: "Now at",
+  stations: [
+    {
+      id: "ga-0",
+      code: "Gate 0",
+      title: "Departure",
+      subtitle: "A light fare, a long way",
+      when: "The summer you turn 18 · High-school graduation",
+      body: "From 15 million VND for the first intake. The billion-dong pressure stays on the platform. You take a ticket onto the international line.",
+      marks: ["From 15 million VND", "Ticket to board"],
+    },
+    {
+      id: "ga-1",
+      code: "Gate 1",
+      title: "Foundation",
+      subtitle: "English, unlocked",
+      when: "Semester 1 · Months 0–6 · Academic English and skills",
+      body: "Full immersion in practical English. Conversation and presentations replace the fear. This station’s mark: IELTS 5.5–6.0+.",
+      marks: ["100% practical English", "IELTS 5.5–6.0+"],
+    },
+    {
+      id: "ga-2",
+      code: "Gate 2",
+      title: "HNC Level 4",
+      subtitle: "Practice begins",
+      when: "Year 1 · Semesters 2 and 3 · 8 UK specialist units",
+      body: "No rote exams. You work as a junior specialist on real multinational case studies. Seventy percent of the time is practice.",
+      marks: ["8 UK units", "70% practice"],
+    },
+    {
+      id: "ga-3",
+      code: "Gate 3",
+      title: "HND Level 5",
+      subtitle: "You own the project",
+      when: "Year 2 · Semesters 4 and 5 · 7 advanced units and a major project",
+      body: "Two layers of assessment: an internal board and a Pearson UK examiner. You leave with a portfolio ready for interviews.",
+      marks: ["Pearson UK verification", "Interview portfolio"],
+    },
+    {
+      id: "ga-interchange",
+      code: "Hub",
+      title: "Interchange",
+      subtitle: "Age 20, in the light",
+      when: "End of year 2 · Practical bachelor milestone",
+      body: "Two awards in hand: the national APC college diploma and a Pearson BTEC HND Level 5. Then one of four lines — work now, fly to the UK, transfer worldwide, or finish the degree in Vietnam.",
+      marks: ["APC + BTEC dual award", "Four exits"],
+    },
+  ],
+  routesEyebrow: "Age 20",
+  routesTitle: "Four lines leave the interchange",
+  routesLead: "One HND ticket. Four destinations. You choose once you can stand on your own.",
+  routes: [
+    {
+      id: "tuyen-do",
+      name: "Red line",
+      epithet: "Direct Career Express",
+      body: "Take the APC diploma and the UK BTEC HND straight into FDI groups and multinational firms at 20, with an international way of working.",
+      points: ["APC + BTEC HND", "Into work at 20", "FDI / MNC network"],
+    },
+    {
+      id: "tuyen-xanh-duong",
+      name: "Blue line",
+      epithet: "Sunderland UK Flight",
+      body: "One final year in London or Sunderland. An honours degree from the University of Sunderland, plus a two-year Graduate Route visa to work in the UK.",
+      points: ["One top-up year in the UK", "BA (Hons) or BSc (Hons)", "2-year Graduate visa"],
+    },
+    {
+      id: "tuyen-tim",
+      name: "Purple line",
+      epithet: "Global Transfer",
+      body: "Move on to Switzerland, Singapore, Korea, the USA or Australia. More than 300 universities accept the full 240 credits of a BTEC HND Level 5.",
+      points: ["Switzerland · SHMS", "Singapore · PSB / SIM", "Korea · Chosun", "USA · Keiser · Australia · Macquarie"],
+    },
+    {
+      id: "tuyen-xanh-la",
+      name: "Green line",
+      epithet: "Home top-up",
+      body: "Sunderland’s final year in Vietnam, hybrid. Work by day, study at night, and keep about 80% of the cost of moving to the UK.",
+      points: ["Final year in Vietnam", "Work by day, study at night", "About 80% of the cost stays home"],
+    },
+  ],
+  proofEyebrow: "The ticket",
+  proofTitle: "Why the last gate opens onto the world",
+  proofLead:
+    "A Pearson BTEC HND Level 5 at Vietnam–America College, Hanoi is an academic passport: a national dual award, and 240 credits that 300-plus partner universities can take into a final year.",
+  proofFacts: [
+    { value: "1844", label: "Pearson, London — a major awarding body, with more than a million graduates a year across 70 countries." },
+    { value: "RQF", label: "HNC Level 4 and HND Level 5 sit on the Regulated Qualifications Framework, regulated by Ofqual." },
+    { value: "240", label: "UK CATS credits — 120 ECTS, the whole of years 1 and 2 of a UK bachelor. The top-up door opens here." },
+  ],
+  levelCaption: "BTEC levels and where they lead",
+  levelHeads: ["Level", "UK standard", "In Vietnam", "Progression"],
+  levels: [
+    {
+      level: "BTEC Level 3",
+      rqf: "Comparable to A-Levels",
+      vn: "High-school graduation",
+      benefit: "Direct entry to year 1 abroad",
+    },
+    {
+      level: "BTEC Level 4 · HNC",
+      rqf: "UK year 1 · 120 credits",
+      vn: "College year 1",
+      benefit: "Progress to year 2",
+    },
+    {
+      level: "BTEC Level 5 · HND",
+      rqf: "UK year 2 · 240 credits",
+      vn: "College graduation · dual award",
+      benefit: "One-year top-up to a bachelor",
+      highlight: true,
+    },
+    {
+      level: "Level 6 · Top-up",
+      rqf: "Bachelor’s degree",
+      vn: "A formal university degree",
+      benefit: "Work globally or continue to a master’s",
+    },
+  ],
+  practiceEyebrow: "On board",
+  practiceTitle: "Trained to do the work",
+  practice: [
+    {
+      title: "No rote exams",
+      body: "You are assessed on project briefs — real problems drawn from firms such as Apple, Unilever, VinFast and Shopee.",
+    },
+    {
+      title: "A portfolio you can take to interviews",
+      body: "Market reports, Power BI or Tableau analysis, and a reviewed multi-channel marketing plan.",
+    },
+    {
+      title: "An international office manner",
+      body: "Teamwork, Gantt schedules, Agile, then a pitch in specialist English to an industry panel.",
+    },
+    {
+      title: "Two independent checks",
+      body: "An internal verifier cross-marks. A Pearson UK external examiner samples the work. One marker does not decide the outcome.",
+    },
+  ],
+  awardEyebrow: "Dual award",
+  awardTitle: "APC at home. Pearson from London. A final year at Sunderland.",
+  awardLead:
+    "VMIT graduation is two credentials: a national college diploma from APC, and a Pearson BTEC HND Level 5 awarded from the UK. The University of Sunderland — a public university since 1901 — accepts those credits for exactly one final year.",
+  awardOptions: [
+    {
+      title: "One year in the UK",
+      points: ["Sunderland or London campus", "Digital library, internships in the UK", "A 2-year Graduate Route visa"],
+      outcome: "BA (Hons) Business or BSc (Hons) Technology, awarded by the University of Sunderland.",
+    },
+    {
+      title: "The final year in Vietnam",
+      points: [
+        "Sunderland’s final year, with a local exam partner",
+        "UK living costs stay off the bill",
+        "Work by day, class in the evening or at the weekend",
+      ],
+      outcome: "The same Sunderland bachelor awarded to students in the UK, recognised by Vietnam’s Ministry of Education.",
+    },
+  ],
+  awardNote:
+    "Against three or four self-funded years in the UK, this pathway saves more than 1 billion VND. The Keiser University branch (USA, EQuest network) includes a 30% tuition preference.",
+  networkEyebrow: "300+ universities",
+  networkTitle: "Where the purple line can go",
+  networkLead:
+    "Pearson Degree Finder connects an HND Level 5 to partner universities. VMIT does not lock you to a single gate.",
+  regions: [
+    {
+      name: "United Kingdom",
+      schools: ["Sunderland — Sunderland and London", "Huddersfield, Middlesex, Greenwich", "Oxford Brookes, Northampton"],
+      perks: ["Exactly one final year", "BA (Hons) / BSc (Hons)", "2-year Graduate visa"],
+    },
+    {
+      name: "Europe",
+      schools: ["Switzerland: SHMS, César Ritz, Hotel Institute Montreux", "Ireland: Griffith College, National College of Ireland", "Finland and the Netherlands: HAMK, The Hague"],
+      perks: ["1–1.5 further years", "Switzerland: a paid 6-month placement", "Work routes in the Schengen area"],
+    },
+    {
+      name: "Asia",
+      schools: ["Singapore: SIM, PSB Academy, Kaplan", "Korea: Chosun, SolBridge", "Malaysia: Sunway, Taylor’s"],
+      perks: ["A UK or Australian degree in Singapore or Malaysia", "Korea: a 2+2 route", "Closer to home, moderate cost"],
+    },
+    {
+      name: "North America",
+      schools: ["USA: Keiser University, Troy University", "Canada: Thompson Rivers, George Brown College"],
+      perks: ["Years 1 and 2 recognised", "Keiser: 30% internal scholarship", "OPT in the USA for 1–3 years"],
+    },
+    {
+      name: "Oceania",
+      schools: ["Australia: Macquarie, Deakin, Griffith", "New Zealand: Waikato, Otago Polytechnic"],
+      perks: ["1–1.5 further years", "An AQF-aligned degree", "Australian post-study visa, 2–4 years"],
+    },
+  ],
+  closeEyebrow: "Two programmes",
+  closeTitle: "Two flagship programmes. Four commitments.",
+  closeLead: "Two programmes for a digital economy. Four commitments ride with the ticket.",
+  majors: [
+    { title: "Data Analytics", body: "Business data, BI, Python, SQL and AI." },
+    { title: "Business Management", body: "Digital business, finance, multi-channel marketing and venture-building." },
+  ],
+  commitmentsTitle: "Four commitments",
+  commitments: [
+    "A dual award: the national college diploma and a UK BTEC HND.",
+    "100% employment across the FDI and multinational network.",
+    "Seventy percent of the time spent on projects with industry specialists.",
+    "An IELTS 6.5+ exit standard, and a route into Pearson’s partner universities.",
+  ],
+}
+
+export function pathwayStory(locale: Locale): PathwayStory {
+  return locale === "en" ? en : vi
+}

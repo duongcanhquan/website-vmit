@@ -15,6 +15,7 @@ import { ScholarshipModal } from "@/components/modules/home/scholarship-modal"
 import { BlogTeaser, TestimonialsSection } from "@/components/modules/home/social-proof"
 import { SubjectsGrid } from "@/components/modules/home/subjects-grid"
 import { TrustMarquee } from "@/components/modules/home/trust-marquee"
+import { DEMO_POSTS, DEMO_SUBJECTS, DEMO_TESTIMONIALS } from "@/constants/demo-content"
 import { MEDIA } from "@/constants/media"
 import { resolveMediaUrl } from "@/lib/media"
 import type { HomeCmsProps } from "@/types/home-cms"
@@ -28,6 +29,9 @@ export default function HomePage({ cms }: { cms: HomeCmsProps }) {
     life_image_1_url: resolveMediaUrl(cms.settings.life_image_1_url, MEDIA.studentsCollab),
     life_image_2_url: resolveMediaUrl(cms.settings.life_image_2_url, MEDIA.studentsStudy),
   }
+  const subjects = cms.subjectsStatus === "ok" ? cms.subjects : DEMO_SUBJECTS
+  const testimonials = cms.testimonialsStatus === "ok" ? cms.testimonials : DEMO_TESTIMONIALS
+  const posts = cms.postsStatus === "ok" ? cms.posts : DEMO_POSTS
 
   return (
     <>
@@ -40,15 +44,15 @@ export default function HomePage({ cms }: { cms: HomeCmsProps }) {
           countersStatus={cms.countersStatus}
         />
         <ProgramsPreview courses={cms.courses} status={cms.coursesStatus} />
-        <SubjectsGrid items={cms.subjects} status={cms.subjectsStatus} />
+        <SubjectsGrid items={subjects} status="ok" />
         <PathwayPreview
           steps={cms.pathway}
           status={cms.pathwayStatus}
           campusUrl={String(heroSettings.campus_image_url)}
         />
         <TrustMarquee partners={cms.partners} status={cms.partnersStatus} />
-        <TestimonialsSection items={cms.testimonials} status={cms.testimonialsStatus} />
-        <BlogTeaser items={cms.posts} status={cms.postsStatus} />
+        <TestimonialsSection items={testimonials} status="ok" />
+        <BlogTeaser items={posts} status="ok" />
         <TuitionTeaser plans={cms.pricing} status={cms.pricingStatus} settings={cms.settings} />
         <ApplyCta />
       </main>

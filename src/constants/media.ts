@@ -17,6 +17,9 @@ export const MEDIA = {
   newsCampusLife: "/media/news/campus-life.jpg",
   newsLab: "/media/news/lab.jpg",
   newsCareer: "/media/news/career.jpg",
+  avatarHa: "/media/avatars/ha.jpg",
+  avatarLan: "/media/avatars/lan.jpg",
+  avatarMinh: "/media/avatars/minh.jpg",
 } as const
 
 export type BannerItem = {

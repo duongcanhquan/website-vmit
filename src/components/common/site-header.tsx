@@ -39,7 +39,7 @@ export function SiteHeader({
     { href: ROUTES.about, label: t.nav.about },
     { href: ROUTES.programs, label: t.nav.programs },
     { href: "#mon-hoc", label: locale === "vi" ? "Môn học" : "Subjects" },
-    { href: "#tin-tuc", label: locale === "vi" ? "Tin tức" : "Blog" },
+    { href: ROUTES.news, label: locale === "vi" ? "Tin tức" : "Blog" },
     { href: ROUTES.pathway, label: t.nav.pathway },
     { href: ROUTES.tuition, label: t.nav.tuition },
     { href: ROUTES.studentLife, label: t.nav.studentLife },

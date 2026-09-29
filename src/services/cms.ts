@@ -215,6 +215,40 @@ export async function getPublishedPosts() {
   }
 }
 
+const POST_LIST_COLUMNS = "id, slug, title_vi, title_en, excerpt_vi, excerpt_en, cover_url, author_name, published_at"
+
+export async function getAllPublishedPosts() {
+  try {
+    const supabase = await publicClient()
+    const { data, error } = await supabase
+      .from("posts")
+      .select(POST_LIST_COLUMNS)
+      .eq("is_published", true)
+      .order("published_at", { ascending: false })
+      .limit(60)
+    if (error) return { status: "error" as const, message: error.message, data: [] }
+    return { status: data?.length ? ("ok" as const) : ("empty" as const), data: data ?? [] }
+  } catch (err) {
+    return { status: "error" as const, message: err instanceof Error ? err.message : "Lỗi", data: [] }
+  }
+}
+
+export async function getPublishedPostBySlug(slug: string) {
+  try {
+    const supabase = await publicClient()
+    const { data, error } = await supabase
+      .from("posts")
+      .select(`${POST_LIST_COLUMNS}, body, body_vi, body_en`)
+      .eq("is_published", true)
+      .eq("slug", slug)
+      .maybeSingle()
+    if (error) return { status: "error" as const, message: error.message, data: null }
+    return { status: data ? ("ok" as const) : ("empty" as const), data }
+  } catch (err) {
+    return { status: "error" as const, message: err instanceof Error ? err.message : "Lỗi", data: null }
+  }
+}
+
 export async function getPublishedSubjects() {
   try {
     const supabase = await publicClient()

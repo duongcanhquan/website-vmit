@@ -27,7 +27,7 @@ function readUrl(raw: unknown, fallback = ""): string {
 
 const PAGE_LINK_HINTS = [
   { label: "Trang chủ", href: ROUTES.home },
-  { label: "Về VMIT", href: ROUTES.about },
+  { label: "VMIT", href: ROUTES.about },
   { label: "Ngành học", href: ROUTES.programs },
   { label: "Lộ trình", href: ROUTES.pathway },
   { label: "Học phí", href: ROUTES.tuition },

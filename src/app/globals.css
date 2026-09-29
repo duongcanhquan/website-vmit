@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 :root {
   /* Colorlib Academia palette (user-approved override) */
@@ -118,7 +119,145 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   .animate-marquee {
     animation: none;
   }
+}
+
+/* Article body — shared by the admin editor and public pages so both render identically */
+.rich-content {
+  --tw-prose-body: #3a3a3a;
+  --tw-prose-headings: var(--color-brand-navy);
+  --tw-prose-links: var(--color-primary);
+  --tw-prose-quote-borders: var(--color-primary);
+  font-size: 17px;
+  line-height: 1.75;
+  overflow-wrap: anywhere;
+}
+.rich-content a {
+  font-weight: 600;
+  text-underline-offset: 3px;
+}
+.rich-content [style*="color"] :is(strong, b, em, i, code) {
+  color: inherit;
+}
+.rich-content img {
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 3px;
+  margin: 0.5em 0;
+}
+.rich-content mark {
+  border-radius: 2px;
+  padding: 0 0.15em;
+  color: inherit;
+}
+.rich-content blockquote {
+  font-style: normal;
+  background: var(--color-sky);
+  padding: 0.75em 1.25em;
+  border-radius: 0 3px 3px 0;
+}
+.rich-content table {
+  display: block;
+  overflow-x: auto;
+  border-collapse: collapse;
+  margin: 1.25em 0;
+}
+.rich-content th,
+.rich-content td {
+  border: 1px solid var(--color-border);
+  padding: 0.5em 0.75em;
+  vertical-align: top;
+  min-width: 80px;
+}
+.rich-content th {
+  background: var(--color-sky);
+  text-align: left;
+}
+.rich-content th p,
+.rich-content td p {
+  margin: 0;
+}
+.rich-content div[data-youtube-video] {
+  margin: 1.25em 0;
+}
+.rich-content iframe {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-radius: 3px;
+}
+
+/* Editor-only affordances */
+.rich-editor .ProseMirror {
+  outline: none;
+}
+.rich-editor .ProseMirror p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  color: var(--color-muted-soft);
+  pointer-events: none;
+}
+.rich-editor .ProseMirror-selectednode img,
+.rich-editor .ProseMirror-selectednode iframe {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+.rich-editor [data-resize-container] {
+  display: inline-block;
+  max-width: 100%;
+}
+.rich-editor [data-resize-handle] {
+  width: 12px;
+  height: 12px;
+  background: var(--color-primary);
+  border: 2px solid #fff;
+  border-radius: 3px;
+  box-shadow: 0 1px 4px rgb(0 0 0 / 25%);
+  opacity: 0;
+  z-index: 5;
+  transition: opacity 0.15s;
+}
+.rich-editor [data-resize-container]:hover [data-resize-handle],
+.rich-editor .ProseMirror-selectednode [data-resize-handle] {
+  opacity: 1;
+}
+.rich-editor [data-resize-handle="top-left"],
+.rich-editor [data-resize-handle="bottom-right"] {
+  cursor: nwse-resize;
+}
+.rich-editor [data-resize-handle="top-right"],
+.rich-editor [data-resize-handle="bottom-left"] {
+  cursor: nesw-resize;
+}
+.rich-editor .selectedCell::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgb(30 178 166 / 12%);
+  pointer-events: none;
+}
+.rich-editor .column-resize-handle {
+  position: absolute;
+  top: 0;
+  right: -2px;
+  bottom: 0;
+  width: 4px;
+  background: var(--color-primary);
+  pointer-events: none;
+}
+.rich-editor .tableWrapper {
+  overflow-x: auto;
+}
+.rich-editor td,
+.rich-editor th {
+  position: relative;
 }

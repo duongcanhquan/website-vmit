@@ -3,12 +3,14 @@
 import { useRouter } from "next/navigation"
 import { useMemo, useState, useTransition } from "react"
 import { deleteRow, upsertRow } from "@/app/admin/(dashboard)/actions"
+import { RichTextEditor } from "@/components/admin/rich-text-editor"
 import { AdminCard, AdminPageHeader, EmptyState, Field, inputClass, textareaClass } from "@/components/admin/ui"
 import { Button } from "@/components/ui/button"
 
 type FieldDef =
   | { key: string; label: string; kind: "text" | "textarea" | "number" | "checkbox" | "url" }
   | { key: string; label: string; kind: "bilingual"; viKey: string; enKey: string; multiline?: boolean }
+  | { key: string; label: string; kind: "richtext"; viKey: string; enKey: string }
 
 type CrudTable =
   | "documents"
@@ -67,6 +69,31 @@ export function SimpleCrud({ title, description, table, fields, rows, newDefault
         <AdminCard className="mb-6">
           <div className="grid gap-3 md:grid-cols-2">
             {fields.map((field) => {
+              if (field.kind === "richtext") {
+                const rowKey = String(form.id ?? "new")
+                return (
+                  <div key={field.key} className="space-y-4 rounded-xl border border-border p-3 md:col-span-2">
+                    <p className="text-xs font-extrabold uppercase text-muted">{field.label}</p>
+                    <div>
+                      <p className="mb-1 text-sm font-bold text-brand-navy">Tiếng Việt</p>
+                      <RichTextEditor
+                        key={`${rowKey}-${field.viKey}`}
+                        value={String(form[field.viKey] ?? "")}
+                        onChange={(html) => setValue(field.viKey, html)}
+                      />
+                    </div>
+                    <div>
+                      <p className="mb-1 text-sm font-bold text-brand-navy">English</p>
+                      <RichTextEditor
+                        key={`${rowKey}-${field.enKey}`}
+                        value={String(form[field.enKey] ?? "")}
+                        onChange={(html) => setValue(field.enKey, html)}
+                        placeholder="Write the article in English…"
+                      />
+                    </div>
+                  </div>
+                )
+              }
               if (field.kind === "bilingual") {
                 return (
                   <div key={field.key} className="space-y-2 rounded-xl border border-border p-3 md:col-span-2">

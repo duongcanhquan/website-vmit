@@ -3,9 +3,11 @@
 import { revalidatePath } from "next/cache"
 import { requireStaff } from "@/lib/admin/auth"
 import { deleteFromR2 } from "@/lib/r2/client"
+import { RICH_TEXT_FIELDS, sanitizeRichHtml } from "@/lib/rich-text"
 
 function revalidatePublic() {
   revalidatePath("/")
+  revalidatePath("/tin-tuc", "layout")
   revalidatePath("/chuong-trinh")
   revalidatePath("/lo-trinh")
   revalidatePath("/hoc-phi")
@@ -102,6 +104,9 @@ export async function upsertRow(table: CrudTable, payload: Record<string, unknow
   const { supabase } = await requireStaff()
   const id = typeof payload.id === "string" ? payload.id : undefined
   const row: Record<string, unknown> = { ...payload, updated_at: new Date().toISOString() }
+  for (const key of RICH_TEXT_FIELDS[table] ?? []) {
+    if (key in row) row[key] = sanitizeRichHtml(row[key])
+  }
   if (!id) {
     delete row.id
     const { error } = await supabase.from(table).insert(row)

@@ -1,5 +1,7 @@
 export type CmsStatus = "ok" | "empty" | "error"
 
+export type NewsPost = HomeCmsProps["posts"][number]
+
 export type HomeCmsProps = {
   settings: Record<string, unknown>
   settingsStatus: CmsStatus
@@ -71,6 +73,8 @@ export type HomeCmsProps = {
     slug?: string | null
     author_name?: string | null
     published_at?: string | null
+    body_vi?: string | null
+    body_en?: string | null
   }>
   postsStatus: CmsStatus
   subjects: Array<{
@@ -81,6 +85,7 @@ export type HomeCmsProps = {
     count_label_en: string
     icon_url: string | null
     hover_icon_url: string | null
+    icon_key?: string | null
   }>
   subjectsStatus: CmsStatus
 }

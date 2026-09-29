@@ -3,7 +3,7 @@ import type { MessageTree } from "@/lib/i18n/types"
 export const messages: Record<"vi" | "en", MessageTree> = {
   vi: {
     nav: {
-      about: "Về VMIT",
+      about: "VMIT",
       programs: "Ngành học",
       pathway: "Lộ trình",
       tuition: "Học phí",
@@ -131,7 +131,7 @@ export const messages: Record<"vi" | "en", MessageTree> = {
   },
   en: {
     nav: {
-      about: "About VMIT",
+      about: "VMIT",
       programs: "Programmes",
       pathway: "Pathway",
       tuition: "Fees",

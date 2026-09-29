@@ -1,35 +1,27 @@
 import type { Metadata } from "next"
 import { AboutPageView } from "@/components/modules/pages/about-page-view"
-import { MEDIA } from "@/constants/media"
-import { resolveMediaUrl } from "@/lib/media"
-import {
-  getPublishedPartners,
-  getPublishedPillars,
-  getPublishedTeam,
-  getSettingsMap,
-} from "@/services/cms"
+import { getPublishedPartners, getPublishedTeam, getSettingsMap } from "@/services/cms"
 
-export const metadata: Metadata = { title: "Về VMIT" }
+export const metadata: Metadata = {
+  title: "Cử nhân thực hành Anh Quốc Pearson BTEC HND",
+  description:
+    "Song bằng Cao đẳng chính quy & Pearson BTEC HND Level 5 tại Cao đẳng Việt Mỹ Hà Nội, liên thông 1 năm lấy bằng Cử nhân Đại học Sunderland (UK) hoặc Keiser (Mỹ).",
+}
 
 export default async function VeVmitPage() {
-  const [settings, pillars, partners, team] = await Promise.all([
+  const [settings, partners, team] = await Promise.all([
     getSettingsMap(),
-    getPublishedPillars(),
     getPublishedPartners(),
     getPublishedTeam(),
   ])
-  const heroImage = resolveMediaUrl(settings.data.hero_image_url, MEDIA.international)
 
   return (
     <AboutPageView
       settings={settings.data}
-      pillars={pillars.data}
-      pillarsStatus={pillars.status}
       partners={partners.data}
       partnersStatus={partners.status}
       team={team.data}
       teamStatus={team.status}
-      heroImage={heroImage}
     />
   )
 }
