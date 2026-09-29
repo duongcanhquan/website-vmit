@@ -20,7 +20,7 @@ export default async function Page() {
         quote: "",
         quote_vi: "",
         quote_en: "",
-        avatar_url: "",
+        avatar_url: "/media/avatars/lan.jpg",
         rating: 5,
         sort_order: 0,
         is_published: true,

@@ -233,7 +233,7 @@ export function SimpleCrud({ title, description, table, fields, rows, newDefault
                 <Button
                   variant="ghost"
                   size="sm"
-                  className="text-brand-red"
+                  className="text-red-700"
                   disabled={pending}
                   onClick={() => {
                     start(async () => {

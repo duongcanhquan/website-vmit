@@ -251,7 +251,7 @@ export function MediaManager({ assets }: { assets: MediaAssetRow[] }) {
                   <Button
                     variant="ghost"
                     size="sm"
-                    className="text-brand-red"
+                    className="text-red-700"
                     disabled={pending}
                     onClick={() => {
                       start(async () => {
