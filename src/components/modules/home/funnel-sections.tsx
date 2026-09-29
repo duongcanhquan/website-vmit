@@ -2,169 +2,253 @@
 
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
-import { Reveal } from "@/components/common/reveal"
+import { MotionImage } from "@/components/common/motion-image"
+import { HoverLift, Reveal } from "@/components/common/reveal"
+import { useLocale } from "@/components/providers/locale-provider"
 import { buttonVariants } from "@/components/ui/button"
 import { ROUTES, SITE } from "@/constants/site"
+import { pickLocale, settingText } from "@/lib/i18n/locale-text"
 import { cn } from "@/lib/utils"
+import type { CmsStatus } from "@/types/home-cms"
 
-export function ProgramsPreview() {
+export function ProgramsPreview({
+  courses,
+  status,
+}: {
+  courses: Array<{
+    id: string
+    slug: string
+    title_vi: string
+    title_en: string
+    summary_vi: string
+    summary_en: string
+  }>
+  status: CmsStatus
+}) {
+  const { locale, t } = useLocale()
   return (
-    <section id="nganh-hoc" className="relative overflow-hidden bg-[image:var(--gradient-section)] py-24">
+    <section id="nganh-hoc" className="bg-mist py-20 md:py-24">
       <div className="mx-auto max-w-7xl px-4">
         <Reveal>
-          <p className="text-sm font-semibold uppercase tracking-[0.22em] text-brand-red">Programmes</p>
-          <h2 className="mt-3 font-display text-[clamp(2rem,4vw,3.25rem)] font-semibold tracking-[-0.03em] text-brand-navy">
-            Chương trình đào tạo
+          <p className="overline text-accent-cobalt">{t.programs.eyebrow}</p>
+          <h2 className="mt-3 font-display text-[clamp(1.9rem,3.5vw,2.85rem)] font-medium tracking-[-0.02em] text-brand-navy">
+            {t.programs.title}
           </h2>
-          <p className="mt-4 max-w-2xl text-lg text-muted">
-            Hai ngành BTEC trọng điểm và lộ trình Foundation IELTS — chuẩn Anh Quốc, học tại Việt Nam.
-          </p>
+          <p className="mt-4 max-w-2xl text-body-lg text-muted">{t.programs.lead}</p>
         </Reveal>
-
-        <div className="mt-12 grid gap-5 md:grid-cols-3">
-          {[
-            {
-              title: "BTEC Data Analytics",
-              desc: "Phân tích dữ liệu thực chiến với chuẩn Pearson HND.",
-              href: ROUTES.programs,
-            },
-            {
-              title: "BTEC Business Management",
-              desc: "Quản trị doanh nghiệp theo khung giáo dục Anh Quốc.",
-              href: ROUTES.programs,
-            },
-            {
-              title: "Foundation IELTS",
-              desc: "Nền tảng tiếng Anh học thuật trước khi vào chuyên ngành.",
-              href: ROUTES.programs,
-            },
-          ].map((item, index) => (
-            <Reveal key={item.title} delay={0.1 * index}>
-              <Link
-                href={item.href}
-                className="group flex h-full flex-col border border-border bg-white p-7 transition duration-300 hover:-translate-y-1 hover:border-brand-red/35 hover:shadow-[0_24px_50px_-32px_rgba(227,27,35,0.35)] md:p-8"
-              >
-                <span className="font-display text-5xl font-semibold text-brand-navy/10 transition group-hover:text-brand-red/20">
-                  0{index + 1}
-                </span>
-                <h3 className="mt-4 font-display text-2xl font-semibold tracking-tight text-brand-navy">
-                  {item.title}
-                </h3>
-                <p className="mt-3 flex-1 text-base text-muted">{item.desc}</p>
-                <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-brand-red">
-                  Xem chương trình
-                  <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </span>
-              </Link>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
-
-export function PathwayPreview() {
-  return (
-    <section id="lo-trinh" className="mx-auto max-w-7xl px-4 py-24">
-      <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
-        <Reveal>
-          <p className="text-sm font-semibold uppercase tracking-[0.22em] text-brand-red">Global pathway</p>
-          <h2 className="mt-3 font-display text-[clamp(2rem,4vw,3.25rem)] font-semibold tracking-[-0.03em] text-brand-navy">
-            Lộ trình & bằng cấp
-          </h2>
-          <p className="mt-4 max-w-xl text-lg text-muted">
-            Song bằng tại chỗ và mạng lưới chuyển tiếp 2+1 / 2+2 tới Keiser University (Mỹ), Anh và Úc.
-          </p>
-          <Link href={ROUTES.pathway} className={cn(buttonVariants({ variant: "secondary", size: "lg" }), "mt-8")}>
-            Xem lộ trình đầy đủ
-            <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
-          </Link>
-        </Reveal>
-
-        <Reveal delay={0.15} className="relative">
-          <div className="absolute -inset-3 bg-gradient-to-br from-brand-navy/10 via-transparent to-brand-red/10" aria-hidden />
-          <ol className="relative space-y-0 border border-border bg-white">
-            {[
-              { step: "01", title: "Foundation / IELTS", note: "Nền tảng học thuật" },
-              { step: "02", title: "BTEC HND Level 5", note: "Song bằng VMIT · APC" },
-              { step: "03", title: "Top-up quốc tế", note: "2+1 / 2+2 · UK · US · AU" },
-            ].map((item, i) => (
-              <li
-                key={item.step}
-                className={cn(
-                  "flex items-start gap-5 px-6 py-6 md:px-8",
-                  i < 2 ? "border-b border-border" : "",
-                )}
-              >
-                <span className="font-display text-2xl font-semibold text-brand-red">{item.step}</span>
-                <div>
-                  <p className="font-display text-xl font-semibold text-brand-navy">{item.title}</p>
-                  <p className="mt-1 text-sm text-muted">{item.note}</p>
-                </div>
-              </li>
+        {status === "error" ? <p className="mt-8 text-sm text-muted">Không tải được chương trình.</p> : null}
+        {status === "empty" ? <p className="mt-8 text-sm text-muted">Chưa có chương trình trong CMS.</p> : null}
+        {status === "ok" ? (
+          <div className="mt-10 grid gap-4 md:grid-cols-3">
+            {courses.map((item, index) => (
+              <Reveal key={item.id} delay={0.08 * index}>
+                <HoverLift>
+                  <Link
+                    href={ROUTES.programs}
+                    className="group flex h-full flex-col rounded-xl border border-border bg-surface p-6 shadow-hairline transition hover:border-brand-navy/20 md:p-7"
+                  >
+                    <span className="font-display text-4xl font-medium text-brand-navy/15">0{index + 1}</span>
+                    <h3 className="mt-3 font-display text-xl font-medium tracking-tight text-brand-navy">
+                      {locale === "vi" ? item.title_vi : item.title_en}
+                    </h3>
+                    <p className="mt-3 flex-1 text-sm leading-relaxed text-muted md:text-base">
+                      {locale === "vi" ? item.summary_vi : item.summary_en}
+                    </p>
+                    <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-accent-gold">
+                      {t.programs.view}
+                      <ArrowRight className="size-4 transition group-hover:translate-x-0.5" />
+                    </span>
+                  </Link>
+                </HoverLift>
+              </Reveal>
             ))}
-          </ol>
+          </div>
+        ) : null}
+      </div>
+    </section>
+  )
+}
+
+export function PathwayPreview({
+  steps,
+  status,
+  campusUrl,
+}: {
+  steps: Array<{
+    id: string
+    step_code: string
+    title_vi: string
+    title_en: string
+    note_vi: string
+    note_en: string
+  }>
+  status: CmsStatus
+  campusUrl: string
+}) {
+  const { locale, t } = useLocale()
+  return (
+    <section id="lo-trinh" className="bg-mist py-20 md:py-24">
+      <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 lg:grid-cols-12">
+        <Reveal className="lg:col-span-5">
+          <p className="overline text-accent-cobalt">{t.pathway.eyebrow}</p>
+          <h2 className="mt-3 font-display text-[clamp(1.9rem,3.5vw,2.85rem)] font-medium tracking-[-0.02em] text-brand-navy">
+            {t.pathway.title}
+          </h2>
+          <p className="mt-4 max-w-xl text-body-lg text-muted">{t.pathway.lead}</p>
+          <Link href={ROUTES.pathway} className={cn(buttonVariants({ variant: "secondary", size: "lg" }), "mt-8")}>
+            {t.pathway.cta}
+            <ArrowRight className="size-4" />
+          </Link>
+        </Reveal>
+        <Reveal delay={0.1} className="lg:col-span-7">
+          <div className="overflow-hidden rounded-xl border border-border bg-surface shadow-hairline">
+            <MotionImage
+              src={campusUrl}
+              alt={locale === "vi" ? "Khuôn viên học thuật VMIT" : "VMIT academic campus"}
+              fill
+              sizes="(max-width:1024px) 100vw, 55vw"
+              frameClassName="relative aspect-video w-full"
+            />
+            <ol className="divide-y divide-border">
+              {status === "ok"
+                ? steps.map((item) => (
+                    <li key={item.id} className="flex items-start gap-4 px-5 py-4 md:px-6">
+                      <span className="font-display text-xl font-medium text-accent-gold">{item.step_code}</span>
+                      <div>
+                        <p className="font-display text-lg font-medium text-brand-navy">
+                          {locale === "vi" ? item.title_vi : item.title_en}
+                        </p>
+                        <p className="mt-0.5 text-sm text-muted">
+                          {locale === "vi" ? item.note_vi : item.note_en}
+                        </p>
+                      </div>
+                    </li>
+                  ))
+                : (
+                    <li className="px-5 py-6 text-sm text-muted">
+                      {status === "error" ? "Không tải lộ trình." : "Chưa có bước lộ trình trong CMS."}
+                    </li>
+                  )}
+            </ol>
+          </div>
         </Reveal>
       </div>
     </section>
   )
 }
 
-export function TuitionTeaser() {
+export function TuitionTeaser({
+  plans,
+  status,
+  settings,
+}: {
+  plans: Array<Record<string, unknown>>
+  status: CmsStatus
+  settings: Record<string, unknown>
+}) {
+  const { locale, t } = useLocale()
+  const year = settingText(settings.admission_year, locale) || SITE.admissionYear
+  const featured = plans[0]
   return (
-    <section id="hoc-phi" className="relative overflow-hidden bg-brand-navy py-24 text-white">
-      <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_80%_20%,rgba(227,27,35,0.35),transparent_50%)]"
-        aria-hidden
-      />
-      <div className="hero-grid absolute inset-0 opacity-20" aria-hidden />
-      <div className="relative mx-auto max-w-7xl px-4 md:flex md:items-end md:justify-between md:gap-10">
-        <Reveal>
-          <p className="text-sm font-semibold uppercase tracking-[0.22em] text-white/55">Fees & scholarships</p>
-          <h2 className="mt-3 font-display text-[clamp(2.25rem,4.5vw,3.75rem)] font-semibold tracking-[-0.03em]">
-            Vốn nhẹ – Bước xa
-          </h2>
-          <p className="mt-4 max-w-xl text-lg text-white/80">
-            Chính sách linh hoạt từ <strong className="font-semibold text-white">15 triệu VND</strong> · quỹ học bổng
-            nhân tài {SITE.admissionYear}.
-          </p>
-        </Reveal>
-        <Reveal delay={0.12}>
-          <Link href={ROUTES.tuition} className={cn(buttonVariants({ variant: "primary", size: "xl" }), "mt-8 md:mt-0")}>
-            Học phí & học bổng
-            <ArrowRight className="size-5 transition-transform duration-300 group-hover:translate-x-1" />
-          </Link>
-        </Reveal>
+    <section id="hoc-phi" className="bg-mist py-20 md:py-24">
+      <div className="mx-auto max-w-7xl px-4">
+        <div className="rounded-xl border border-border bg-brand-navy px-8 py-12 text-white md:flex md:items-end md:justify-between md:px-12 md:py-14">
+          <Reveal>
+            <p className="overline text-accent-gold/90">{t.tuition.eyebrow}</p>
+            <h2 className="mt-3 font-display text-[clamp(2rem,3.8vw,3rem)] font-medium tracking-[-0.02em]">
+              {featured ? pickLocale(featured, locale, "name") || t.tuition.title : t.tuition.title}
+            </h2>
+            <p className="mt-4 max-w-xl text-base leading-relaxed text-white/75 md:text-lg">
+              {status === "ok" && featured
+                ? pickLocale(featured, locale, "description")
+                : `${t.tuition.leadBefore} 15 triệu VND ${t.tuition.leadAfter} ${year}.`}
+            </p>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <Link
+              href={ROUTES.tuition}
+              className={cn(buttonVariants({ variant: "primary", size: "lg" }), "mt-8 md:mt-0")}
+            >
+              {t.tuition.cta}
+              <ArrowRight className="size-4" />
+            </Link>
+          </Reveal>
+        </div>
       </div>
     </section>
   )
 }
 
 export function ApplyCta() {
+  const { t } = useLocale()
   return (
-    <section id="xet-tuyen" className="mx-auto max-w-7xl px-4 py-24">
-      <Reveal>
-        <div className="relative overflow-hidden border border-border bg-white px-8 py-12 md:flex md:items-center md:justify-between md:px-14 md:py-16">
-          <div
-            className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-brand-red/10 blur-3xl"
-            aria-hidden
-          />
-          <div className="relative">
-            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-brand-red">Admissions</p>
-            <h2 className="mt-3 font-display text-[clamp(2rem,3.5vw,3rem)] font-semibold tracking-tight text-brand-navy">
-              Cổng xét tuyển trực tuyến
-            </h2>
-            <p className="mt-3 max-w-xl text-lg text-muted">
-              Form 3 bước · biên nhận tự động · mã theo dõi hồ sơ. Sẵn sàng nhận hồ sơ khi bật Supabase.
-            </p>
+    <section id="xet-tuyen" className="bg-mist py-20 md:py-24">
+      <div className="mx-auto max-w-7xl px-4">
+        <Reveal>
+          <div className="flex flex-col items-start justify-between gap-6 rounded-xl border border-border bg-surface px-8 py-10 shadow-hairline md:flex-row md:items-center md:px-12 md:py-12">
+            <div>
+              <p className="overline text-accent-cobalt">{t.apply.eyebrow}</p>
+              <h2 className="mt-3 font-display text-[clamp(1.85rem,3vw,2.5rem)] font-medium tracking-tight text-brand-navy">
+                {t.apply.title}
+              </h2>
+              <p className="mt-3 max-w-xl text-muted">{t.apply.lead}</p>
+            </div>
+            <Link href={ROUTES.apply} className={cn(buttonVariants({ size: "lg" }), "shrink-0")}>
+              {t.apply.cta}
+              <ArrowRight className="size-4" />
+            </Link>
           </div>
-          <Link href={ROUTES.apply} className={cn(buttonVariants({ size: "xl" }), "relative mt-8 shrink-0 md:mt-0")}>
-            Bắt đầu xét tuyển
-            <ArrowRight className="size-5 transition-transform duration-300 group-hover:translate-x-1" />
-          </Link>
+        </Reveal>
+      </div>
+    </section>
+  )
+}
+
+export function StudentLifePreview({ settings }: { settings: Record<string, unknown> }) {
+  const { locale, t } = useLocale()
+  const img1 = String(settings.life_image_1_url ?? "/media/students-collab.jpg").replaceAll('"', "")
+  const img2 = String(settings.life_image_2_url ?? "/media/students-study.jpg").replaceAll('"', "")
+  return (
+    <section id="doi-song" className="bg-mist py-20">
+      <div className="mx-auto max-w-7xl px-4">
+        <Reveal>
+          <p className="overline text-accent-cobalt">{t.life.eyebrow}</p>
+          <h2 className="mt-3 font-display text-[clamp(1.9rem,3.5vw,2.75rem)] font-medium tracking-tight text-brand-navy">
+            {t.life.title}
+          </h2>
+          <p className="mt-4 max-w-2xl text-body-lg text-muted">{t.life.lead}</p>
+        </Reveal>
+        <div className="mt-10 grid gap-4 md:grid-cols-5">
+          <Reveal className="md:col-span-3">
+            <HoverLift>
+              <div className="overflow-hidden rounded-xl border border-border shadow-hairline">
+                <MotionImage
+                  src={img1}
+                  alt={locale === "vi" ? "Đời sống sinh viên VMIT" : "VMIT student life"}
+                  width={1200}
+                  height={800}
+                  className="h-72 w-full md:h-[22rem]"
+                  frameClassName="w-full"
+                />
+              </div>
+            </HoverLift>
+          </Reveal>
+          <Reveal delay={0.08} className="md:col-span-2">
+            <HoverLift>
+              <div className="overflow-hidden rounded-xl border border-border shadow-hairline">
+                <MotionImage
+                  src={img2}
+                  alt={locale === "vi" ? "Không gian học tập VMIT" : "VMIT learning spaces"}
+                  width={900}
+                  height={800}
+                  className="h-72 w-full md:h-[22rem]"
+                  frameClassName="w-full"
+                />
+              </div>
+            </HoverLift>
+          </Reveal>
         </div>
-      </Reveal>
+      </div>
     </section>
   )
 }

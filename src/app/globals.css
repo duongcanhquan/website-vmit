@@ -1,31 +1,49 @@
 @import "tailwindcss";
 
 :root {
-  --color-brand-red: #e31b23;
-  --color-brand-navy: #001d7e;
-  --color-background: #f7f8fc;
-  --color-foreground: #001d7e;
-  --color-muted: #5a6a8a;
-  --color-border: #dce2ee;
-  --gradient-hero: linear-gradient(125deg, #00103f 0%, #001d7e 42%, #8b1220 78%, #e31b23 100%);
-  --gradient-section: linear-gradient(180deg, #eef1f8 0%, #f7f8fc 55%, #ffffff 100%);
+  /* European academic palette */
+  --color-brand-navy: #0e1b2e;
+  --color-brand-slate: #1e293b;
+  --color-brand-red: #c8a261;
+  --color-accent-gold: #c8a261;
+  --color-accent-cobalt: #2b59c3;
+  --color-sky: #eef1f4;
+  --color-mist: #f5f6f8;
+  --color-background: #f5f6f8;
+  --color-foreground: #1e293b;
+  --color-muted: #334155;
+  --color-border: #e2e8f0;
+  --color-surface: #ffffff;
+  --gradient-hero: linear-gradient(135deg, rgba(245, 246, 248, 0.97) 0%, rgba(238, 241, 244, 0.85) 55%, rgba(245, 246, 248, 0.4) 100%);
+  --gradient-section: linear-gradient(180deg, #f5f6f8 0%, #eef1f4 40%, #ffffff 100%);
+  --gradient-soft: linear-gradient(145deg, #ffffff 0%, #f5f6f8 60%, #eef1f4 100%);
+  --shadow-hairline: 0 1px 3px rgba(14, 27, 46, 0.04);
   --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
-  --font-body: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
 }
 
 @theme inline {
-  --color-brand-red: #e31b23;
-  --color-brand-navy: #001d7e;
-  --color-background: #f7f8fc;
-  --color-foreground: #001d7e;
-  --color-muted: #5a6a8a;
-  --color-border: #dce2ee;
-  --color-primary: #e31b23;
-  --color-primary-foreground: #ffffff;
-  --color-secondary: #001d7e;
+  --color-brand-navy: #0e1b2e;
+  --color-brand-slate: #1e293b;
+  --color-brand-red: #c8a261;
+  --color-accent-gold: #c8a261;
+  --color-accent-cobalt: #2b59c3;
+  --color-sky: #eef1f4;
+  --color-mist: #f5f6f8;
+  --color-background: #f5f6f8;
+  --color-foreground: #1e293b;
+  --color-muted: #334155;
+  --color-border: #e2e8f0;
+  --color-surface: #ffffff;
+  --color-primary: #c8a261;
+  --color-primary-foreground: #0e1b2e;
+  --color-secondary: #0e1b2e;
   --color-secondary-foreground: #ffffff;
   --font-sans: var(--font-body);
   --font-display: var(--font-display);
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
 }
 
 html {
@@ -36,13 +54,31 @@ body {
   background: var(--color-background);
   color: var(--color-foreground);
   font-family: var(--font-body);
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.65;
 }
 
 .font-display {
   font-family: var(--font-fraunces), ui-serif, Georgia, serif;
   letter-spacing: -0.02em;
+  font-weight: 550;
+  line-height: 1.18;
+}
+
+.text-body-lg {
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.overline {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.shadow-hairline {
+  box-shadow: var(--shadow-hairline);
 }
 
 @keyframes marquee {
@@ -58,40 +94,8 @@ body {
   animation: marquee 38s linear infinite;
 }
 
-@keyframes float-soft {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-.animate-float-soft {
-  animation: float-soft 7s ease-in-out infinite;
-}
-
-@keyframes sheen {
-  0% {
-    background-position: 200% center;
-  }
-  100% {
-    background-position: -200% center;
-  }
-}
-
-.hero-grid {
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-  background-size: 56px 56px;
-  mask-image: radial-gradient(ellipse at center, black 35%, transparent 78%);
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .animate-marquee,
-  .animate-float-soft {
+  .animate-marquee {
     animation: none;
   }
 }

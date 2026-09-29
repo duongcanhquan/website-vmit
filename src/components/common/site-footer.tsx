@@ -1,53 +1,60 @@
+"use client"
+
 import Image from "next/image"
 import Link from "next/link"
-import { NAV_ITEMS, ROUTES, SITE } from "@/constants/site"
+import { useLocale } from "@/components/providers/locale-provider"
+import { ROUTES, SITE } from "@/constants/site"
+import { settingText } from "@/lib/i18n/locale-text"
 
-export function SiteFooter() {
+export function SiteFooter({ settings = {} }: { settings?: Record<string, unknown> }) {
+  const { locale, t } = useLocale()
+  const badge = settingText(settings.accreditation_badge, locale) || SITE.accreditationBadge
+  const hotline = settingText(settings.hotline_display, locale) || t.common.hotline
+  const year = settingText(settings.admission_year, locale) || SITE.admissionYear
+  const nav = [
+    { href: ROUTES.about, label: t.nav.about },
+    { href: ROUTES.programs, label: t.nav.programs },
+    { href: ROUTES.pathway, label: t.nav.pathway },
+    { href: ROUTES.tuition, label: t.nav.tuition },
+    { href: ROUTES.apply, label: `${t.nav.apply} ${year}` },
+  ]
+
   return (
-    <footer className="relative overflow-hidden border-t border-white/10 bg-[#000f3d] text-white">
-      <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(227,27,35,0.22),transparent_45%)]"
-        aria-hidden
-      />
-      <div className="relative mx-auto grid max-w-7xl gap-10 px-4 py-16 md:grid-cols-[1.4fr_1fr_1fr]">
+    <footer className="border-t border-white/10 bg-brand-navy text-white">
+      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 md:grid-cols-[1.4fr_1fr_1fr]">
         <div>
           <Image
             src="/brand/logo-vmit.png"
             alt="VMIT"
-            width={160}
-            height={64}
-            className="h-auto w-[148px] object-contain"
+            width={148}
+            height={58}
+            className="h-auto w-[132px] object-contain brightness-0 invert"
           />
-          <p className="mt-5 font-display text-2xl font-medium italic tracking-tight text-white/90">
-            {SITE.brandTagline}
+          <p className="mt-5 font-display text-2xl font-medium tracking-tight text-white">VMIT</p>
+          <p className="mt-2 overline text-white/40">
+            {badge} · APC
           </p>
-          <p className="mt-2 text-sm text-white/60">{SITE.heroSlogan}</p>
         </div>
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/45">Điều hướng</p>
-          <ul className="mt-4 space-y-2.5 text-[15px]">
-            {NAV_ITEMS.map((item) => (
+          <p className="overline text-white/40">{t.footer.nav}</p>
+          <ul className="mt-4 space-y-2.5 text-sm font-medium">
+            {nav.map((item) => (
               <li key={item.href}>
-                <Link href={item.href} className="text-white/80 transition hover:text-white">
+                <Link href={item.href} className="text-white/75 transition hover:text-accent-gold">
                   {item.label}
                 </Link>
               </li>
             ))}
-            <li>
-              <Link href={ROUTES.apply} className="text-white/80 transition hover:text-white">
-                Xét tuyển {SITE.admissionYear}
-              </Link>
-            </li>
           </ul>
         </div>
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/45">Liên hệ</p>
-          <p className="mt-4 text-[15px] text-white/80">{SITE.hotlineDisplay}</p>
-          <p className="mt-2 text-sm text-white/50">[VMIT: địa chỉ / email]</p>
+          <p className="overline text-white/40">{t.footer.contact}</p>
+          <p className="mt-4 text-sm font-medium text-white/80">{hotline}</p>
+          <p className="mt-2 text-sm text-white/45">[VMIT: địa chỉ / email]</p>
         </div>
       </div>
-      <div className="relative border-t border-white/10 py-5 text-center text-xs tracking-wide text-white/40">
-        © {new Date().getFullYear()} {SITE.name}. All rights reserved.
+      <div className="border-t border-white/10 py-4 text-center text-xs tracking-wide text-white/35">
+        © {new Date().getFullYear()} {SITE.name}. {t.footer.rights}
       </div>
     </footer>
   )

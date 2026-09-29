@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
-import { Fraunces, Manrope } from "next/font/google"
+import { Fraunces, Plus_Jakarta_Sans } from "next/font/google"
+import { LocaleProvider } from "@/components/providers/locale-provider"
 import { SITE } from "@/constants/site"
 import "./globals.css"
 
@@ -9,24 +10,26 @@ const fraunces = Fraunces({
   display: "swap",
 })
 
-const manrope = Manrope({
+const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin", "vietnamese"],
-  variable: "--font-manrope",
+  variable: "--font-jakarta",
   display: "swap",
 })
 
 export const metadata: Metadata = {
   title: {
-    default: `${SITE.name} | ${SITE.heroSlogan}`,
+    default: `${SITE.name} · ${SITE.heroHeadline}`,
     template: `%s | ${SITE.name}`,
   },
-  description: `${SITE.heroHeadline}. ${SITE.brandTagline}`,
+  description: SITE.heroHeadline,
 }
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="vi">
-      <body className={`${fraunces.variable} ${manrope.variable} antialiased`}>{children}</body>
+      <body className={`${fraunces.variable} ${jakarta.variable} antialiased`}>
+        <LocaleProvider>{children}</LocaleProvider>
+      </body>
     </html>
   )
 }

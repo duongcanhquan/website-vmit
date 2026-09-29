@@ -1,18 +1,21 @@
 import type { Metadata } from "next"
-import SimplePage from "@/components/common/simple-page"
+import { ProgramsPageView } from "@/components/modules/pages/programs-page-view"
+import { MEDIA } from "@/constants/media"
+import { resolveMediaUrl } from "@/lib/media"
+import { getPublishedCourses, getSettingsMap } from "@/services/cms"
 
 export const metadata: Metadata = { title: "Chương trình đào tạo" }
 
-export default function ChuongTrinhPage() {
+export default async function ChuongTrinhPage() {
+  const [settings, courses] = await Promise.all([getSettingsMap(), getPublishedCourses()])
+  const heroImage = resolveMediaUrl(settings.data.life_image_1_url, MEDIA.studentsStudy)
+
   return (
-    <SimplePage
-      title="Chương trình đào tạo"
-      lead="Hai ngành BTEC trọng điểm và Foundation IELTS dẫn lối vào đại học thực hành Anh Quốc."
-      bullets={[
-        "BTEC Data Analytics",
-        "BTEC Business Management",
-        "Foundation IELTS pathway",
-      ]}
+    <ProgramsPageView
+      settings={settings.data}
+      courses={courses.data}
+      status={courses.status}
+      heroImage={heroImage}
     />
   )
 }

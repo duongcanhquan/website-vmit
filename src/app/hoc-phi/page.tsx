@@ -1,18 +1,21 @@
 import type { Metadata } from "next"
-import SimplePage from "@/components/common/simple-page"
+import { TuitionPageView } from "@/components/modules/pages/tuition-page-view"
+import { MEDIA } from "@/constants/media"
+import { resolveMediaUrl } from "@/lib/media"
+import { getPublishedPricing, getSettingsMap } from "@/services/cms"
 
 export const metadata: Metadata = { title: "Học phí & Học bổng" }
 
-export default function HocPhiPage() {
+export default async function HocPhiPage() {
+  const [settings, pricing] = await Promise.all([getSettingsMap(), getPublishedPricing()])
+  const heroImage = resolveMediaUrl(settings.data.life_image_2_url, MEDIA.library)
+
   return (
-    <SimplePage
-      title="Học phí & Học bổng"
-      lead="Minh bạch chi phí với chính sách Vốn nhẹ – Bước xa và quỹ học bổng nhân tài."
-      bullets={[
-        "Chính sách từ 15 triệu VND",
-        "Quỹ học bổng nhân tài",
-        "[VMIT: bảng học phí chi tiết theo kỳ]",
-      ]}
+    <TuitionPageView
+      settings={settings.data}
+      plans={pricing.data}
+      status={pricing.status}
+      heroImage={heroImage}
     />
   )
 }

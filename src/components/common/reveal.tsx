@@ -57,3 +57,23 @@ export const staggerItem = {
     transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] as const },
   },
 }
+
+export function HoverLift({
+  className,
+  children,
+}: {
+  className?: string
+  children: ReactNode
+}) {
+  const reduce = useReducedMotion()
+  return (
+    <motion.div
+      className={className}
+      whileHover={reduce ? undefined : { y: -3 }}
+      transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+    >
+      {children}
+    </motion.div>
+  )
+}
+

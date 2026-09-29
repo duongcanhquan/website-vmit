@@ -1,42 +1,58 @@
 "use client"
 
 import { useState } from "react"
-import { Reveal } from "@/components/common/reveal"
 import { SiteFooter } from "@/components/common/site-footer"
 import { SiteHeader } from "@/components/common/site-header"
-import { ApplyCta, PathwayPreview, ProgramsPreview, TuitionTeaser } from "@/components/modules/home/funnel-sections"
+import {
+  ApplyCta,
+  PathwayPreview,
+  ProgramsPreview,
+  StudentLifePreview,
+  TuitionTeaser,
+} from "@/components/modules/home/funnel-sections"
 import { HeroSection } from "@/components/modules/home/hero-section"
 import { PillarsBento } from "@/components/modules/home/pillars-bento"
 import { ScholarshipModal } from "@/components/modules/home/scholarship-modal"
 import { TrustMarquee } from "@/components/modules/home/trust-marquee"
+import { VisualGallery } from "@/components/modules/home/visual-gallery"
+import { MEDIA } from "@/constants/media"
+import { resolveMediaUrl } from "@/lib/media"
+import type { HomeCmsProps } from "@/types/home-cms"
 
-export function HomePage() {
+export default function HomePage({ cms }: { cms: HomeCmsProps }) {
   const [scholarshipOpen, setScholarshipOpen] = useState(false)
+  const heroSettings = {
+    ...cms.settings,
+    hero_image_url: resolveMediaUrl(cms.settings.hero_image_url, MEDIA.hero),
+    campus_image_url: resolveMediaUrl(cms.settings.campus_image_url, MEDIA.campusFacility),
+    life_image_1_url: resolveMediaUrl(cms.settings.life_image_1_url, MEDIA.studentsCollab),
+    life_image_2_url: resolveMediaUrl(cms.settings.life_image_2_url, MEDIA.studentsStudy),
+  }
 
   return (
     <>
-      <SiteHeader />
+      <SiteHeader settings={cms.settings} />
       <main>
-        <HeroSection onOpenScholarship={() => setScholarshipOpen(true)} />
-        <TrustMarquee />
-        <PillarsBento />
-        <ProgramsPreview />
-        <PathwayPreview />
-        <TuitionTeaser />
-        <div id="doi-song" className="mx-auto max-w-7xl px-4 py-20">
-          <Reveal>
-            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-brand-red">Campus life</p>
-            <h2 className="mt-3 font-display text-[clamp(2rem,3.5vw,3rem)] font-semibold tracking-tight text-brand-navy">
-              Đời sống sinh viên
-            </h2>
-            <p className="mt-4 max-w-2xl text-lg text-muted">
-              [VMIT: nội dung đời sống SV — bổ sung khi có brief đầy đủ]
-            </p>
-          </Reveal>
-        </div>
+        <HeroSection settings={heroSettings} onOpenScholarship={() => setScholarshipOpen(true)} />
+        <TrustMarquee partners={cms.partners} status={cms.partnersStatus} />
+        <PillarsBento
+          pillars={cms.pillars}
+          counters={cms.counters}
+          pillarsStatus={cms.pillarsStatus}
+          countersStatus={cms.countersStatus}
+        />
+        <VisualGallery items={cms.gallery} status={cms.galleryStatus} settings={cms.settings} />
+        <ProgramsPreview courses={cms.courses} status={cms.coursesStatus} />
+        <PathwayPreview
+          steps={cms.pathway}
+          status={cms.pathwayStatus}
+          campusUrl={String(heroSettings.campus_image_url)}
+        />
+        <TuitionTeaser plans={cms.pricing} status={cms.pricingStatus} settings={cms.settings} />
+        <StudentLifePreview settings={heroSettings} />
         <ApplyCta />
       </main>
-      <SiteFooter />
+      <SiteFooter settings={cms.settings} />
       <ScholarshipModal open={scholarshipOpen} onClose={() => setScholarshipOpen(false)} />
     </>
   )
