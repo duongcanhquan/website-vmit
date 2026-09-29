@@ -8,11 +8,17 @@ import { AdminCard, AdminPageHeader, Field, inputClass, textareaClass } from "@/
 import { saveSettingsBatch } from "@/app/admin/(dashboard)/actions"
 import { MEDIA } from "@/constants/media"
 import { ROUTES, accreditationBadgeText } from "@/constants/site"
+import { heroText } from "@/lib/hero-copy"
 
 type LocalePair = { vi: string; en: string }
 
 type Props = {
   initial: Record<string, unknown>
+}
+
+function heroPair(kind: "headline" | "support", raw: unknown): LocalePair {
+  const pair = readPair(raw)
+  return { vi: heroText(kind, pair.vi, "vi"), en: heroText(kind, pair.en, "en") }
 }
 
 function readPair(raw: unknown): LocalePair {
@@ -86,15 +92,8 @@ export function SettingsForm({ initial }: Props) {
     hero_slogan: readPair(
       initial.hero_slogan ?? initial.tagline ?? { vi: "Journey to work excellence", en: "Journey to work excellence" },
     ),
-    hero_headline: readPair(
-      initial.hero_headline ?? { vi: "CỬ NHÂN THỰC HÀNH ANH QUỐC", en: "UK PRACTICE-BASED BACHELOR'S DEGREE" },
-    ),
-    hero_support: readPair(
-      initial.hero_support ?? {
-        vi: "Chương trình học từ Anh với lộ trình học đa dạng và thực tiễn.",
-        en: "UK programmes with diverse, practical learning pathways.",
-      },
-    ),
+    hero_headline: heroPair("headline", initial.hero_headline),
+    hero_support: heroPair("support", initial.hero_support),
     hero_cta_primary_label: readPair(
       initial.hero_cta_primary_label ?? { vi: "Nhận học bổng", en: "Get a scholarship" },
     ),

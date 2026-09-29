@@ -32,7 +32,6 @@ export function AboutBenefits({
     title: card.title[locale],
     desc: card.desc[locale],
   }))
-  const aboutLead = homeText(settings, "about_lead", locale)
   const imageUrl = homeImage(settings, "home_benefits_image")
   const countersImage = homeImage(settings, "home_counters_image")
 
@@ -65,7 +64,6 @@ export function AboutBenefits({
               <h2 className="mt-3 text-3xl font-black tracking-tight text-brand-navy md:text-[2.5rem] md:leading-tight">
                 {homeText(settings, "home_benefits_title", locale)}
               </h2>
-              <p className="mt-4 text-base text-muted md:text-lg">{aboutLead}</p>
             </Reveal>
             <div className="mt-10 space-y-6">
               {items.map((item, index) => (

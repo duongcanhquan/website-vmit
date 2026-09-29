@@ -16,8 +16,8 @@ export const messages: Record<"vi" | "en", MessageTree> = {
     },
     hero: {
       slogan: "Journey to work excellence",
-      headline: "CỬ NHÂN THỰC HÀNH ANH\u00A0QUỐC",
-      support: "Chương trình học từ Anh với lộ trình học đa dạng và thực\u00A0tiễn.",
+      headline: "CHƯƠNG\u00A0TRÌNH CỬ\u00A0NHÂN ANH\u00A0QUỐC",
+      support: "Lộ trình tới TOP 1% đại học Quốc\u00A0tế.",
       ctaExplore: "Xem hình ảnh",
       ctaScholarship: "Nhận học bổng",
       ctaApply: "Cổng xét tuyển",
@@ -149,8 +149,8 @@ export const messages: Record<"vi" | "en", MessageTree> = {
     },
     hero: {
       slogan: "Journey to work excellence",
-      headline: "UK PRACTICE-BASED BACHELOR'S\u00A0DEGREE",
-      support: "UK programmes with diverse, practical learning\u00A0pathways.",
+      headline: "UK BACHELOR'S DEGREE\u00A0PROGRAMME",
+      support: "Your pathway to the TOP 1% of international\u00A0universities.",
       ctaExplore: "View the gallery",
       ctaScholarship: "Get a scholarship",
       ctaApply: "Admissions portal",

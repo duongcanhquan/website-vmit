@@ -114,21 +114,12 @@ export const HOME_SECTIONS: HomeSection[] = [
     id: "benefits",
     title: "Lợi ích học tập",
     fields: [
-      { key: "home_benefits_eyebrow", label: "Dòng nhỏ phía trên", kind: "text", fallback: pair("Chương trình học tập độc đáo", "A distinctive learning programme") },
+      { key: "home_benefits_eyebrow", label: "Dòng nhỏ phía trên", kind: "text", fallback: pair("CHƯƠNG TRÌNH HỌC THỰC HÀNH", "PRACTICE-BASED LEARNING PROGRAMME") },
       {
         key: "home_benefits_title",
         label: "Tiêu đề",
         kind: "text",
         fallback: pair("CÁC LỢI ÍCH KHI HỌC TẠI VIỆT MỸ", "BENEFITS OF STUDYING AT VIET MY"),
-      },
-      {
-        key: "about_lead",
-        label: "Đoạn giới thiệu",
-        kind: "multiline",
-        fallback: pair(
-          "Lợi ích học tập thực chiến theo chuẩn Anh Quốc ngay tại Việt Nam.",
-          "The benefits of hands-on, UK-standard learning, right here in Vietnam.",
-        ),
       },
       { key: "home_benefits_image", label: "Ảnh bên trái", kind: "image", fallback: MEDIA.aboutStudent },
     ],

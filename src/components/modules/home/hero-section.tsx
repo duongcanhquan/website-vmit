@@ -7,6 +7,7 @@ import { MotionImage } from "@/components/common/motion-image"
 import { useLocale } from "@/components/providers/locale-provider"
 import { buttonVariants } from "@/components/ui/button"
 import { ROUTES } from "@/constants/site"
+import { heroText } from "@/lib/hero-copy"
 import { settingText } from "@/lib/i18n/locale-text"
 import { cn } from "@/lib/utils"
 
@@ -36,8 +37,8 @@ export function HeroSection({ onOpenScholarship, settings }: HeroSectionProps) {
   const eyebrow =
     settingText(settings.hero_eyebrow, locale) ||
     (locale === "vi" ? "Chào mừng đến VMIT" : "Welcome to VMIT")
-  const headline = settingText(settings.hero_headline, locale) || t.hero.headline
-  const support = settingText(settings.hero_support, locale) || t.hero.support
+  const headline = heroText("headline", settingText(settings.hero_headline, locale), locale)
+  const support = heroText("support", settingText(settings.hero_support, locale), locale)
   const heroImage = settingUrl(settings.hero_image_url, "/media/banners/hero-vmit-student.jpg")
 
   const primaryLabel = settingText(settings.hero_cta_primary_label, locale) || t.hero.ctaScholarship
