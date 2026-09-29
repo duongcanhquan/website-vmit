@@ -9,6 +9,13 @@ export const SITE = {
   campusAddress: "168 Trịnh Văn Bô, Xuân Phương, Hà Nội",
 } as const
 
+/** Older saved settings hold the misspelt "PERSON APPROVED CENTER"; show Pearson's official wording instead. */
+export function accreditationBadgeText(value: string) {
+  const text = value.trim()
+  if (!text || /^pe?rson approved cent(er|re)$/i.test(text)) return SITE.accreditationBadge
+  return text
+}
+
 export const ROUTES = {
   home: "/",
   about: "/about",

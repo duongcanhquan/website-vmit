@@ -7,7 +7,7 @@ import { ImageField } from "@/components/admin/image-field"
 import { AdminCard, AdminPageHeader, Field, inputClass, textareaClass } from "@/components/admin/ui"
 import { saveSettingsBatch } from "@/app/admin/(dashboard)/actions"
 import { MEDIA } from "@/constants/media"
-import { ROUTES } from "@/constants/site"
+import { ROUTES, accreditationBadgeText } from "@/constants/site"
 
 type LocalePair = { vi: string; en: string }
 
@@ -118,7 +118,7 @@ export function SettingsForm({ initial }: Props) {
       },
     ),
     hotline_display: readPair(initial.hotline_display),
-    accreditation_badge: readUrl(initial.accreditation_badge, "PEARSON APPROVED CENTRE"),
+    accreditation_badge: accreditationBadgeText(readUrl(initial.accreditation_badge)),
     hotline_href: readUrl(initial.hotline_href, "tel:0999999999"),
     admission_year: readUrl(initial.admission_year, "2026"),
     hero_image_url: readUrl(initial.hero_image_url),

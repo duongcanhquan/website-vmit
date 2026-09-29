@@ -8,7 +8,7 @@ import { SiteLink } from "@/components/common/site-link"
 import { SocialLinks } from "@/components/common/social-links"
 import { useLocale } from "@/components/providers/locale-provider"
 import { buttonVariants } from "@/components/ui/button"
-import { ROUTES, SITE } from "@/constants/site"
+import { ROUTES, SITE, accreditationBadgeText } from "@/constants/site"
 import { settingText } from "@/lib/i18n/locale-text"
 import { cn } from "@/lib/utils"
 
@@ -20,7 +20,7 @@ export function SiteHeader({
   overHero?: boolean
 }) {
   const { locale, setLocale, t } = useLocale()
-  const badge = settingText(settings.accreditation_badge, locale) || SITE.accreditationBadge
+  const badge = accreditationBadgeText(settingText(settings.accreditation_badge, locale))
   const tagline =
     settingText(settings.hero_slogan, locale) ||
     settingText(settings.tagline, locale) ||
