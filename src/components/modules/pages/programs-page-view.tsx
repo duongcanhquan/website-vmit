@@ -7,9 +7,12 @@ import { ContentState, PageShell } from "@/components/common/page-shell"
 import { MotionImage } from "@/components/common/motion-image"
 import { useLocale } from "@/components/providers/locale-provider"
 import { buttonVariants } from "@/components/ui/button"
+import { MEDIA } from "@/constants/media"
 import { ROUTES } from "@/constants/site"
 import { cn } from "@/lib/utils"
 import type { CmsStatus } from "@/types/home-cms"
+
+const coverFallbacks = [MEDIA.lab, MEDIA.studentsCollab, MEDIA.library] as const
 
 type Course = {
   id: string
@@ -54,24 +57,20 @@ export function ProgramsPageView({
       />
       {status === "ok" ? (
         <div className="grid gap-5 md:grid-cols-3">
-          {courses.map((item, index) => (
+          {courses.map((item, index) => {
+            const cover = item.cover_url || coverFallbacks[index % coverFallbacks.length]
+            return (
             <Reveal key={item.id} delay={0.06 * index}>
               <HoverLift className="h-full">
-                <article className="flex h-full flex-col overflow-hidden rounded-xl border border-border bg-surface shadow-hairline">
+                <article className="flex h-full flex-col overflow-hidden rounded-[3px] border border-border bg-surface shadow-hairline">
                   <div className="relative aspect-[16/10] w-full bg-sky">
-                    {item.cover_url ? (
-                      <MotionImage
-                        src={item.cover_url}
-                        alt={locale === "vi" ? item.title_vi : item.title_en}
-                        fill
-                        sizes="(max-width:768px) 100vw, 33vw"
-                        frameClassName="absolute inset-0"
-                      />
-                    ) : (
-                      <div className="flex h-full items-center justify-center font-display text-4xl text-brand-navy/15">
-                        0{index + 1}
-                      </div>
-                    )}
+                    <MotionImage
+                      src={cover}
+                      alt={locale === "vi" ? item.title_vi : item.title_en}
+                      fill
+                      sizes="(max-width:768px) 100vw, 33vw"
+                      frameClassName="absolute inset-0"
+                    />
                   </div>
                   <div className="flex flex-1 flex-col p-6">
                     <h2 className="font-display text-xl font-medium text-brand-navy">
@@ -91,7 +90,8 @@ export function ProgramsPageView({
                 </article>
               </HoverLift>
             </Reveal>
-          ))}
+            )
+          })}
         </div>
       ) : null}
     </PageShell>

@@ -153,7 +153,7 @@ export function BlogTeaser({ items, status }: { items: Post[]; status: CmsStatus
               const author = post.author_name || "VMIT"
               return (
                 <Reveal key={post.id} delay={0.06 * i}>
-                  <article className="group h-full overflow-hidden bg-surface shadow-hairline transition hover:-translate-y-0.5">
+                  <article className="group h-full overflow-hidden rounded-[3px] border border-border bg-surface shadow-hairline transition hover:-translate-y-0.5">
                     <div className="relative aspect-[16/10] overflow-hidden bg-sky">
                       <Image
                         src={cover}
@@ -184,6 +184,9 @@ export function BlogTeaser({ items, status }: { items: Post[]; status: CmsStatus
                           {excerpt}
                         </p>
                       ) : null}
+                      <p className="mt-5 text-sm font-semibold text-primary">
+                        {locale === "vi" ? "Đọc tiếp →" : "Read more →"}
+                      </p>
                     </div>
                   </article>
                 </Reveal>

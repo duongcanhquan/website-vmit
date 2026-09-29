@@ -23,9 +23,9 @@ export default async function Page() {
         description: "",
         description_vi: "",
         description_en: "",
-        cover_url: "",
+        cover_url: "/media/banners/students-lab.jpg",
         sort_order: 0,
-        is_published: false,
+        is_published: true,
       }}
       fields={[
         { key: "slug", label: "Slug", kind: "text" },

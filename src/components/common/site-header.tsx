@@ -1,8 +1,9 @@
 "use client"
 
+import Image from "next/image"
 import Link from "next/link"
 import { useEffect, useState } from "react"
-import { Menu, Phone, X } from "lucide-react"
+import { Menu, X } from "lucide-react"
 import { SocialLinks } from "@/components/common/social-links"
 import { useLocale } from "@/components/providers/locale-provider"
 import { buttonVariants } from "@/components/ui/button"
@@ -19,9 +20,11 @@ export function SiteHeader({
 }) {
   const { locale, setLocale, t } = useLocale()
   const badge = settingText(settings.accreditation_badge, locale) || SITE.accreditationBadge
-  const hotline = settingText(settings.hotline_display, locale) || "0999999999"
   const year = settingText(settings.admission_year, locale) || SITE.admissionYear
-  const hotlineHref = settingText(settings.hotline_href, locale) || "tel:0999999999"
+  const tagline =
+    settingText(settings.hero_slogan, locale) ||
+    settingText(settings.tagline, locale) ||
+    SITE.brandTagline
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
 
@@ -52,39 +55,23 @@ export function SiteHeader({
           light ? "border-white/20 bg-black/10 text-white" : "border-border bg-surface text-brand-navy",
         )}
       >
-        <div className="mx-auto flex max-w-[85%] items-center justify-between gap-6 py-3">
-          <div>
-            <p
-              className={cn(
-                "text-base font-black uppercase tracking-[0.06em] md:text-lg lg:text-xl",
-                light ? "text-white" : "text-brand-navy",
-              )}
-            >
-              {badge}
-            </p>
-            <a
-              href={hotlineHref}
-              className={cn(
-                "mt-1 inline-flex items-center gap-2 text-sm font-semibold md:text-base",
-                light ? "text-white/95 hover:text-white" : "text-primary hover:text-accent-teal-hover",
-              )}
-            >
-              <Phone className="size-4 stroke-[2]" />
-              {hotline}
-            </a>
-          </div>
-          <div className="flex items-center gap-6">
-            <SocialLinks
-              settings={settings}
-              className="hidden sm:flex"
-              linkClassName={light ? "text-white/90 hover:text-white" : "text-brand-navy hover:text-primary"}
-            />
-            <p className={cn("hidden text-sm italic xl:block", light ? "text-white/75" : "text-muted")}>
-              {settingText(settings.hero_slogan, locale) ||
-                settingText(settings.tagline, locale) ||
-                SITE.brandTagline}
-            </p>
-          </div>
+        <div className="mx-auto flex max-w-[85%] items-center justify-between gap-6 py-2.5">
+          <SocialLinks
+            settings={settings}
+            className="hidden sm:flex"
+            linkClassName={cn(
+              "text-[13px]",
+              light ? "text-white/85 hover:text-white" : "text-brand-navy/80 hover:text-primary",
+            )}
+          />
+          <p
+            className={cn(
+              "ml-auto text-[11px] font-semibold uppercase tracking-[0.14em]",
+              light ? "text-white/55" : "text-muted",
+            )}
+          >
+            {badge}
+          </p>
         </div>
       </div>
 
@@ -96,15 +83,26 @@ export function SiteHeader({
             : "bg-white/25 backdrop-blur-sm",
         )}
       >
-        <div className="flex h-16 items-center justify-between gap-4 px-4 md:h-[4.25rem] md:px-5">
-          <nav className="hidden flex-1 items-center gap-1 lg:flex">
+        <div className="flex h-16 items-center justify-between gap-4 px-4 md:h-[4.5rem] md:px-5">
+          <Link href={ROUTES.home} className="flex shrink-0 items-center">
+            <Image
+              src="/brand/logo-vmit.png"
+              alt={`VMIT — ${tagline}`}
+              width={148}
+              height={58}
+              className="h-auto w-[112px] object-contain md:w-[128px]"
+              priority
+            />
+          </Link>
+
+          <nav className="hidden flex-1 items-center justify-center gap-0.5 lg:flex">
             {nav.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "px-3 py-2 text-sm font-semibold transition hover:text-primary",
-                  light ? "text-white" : "text-brand-navy/85",
+                  "px-3 py-2 text-base font-semibold transition hover:text-primary",
+                  light ? "text-white" : "text-brand-navy/90",
                 )}
               >
                 {item.label}
@@ -112,10 +110,10 @@ export function SiteHeader({
             ))}
           </nav>
 
-          <div className="ml-auto flex items-center gap-2">
+          <div className="ml-auto flex items-center gap-2 md:ml-0">
             <div
               className={cn(
-                "hidden rounded-[3px] border p-0.5 text-[11px] font-semibold uppercase tracking-wider md:inline-flex",
+                "hidden rounded-[3px] border p-0.5 text-xs font-semibold uppercase tracking-wider md:inline-flex",
                 light ? "border-white/30" : "border-border bg-surface",
               )}
             >
@@ -142,7 +140,7 @@ export function SiteHeader({
               href={ROUTES.apply}
               className={cn(
                 buttonVariants({ size: "default", variant: "primary" }),
-                "clip-cta hidden min-w-0 rounded-none px-8 py-6 font-bold uppercase tracking-wide md:inline-flex",
+                "clip-cta hidden min-w-0 rounded-none px-8 py-6 text-base font-bold uppercase tracking-wide md:inline-flex",
               )}
             >
               {t.nav.apply} {year}
@@ -163,12 +161,9 @@ export function SiteHeader({
 
         {open ? (
           <div className="border-t border-border bg-primary px-4 py-4 lg:hidden">
-            <a href={hotlineHref} className="mb-3 flex items-center gap-2 text-sm font-bold text-white">
-              <Phone className="size-4" />
-              {hotline}
-            </a>
-            <p className="mb-3 text-sm font-black uppercase tracking-wide text-white">{badge}</p>
-            <div className="mb-3 inline-flex rounded-[3px] border border-white/30 p-0.5 text-[11px] font-semibold uppercase">
+            <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.14em] text-white/60">{badge}</p>
+            <SocialLinks settings={settings} className="mb-3" linkClassName="text-white/90" />
+            <div className="mb-3 inline-flex rounded-[3px] border border-white/30 p-0.5 text-xs font-semibold uppercase">
               {(["vi", "en"] as const).map((code) => (
                 <button
                   key={code}
@@ -188,7 +183,7 @@ export function SiteHeader({
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="rounded-[3px] px-3 py-2.5 text-sm font-medium text-white hover:bg-white/10"
+                  className="rounded-[3px] px-3 py-2.5 text-base font-medium text-white hover:bg-white/10"
                   onClick={() => setOpen(false)}
                 >
                   {item.label}
@@ -196,7 +191,7 @@ export function SiteHeader({
               ))}
               <Link
                 href={ROUTES.apply}
-                className={cn(buttonVariants({ size: "lg", variant: "secondary" }), "mt-3")}
+                className={cn(buttonVariants({ size: "lg", variant: "secondary" }), "mt-3 text-base")}
                 onClick={() => setOpen(false)}
               >
                 {t.nav.apply} {year}

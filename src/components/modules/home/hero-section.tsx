@@ -82,12 +82,14 @@ export function HeroSection({ onOpenScholarship, settings }: HeroSectionProps) {
           alt={locale === "vi" ? "Sinh viên VMIT" : "VMIT student"}
           fill
           priority
+          quality={95}
           sizes="100vw"
           frameClassName="absolute inset-0 h-full w-full"
-          className="object-cover object-[70%_center] md:object-center"
-          zoom={1.02}
+          className="object-cover object-[88%_center] md:object-[82%_center]"
+          zoom={1.01}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/20 to-transparent md:from-black/40 md:via-black/10" />
+        {/* Soft wash on text side only — keep subject sharp on the right */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/15 to-transparent md:from-black/40 md:via-black/10 md:to-transparent" />
       </div>
 
       <div className="relative z-10 mx-auto flex min-h-screen max-w-[85%] items-center pb-16 pt-44 md:pt-52">
