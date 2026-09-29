@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { useEffect, useState } from "react"
 import { Menu, Phone, X } from "lucide-react"
+import { SocialLinks } from "@/components/common/social-links"
 import { useLocale } from "@/components/providers/locale-provider"
 import { buttonVariants } from "@/components/ui/button"
 import { ROUTES, SITE } from "@/constants/site"
@@ -72,9 +73,18 @@ export function SiteHeader({
               {hotline}
             </a>
           </div>
-          <p className={cn("hidden text-sm italic lg:block", light ? "text-white/75" : "text-muted")}>
-            {SITE.brandTagline}
-          </p>
+          <div className="flex items-center gap-6">
+            <SocialLinks
+              settings={settings}
+              className="hidden sm:flex"
+              linkClassName={light ? "text-white/90 hover:text-white" : "text-brand-navy hover:text-primary"}
+            />
+            <p className={cn("hidden text-sm italic xl:block", light ? "text-white/75" : "text-muted")}>
+              {settingText(settings.hero_slogan, locale) ||
+                settingText(settings.tagline, locale) ||
+                SITE.brandTagline}
+            </p>
+          </div>
         </div>
       </div>
 

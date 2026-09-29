@@ -3,7 +3,7 @@ import { createClient } from "@/lib/supabase/server"
 import { AdminPageHeader, AdminCard, ErrorState } from "@/components/admin/ui"
 
 const shortcuts = [
-  { href: "/admin/cai-dat", title: "Banner & hero", desc: "Đổi ảnh hero, headline ngắn VI/EN" },
+  { href: "/admin/cai-dat", title: "Banner & hero", desc: "Chữ VI/EN, nút + link trang, Facebook/TikTok" },
   { href: "/admin/media", title: "Gallery ảnh", desc: "Caption, featured, thứ tự hiển thị" },
   { href: "/admin/chuong-trinh", title: "Chương trình", desc: "Ngành học song ngữ" },
   { href: "/admin/ho-so", title: "Hồ sơ mới", desc: "Xét tuyển · học bổng · liên hệ" },

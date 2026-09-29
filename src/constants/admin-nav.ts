@@ -21,7 +21,7 @@ export const ADMIN_NAV_GROUPS: AdminNavGroup[] = [
     id: "site",
     label: "Trang chủ & thương hiệu",
     items: [
-      { href: "/admin/cai-dat", label: "Cài đặt & banner", hint: "Ảnh hero, headline VI/EN" },
+      { href: "/admin/cai-dat", label: "Cài đặt & banner", hint: "Hero VI/EN, nút+link, Facebook/TikTok" },
       { href: "/admin/media", label: "Thư viện ảnh / gallery", hint: "Upload, caption, featured" },
       { href: "/admin/tai-lieu", label: "Tài liệu tải về" },
     ],
