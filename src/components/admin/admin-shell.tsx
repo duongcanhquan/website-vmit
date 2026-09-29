@@ -23,8 +23,14 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
         <aside className="sticky top-0 hidden h-screen w-72 shrink-0 overflow-y-auto border-r border-border bg-white p-4 md:block">
           <p className="font-display text-xl text-brand-navy">VMIT Admin</p>
           <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-muted">
-            Quản trị nội dung · VI/EN
+            Cổng quản trị nội dung · VI/EN
           </p>
+          <Link
+            href="/admin"
+            className="mt-3 inline-block text-xs font-bold text-primary hover:underline"
+          >
+            Bảng điều khiển
+          </Link>
           <nav className="mt-6 flex flex-col gap-5">
             {ADMIN_NAV_GROUPS.map((group) => (
               <div key={group.id}>

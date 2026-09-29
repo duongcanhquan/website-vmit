@@ -71,6 +71,11 @@ export function SiteFooter({ settings = {} }: { settings?: Record<string, unknow
             {email}
           </a>
           <p className="mt-2 text-sm text-muted">{address}</p>
+          <p className="mt-6 text-xs text-muted">
+            <Link href="/admin/dang-nhap" className="font-semibold text-primary/80 hover:text-primary hover:underline">
+              Cổng quản trị
+            </Link>
+          </p>
         </div>
       </div>
       <div className="border-t border-black/5 py-4 text-center text-xs text-muted">
