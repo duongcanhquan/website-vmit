@@ -1,6 +1,5 @@
-import type { Config } from "eslint/config"
-
-const eslintConfig: Config = [
+/** @type {import("eslint").Linter.Config[]} */
+const eslintConfig = [
   {
     ignores: [".next/**", "node_modules/**"],
   },
