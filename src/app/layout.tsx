@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { Roboto } from "next/font/google"
 import { LocaleProvider } from "@/components/providers/locale-provider"
+import { NavigationProgress } from "@/components/common/navigation-progress"
 import { SITE } from "@/constants/site"
 import "./globals.css"
 
@@ -23,6 +24,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="vi">
       <body className={`${roboto.variable} font-sans antialiased`}>
+        <NavigationProgress />
         <LocaleProvider>{children}</LocaleProvider>
       </body>
     </html>

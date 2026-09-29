@@ -4,6 +4,8 @@ import { MEDIA } from "@/constants/media"
 import { resolveMediaUrl } from "@/lib/media"
 import { getPublishedPricing, getSettingsMap } from "@/services/cms"
 
+export const revalidate = 120
+
 export const metadata: Metadata = { title: "Học phí & Học bổng" }
 
 export default async function HocPhiPage() {

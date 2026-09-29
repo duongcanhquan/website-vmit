@@ -7,6 +7,8 @@ import { sanitizeRichHtml } from "@/lib/rich-text"
 import { getAllPublishedPosts, getPublishedPostBySlug, getSettingsMap } from "@/services/cms"
 import type { NewsPost } from "@/types/home-cms"
 
+export const revalidate = 120
+
 type Params = Promise<{ slug: string }>
 
 type PostWithBody = NewsPost & { body?: string | null }

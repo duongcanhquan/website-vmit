@@ -87,7 +87,7 @@ export function SubjectsGrid({
   const { locale } = useLocale()
 
   return (
-    <section id="mon-hoc" className="bg-mist py-16 text-center md:py-24">
+    <section id="mon-hoc" className="scroll-mt-32 bg-mist py-16 text-center md:py-24">
       <div className="mx-auto max-w-[85%]">
         <Reveal>
           <p className="text-sm font-bold uppercase tracking-[0.12em] text-primary">

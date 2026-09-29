@@ -3,6 +3,8 @@ import { NewsListView } from "@/components/modules/pages/news-list-view"
 import { DEMO_POSTS } from "@/constants/demo-content"
 import { getAllPublishedPosts, getSettingsMap } from "@/services/cms"
 
+export const revalidate = 120
+
 export const metadata: Metadata = { title: "Tin tức" }
 
 export default async function TinTucPage() {

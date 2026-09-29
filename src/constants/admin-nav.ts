@@ -32,7 +32,8 @@ export const ADMIN_NAV_GROUPS: AdminNavGroup[] = [
     items: [
       { href: "/admin/chuong-trinh", label: "Chương trình" },
       { href: "/admin/mon-hoc", label: "Môn học", hint: "Lưới MÔN HỌC trang chủ" },
-      { href: "/admin/lo-trinh", label: "Lộ trình quốc tế" },
+      { href: "/admin/lo-trinh", label: "Lộ trình quốc tế", hint: "Khối lộ trình trên trang chủ" },
+      { href: "/admin/truong-btec", label: "Trường BTEC", hint: "Danh sách đại học đối tác" },
       { href: "/admin/tru-cot", label: "Trụ đột phá & số liệu" },
       { href: "/admin/hoc-phi", label: "Học phí" },
     ],

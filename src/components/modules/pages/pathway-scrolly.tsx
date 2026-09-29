@@ -1,6 +1,8 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import Image from "next/image"
+import { motion, useReducedMotion } from "framer-motion"
 import { cn } from "@/lib/utils"
 
 export function useActiveStep(ids: readonly string[]) {
@@ -43,101 +45,66 @@ export function useActiveStep(ids: readonly string[]) {
   return active
 }
 
-export function MetroBoard({
+export function StoryFrame({
   active,
-  nowAt,
-  stations,
+  frames,
+  labels,
 }: {
   active: number
-  nowAt: string
-  stations: { code: string; title: string; subtitle: string }[]
+  frames: { src: string }[]
+  labels: { code: string; title: string }[]
 }) {
-  const count = stations.length
-  const current = stations[active]
-  const progress = count > 1 ? active / (count - 1) : 1
+  const reduce = useReducedMotion()
+  const current = labels[active]
+  const count = labels.length
 
   return (
-    <div className="flex h-full flex-col justify-center" aria-hidden="true">
-      <div className="rounded-xl border border-border bg-surface p-6 shadow-hairline md:p-8">
-        <p className="overline">Subway to the World</p>
-        <p className="mt-6 text-xs font-semibold uppercase tracking-[0.14em] text-muted">
-          {nowAt} · {String(active + 1).padStart(2, "0")} / {String(count).padStart(2, "0")}
-        </p>
-        <p className="mt-2 font-display text-3xl text-brand-navy">{current?.title}</p>
-        <p className="mt-1 text-sm text-muted">{current?.subtitle}</p>
-
-        <div className="relative mt-8">
-          <div className="absolute bottom-3 left-[7px] top-3 w-px bg-border" />
-          <div
-            className="absolute left-[7px] top-3 w-px origin-top bg-primary motion-safe:transition-transform motion-safe:duration-300"
-            style={{ height: "calc(100% - 1.5rem)", transform: `scaleY(${progress})` }}
-          />
-          <ol className="relative space-y-5">
-            {stations.map((station, index) => {
-              const reached = index <= active
-              const here = index === active
-              return (
-                <li key={station.code + station.title} className="flex items-center gap-4">
-                  <span
-                    className={cn(
-                      "relative z-10 size-[15px] shrink-0 rounded-full border-2 motion-safe:transition-shadow motion-safe:duration-300",
-                      reached ? "border-primary bg-primary" : "border-border bg-surface",
-                      here && "ring-4 ring-primary/25",
-                    )}
-                  />
-                  <span className={cn("text-sm", here ? "font-semibold text-brand-navy" : "text-muted")}>
-                    <span className="mr-2 font-semibold uppercase tracking-[0.08em]">{station.code}</span>
-                    {station.title}
-                  </span>
-                </li>
-              )
-            })}
-          </ol>
+    <div className="flex h-full items-center" aria-hidden="true">
+      <div className="relative h-[min(74svh,680px)] w-full overflow-hidden rounded-xl bg-brand-navy shadow-hairline">
+        {frames.map((frame, index) => {
+          const here = index === active
+          return (
+            <motion.div
+              key={frame.src}
+              className="absolute inset-0"
+              initial={false}
+              animate={{
+                opacity: here ? 1 : 0,
+                scale: here && !reduce ? 1 : 1.08,
+              }}
+              transition={{
+                opacity: { duration: reduce ? 0 : 0.7, ease: [0.22, 1, 0.36, 1] },
+                scale: { duration: here && !reduce ? 8 : 0, ease: "easeOut" },
+              }}
+            >
+              <Image
+                src={frame.src}
+                alt=""
+                fill
+                sizes="(max-width: 1024px) 100vw, 42vw"
+                className="object-cover"
+                priority={index === 0}
+              />
+            </motion.div>
+          )
+        })}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-black/10" />
+        <div className="absolute left-5 top-5 rounded-[3px] bg-white/95 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.14em] text-brand-navy">
+          {String(active + 1).padStart(2, "0")} / {String(count).padStart(2, "0")}
         </div>
-      </div>
-    </div>
-  )
-}
-
-export function RouteBoard({
-  active,
-  routes,
-}: {
-  active: number
-  routes: { name: string; epithet: string }[]
-}) {
-  const current = routes[active]
-
-  return (
-    <div className="flex h-full flex-col justify-center" aria-hidden="true">
-      <div className="overflow-hidden rounded-xl border border-border bg-surface shadow-hairline">
-        <div className="h-1.5 bg-primary" />
-        <div className="p-6 md:p-8">
-          <p className="overline">Interchange · 20</p>
-          <p className="mt-6 font-display text-3xl text-brand-navy">{current?.name}</p>
-          <p className="mt-1 text-sm text-muted">{current?.epithet}</p>
-          <div className="mt-8 grid grid-cols-4 gap-3">
-            {routes.map((route, index) => {
-              const here = index === active
-              return (
-                <div key={route.epithet} className="flex flex-col items-center gap-2">
-                  <span
-                    className={cn(
-                      "h-14 w-1 rounded-full motion-safe:transition-colors motion-safe:duration-300",
-                      here ? "bg-primary" : "bg-border",
-                    )}
-                  />
-                  <span
-                    className={cn(
-                      "text-center text-[11px] font-semibold leading-tight",
-                      here ? "text-brand-navy" : "text-muted",
-                    )}
-                  >
-                    {route.name}
-                  </span>
-                </div>
-              )
-            })}
+        <div className="absolute inset-x-0 bottom-0 p-6 text-white md:p-8">
+          <p className="text-xs font-bold uppercase tracking-[0.16em] text-primary">{current?.code}</p>
+          <p className="mt-2 font-display text-4xl leading-none">{current?.title}</p>
+          <div className="mt-5 flex gap-1.5">
+            {labels.map((label, index) => (
+              <span
+                key={label.code}
+                className={cn(
+                  "h-1 rounded-full motion-safe:transition-all motion-safe:duration-500",
+                  index === active ? "w-8 bg-primary" : "w-3 bg-white/50",
+                )}
+              />
+            ))}
           </div>
         </div>
       </div>

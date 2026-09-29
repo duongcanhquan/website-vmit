@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { motion } from "framer-motion"
@@ -7,22 +8,39 @@ import { MotionImage } from "@/components/common/motion-image"
 import { SiteFooter } from "@/components/common/site-footer"
 import { SiteHeader } from "@/components/common/site-header"
 import { Reveal, Stagger, staggerItem } from "@/components/common/reveal"
-import { MetroBoard, RouteBoard, useActiveStep } from "@/components/modules/pages/pathway-scrolly"
+import { StoryFrame, useActiveStep } from "@/components/modules/pages/pathway-scrolly"
 import { ROUTE_IDS, STATION_IDS, pathwayStory } from "@/components/modules/pages/pathway-story-data"
+import {
+  AWARD_FRAMES,
+  FINALE_FRAME,
+  LINE_FRAMES,
+  MAJOR_FRAMES,
+  PRACTICE_FRAMES,
+  PROOF_FRAMES,
+  REGION_FRAMES,
+  STATION_FRAMES,
+  frameAlt,
+} from "@/components/modules/pages/pathway-visuals"
 import { useLocale } from "@/components/providers/locale-provider"
 import { buttonVariants } from "@/components/ui/button"
 import { MEDIA } from "@/constants/media"
-import { ROUTES, SITE } from "@/constants/site"
-import { settingText } from "@/lib/i18n/locale-text"
+import { ROUTES } from "@/constants/site"
 import { cn } from "@/lib/utils"
 
 const stepClass =
   "scroll-mt-28 flex min-h-[52svh] flex-col justify-center py-14 lg:min-h-[78svh] lg:py-20"
 
+function StepPhoto({ src, alt }: { src: string; alt: string }) {
+  return (
+    <div className="relative mb-6 aspect-[16/10] overflow-hidden rounded-xl lg:hidden">
+      <Image src={src} alt={alt} fill sizes="100vw" className="object-cover" />
+    </div>
+  )
+}
+
 export function PathwayPageView({ settings }: { settings: Record<string, unknown> }) {
   const { locale, t } = useLocale()
   const story = pathwayStory(locale)
-  const year = settingText(settings.admission_year, locale) || SITE.admissionYear
   const stationIndex = useActiveStep(STATION_IDS)
   const routeIndex = useActiveStep(ROUTE_IDS)
   const station = story.stations[stationIndex]
@@ -59,8 +77,11 @@ export function PathwayPageView({ settings }: { settings: Record<string, unknown
             </h1>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-white/95 md:text-lg">{story.heroLead}</p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link href={ROUTES.apply} className={cn(buttonVariants({ variant: "primary", size: "lg" }))}>
-                {t.nav.apply} {year}
+              <Link
+                href={ROUTES.apply}
+                className={cn(buttonVariants({ variant: "primary", size: "lg" }), "uppercase tracking-wide")}
+              >
+                {t.nav.apply}
                 <ArrowRight className="size-4" />
               </Link>
               <a href="#hanh-trinh" className={cn(buttonVariants({ size: "lg" }), heroButton)}>
@@ -132,6 +153,7 @@ export function PathwayPageView({ settings }: { settings: Record<string, unknown
                     aria-current={here ? "step" : undefined}
                     className={stepClass}
                   >
+                    <StepPhoto src={STATION_FRAMES[index].src} alt={frameAlt(STATION_FRAMES[index], locale)} />
                     <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary">{item.code}</p>
                     <h3
                       className={cn(
@@ -160,7 +182,11 @@ export function PathwayPageView({ settings }: { settings: Record<string, unknown
             </div>
             <div className="hidden lg:col-span-5 lg:col-start-8 lg:block">
               <div className="sticky top-28 h-[calc(100svh-8rem)]">
-                <MetroBoard active={stationIndex} nowAt={story.nowAt} stations={story.stations} />
+                <StoryFrame
+                  active={stationIndex}
+                  frames={STATION_FRAMES}
+                  labels={story.stations.map((item) => ({ code: item.code, title: item.title }))}
+                />
               </div>
             </div>
           </div>
@@ -196,6 +222,7 @@ export function PathwayPageView({ settings }: { settings: Record<string, unknown
                     aria-current={here ? "step" : undefined}
                     className={stepClass}
                   >
+                    <StepPhoto src={LINE_FRAMES[index].src} alt={frameAlt(LINE_FRAMES[index], locale)} />
                     <div
                       className={cn(
                         "border-l-2 pl-6 motion-safe:transition-colors motion-safe:duration-300",
@@ -220,7 +247,11 @@ export function PathwayPageView({ settings }: { settings: Record<string, unknown
             </div>
             <div className="hidden lg:col-span-5 lg:col-start-8 lg:block">
               <div className="sticky top-28 h-[calc(100svh-8rem)]">
-                <RouteBoard active={routeIndex} routes={story.routes} />
+                <StoryFrame
+                  active={routeIndex}
+                  frames={LINE_FRAMES}
+                  labels={story.routes.map((item) => ({ code: item.epithet, title: item.name }))}
+                />
               </div>
             </div>
           </div>
@@ -234,14 +265,24 @@ export function PathwayPageView({ settings }: { settings: Record<string, unknown
             </h2>
             <p className="mt-4 max-w-2xl text-muted">{story.proofLead}</p>
             <Stagger className="mt-10 grid gap-4 md:grid-cols-3">
-              {story.proofFacts.map((fact) => (
+              {story.proofFacts.map((fact, index) => (
                 <motion.article
                   key={fact.value}
                   variants={staggerItem}
-                  className="rounded-xl border border-border bg-surface p-6 shadow-hairline"
+                  className="relative min-h-80 overflow-hidden rounded-xl shadow-hairline"
                 >
-                  <p className="font-display text-4xl text-primary">{fact.value}</p>
-                  <p className="mt-3 text-sm text-brand-navy/85">{fact.label}</p>
+                  <Image
+                    src={PROOF_FRAMES[index].src}
+                    alt={frameAlt(PROOF_FRAMES[index], locale)}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 30vw"
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/35 to-black/10" />
+                  <div className="relative flex min-h-80 flex-col justify-end p-6 text-white">
+                    <p className="font-display text-4xl">{fact.value}</p>
+                    <p className="mt-3 text-sm text-white/90">{fact.label}</p>
+                  </div>
                 </motion.article>
               ))}
             </Stagger>
@@ -291,13 +332,24 @@ export function PathwayPageView({ settings }: { settings: Record<string, unknown
                 <motion.article
                   key={item.title}
                   variants={staggerItem}
-                  className="rounded-xl border border-border p-6 shadow-hairline"
+                  className="overflow-hidden rounded-xl border border-border bg-surface shadow-hairline"
                 >
-                  <p className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">
-                    {String(index + 1).padStart(2, "0")}
-                  </p>
-                  <h3 className="mt-3 font-display text-2xl">{item.title}</h3>
-                  <p className="mt-2 text-sm text-brand-navy/85 md:text-base">{item.body}</p>
+                  <div className="relative aspect-[16/9]">
+                    <Image
+                      src={PRACTICE_FRAMES[index].src}
+                      alt={frameAlt(PRACTICE_FRAMES[index], locale)}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 40vw"
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <p className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">
+                      {String(index + 1).padStart(2, "0")}
+                    </p>
+                    <h3 className="mt-3 font-display text-2xl">{item.title}</h3>
+                    <p className="mt-2 text-sm text-brand-navy/85 md:text-base">{item.body}</p>
+                  </div>
                 </motion.article>
               ))}
             </Stagger>
@@ -312,8 +364,18 @@ export function PathwayPageView({ settings }: { settings: Record<string, unknown
             </h2>
             <p className="mt-4 max-w-2xl text-muted">{story.awardLead}</p>
             <div className="mt-10 grid gap-4 lg:grid-cols-2">
-              {story.awardOptions.map((option) => (
-                <article key={option.title} className="rounded-xl border border-border bg-surface p-6 shadow-hairline md:p-8">
+              {story.awardOptions.map((option, index) => (
+                <article key={option.title} className="overflow-hidden rounded-xl border border-border bg-surface shadow-hairline">
+                  <div className="relative aspect-[16/9]">
+                    <Image
+                      src={AWARD_FRAMES[index].src}
+                      alt={frameAlt(AWARD_FRAMES[index], locale)}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 42vw"
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="p-6 md:p-8">
                   <h3 className="font-display text-2xl">{option.title}</h3>
                   <ul className="mt-4 space-y-2 text-sm md:text-base">
                     {option.points.map((point) => (
@@ -324,6 +386,7 @@ export function PathwayPageView({ settings }: { settings: Record<string, unknown
                     ))}
                   </ul>
                   <p className="mt-5 border-t border-border pt-4 text-sm font-semibold">{option.outcome}</p>
+                  </div>
                 </article>
               ))}
             </div>
@@ -339,8 +402,18 @@ export function PathwayPageView({ settings }: { settings: Record<string, unknown
             </h2>
             <p className="mt-4 max-w-2xl text-muted">{story.networkLead}</p>
             <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-              {story.regions.map((region) => (
-                <article key={region.name} className="rounded-xl border border-border p-6 shadow-hairline">
+              {story.regions.map((region, index) => (
+                <article key={region.name} className="overflow-hidden rounded-xl border border-border bg-surface shadow-hairline">
+                  <div className="relative h-44">
+                    <Image
+                      src={REGION_FRAMES[index].src}
+                      alt={frameAlt(REGION_FRAMES[index], locale)}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 30vw"
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="p-6">
                   <h3 className="font-display text-xl">{region.name}</h3>
                   <ul className="mt-3 space-y-1.5 text-sm text-brand-navy/85">
                     {region.schools.map((school) => (
@@ -352,50 +425,83 @@ export function PathwayPageView({ settings }: { settings: Record<string, unknown
                       <li key={perk}>{perk}</li>
                     ))}
                   </ul>
+                  </div>
                 </article>
               ))}
             </div>
           </div>
         </section>
 
-        <section id="cam-ket" aria-labelledby="cam-ket-title" className="border-t border-border">
-          <div className="mx-auto w-full max-w-[85%] py-16 md:py-24">
-            <p className="overline">{story.closeEyebrow}</p>
-            <h2 id="cam-ket-title" className="mt-3 max-w-2xl font-display text-3xl md:text-4xl">
+        <section id="cam-ket" aria-labelledby="cam-ket-title" className="relative overflow-hidden bg-brand-navy text-white">
+          <Image
+            src={FINALE_FRAME.src}
+            alt=""
+            fill
+            sizes="100vw"
+            className="object-cover opacity-45"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/62 to-black/88" />
+          <div className="relative mx-auto w-full max-w-[85%] py-20 md:py-28">
+            <p className="text-sm font-bold uppercase tracking-[0.16em] text-primary">{story.closeEyebrow}</p>
+            <h2 id="cam-ket-title" className="mt-4 max-w-3xl font-display text-4xl leading-tight md:text-6xl">
               {story.closeTitle}
             </h2>
-            <p className="mt-4 max-w-2xl text-muted">{story.closeLead}</p>
-            <div className="mt-10 grid gap-4 md:grid-cols-2">
-              {story.majors.map((major) => (
+            <p className="mt-5 max-w-2xl text-base text-white/80 md:text-lg">{story.closeLead}</p>
+
+            <div className="mt-12 grid gap-4 md:grid-cols-2">
+              {story.majors.map((major, index) => (
                 <Link
                   key={major.title}
                   href={ROUTES.programs}
-                  className="flex flex-col rounded-xl border border-border bg-surface p-6 shadow-hairline transition duration-500 hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/35 focus-visible:ring-offset-2"
+                  className="group relative flex min-h-[22rem] flex-col justify-end overflow-hidden rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-black md:min-h-[28rem]"
                 >
-                  <h3 className="font-display text-2xl">{major.title}</h3>
-                  <p className="mt-2 text-sm text-muted md:text-base">{major.body}</p>
-                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary">
-                    {t.programs.view}
-                    <ArrowRight className="size-4" />
-                  </span>
+                  <Image
+                    src={MAJOR_FRAMES[index].src}
+                    alt={frameAlt(MAJOR_FRAMES[index], locale)}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 42vw"
+                    className="object-cover motion-safe:transition-transform motion-safe:duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/10" />
+                  <div className="relative p-7 md:p-9">
+                    <p className="text-xs font-bold uppercase tracking-[0.16em] text-primary">
+                      {String(index + 1).padStart(2, "0")}
+                    </p>
+                    <h3 className="mt-2 font-display text-3xl md:text-4xl">{major.title}</h3>
+                    <p className="mt-3 max-w-sm text-sm text-white/85 md:text-base">{major.body}</p>
+                    <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-white">
+                      {t.programs.view}
+                      <ArrowRight className="size-4 motion-safe:transition-transform motion-safe:duration-300 group-hover:translate-x-1" />
+                    </span>
+                  </div>
                 </Link>
               ))}
             </div>
-            <h3 className="mt-12 font-display text-2xl">{story.commitmentsTitle}</h3>
-            <ol className="mt-4 grid gap-3 md:grid-cols-2">
-              {story.commitments.map((item, index) => (
-                <li key={item} className="flex gap-4 rounded-xl border border-border bg-surface p-5 shadow-hairline">
-                  <span className="font-display text-2xl text-primary">{String(index + 1).padStart(2, "0")}</span>
-                  <p className="text-sm md:text-base">{item}</p>
-                </li>
-              ))}
-            </ol>
-            <div className="mt-10 flex flex-wrap gap-3">
-              <Link href={ROUTES.apply} className={cn(buttonVariants({ variant: "primary", size: "lg" }))}>
-                {t.nav.apply} {year}
+
+            <div className="mt-16 border-t border-white/15 pt-10">
+              <h3 className="font-display text-2xl md:text-3xl">{story.commitmentsTitle}</h3>
+              <ol className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+                {story.commitments.map((item, index) => (
+                  <li key={item}>
+                    <span className="font-display text-4xl text-primary">{String(index + 1).padStart(2, "0")}</span>
+                    <p className="mt-3 text-sm leading-relaxed text-white/85 md:text-base">{item}</p>
+                  </li>
+                ))}
+              </ol>
+            </div>
+
+            <div className="mt-12 flex flex-wrap gap-3">
+              <Link
+                href={ROUTES.apply}
+                className={cn(buttonVariants({ variant: "primary", size: "lg" }), "uppercase tracking-wide")}
+              >
+                {t.nav.apply}
                 <ArrowRight className="size-4" />
               </Link>
-              <Link href={ROUTES.tuition} className={cn(buttonVariants({ variant: "outlineNavy", size: "lg" }))}>
+              <Link
+                href={ROUTES.tuition}
+                className={cn(buttonVariants({ size: "lg" }), "border border-white/30 bg-transparent text-white shadow-none hover:bg-white hover:text-primary")}
+              >
                 {t.nav.tuition}
               </Link>
             </div>

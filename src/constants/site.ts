@@ -16,6 +16,8 @@ export const ROUTES = {
   tuition: "/hoc-phi",
   apply: "/xet-tuyen",
   news: "/tin-tuc",
+  subjects: "/#mon-hoc",
+  btecSchools: "/truong-btec",
   studentLife: "/#doi-song",
 } as const
 

@@ -2,6 +2,7 @@
 
 import Image from "next/image"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { useEffect, useState } from "react"
 import { Menu, X } from "lucide-react"
 import { SocialLinks } from "@/components/common/social-links"
@@ -20,13 +21,14 @@ export function SiteHeader({
 }) {
   const { locale, setLocale, t } = useLocale()
   const badge = settingText(settings.accreditation_badge, locale) || SITE.accreditationBadge
-  const year = settingText(settings.admission_year, locale) || SITE.admissionYear
   const tagline =
     settingText(settings.hero_slogan, locale) ||
     settingText(settings.tagline, locale) ||
     SITE.brandTagline
+  const pathname = usePathname()
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const [pendingHref, setPendingHref] = useState<string | null>(null)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
@@ -35,14 +37,17 @@ export function SiteHeader({
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
 
+  useEffect(() => {
+    setPendingHref(null)
+    setOpen(false)
+  }, [pathname])
+
   const nav = [
     { href: ROUTES.about, label: t.nav.about },
-    { href: ROUTES.programs, label: t.nav.programs },
-    { href: "#mon-hoc", label: locale === "vi" ? "Môn học" : "Subjects" },
-    { href: ROUTES.news, label: locale === "vi" ? "Tin tức" : "Blog" },
     { href: ROUTES.pathway, label: t.nav.pathway },
-    { href: ROUTES.tuition, label: t.nav.tuition },
-    { href: ROUTES.studentLife, label: t.nav.studentLife },
+    { href: ROUTES.programs, label: t.nav.programs },
+    { href: ROUTES.subjects, label: t.nav.subjects },
+    { href: ROUTES.btecSchools, label: t.nav.btecSchools },
   ]
 
   const light = overHero && !scrolled
@@ -52,7 +57,7 @@ export function SiteHeader({
       <div
         className={cn(
           "hidden border-b md:block",
-          light ? "border-white/20 bg-black/10 text-white" : "border-border bg-surface text-brand-navy",
+          light ? "border-white/15 bg-black/45 text-white" : "border-border bg-surface text-brand-navy",
         )}
       >
         <div className="mx-auto flex max-w-[85%] items-center justify-between gap-6 py-2.5">
@@ -80,34 +85,66 @@ export function SiteHeader({
           "mx-auto max-w-[calc(85%+2rem)] transition-all duration-300 md:mx-[7.5%]",
           scrolled || !overHero
             ? "border-b border-border bg-surface/95 shadow-hairline backdrop-blur-md"
-            : "bg-white/25 backdrop-blur-sm",
+            : "border-b border-white/10 bg-black/45 backdrop-blur-md",
         )}
       >
         <div className="flex h-16 items-center justify-between gap-4 px-4 md:h-[4.5rem] md:px-5">
-          <Link href={ROUTES.home} className="flex shrink-0 items-center">
+          <Link
+            href={ROUTES.home}
+            className="relative h-10 w-[112px] shrink-0 md:h-11 md:w-[132px]"
+          >
             <Image
-              src="/brand/logo-vmit.png"
-              alt={`VMIT — ${tagline}`}
-              width={148}
-              height={58}
-              className="h-auto w-[112px] object-contain md:w-[128px]"
+              src="/brand/logo-vmit-white.png"
+              alt={light ? `VMIT — ${tagline}` : ""}
+              width={885}
+              height={333}
+              className={cn(
+                "absolute inset-0 h-full w-full object-contain object-left transition-opacity duration-300",
+                light ? "opacity-100" : "pointer-events-none opacity-0",
+              )}
+              aria-hidden={!light}
+              priority
+            />
+            <Image
+              src="/brand/logo-vmit-color.png"
+              alt={light ? "" : `VMIT — ${tagline}`}
+              width={739}
+              height={279}
+              className={cn(
+                "absolute inset-0 h-full w-full object-contain object-left transition-opacity duration-300",
+                light ? "pointer-events-none opacity-0" : "opacity-100",
+              )}
+              aria-hidden={light}
               priority
             />
           </Link>
 
           <nav className="hidden flex-1 items-center justify-center gap-0.5 lg:flex">
-            {nav.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={cn(
-                  "px-3 py-2 text-base font-semibold transition hover:text-primary",
-                  light ? "text-white" : "text-brand-navy/90",
-                )}
-              >
-                {item.label}
-              </Link>
-            ))}
+            {nav.map((item) => {
+              const current = pathname === item.href
+              const pending = pendingHref === item.href
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  prefetch
+                  aria-current={current ? "page" : undefined}
+                  onClick={() => {
+                    if (!item.href.includes("#")) setPendingHref(item.href)
+                  }}
+                  className={cn(
+                    "rounded-[3px] px-3 py-2 text-base font-semibold transition-colors duration-150 active:scale-95 active:bg-primary active:text-white",
+                    current || pending
+                      ? "bg-primary text-white"
+                      : light
+                        ? "text-white hover:text-primary"
+                        : "text-brand-navy/90 hover:text-primary",
+                  )}
+                >
+                  {item.label}
+                </Link>
+              )
+            })}
           </nav>
 
           <div className="ml-auto flex items-center gap-2 md:ml-0">
@@ -143,7 +180,7 @@ export function SiteHeader({
                 "clip-cta hidden min-w-0 rounded-none px-8 py-6 text-base font-bold uppercase tracking-wide md:inline-flex",
               )}
             >
-              {t.nav.apply} {year}
+              {t.nav.apply}
             </Link>
             <button
               type="button"
@@ -179,22 +216,34 @@ export function SiteHeader({
               ))}
             </div>
             <div className="flex flex-col gap-1">
-              {nav.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="rounded-[3px] px-3 py-2.5 text-base font-medium text-white hover:bg-white/10"
-                  onClick={() => setOpen(false)}
-                >
-                  {item.label}
-                </Link>
-              ))}
+              {nav.map((item) => {
+                const current = pathname === item.href
+                const pending = pendingHref === item.href
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    prefetch
+                    aria-current={current ? "page" : undefined}
+                    className={cn(
+                      "rounded-[3px] px-3 py-2.5 text-base font-medium transition-colors duration-150 active:scale-[0.98] active:bg-white active:text-primary",
+                      current || pending ? "bg-white text-primary" : "text-white hover:bg-white/10",
+                    )}
+                    onClick={() => {
+                      if (!item.href.includes("#")) setPendingHref(item.href)
+                      setOpen(false)
+                    }}
+                  >
+                    {item.label}
+                  </Link>
+                )
+              })}
               <Link
                 href={ROUTES.apply}
                 className={cn(buttonVariants({ size: "lg", variant: "secondary" }), "mt-3 text-base")}
                 onClick={() => setOpen(false)}
               >
-                {t.nav.apply} {year}
+                {t.nav.apply}
               </Link>
             </div>
           </div>

@@ -13,6 +13,8 @@ import {
   getSettingsMap,
 } from "@/services/cms"
 
+export const revalidate = 120
+
 export default async function Page() {
   const [
     settings,

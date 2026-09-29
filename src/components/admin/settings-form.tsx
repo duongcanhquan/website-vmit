@@ -30,10 +30,11 @@ const PAGE_LINK_HINTS = [
   { label: "VMIT", href: ROUTES.about },
   { label: "Ngành học", href: ROUTES.programs },
   { label: "Lộ trình", href: ROUTES.pathway },
+  { label: "Trường BTEC", href: ROUTES.btecSchools },
   { label: "Học phí", href: ROUTES.tuition },
   { label: "Xét tuyển", href: ROUTES.apply },
-  { label: "Môn học (#)", href: "#mon-hoc" },
-  { label: "Tin tức (#)", href: "#tin-tuc" },
+  { label: "Môn học", href: ROUTES.subjects },
+  { label: "Tin tức", href: ROUTES.news },
   { label: "Học bổng (popup)", href: "#hoc-bong" },
 ]
 

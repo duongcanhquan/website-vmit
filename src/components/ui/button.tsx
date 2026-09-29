@@ -2,9 +2,9 @@ import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
-/** Academia-style buttons: teal primary, 3px radius, soft shadow, 0.5s transition */
+/** Academia-style buttons: teal primary, 3px radius, immediate press feedback */
 const buttonVariants = cva(
-  "group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-[3px] text-sm font-semibold tracking-wide transition-all duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/35 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+  "group relative inline-flex cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-[3px] text-sm font-semibold tracking-wide transition-[transform,background-color,box-shadow,filter] duration-150 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/35 focus-visible:ring-offset-2 active:scale-[0.97] active:brightness-90 disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {

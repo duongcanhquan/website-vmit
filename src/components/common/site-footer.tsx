@@ -16,7 +16,6 @@ export function SiteFooter({ settings = {} }: { settings?: Record<string, unknow
   const { locale, t } = useLocale()
   const badge = settingText(settings.accreditation_badge, locale) || SITE.accreditationBadge
   const hotline = settingText(settings.hotline_display, locale) || t.common.hotline
-  const year = settingText(settings.admission_year, locale) || SITE.admissionYear
   const email = settingUrl(settings.contact_email, "admissions@vmit.edu.vn")
   const address =
     settingText(settings.contact_address, locale) ||
@@ -27,10 +26,12 @@ export function SiteFooter({ settings = {} }: { settings?: Record<string, unknow
     SITE.brandTagline
   const nav = [
     { href: ROUTES.about, label: t.nav.about },
-    { href: ROUTES.programs, label: t.nav.programs },
     { href: ROUTES.pathway, label: t.nav.pathway },
-    { href: ROUTES.tuition, label: t.nav.tuition },
-    { href: ROUTES.apply, label: `${t.nav.apply} ${year}` },
+    { href: ROUTES.programs, label: t.nav.programs },
+    { href: ROUTES.subjects, label: t.nav.subjects },
+    { href: ROUTES.btecSchools, label: t.nav.btecSchools },
+    { href: ROUTES.news, label: t.nav.news },
+    { href: ROUTES.apply, label: t.nav.apply },
   ]
 
   return (
@@ -56,7 +57,7 @@ export function SiteFooter({ settings = {} }: { settings?: Record<string, unknow
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="text-muted transition before:mr-2 before:text-primary before:content-['⟶'] hover:text-primary"
+                  className="text-muted transition duration-150 before:mr-2 before:text-primary before:content-['⟶'] hover:text-primary active:text-primary"
                 >
                   {item.label}
                 </Link>

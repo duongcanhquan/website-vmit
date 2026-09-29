@@ -1,11 +1,14 @@
 "use server"
 
-import { revalidatePath } from "next/cache"
+import { revalidatePath, revalidateTag } from "next/cache"
+import { clearCmsCache } from "@/services/cms"
 import { requireStaff } from "@/lib/admin/auth"
 import { deleteFromR2 } from "@/lib/r2/client"
 import { RICH_TEXT_FIELDS, sanitizeRichHtml } from "@/lib/rich-text"
 
 function revalidatePublic() {
+  clearCmsCache()
+  revalidateTag("cms")
   revalidatePath("/")
   revalidatePath("/tin-tuc", "layout")
   revalidatePath("/chuong-trinh")
@@ -13,6 +16,7 @@ function revalidatePublic() {
   revalidatePath("/hoc-phi")
   revalidatePath("/ve-vmit")
   revalidatePath("/xet-tuyen")
+  revalidatePath("/truong-btec")
   revalidatePath("/admin", "layout")
 }
 

@@ -4,6 +4,8 @@ import { MEDIA } from "@/constants/media"
 import { resolveMediaUrl } from "@/lib/media"
 import { getPublishedCourses, getSettingsMap } from "@/services/cms"
 
+export const revalidate = 120
+
 export const metadata: Metadata = { title: "Chương trình đào tạo" }
 
 export default async function ChuongTrinhPage() {

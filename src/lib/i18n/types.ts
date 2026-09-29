@@ -5,6 +5,9 @@ export type MessageTree = {
     about: string
     programs: string
     pathway: string
+    subjects: string
+    btecSchools: string
+    news: string
     tuition: string
     studentLife: string
     apply: string
