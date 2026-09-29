@@ -31,7 +31,7 @@ export default async function Page() {
         { key: "name", label: "Họ tên", kind: "bilingual", viKey: "full_name_vi", enKey: "full_name_en" },
         { key: "role", label: "Chức danh", kind: "bilingual", viKey: "role_title_vi", enKey: "role_title_en" },
         { key: "bio", label: "Bio", kind: "bilingual", viKey: "bio_vi", enKey: "bio_en", multiline: true },
-        { key: "avatar_url", label: "Avatar URL", kind: "url" },
+        { key: "avatar_url", label: "Ảnh chân dung", kind: "image", aspect: "portrait" },
         { key: "email", label: "Email", kind: "text" },
         { key: "sort_order", label: "Thứ tự", kind: "number" },
         { key: "is_published", label: "Xuất bản", kind: "checkbox" },

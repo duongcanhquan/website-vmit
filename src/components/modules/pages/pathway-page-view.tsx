@@ -8,43 +8,28 @@ import { MotionImage } from "@/components/common/motion-image"
 import { SiteFooter } from "@/components/common/site-footer"
 import { SiteHeader } from "@/components/common/site-header"
 import { Reveal, Stagger, staggerItem } from "@/components/common/reveal"
-import { StoryFrame, useActiveStep } from "@/components/modules/pages/pathway-scrolly"
-import { ROUTE_IDS, STATION_IDS, pathwayStory } from "@/components/modules/pages/pathway-story-data"
+import { BoardingPass, RouteLines, StationJourney } from "@/components/modules/pages/pathway-rail"
+import { useActiveStep } from "@/components/modules/pages/pathway-scrolly"
+import { STATION_IDS, pathwayStory } from "@/components/modules/pages/pathway-story-data"
 import {
   AWARD_FRAMES,
   FINALE_FRAME,
-  LINE_FRAMES,
   MAJOR_FRAMES,
   PRACTICE_FRAMES,
+  PATHWAY_HERO,
   PROOF_FRAMES,
   REGION_FRAMES,
-  STATION_FRAMES,
   frameAlt,
 } from "@/components/modules/pages/pathway-visuals"
 import { useLocale } from "@/components/providers/locale-provider"
 import { buttonVariants } from "@/components/ui/button"
-import { MEDIA } from "@/constants/media"
 import { ROUTES } from "@/constants/site"
 import { cn } from "@/lib/utils"
-
-const stepClass =
-  "scroll-mt-28 flex min-h-[52svh] flex-col justify-center py-14 lg:min-h-[78svh] lg:py-20"
-
-function StepPhoto({ src, alt }: { src: string; alt: string }) {
-  return (
-    <div className="relative mb-6 aspect-[16/10] overflow-hidden rounded-xl lg:hidden">
-      <Image src={src} alt={alt} fill sizes="100vw" className="object-cover" />
-    </div>
-  )
-}
 
 export function PathwayPageView({ settings }: { settings: Record<string, unknown> }) {
   const { locale, t } = useLocale()
   const story = pathwayStory(locale)
   const stationIndex = useActiveStep(STATION_IDS)
-  const routeIndex = useActiveStep(ROUTE_IDS)
-  const station = story.stations[stationIndex]
-  const route = story.routes[routeIndex]
   const heroButton =
     "border border-white/30 bg-transparent text-white shadow-none hover:bg-white hover:text-primary"
 
@@ -60,7 +45,7 @@ export function PathwayPageView({ settings }: { settings: Record<string, unknown
       <main className="bg-mist text-brand-navy">
         <section className="relative flex min-h-svh items-center overflow-hidden bg-hero-sky text-white">
           <MotionImage
-            src={MEDIA.campusArchitecture}
+            src={PATHWAY_HERO}
             alt=""
             fill
             priority
@@ -69,8 +54,9 @@ export function PathwayPageView({ settings }: { settings: Record<string, unknown
             frameClassName="absolute inset-0 h-full w-full"
             className="object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/20 to-transparent" />
-          <Reveal className="relative z-10 mx-auto w-full max-w-[85%] py-36 md:py-44">
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/35 to-black/10" />
+          <div className="relative z-10 mx-auto grid w-full max-w-[85%] items-center gap-12 py-36 md:py-44 lg:grid-cols-12">
+          <Reveal className="lg:col-span-7">
             <p className="text-sm font-bold uppercase tracking-[0.14em] text-white/90">{story.heroEyebrow}</p>
             <h1 className="@container mt-3 w-full max-w-4xl font-black leading-[1.12] tracking-tight">
               <span className="block whitespace-nowrap text-[clamp(1.2rem,7.4cqi,3.5rem)]">{story.heroTitle}</span>
@@ -104,158 +90,14 @@ export function PathwayPageView({ settings }: { settings: Record<string, unknown
               </a>
             </nav>
           </Reveal>
+          <div className="hidden justify-end lg:col-span-5 lg:flex">
+            <BoardingPass story={story} />
+          </div>
+        </div>
         </section>
 
-        <section id="hanh-trinh" aria-labelledby="hanh-trinh-title">
-          <div className="mx-auto w-full max-w-[85%] pt-16 md:pt-24">
-            <p className="overline">{story.journeyEyebrow}</p>
-            <h2 id="hanh-trinh-title" className="mt-3 max-w-2xl font-display text-3xl md:text-4xl">
-              {story.journeyTitle}
-            </h2>
-            <p className="mt-4 max-w-xl text-muted">{story.journeyLead}</p>
-          </div>
-
-          <div className="sticky top-[4.25rem] z-30 border-b border-border bg-surface/95 backdrop-blur lg:hidden">
-            <div className="mx-auto flex w-full max-w-[85%] items-center gap-3 py-2">
-              <nav aria-label={story.stationNav} className="flex">
-                {story.stations.map((item, index) => (
-                  <a
-                    key={item.id}
-                    href={`#${item.id}`}
-                    aria-current={index === stationIndex ? "step" : undefined}
-                    className="inline-flex size-11 items-center justify-center"
-                  >
-                    <span
-                      className={cn(
-                        "size-2.5 rounded-full",
-                        index === stationIndex ? "bg-primary" : index < stationIndex ? "bg-primary/40" : "bg-border",
-                      )}
-                    />
-                    <span className="sr-only">{item.code}</span>
-                  </a>
-                ))}
-              </nav>
-              <p className="min-w-0 truncate text-sm font-semibold">
-                {station?.code}
-                <span className="font-normal text-muted"> · {station?.title}</span>
-              </p>
-            </div>
-          </div>
-
-          <div className="mx-auto grid w-full max-w-[85%] lg:grid-cols-12 lg:gap-16">
-            <div className="lg:col-span-6">
-              {story.stations.map((item, index) => {
-                const here = index === stationIndex
-                return (
-                  <article
-                    key={item.id}
-                    id={item.id}
-                    aria-current={here ? "step" : undefined}
-                    className={stepClass}
-                  >
-                    <StepPhoto src={STATION_FRAMES[index].src} alt={frameAlt(STATION_FRAMES[index], locale)} />
-                    <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary">{item.code}</p>
-                    <h3
-                      className={cn(
-                        "mt-3 font-display text-4xl text-brand-navy motion-safe:transition-colors motion-safe:duration-300 md:text-5xl",
-                        !here && "motion-safe:lg:text-muted",
-                      )}
-                    >
-                      {item.title}
-                    </h3>
-                    <p className="mt-2 text-lg text-brand-navy/80">{item.subtitle}</p>
-                    <p className="mt-4 text-sm font-semibold text-muted">{item.when}</p>
-                    <p className="mt-4 max-w-xl text-base text-brand-navy/90 md:text-lg">{item.body}</p>
-                    <ul className="mt-6 flex flex-wrap gap-2">
-                      {item.marks.map((mark) => (
-                        <li
-                          key={mark}
-                          className="rounded-[3px] border border-border bg-sky px-3 py-2 text-sm font-semibold text-brand-navy"
-                        >
-                          {mark}
-                        </li>
-                      ))}
-                    </ul>
-                  </article>
-                )
-              })}
-            </div>
-            <div className="hidden lg:col-span-5 lg:col-start-8 lg:block">
-              <div className="sticky top-28 h-[calc(100svh-8rem)]">
-                <StoryFrame
-                  active={stationIndex}
-                  frames={STATION_FRAMES}
-                  labels={story.stations.map((item) => ({ code: item.code, title: item.title }))}
-                />
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="bon-tuyen" aria-labelledby="bon-tuyen-title" className="border-t border-border bg-surface">
-          <div className="mx-auto w-full max-w-[85%] pt-16 md:pt-24">
-            <p className="overline">{story.routesEyebrow}</p>
-            <h2 id="bon-tuyen-title" className="mt-3 max-w-2xl font-display text-3xl md:text-4xl">
-              {story.routesTitle}
-            </h2>
-            <p className="mt-4 max-w-xl text-muted">{story.routesLead}</p>
-          </div>
-
-          <div className="sticky top-[4.25rem] z-30 border-b border-border bg-surface/95 backdrop-blur lg:hidden">
-            <div className="mx-auto flex w-full max-w-[85%] items-center gap-3 py-3">
-              <span className="size-2.5 shrink-0 rounded-full bg-primary" />
-              <p className="min-w-0 truncate text-sm font-semibold">
-                {route?.name}
-                <span className="font-normal text-muted"> · {route?.epithet}</span>
-              </p>
-            </div>
-          </div>
-
-          <div className="mx-auto grid w-full max-w-[85%] lg:grid-cols-12 lg:gap-16">
-            <div className="lg:col-span-6">
-              {story.routes.map((item, index) => {
-                const here = index === routeIndex
-                return (
-                  <article
-                    key={item.id}
-                    id={item.id}
-                    aria-current={here ? "step" : undefined}
-                    className={stepClass}
-                  >
-                    <StepPhoto src={LINE_FRAMES[index].src} alt={frameAlt(LINE_FRAMES[index], locale)} />
-                    <div
-                      className={cn(
-                        "border-l-2 pl-6 motion-safe:transition-colors motion-safe:duration-300",
-                        here ? "border-primary" : "border-transparent",
-                      )}
-                    >
-                      <p className="overline">{item.epithet}</p>
-                      <h3 className="mt-3 font-display text-4xl text-brand-navy md:text-5xl">{item.name}</h3>
-                      <p className="mt-4 max-w-xl text-base text-brand-navy/90 md:text-lg">{item.body}</p>
-                      <ul className="mt-6 space-y-2">
-                        {item.points.map((point) => (
-                          <li key={point} className="flex items-start gap-3 text-sm font-semibold md:text-base">
-                            <span className="mt-2 size-1.5 shrink-0 rounded-full bg-primary" />
-                            {point}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </article>
-                )
-              })}
-            </div>
-            <div className="hidden lg:col-span-5 lg:col-start-8 lg:block">
-              <div className="sticky top-28 h-[calc(100svh-8rem)]">
-                <StoryFrame
-                  active={routeIndex}
-                  frames={LINE_FRAMES}
-                  labels={story.routes.map((item) => ({ code: item.epithet, title: item.name }))}
-                />
-              </div>
-            </div>
-          </div>
-        </section>
+        <StationJourney story={story} active={stationIndex} locale={locale} />
+        <RouteLines story={story} locale={locale} />
 
         <section id="cong-nhan" aria-labelledby="cong-nhan-title" className="border-t border-border">
           <div className="mx-auto w-full max-w-[85%] py-16 md:py-24">

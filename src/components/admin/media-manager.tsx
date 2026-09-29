@@ -3,9 +3,13 @@
 import Image from "next/image"
 import { useRouter } from "next/navigation"
 import { useEffect, useState, useTransition } from "react"
+import { ImageUp, Loader2 } from "lucide-react"
 import { deleteMediaAsset, updateMediaAsset } from "@/app/admin/(dashboard)/actions"
+import { invalidateMediaLibrary } from "@/components/admin/media-picker"
 import { AdminCard, AdminPageHeader, EmptyState, Field, inputClass } from "@/components/admin/ui"
 import { Button } from "@/components/ui/button"
+import { isImageUrl, uploadAdminFile } from "@/lib/admin/upload-client"
+import { cn } from "@/lib/utils"
 
 export type MediaAssetRow = {
   id: string
@@ -57,6 +61,8 @@ export function MediaManager({ assets }: { assets: MediaAssetRow[] }) {
   const router = useRouter()
   const [pending, start] = useTransition()
   const [message, setMessage] = useState<string | null>(null)
+  const [busy, setBusy] = useState<string | null>(null)
+  const [dragging, setDragging] = useState(false)
   const [kind, setKind] = useState("campus")
   const [altVi, setAltVi] = useState("")
   const [altEn, setAltEn] = useState("")
@@ -77,30 +83,66 @@ export function MediaManager({ assets }: { assets: MediaAssetRow[] }) {
     }))
   }
 
-  async function onUpload(file: File | null) {
-    if (!file) return
+  async function onUpload(list: FileList | File[] | null) {
+    const files = Array.from(list ?? [])
+    if (!files.length) return
     setMessage(null)
-    const body = new FormData()
-    body.set("file", file)
-    body.set("folder", "uploads")
-    body.set("kind", kind)
-    body.set("alt_vi", altVi)
-    body.set("alt_en", altEn)
-    body.set("caption_vi", captionVi)
-    body.set("caption_en", captionEn)
-    body.set("is_published", "true")
-    const res = await fetch("/api/admin/upload", { method: "POST", body })
-    const json = (await res.json()) as { error?: string }
-    if (!res.ok) {
-      setMessage(json.error ?? "Upload thất bại")
-      return
+    setBusy(`Đang tải ${files.length} file…`)
+    let done = 0
+    const failed: string[] = []
+    for (const file of files) {
+      const asset = await uploadAdminFile(file, { folder: "uploads", kind, publish: true, altVi }).catch((err: unknown) => {
+        failed.push(`${file.name}: ${err instanceof Error ? err.message : "lỗi"}`)
+        return null
+      })
+      if (asset) {
+        done += 1
+        if (altEn || captionVi || captionEn) {
+          await updateMediaAsset(asset.id, {
+            alt_vi: altVi,
+            alt_en: altEn,
+            caption_vi: captionVi,
+            caption_en: captionEn,
+            kind,
+            sort_order: 0,
+            is_published: true,
+            is_featured: false,
+          }).catch(() => undefined)
+        }
+      }
     }
-    setMessage("Đã upload — ảnh sẽ hiện trên web nếu đã publish.")
+    setBusy(null)
+    invalidateMediaLibrary()
+    setMessage(
+      failed.length
+        ? `Đã tải ${done}/${files.length} file. Lỗi: ${failed.join("; ")}`
+        : `Đã tải ${done} file lên. Ảnh hiện trên web ngay nếu bật “Hiện trên web”.`,
+    )
     setAltVi("")
     setAltEn("")
     setCaptionVi("")
     setCaptionEn("")
     router.refresh()
+  }
+
+  async function onReplace(asset: MediaAssetRow, file: File | undefined) {
+    if (!file) return
+    setMessage(null)
+    setBusy("Đang thay ảnh…")
+    try {
+      const result = await uploadAdminFile(file, { folder: "uploads", replaceId: asset.id })
+      invalidateMediaLibrary()
+      setMessage(
+        result.updatedRefs
+          ? `Đã thay ảnh và cập nhật ${result.updatedRefs} chỗ đang dùng ảnh cũ trên website.`
+          : "Đã thay ảnh.",
+      )
+      router.refresh()
+    } catch (err) {
+      setMessage(err instanceof Error ? err.message : "Không thay được ảnh")
+    } finally {
+      setBusy(null)
+    }
   }
 
   return (
@@ -133,17 +175,45 @@ export function MediaManager({ assets }: { assets: MediaAssetRow[] }) {
           <Field label="Caption EN">
             <input className={inputClass} value={captionEn} onChange={(e) => setCaptionEn(e.target.value)} />
           </Field>
-          <Field label="Chọn file">
-            <input
-              type="file"
-              accept="image/*,application/pdf"
-              className="block w-full text-sm"
-              onChange={(e) => void onUpload(e.target.files?.[0] ?? null)}
-            />
-          </Field>
         </div>
-        {message ? <p className="mt-3 text-sm font-medium text-brand-navy">{message}</p> : null}
+        <label
+          onDragOver={(e) => {
+            e.preventDefault()
+            setDragging(true)
+          }}
+          onDragLeave={() => setDragging(false)}
+          onDrop={(e) => {
+            e.preventDefault()
+            setDragging(false)
+            void onUpload(e.dataTransfer.files)
+          }}
+          className={cn(
+            "mt-4 flex cursor-pointer flex-col items-center justify-center gap-2 rounded-xl border-2 border-dashed px-4 py-8 text-center transition",
+            dragging ? "border-primary bg-primary/5" : "border-border bg-mist hover:border-primary/60",
+            busy && "pointer-events-none opacity-70",
+          )}
+        >
+          {busy ? <Loader2 className="size-7 animate-spin text-primary" /> : <ImageUp className="size-7 text-primary" />}
+          <span className="text-[15px] font-bold text-brand-navy">{busy ?? "Kéo thả ảnh vào đây hoặc bấm để chọn"}</span>
+          <span className="text-[13px] text-muted">Chọn được nhiều ảnh một lúc · JPG, PNG, WebP, PDF · tối đa 12MB · ảnh lớn tự nén</span>
+          <input
+            type="file"
+            multiple
+            accept="image/*,application/pdf"
+            className="sr-only"
+            onChange={(e) => {
+              void onUpload(e.target.files)
+              e.target.value = ""
+            }}
+          />
+        </label>
       </AdminCard>
+
+      {message ? (
+        <p role="status" className="sticky top-2 z-30 mb-4 rounded-xl border border-primary/30 bg-sky px-4 py-3 text-sm font-semibold text-brand-navy shadow-hairline">
+          {message}
+        </p>
+      ) : null}
 
       {assets.length === 0 ? (
         <EmptyState message="Chưa có ảnh. Hãy upload file đầu tiên — hoặc kiểm tra seed banner trong DB." />
@@ -153,13 +223,28 @@ export function MediaManager({ assets }: { assets: MediaAssetRow[] }) {
             const draft = drafts[asset.id] ?? toDraft(asset)
             return (
               <AdminCard key={asset.id}>
-                <div className="relative mb-3 aspect-video overflow-hidden rounded-xl bg-sky">
-                  {asset.url.match(/\.(png|jpe?g|webp|gif)$/i) || asset.url.startsWith("/media/") ? (
+                <label className="group relative mb-3 block aspect-video cursor-pointer overflow-hidden rounded-xl bg-sky">
+                  {isImageUrl(asset.url) ? (
                     <Image src={asset.url} alt={draft.alt_vi || asset.path} fill className="object-cover" unoptimized />
                   ) : (
                     <p className="flex h-full items-center justify-center text-sm">{asset.path}</p>
                   )}
-                </div>
+                  <span className="absolute inset-0 flex flex-col items-center justify-center gap-1.5 bg-brand-navy/55 text-white opacity-0 transition group-hover:opacity-100">
+                    <ImageUp className="size-6" />
+                    <span className="text-sm font-bold">Thay ảnh này</span>
+                    <span className="text-xs text-white/80">Mọi chỗ đang dùng ảnh sẽ đổi theo</span>
+                  </span>
+                  <input
+                    type="file"
+                    accept="image/*,application/pdf"
+                    className="sr-only"
+                    disabled={Boolean(busy)}
+                    onChange={(e) => {
+                      void onReplace(asset, e.target.files?.[0])
+                      e.target.value = ""
+                    }}
+                  />
+                </label>
                 <p className="truncate text-xs text-muted">{asset.url}</p>
                 <div className="mt-3 grid gap-2 sm:grid-cols-2">
                   <Field label="Alt VI">
@@ -254,6 +339,7 @@ export function MediaManager({ assets }: { assets: MediaAssetRow[] }) {
                     className="text-red-700"
                     disabled={pending}
                     onClick={() => {
+                      if (!window.confirm("Xóa ảnh này khỏi thư viện? Những chỗ đang dùng ảnh sẽ mất ảnh.")) return
                       start(async () => {
                         await deleteMediaAsset(asset.id, asset.path)
                         router.refresh()

@@ -38,6 +38,7 @@ import {
   Undo2,
   Youtube as YoutubeIcon,
 } from "lucide-react"
+import { MediaPicker } from "@/components/admin/media-picker"
 import { toEditorHtml } from "@/lib/plain-text-html"
 import { cn } from "@/lib/utils"
 
@@ -408,6 +409,7 @@ function Toolbar({
   onPickImages: (files: File[]) => void
 }) {
   const fileRef = useRef<HTMLInputElement>(null)
+  const [picking, setPicking] = useState(false)
   const state = useEditorState({
     editor,
     selector: ({ editor: e }) => {
@@ -627,6 +629,16 @@ function Toolbar({
               type="button"
               className="rounded-[3px] px-2 py-1.5 text-left font-medium hover:bg-mist"
               onClick={() => {
+                setPicking(true)
+                close()
+              }}
+            >
+              Chọn từ thư viện ảnh…
+            </button>
+            <button
+              type="button"
+              className="rounded-[3px] px-2 py-1.5 text-left font-medium hover:bg-mist"
+              onClick={() => {
                 insertImageUrl()
                 close()
               }}
@@ -650,6 +662,11 @@ function Toolbar({
           if (files.length) onPickImages(files)
           event.target.value = ""
         }}
+      />
+      <MediaPicker
+        open={picking}
+        onClose={() => setPicking(false)}
+        onPick={(src) => editor?.chain().focus().setImage({ src }).run()}
       />
       <ToolbarButton label="Chèn video YouTube" disabled={disabled} onClick={insertYoutube}>
         <YoutubeIcon className="size-4" />

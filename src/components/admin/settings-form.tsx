@@ -1,9 +1,12 @@
 "use client"
 
+import Link from "next/link"
 import { useState, useTransition } from "react"
 import { Button } from "@/components/ui/button"
+import { ImageField } from "@/components/admin/image-field"
 import { AdminCard, AdminPageHeader, Field, inputClass, textareaClass } from "@/components/admin/ui"
 import { saveSettingsBatch } from "@/app/admin/(dashboard)/actions"
+import { MEDIA } from "@/constants/media"
 import { ROUTES } from "@/constants/site"
 
 type LocalePair = { vi: string; en: string }
@@ -30,7 +33,7 @@ const PAGE_LINK_HINTS = [
   { label: "VMIT", href: ROUTES.about },
   { label: "Chương trình", href: ROUTES.programs },
   { label: "Lộ trình", href: ROUTES.pathway },
-  { label: "Trường BTEC", href: ROUTES.btecSchools },
+  { label: "Hệ thống BTEC", href: ROUTES.btecSchools },
   { label: "Học phí", href: ROUTES.tuition },
   { label: "Xét tuyển", href: ROUTES.apply },
   { label: "Môn học", href: ROUTES.subjects },
@@ -83,20 +86,27 @@ export function SettingsForm({ initial }: Props) {
     hero_slogan: readPair(
       initial.hero_slogan ?? initial.tagline ?? { vi: "Journey to work excellence", en: "Journey to work excellence" },
     ),
-    hero_headline: readPair(initial.hero_headline ?? { vi: "Học mọi thứ", en: "Learn anything" }),
-    hero_support: readPair(initial.hero_support),
-    hero_cta_primary_label: readPair(
-      initial.hero_cta_primary_label ?? { vi: "Bắt đầu ngay", en: "Get started now" },
+    hero_headline: readPair(
+      initial.hero_headline ?? { vi: "CỬ NHÂN THỰC HÀNH ANH QUỐC", en: "UK PRACTICE-BASED BACHELOR" },
     ),
-    hero_cta_primary_href: readUrl(initial.hero_cta_primary_href, ROUTES.apply),
+    hero_support: readPair(
+      initial.hero_support ?? {
+        vi: "Chương trình học từ Anh với lộ trình học đa dạng và thực tiễn.",
+        en: "UK-designed programmes with diverse, practical learning pathways.",
+      },
+    ),
+    hero_cta_primary_label: readPair(
+      initial.hero_cta_primary_label ?? { vi: "Nhận học bổng", en: "Get a scholarship" },
+    ),
+    hero_cta_primary_href: readUrl(initial.hero_cta_primary_href, "#hoc-bong"),
     hero_cta_secondary_label: readPair(
-      initial.hero_cta_secondary_label ?? { vi: "Xem chương trình", en: "View course" },
+      initial.hero_cta_secondary_label ?? { vi: "Chương trình học", en: "Programmes" },
     ),
     hero_cta_secondary_href: readUrl(initial.hero_cta_secondary_href, ROUTES.programs),
     hero_cta_tertiary_label: readPair(
-      initial.hero_cta_tertiary_label ?? { vi: "Nhận học bổng", en: "Get scholarship" },
+      initial.hero_cta_tertiary_label ?? { vi: "Cổng xét tuyển", en: "Admissions portal" },
     ),
-    hero_cta_tertiary_href: readUrl(initial.hero_cta_tertiary_href, "#hoc-bong"),
+    hero_cta_tertiary_href: readUrl(initial.hero_cta_tertiary_href, ROUTES.apply),
     social_facebook: readUrl(initial.social_facebook, "https://www.facebook.com/"),
     social_tiktok: readUrl(initial.social_tiktok, "https://www.tiktok.com/"),
     contact_email: readUrl(initial.contact_email, "admissions@vmit.edu.vn"),
@@ -108,16 +118,10 @@ export function SettingsForm({ initial }: Props) {
       },
     ),
     hotline_display: readPair(initial.hotline_display),
-    about_lead: readPair(initial.about_lead),
-    gallery_eyebrow: readPair(initial.gallery_eyebrow),
-    gallery_title: readPair(initial.gallery_title),
-    gallery_lead: readPair(initial.gallery_lead),
     accreditation_badge: readUrl(initial.accreditation_badge, "PERSON APPROVED CENTER"),
     hotline_href: readUrl(initial.hotline_href, "tel:0999999999"),
     admission_year: readUrl(initial.admission_year, "2026"),
     hero_image_url: readUrl(initial.hero_image_url),
-    campus_image_url: readUrl(initial.campus_image_url),
-    life_image_1_url: readUrl(initial.life_image_1_url),
     life_image_2_url: readUrl(initial.life_image_2_url),
   })
 
@@ -285,33 +289,11 @@ export function SettingsForm({ initial }: Props) {
               />
             </Field>
           </div>
-          <LocalePairFields
-            label="About lead"
-            pair={form.about_lead}
-            onChange={(l, v) => setPair("about_lead", l, v)}
-          />
-          <LocalePairFields
-            label="Gallery eyebrow"
-            pair={form.gallery_eyebrow}
-            onChange={(l, v) => setPair("gallery_eyebrow", l, v)}
-            multiline={false}
-          />
-          <LocalePairFields
-            label="Gallery title"
-            pair={form.gallery_title}
-            onChange={(l, v) => setPair("gallery_title", l, v)}
-            multiline={false}
-          />
-          <LocalePairFields
-            label="Gallery lead"
-            pair={form.gallery_lead}
-            onChange={(l, v) => setPair("gallery_lead", l, v)}
-          />
         </div>
 
-        <p className="mb-4 mt-10 text-sm font-bold text-brand-navy">5. Badge & ảnh (URL)</p>
+        <p className="mb-4 mt-10 text-sm font-bold text-brand-navy">5. Badge & ảnh</p>
         <div className="grid gap-4 md:grid-cols-2">
-          <Field label="PERSON / badge header">
+          <Field label="Dòng chữ nhỏ trên cùng (badge)">
             <input
               className={inputClass}
               value={form.accreditation_badge}
@@ -325,38 +307,29 @@ export function SettingsForm({ initial }: Props) {
               onChange={(e) => setUrl("admission_year", e.target.value)}
             />
           </Field>
-          <Field label="URL ảnh hero">
-            <input
-              className={inputClass}
-              value={form.hero_image_url}
-              onChange={(e) => setUrl("hero_image_url", e.target.value)}
-            />
-          </Field>
-          <Field label="URL ảnh campus">
-            <input
-              className={inputClass}
-              value={form.campus_image_url}
-              onChange={(e) => setUrl("campus_image_url", e.target.value)}
-            />
-          </Field>
-          <Field label="URL đời sống SV 1">
-            <input
-              className={inputClass}
-              value={form.life_image_1_url}
-              onChange={(e) => setUrl("life_image_1_url", e.target.value)}
-            />
-          </Field>
-          <Field label="URL đời sống SV 2">
-            <input
-              className={inputClass}
-              value={form.life_image_2_url}
-              onChange={(e) => setUrl("life_image_2_url", e.target.value)}
-            />
-          </Field>
+          <ImageField
+            label="Ảnh nền banner trang chủ"
+            value={form.hero_image_url}
+            fallback={MEDIA.heroStudent}
+            onChange={(url) => setUrl("hero_image_url", url)}
+          />
+          <ImageField
+            label="Ảnh banner trang Học phí"
+            value={form.life_image_2_url}
+            fallback={MEDIA.library}
+            onChange={(url) => setUrl("life_image_2_url", url)}
+          />
         </div>
+        <p className="mt-4 text-xs text-muted">
+          Chữ và ảnh các khối khác trên trang chủ sửa tại{" "}
+          <Link href="/admin/trang-chu" className="font-bold text-primary hover:underline">
+            Nội dung trang chủ
+          </Link>
+          .
+        </p>
 
+        <div className="sticky bottom-0 z-30 -mx-5 mt-8 flex flex-wrap items-center gap-3 border-t border-border bg-white/95 px-5 py-3 backdrop-blur">
         <Button
-          className="mt-8"
           disabled={pending}
           onClick={() => {
             start(async () => {
@@ -379,16 +352,10 @@ export function SettingsForm({ initial }: Props) {
                   admissions_notify_email: form.admissions_notify_email,
                   contact_address: form.contact_address,
                   hotline_display: form.hotline_display,
-                  about_lead: form.about_lead,
-                  gallery_eyebrow: form.gallery_eyebrow,
-                  gallery_title: form.gallery_title,
-                  gallery_lead: form.gallery_lead,
                   accreditation_badge: form.accreditation_badge,
                   admission_year: form.admission_year,
                   hotline_href: form.hotline_href,
                   hero_image_url: form.hero_image_url,
-                  campus_image_url: form.campus_image_url,
-                  life_image_1_url: form.life_image_1_url,
                   life_image_2_url: form.life_image_2_url,
                 })
                 setMessage("Đã lưu cài đặt.")
@@ -400,7 +367,12 @@ export function SettingsForm({ initial }: Props) {
         >
           {pending ? "Đang lưu…" : "Lưu cài đặt"}
         </Button>
-        {message ? <p className="mt-3 text-sm text-brand-navy">{message}</p> : null}
+        {message ? (
+          <p role="status" className="text-sm font-semibold text-brand-navy">
+            {message}
+          </p>
+        ) : null}
+        </div>
       </AdminCard>
     </div>
   )

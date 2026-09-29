@@ -7,8 +7,9 @@ import { Reveal } from "@/components/common/reveal"
 import { PostCard } from "@/components/modules/news/post-card"
 import { useLocale } from "@/components/providers/locale-provider"
 import { buttonVariants } from "@/components/ui/button"
-import { MEDIA } from "@/constants/media"
 import { ROUTES } from "@/constants/site"
+import { homeImage, homeText } from "@/lib/home-content"
+import { canOptimizeImage } from "@/lib/media"
 import { cn } from "@/lib/utils"
 import type { CmsStatus, NewsPost } from "@/types/home-cms"
 
@@ -25,24 +26,26 @@ type Testimonial = {
 export function TestimonialsSection({
   items,
   status,
+  settings = {},
 }: {
   items: Testimonial[]
   status: CmsStatus
+  settings?: Record<string, unknown>
 }) {
   const { locale } = useLocale()
   return (
     <section
       className="relative bg-cover bg-center py-16 md:py-24"
-      style={{ backgroundImage: `url(${MEDIA.lectureHall})` }}
+      style={{ backgroundImage: `url(${homeImage(settings, "home_testimonials_image")})` }}
     >
       <div className="absolute inset-0 bg-black/70" />
       <div className="relative z-10 mx-auto max-w-[85%]">
         <Reveal>
           <p className="text-center text-sm font-bold uppercase tracking-[0.12em] text-primary">
-            {locale === "vi" ? "Đánh giá" : "Testimonial"}
+            {homeText(settings, "home_testimonials_eyebrow", locale)}
           </p>
           <h2 className="mt-3 text-center text-3xl font-black text-white md:text-4xl">
-            {locale === "vi" ? "Học viên nói gì về VMIT" : "What our students say"}
+            {homeText(settings, "home_testimonials_title", locale)}
           </h2>
         </Reveal>
         {status === "error" ? (
@@ -67,6 +70,7 @@ export function TestimonialsSection({
                         alt={item.author_name}
                         width={128}
                         height={128}
+                        unoptimized={!canOptimizeImage(item.avatar_url)}
                         className="size-16 shrink-0 rounded-full object-cover ring-4 ring-primary/20"
                       />
                     ) : (
@@ -96,7 +100,15 @@ export function TestimonialsSection({
 }
 
 /** Academia “OUR BLOG / Recent From Blog” → Tin tức VMIT */
-export function BlogTeaser({ items, status }: { items: NewsPost[]; status: CmsStatus }) {
+export function BlogTeaser({
+  items,
+  status,
+  settings = {},
+}: {
+  items: NewsPost[]
+  status: CmsStatus
+  settings?: Record<string, unknown>
+}) {
   const { locale } = useLocale()
 
   return (
@@ -104,10 +116,10 @@ export function BlogTeaser({ items, status }: { items: NewsPost[]; status: CmsSt
       <div className="mx-auto max-w-[85%]">
         <Reveal>
           <p className="text-center text-sm font-bold uppercase tracking-[0.12em] text-primary">
-            {locale === "vi" ? "Tin tức" : "Our blog"}
+            {homeText(settings, "home_blog_eyebrow", locale)}
           </p>
           <h2 className="mt-3 text-center text-3xl font-black text-brand-navy md:text-4xl">
-            {locale === "vi" ? "Mới từ VMIT" : "Recent from blog"}
+            {homeText(settings, "home_blog_title", locale)}
           </h2>
         </Reveal>
 
@@ -137,7 +149,7 @@ export function BlogTeaser({ items, status }: { items: NewsPost[]; status: CmsSt
 
         <div className="mt-10 text-center">
           <Link href={ROUTES.news} className={cn(buttonVariants({ variant: "primary", size: "lg" }))}>
-            {locale === "vi" ? "Xem tin tức" : "View blog"}
+            {homeText(settings, "home_blog_cta", locale)}
           </Link>
         </div>
       </div>

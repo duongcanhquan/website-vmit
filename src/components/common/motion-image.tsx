@@ -2,6 +2,7 @@
 
 import Image, { type ImageProps } from "next/image"
 import { motion, useReducedMotion } from "framer-motion"
+import { canOptimizeImage } from "@/lib/media"
 import { cn } from "@/lib/utils"
 
 type MotionImageProps = Omit<ImageProps, "alt"> & {
@@ -29,7 +30,12 @@ export function MotionImage({
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
       >
-        <Image alt={alt} className={cn("object-cover", className)} {...props} />
+        <Image
+          alt={alt}
+          className={cn("object-cover", className)}
+          unoptimized={typeof props.src === "string" && !canOptimizeImage(props.src)}
+          {...props}
+        />
       </motion.div>
     </div>
   )

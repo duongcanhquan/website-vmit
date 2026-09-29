@@ -8,54 +8,56 @@ export type Frame = {
   altEn: string
 }
 
+export const PATHWAY_HERO = "/media/pathway/hero-train.jpg"
+
 export const STATION_FRAMES: Frame[] = [
   {
-    src: ABOUT_MEDIA.journey,
-    altVi: "Sinh viên VMIT bắt đầu lộ trình",
-    altEn: "VMIT students at the start of the pathway",
+    src: "/media/pathway/station-0.jpg",
+    altVi: "Tân sinh viên cầm vé lên tàu VMIT tại Station 0",
+    altEn: "A new student holding a ticket as the VMIT train arrives at Station 0",
   },
   {
-    src: MEDIA.seminar,
-    altVi: "Lớp tiếng Anh học thuật",
-    altEn: "Academic English seminar",
+    src: "/media/pathway/station-1.jpg",
+    altVi: "Lớp tiếng Anh sôi nổi trong toa tàu Foundation",
+    altEn: "A lively English class inside the Foundation carriage",
   },
   {
-    src: ABOUT_MEDIA.pitching,
-    altVi: "Sinh viên thuyết trình dự án",
-    altEn: "Students pitching a live project",
+    src: "/media/pathway/station-2.jpg",
+    altVi: "Nhóm sinh viên giải case study tại sân ga HNC Level 4",
+    altEn: "Students working on a case study at the HNC Level 4 platform",
   },
   {
-    src: ABOUT_MEDIA.sunderlandLibrary,
-    altVi: "Thư viện Đại học Sunderland",
-    altEn: "University of Sunderland library",
+    src: "/media/pathway/station-3.jpg",
+    altVi: "Sinh viên bảo vệ portfolio trước giám khảo Anh tại ga HND Level 5",
+    altEn: "A student presenting a portfolio to UK assessors at HND Level 5",
   },
   {
-    src: ABOUT_MEDIA.sunderlandGraduation,
-    altVi: "Lễ tốt nghiệp Đại học Sunderland",
-    altEn: "University of Sunderland graduation",
+    src: "/media/pathway/interchange.jpg",
+    altVi: "Tân cử nhân trước bảng chỉ hướng bốn tuyến tại ga Interchange",
+    altEn: "Graduates facing the four colour-coded platform signs at the Interchange",
   },
 ]
 
 export const LINE_FRAMES: Frame[] = [
   {
-    src: MEDIA.newsCareer,
-    altVi: "Sinh viên sẵn sàng đi làm",
-    altEn: "Graduates ready for work",
+    src: "/media/pathway/line-red.jpg",
+    altVi: "Người trẻ bước xuống tàu Red Line vào khu văn phòng tập đoàn",
+    altEn: "Young professionals stepping off the Red Line into the business district",
   },
   {
-    src: ABOUT_MEDIA.london,
-    altVi: "London, điểm đến năm cuối tại Anh",
-    altEn: "London, the final-year destination in the UK",
+    src: "/media/pathway/line-blue.jpg",
+    altVi: "Tàu Blue Line qua cầu đá tới thành phố đại học ở Anh",
+    altEn: "The Blue Line crossing a stone bridge to a UK university city",
   },
   {
-    src: ABOUT_MEDIA.keiserCampus,
-    altVi: "Khuôn viên Keiser University",
-    altEn: "Keiser University campus",
+    src: "/media/pathway/line-purple.jpg",
+    altVi: "Sinh viên kéo vali tới tàu Purple Line đi Singapore, Zurich, Seoul",
+    altEn: "Students heading for the Purple Line to Singapore, Zurich and Seoul",
   },
   {
-    src: MEDIA.campusFacility,
-    altVi: "Học năm cuối ngay tại Việt Nam",
-    altEn: "The final year, studied in Vietnam",
+    src: "/media/pathway/line-green.jpg",
+    altVi: "Tàu Green Line trên cao tại Hà Nội lúc hoàng hôn",
+    altEn: "The Green Line elevated train over Hanoi at dusk",
   },
 ]
 

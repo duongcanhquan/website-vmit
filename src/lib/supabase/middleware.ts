@@ -53,18 +53,6 @@ export async function updateSession(request: NextRequest) {
     return redirectToLogin(request)
   }
 
-  if (!isLogin && user) {
-    const { data: roleRow } = await supabase
-      .from("app_roles")
-      .select("role")
-      .eq("user_id", user.id)
-      .maybeSingle()
-
-    if (!roleRow || (roleRow.role !== "admin" && roleRow.role !== "editor")) {
-      return redirectToLogin(request, "forbidden")
-    }
-  }
-
   if (isLogin && user) {
     const { data: roleRow } = await supabase
       .from("app_roles")

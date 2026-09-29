@@ -32,7 +32,7 @@ export default async function Page() {
         { key: "title", label: "Tiêu đề", kind: "bilingual", viKey: "title_vi", enKey: "title_en" },
         { key: "summary", label: "Tóm tắt", kind: "bilingual", viKey: "summary_vi", enKey: "summary_en", multiline: true },
         { key: "description", label: "Mô tả dài", kind: "richtext", viKey: "description_vi", enKey: "description_en" },
-        { key: "cover_url", label: "URL ảnh cover", kind: "url" },
+        { key: "cover_url", label: "Ảnh cover", kind: "image" },
         { key: "sort_order", label: "Thứ tự", kind: "number" },
         { key: "is_published", label: "Xuất bản", kind: "checkbox" },
       ]}

@@ -39,14 +39,14 @@ export function Field({
 }
 
 export const inputClass =
-  "h-11 w-full rounded-[3px] border border-border bg-white px-3 text-sm font-medium outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15"
+  "h-11 w-full rounded-lg border border-border bg-white px-3 text-[15px] font-medium text-brand-navy outline-none transition placeholder:text-muted-soft focus:border-primary focus:ring-2 focus:ring-primary/15"
 
 export const textareaClass =
-  "min-h-24 w-full rounded-[3px] border border-border bg-white px-3 py-2 text-sm font-medium outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15"
+  "min-h-24 w-full rounded-lg border border-border bg-white px-3 py-2 text-[15px] font-medium leading-relaxed text-brand-navy outline-none transition placeholder:text-muted-soft focus:border-primary focus:ring-2 focus:ring-primary/15"
 
 export function AdminCard({ children, className }: { children: ReactNode; className?: string }) {
   return (
-    <div className={cn("rounded-[3px] border border-border bg-white p-5 shadow-hairline", className)}>
+    <div className={cn("rounded-xl border border-border bg-white p-5 shadow-hairline", className)}>
       {children}
     </div>
   )

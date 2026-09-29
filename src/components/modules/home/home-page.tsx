@@ -14,7 +14,7 @@ import { ScholarshipModal } from "@/components/modules/home/scholarship-modal"
 import { BlogTeaser, TestimonialsSection } from "@/components/modules/home/social-proof"
 import { SubjectsGrid } from "@/components/modules/home/subjects-grid"
 import { TrustMarquee } from "@/components/modules/home/trust-marquee"
-import { DEMO_POSTS, DEMO_SUBJECTS, DEMO_TESTIMONIALS } from "@/constants/demo-content"
+import { DEMO_POSTS, DEMO_TESTIMONIALS } from "@/constants/demo-content"
 import { MEDIA } from "@/constants/media"
 import { resolveMediaUrl } from "@/lib/media"
 import type { HomeCmsProps } from "@/types/home-cms"
@@ -28,7 +28,6 @@ export default function HomePage({ cms }: { cms: HomeCmsProps }) {
     life_image_1_url: resolveMediaUrl(cms.settings.life_image_1_url, MEDIA.studentsCollab),
     life_image_2_url: resolveMediaUrl(cms.settings.life_image_2_url, MEDIA.studentsStudy),
   }
-  const subjects = cms.subjectsStatus === "ok" ? cms.subjects : DEMO_SUBJECTS
   const testimonials = cms.testimonialsStatus === "ok" ? cms.testimonials : DEMO_TESTIMONIALS
   const posts = cms.postsStatus === "ok" ? cms.posts : DEMO_POSTS
 
@@ -42,17 +41,18 @@ export default function HomePage({ cms }: { cms: HomeCmsProps }) {
           counters={cms.counters}
           countersStatus={cms.countersStatus}
         />
-        <ProgramsPreview />
-        <SubjectsGrid items={subjects} status="ok" />
+        <ProgramsPreview settings={cms.settings} />
+        <SubjectsGrid settings={cms.settings} />
         <PathwayPreview
           steps={cms.pathway}
           status={cms.pathwayStatus}
           campusUrl={String(heroSettings.campus_image_url)}
+          settings={cms.settings}
         />
-        <TrustMarquee partners={cms.partners} status={cms.partnersStatus} />
-        <TestimonialsSection items={testimonials} status="ok" />
-        <BlogTeaser items={posts} status="ok" />
-        <ApplyCta />
+        <TrustMarquee partners={cms.partners} status={cms.partnersStatus} settings={cms.settings} />
+        <TestimonialsSection items={testimonials} status="ok" settings={cms.settings} />
+        <BlogTeaser items={posts} status="ok" settings={cms.settings} />
+        <ApplyCta settings={cms.settings} />
       </main>
       <SiteFooter settings={cms.settings} />
       <ScholarshipModal open={scholarshipOpen} onClose={() => setScholarshipOpen(false)} />

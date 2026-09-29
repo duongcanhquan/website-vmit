@@ -34,7 +34,7 @@ export const ABOUT_HERO = {
   highlight: { vi: "Pearson BTEC Level 5", en: "Pearson BTEC Level 5" },
   lead: {
     vi: "Song bằng Cao đẳng chính quy & BTEC HND UK tại Cao đẳng Việt Mỹ Hà Nội (hệ sinh thái EQuest) — liên thông 1 năm lấy bằng Cử nhân Đại học Sunderland (Vương quốc Anh).",
-    en: "A dual Vietnamese college diploma & UK BTEC HND at Viet My College Hanoi (EQuest ecosystem) — with a one-year top-up to a University of Sunderland (UK) bachelor's degree.",
+    en: "A dual award – formal college diploma & UK BTEC HND – at Viet My College Hanoi (EQuest ecosystem), plus a one-year top-up to a University of Sunderland (UK) bachelor's degree.",
   },
   ctaJourney: { vi: "Khám phá lộ trình", en: "Explore the journey" },
   chips: [
@@ -57,7 +57,7 @@ export const ABOUT_STATEMENT: L = {
 
 export const ABOUT_STATEMENT_NOTE: L = {
   vi: "Tốt nghiệp tại Cao đẳng Việt Mỹ Hà Nội, người học nhận đồng thời Bằng Cao đẳng chính quy và Bằng Pearson BTEC HND Anh Quốc — sẵn sàng gia nhập tập đoàn FDI/MNCs hoặc liên thông 1 năm cuối lấy bằng Cử nhân Đại học Sunderland.",
-  en: "Graduates of Viet My College Hanoi receive both a Vietnamese college diploma and a UK Pearson BTEC HND — ready to join FDI/MNC employers or top up in one final year to a University of Sunderland bachelor's degree.",
+  en: "Graduates of Viet My College Hanoi receive both a formal college diploma and a UK Pearson BTEC HND — ready to join FDI companies and multinationals, or to top up to a University of Sunderland bachelor's degree in one final year.",
 }
 
 export type JourneyStop = {
@@ -75,10 +75,10 @@ export const JOURNEY: JourneyStop[] = [
     title: { vi: "Tốt nghiệp THPT · Foundation tiếng Anh", en: "High-school graduate · English Foundation" },
     body: {
       vi: "Nền tảng tương đương BTEC Level 3 / A-Levels. Chương trình Foundation tiếng Anh học thuật giúp bạn bứt tốc tới mục tiêu IELTS 6.5+.",
-      en: "Equivalent to BTEC Level 3 / A-Levels. An academic English Foundation accelerates you towards IELTS 6.5+.",
+      en: "A starting point equivalent to BTEC Level 3 / A-levels. The academic English Foundation programme fast-tracks you towards IELTS 6.5+.",
     },
     bullets: [
-      { vi: "Chính sách “Vốn nhẹ – Bước xa”: đợt 1 chỉ từ 15 triệu", en: "“Light start – Go far”: first instalment from VND 15m" },
+      { vi: "Chính sách “Vốn nhẹ – Bước xa”: đợt 1 chỉ từ 15 triệu", en: "“Light start – Go far” policy: first instalment from just VND 15m" },
       { vi: "Tiếng Anh học thuật theo chuẩn Pearson", en: "Academic English to Pearson standards" },
     ],
     image: MEDIA.studentsStudy,
@@ -88,11 +88,11 @@ export const JOURNEY: JourneyStop[] = [
     title: { vi: "BTEC Level 4 – HNC", en: "BTEC Level 4 – HNC" },
     body: {
       vi: "120 tín chỉ – tương đương Năm 1 Đại học chuẩn Anh. Học qua dự án, làm việc nhóm và thuyết trình bằng tiếng Anh ngay từ học kỳ đầu.",
-      en: "120 credits – equivalent to Year 1 of a UK degree. Learn through projects, teamwork and English presentations from the first term.",
+      en: "120 credits – equivalent to Year 1 of a UK degree. Learn through projects, teamwork and presentations in English from the very first term.",
     },
     bullets: [
-      { vi: "Không thi viết học thuộc lòng", en: "No rote written exams" },
-      { vi: "Quyền chuyển tiếp vào Năm 2 đại học", en: "Eligible to transfer into university Year 2" },
+      { vi: "Không thi viết học thuộc lòng", en: "No rote-learning written exams" },
+      { vi: "Quyền chuyển tiếp vào Năm 2 đại học", en: "Eligible to transfer into Year 2 of university" },
     ],
     image: MEDIA.studentsCollab,
   },
@@ -101,7 +101,7 @@ export const JOURNEY: JourneyStop[] = [
     title: { vi: "BTEC Level 5 – HND · Song bằng", en: "BTEC Level 5 – HND · Dual degree" },
     body: {
       vi: "240 tín chỉ CATS – tương đương Năm 2 Đại học Anh. Sau 6 học kỳ, bạn nhận cùng lúc Bằng Cao đẳng chính quy và Bằng Pearson BTEC HND Level 5.",
-      en: "240 CATS credits – equivalent to Year 2 of a UK degree. After 6 terms you receive both a Vietnamese college diploma and the Pearson BTEC HND Level 5.",
+      en: "240 CATS credits – equivalent to Year 2 of a UK degree. After 6 terms, you receive both a formal college diploma and the Pearson BTEC HND Level 5.",
     },
     bullets: [
       { vi: "Cử nhân thực hành Anh Quốc", en: "UK practical bachelor's level" },
@@ -118,8 +118,8 @@ export const JOURNEY: JourneyStop[] = [
       en: "Just one final year to earn a full bachelor's degree — study in the UK or complete the top-up in Vietnam.",
     },
     bullets: [
-      { vi: "BA (Hons) Quản trị Kinh doanh / BSc (Hons) Công nghệ", en: "BA (Hons) Business / BSc (Hons) Technology" },
-      { vi: "Tiết kiệm hơn 1 tỷ đồng so với du học 3–4 năm", en: "Save over VND 1 billion vs. 3–4 years abroad" },
+      { vi: "BA (Hons) Quản trị Kinh doanh / BSc (Hons) Công nghệ", en: "BA (Hons) Business Management / BSc (Hons) Technology" },
+      { vi: "Tiết kiệm hơn 1 tỷ đồng so với du học 3–4 năm", en: "Save over VND 1 billion vs. 3–4 years studying abroad" },
     ],
     image: ABOUT_MEDIA.sunderlandGraduation,
   },
@@ -128,11 +128,11 @@ export const JOURNEY: JourneyStop[] = [
     title: { vi: "Sự nghiệp toàn cầu · Thạc sĩ", en: "Global career · Master's" },
     body: {
       vi: "Làm việc tại tập đoàn đa quốc gia, ở lại Anh 2 năm với Graduate Visa, hoặc học thẳng lên Thạc sĩ.",
-      en: "Work for multinationals, stay in the UK for 2 years on the Graduate Visa, or progress straight to a Master's.",
+      en: "Work for multinationals, stay in the UK for 2 years on the Graduate Visa, or progress straight to a master's degree.",
     },
     bullets: [
       { vi: "Graduate Visa UK 2 năm", en: "2-year UK Graduate Visa" },
-      { vi: "Mạng lưới việc làm EQuest", en: "EQuest employer network" },
+      { vi: "Mạng lưới việc làm EQuest", en: "EQuest careers network" },
     ],
     image: MEDIA.newsCareer,
   },
@@ -142,7 +142,7 @@ export const PEARSON_STATS: { value: number; suffix: string; label: L }[] = [
   { value: 180, suffix: "", label: { vi: "năm lịch sử Pearson", en: "years of Pearson history" } },
   { value: 70, suffix: "+", label: { vi: "quốc gia Pearson hoạt động", en: "countries Pearson operates in" } },
   { value: 240, suffix: "", label: { vi: "tín chỉ CATS (= 120 ECTS)", en: "CATS credits (= 120 ECTS)" } },
-  { value: 300, suffix: "+", label: { vi: "đại học công nhận tín chỉ", en: "universities accept the credits" } },
+  { value: 300, suffix: "+", label: { vi: "đại học công nhận tín chỉ", en: "universities recognise the credits" } },
 ]
 
 export const PEARSON_PILLARS: { title: L; body: L }[] = [
@@ -150,21 +150,21 @@ export const PEARSON_PILLARS: { title: L; body: L }[] = [
     title: { vi: "Chủ quản khảo thí uy tín nhất Anh Quốc", en: "The UK's leading awarding body" },
     body: {
       vi: "Pearson plc – tập đoàn giáo dục và khảo thí lớn nhất thế giới, trụ sở tại London, sở hữu hội đồng khảo thí Edexcel và trực tiếp cấp văn bằng BTEC.",
-      en: "Pearson plc – the world's largest education and assessment company, headquartered in London, owner of Edexcel and the direct awarding body for BTEC.",
+      en: "Pearson plc – the world's largest education and assessment company, headquartered in London, owner of the Edexcel exam board and the direct awarder of BTEC qualifications.",
     },
   },
   {
     title: { vi: "Kiểm định quốc gia Ofqual & RQF", en: "Ofqual & RQF regulated" },
     body: {
       vi: "BTEC Higher Nationals (HNC Level 4, HND Level 5) được Ofqual – cơ quan quản lý văn bằng trực thuộc Chính phủ Anh – kiểm định và gắn mã số trong khung RQF.",
-      en: "BTEC Higher Nationals (HNC Level 4, HND Level 5) are regulated by Ofqual, the UK government's qualifications regulator, and listed on the RQF.",
+      en: "BTEC Higher Nationals (HNC Level 4, HND Level 5) are regulated by Ofqual, the UK government's qualifications regulator, and assigned qualification codes on the RQF.",
     },
   },
   {
     title: { vi: "240 tín chỉ – trọn 2 năm đầu đại học", en: "240 credits – the first two years of a degree" },
     body: {
       vi: "Hơn 300 trường đại học tại Anh, Mỹ, Úc, Canada, New Zealand và Singapore ký thỏa thuận công nhận tín chỉ để tiếp nhận sinh viên BTEC vào năm cuối (Top-up).",
-      en: "Over 300 universities in the UK, USA, Australia, Canada, New Zealand and Singapore hold articulation agreements to admit BTEC graduates into the final (top-up) year.",
+      en: "Over 300 universities in the UK, USA, Australia, Canada, New Zealand and Singapore have signed credit-recognition agreements to admit BTEC students into the final (top-up) year.",
     },
   },
 ]
@@ -172,38 +172,38 @@ export const PEARSON_PILLARS: { title: L; body: L }[] = [
 export const LEVEL_STEPS: { level: string; rqf: L; vn: L; next: L; vmit?: boolean }[] = [
   {
     level: "Level 3",
-    rqf: { vi: "Tương đương A-Levels / Tú tài Anh", en: "Equivalent to A-Levels" },
+    rqf: { vi: "Tương đương A-Levels / Tú tài Anh", en: "Equivalent to UK A-levels" },
     vn: { vi: "Tốt nghiệp THPT", en: "Vietnamese high-school diploma" },
-    next: { vi: "Vào thẳng Năm 1 đại học quốc tế", en: "Direct entry to Year 1 abroad" },
+    next: { vi: "Vào thẳng Năm 1 đại học quốc tế", en: "Direct entry to Year 1 at international universities" },
   },
   {
     level: "Level 4 · HNC",
-    rqf: { vi: "Năm 1 Đại học chuẩn Anh (120 tín chỉ)", en: "UK degree Year 1 (120 credits)" },
-    vn: { vi: "Năm 1 Cao đẳng chính quy / ĐH", en: "College / university Year 1" },
-    next: { vi: "Chuyển tiếp Năm 2 đại học", en: "Transfer into Year 2" },
+    rqf: { vi: "Năm 1 Đại học chuẩn Anh (120 tín chỉ)", en: "Year 1 of a UK degree (120 credits)" },
+    vn: { vi: "Năm 1 Cao đẳng chính quy / ĐH", en: "Year 1 of formal college / university" },
+    next: { vi: "Chuyển tiếp Năm 2 đại học", en: "Transfer into Year 2 of university" },
   },
   {
     level: "Level 5 · HND",
-    rqf: { vi: "Năm 2 Đại học chuẩn Anh (240 tín chỉ)", en: "UK degree Year 2 (240 credits)" },
-    vn: { vi: "Tốt nghiệp Cao đẳng chính quy – song bằng", en: "College graduate – dual degree" },
-    next: { vi: "Top-up 1 năm lấy bằng Sunderland / Keiser", en: "1-year top-up at Sunderland / Keiser" },
+    rqf: { vi: "Năm 2 Đại học chuẩn Anh (240 tín chỉ)", en: "Year 2 of a UK degree (240 credits)" },
+    vn: { vi: "Tốt nghiệp Cao đẳng chính quy – song bằng", en: "Formal college graduate – dual degree" },
+    next: { vi: "Top-up 1 năm lấy bằng Sunderland / Keiser", en: "One-year top-up to a Sunderland / Keiser degree" },
     vmit: true,
   },
   {
     level: "Level 6 · Top-up",
     rqf: { vi: "Bằng Cử nhân (Bachelor's Degree)", en: "Bachelor's degree" },
-    vn: { vi: "Bằng Đại học chính quy", en: "Full university degree" },
-    next: { vi: "Làm việc toàn cầu hoặc học Thạc sĩ", en: "Global career or Master's" },
+    vn: { vi: "Bằng Đại học chính quy", en: "Formal university degree" },
+    next: { vi: "Làm việc toàn cầu hoặc học Thạc sĩ", en: "Global career or master's degree" },
   },
 ]
 
 export const PRACTICE_STEPS: { kicker: L; title: L; body: L; image: string }[] = [
   {
     kicker: { vi: "No Written Exams", en: "No written exams" },
-    title: { vi: "Xóa bỏ thi cử học vẹt", en: "No more rote exams" },
+    title: { vi: "Xóa bỏ thi cử học vẹt", en: "No more rote-learning exams" },
     body: {
       vi: "Triết lý “Work-ready” – đào tạo để làm được việc ngay. Năng lực được trui rèn qua dự án kinh doanh và kỹ thuật mô phỏng thực tế thay vì học thuộc để qua kỳ thi giấy.",
-      en: "A “work-ready” philosophy. Skills are forged through real business and technical projects instead of memorising for paper exams.",
+      en: "A “work-ready” philosophy: training you to do the job from day one. Skills are forged through realistic business and technical simulation projects, not by memorising for paper exams.",
     },
     image: MEDIA.studentsCollab,
   },
@@ -212,7 +212,7 @@ export const PRACTICE_STEPS: { kicker: L; title: L; body: L; image: string }[] =
     title: { vi: "Học qua hồ sơ dự án thật", en: "Learn through real project briefs" },
     body: {
       vi: "Mỗi môn gồm 2–3 Assignment Brief do Pearson thẩm định. Sinh viên nhập vai chuyên viên phân tích, quản lý dự án, cố vấn chiến lược để giải case study từ Apple, Unilever, Google, VinFast…",
-      en: "Each unit has 2–3 Pearson-approved assignment briefs. Students act as analysts, project managers or strategy consultants on case studies from Apple, Unilever, Google, VinFast…",
+      en: "Each unit has 2–3 Pearson-approved assignment briefs. Students take on the roles of analysts, project managers and strategy consultants to solve case studies from Apple, Unilever, Google, VinFast…",
     },
     image: MEDIA.newsAnalytics,
   },
@@ -221,7 +221,7 @@ export const PRACTICE_STEPS: { kicker: L; title: L; body: L; image: string }[] =
     title: { vi: "Làm việc nhóm & thuyết trình chuyên nghiệp", en: "Teamwork & professional pitching" },
     body: {
       vi: "Phân vai, lập Gantt chart, quản trị rủi ro và bảo vệ đề án bằng tiếng Anh chuyên ngành trước hội đồng giảng viên và chuyên gia doanh nghiệp.",
-      en: "Assign roles, build Gantt charts, manage risk and defend proposals in professional English before lecturers and industry experts.",
+      en: "Assign roles, build Gantt charts, manage risk and defend proposals in professional English before a panel of lecturers and industry experts.",
     },
     image: ABOUT_MEDIA.pitching,
   },
@@ -230,7 +230,7 @@ export const PRACTICE_STEPS: { kicker: L; title: L; body: L; image: string }[] =
     title: { vi: "Hồ sơ năng lực thực chiến", en: "A real-world portfolio" },
     body: {
       vi: "Tốt nghiệp với hàng chục báo cáo nghiên cứu thị trường, dashboard Tableau/Power BI, kế hoạch marketing đa kênh, đề cương tài chính – vũ khí khi phỏng vấn tại FDI & MNCs.",
-      en: "Graduate with dozens of market reports, Tableau/Power BI dashboards, multichannel marketing plans and financial proposals – your edge in FDI & MNC interviews.",
+      en: "Graduate with dozens of market research reports, Tableau/Power BI dashboards, multichannel marketing plans and financial proposals – your edge in FDI & MNC interviews.",
     },
     image: MEDIA.newsLab,
   },
@@ -239,7 +239,7 @@ export const PRACTICE_STEPS: { kicker: L; title: L; body: L; image: string }[] =
     title: { vi: "Giám định chất lượng 2 tầng", en: "Two-tier quality assurance" },
     body: {
       vi: "Giảng viên chấm → Ban khảo thí nội bộ (IV) thẩm định chéo → Chuyên gia Pearson (External Examiner) kiểm định độc lập. Không “xin điểm”, không “chấm nương tay”.",
-      en: "Lecturer marks → Internal Verifier cross-checks → Pearson External Examiner audits independently. No grade inflation, no favours.",
+      en: "Lecturer marks → Internal Verifier cross-checks → Pearson External Examiner audits independently. No bargaining for marks, no lenient marking.",
     },
     image: MEDIA.seminar,
   },
@@ -247,8 +247,8 @@ export const PRACTICE_STEPS: { kicker: L; title: L; body: L; image: string }[] =
 
 export const QA_FLOW: L[] = [
   { vi: "Giảng viên chấm", en: "Lecturer marks" },
-  { vi: "Thẩm định nội bộ (IV)", en: "Internal Verifier" },
-  { vi: "Chuyên gia Pearson (EE)", en: "Pearson External Examiner" },
+  { vi: "Thẩm định nội bộ (IV)", en: "Internal Verifier (IV)" },
+  { vi: "Chuyên gia Pearson (EE)", en: "Pearson External Examiner (EE)" },
 ]
 
 export const GRADES: L[] = [
@@ -258,10 +258,10 @@ export const GRADES: L[] = [
 ]
 
 export const VMIT_MODEL = {
-  title: { vi: "Mô hình VMIT chuẩn quốc tế", en: "The international VMIT model" },
+  title: { vi: "Mô hình VMIT chuẩn quốc tế", en: "The international-standard VMIT model" },
   body: {
     vi: "Tại Cao đẳng Việt Mỹ Hà Nội (Tập đoàn Giáo dục EQuest), chương trình BTEC được chuẩn hóa thành thương hiệu VMIT – Viet My International Training, theo mô hình thành công của Saigon Business School (SBS) tại TP.HCM.",
-    en: "At Viet My College Hanoi (EQuest Education Group), the BTEC programme is delivered under the VMIT brand – Viet My International Training – following the proven Saigon Business School (SBS) model in Ho Chi Minh City.",
+    en: "At Viet My College Hanoi (EQuest Education Group), the BTEC programme is standardised under the VMIT brand – Viet My International Training – following the proven model of Saigon Business School (SBS) in Ho Chi Minh City.",
   },
   campuses: [
     { vi: "168 Trịnh Văn Bô, Hà Nội", en: "168 Trinh Van Bo, Hanoi" },
@@ -269,8 +269,8 @@ export const VMIT_MODEL = {
   ] as L[],
   diplomas: [
     {
-      title: { vi: "Bằng Cao đẳng chính quy", en: "Vietnamese college diploma" },
-      issuer: { vi: "Hiệu trưởng Cao đẳng Việt Mỹ Hà Nội cấp theo quy định Nhà nước", en: "Issued by the Principal of Viet My College Hanoi under national regulations" },
+      title: { vi: "Bằng Cao đẳng chính quy", en: "Formal college diploma" },
+      issuer: { vi: "Hiệu trưởng Cao đẳng Việt Mỹ Hà Nội cấp theo quy định Nhà nước", en: "Issued by the Principal of Viet My College Hanoi under state regulations" },
     },
     {
       title: { vi: "Bằng Pearson BTEC HND Level 5", en: "Pearson BTEC HND Level 5" },
@@ -292,7 +292,7 @@ export const SUNDERLAND = {
   },
   mechanism: {
     vi: "Nhờ thỏa thuận công nhận tín chỉ giữa Pearson và Đại học Sunderland, sinh viên hoàn thành BTEC HND Level 5 tại VMIT được liên thông thẳng vào năm cuối (Top-up Year – Level 6).",
-    en: "Thanks to the credit agreement between Pearson and the University of Sunderland, VMIT BTEC HND Level 5 graduates progress directly into the final top-up year (Level 6).",
+    en: "Under the credit-recognition agreement between Pearson and the University of Sunderland, students who complete the BTEC HND Level 5 at VMIT progress directly into the final top-up year (Level 6).",
   },
   gallery: [
     { src: ABOUT_MEDIA.sunderlandLibrary, caption: { vi: "Thư viện Murray · City Campus", en: "Murray Library · City Campus" } },

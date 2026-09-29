@@ -1,139 +1,85 @@
 "use client"
 
 import Image from "next/image"
-import {
-  Award,
-  BarChart3,
-  BookMarked,
-  Briefcase,
-  Calculator,
-  ClipboardList,
-  Code2,
-  Database,
-  Languages,
-  Megaphone,
-  PieChart,
-  ShoppingCart,
-  Users,
-  type LucideIcon,
-} from "lucide-react"
+import Link from "next/link"
+import { ArrowRight } from "lucide-react"
 import { Reveal } from "@/components/common/reveal"
 import { useLocale } from "@/components/providers/locale-provider"
-import { cn } from "@/lib/utils"
-import type { CmsStatus } from "@/types/home-cms"
+import { ROUTES } from "@/constants/site"
+import { homeText, readSubjectRows } from "@/lib/home-content"
+import { canOptimizeImage } from "@/lib/media"
 
-export type SubjectItem = {
-  id: string
-  title_vi: string
-  title_en: string
-  count_label_vi: string
-  count_label_en: string
-  icon_url: string | null
-  hover_icon_url: string | null
-  icon_key?: string | null
-}
-
-const SUBJECT_ICONS: Record<string, LucideIcon> = {
-  data: BarChart3,
-  business: Briefcase,
-  marketing: Megaphone,
-  finance: Calculator,
-  english: Languages,
-  code: Code2,
-  database: Database,
-  chart: PieChart,
-  people: Users,
-  ecommerce: ShoppingCart,
-  project: ClipboardList,
-  career: Award,
-}
-
-function SubjectIcon({ item }: { item: SubjectItem }) {
-  if (item.icon_url) {
-    return (
-      <div className="relative mx-auto size-16">
-        <Image
-          src={item.icon_url}
-          alt=""
-          width={64}
-          height={64}
-          className={cn("size-16 object-contain transition", item.hover_icon_url && "group-hover:opacity-0")}
-        />
-        {item.hover_icon_url ? (
-          <Image
-            src={item.hover_icon_url}
-            alt=""
-            width={64}
-            height={64}
-            className="absolute inset-0 size-16 object-contain opacity-0 transition group-hover:opacity-100"
-          />
-        ) : null}
-      </div>
-    )
-  }
-  const Icon = (item.icon_key && SUBJECT_ICONS[item.icon_key]) || BookMarked
-  return (
-    <Icon className="mx-auto size-14 stroke-[1.6] text-primary transition-colors duration-300 group-hover:text-white" />
-  )
-}
-
-export function SubjectsGrid({
-  items,
-  status,
-}: {
-  items: SubjectItem[]
-  status: CmsStatus
-}) {
+export function SubjectsGrid({ settings = {} }: { settings?: Record<string, unknown> }) {
   const { locale } = useLocale()
+  const rows = readSubjectRows(settings.home_subjects)
+  const cta = homeText(settings, "home_subjects_cta", locale)
 
   return (
-    <section id="subjects" className="scroll-mt-24 bg-mist py-16 text-center md:scroll-mt-32 md:py-24">
+    <section id="subjects" className="scroll-mt-24 bg-mist py-16 md:scroll-mt-32 md:py-24">
       <div className="mx-auto max-w-[85%]">
-        <Reveal>
+        <Reveal className="text-center">
           <p className="text-sm font-bold uppercase tracking-[0.12em] text-primary">
-            {locale === "vi" ? "Môn học" : "Subjects"}
+            {homeText(settings, "home_subjects_eyebrow", locale)}
           </p>
           <h2 className="mt-3 text-3xl font-black text-brand-navy md:text-4xl">
-            {locale === "vi" ? "Các môn trong chương trình" : "Browse programme subjects"}
+            {homeText(settings, "home_subjects_title", locale)}
           </h2>
         </Reveal>
 
-        {status === "error" ? (
-          <p className="mt-8 text-sm text-muted">
-            {locale === "vi" ? "Không tải được môn học." : "Unable to load subjects."}
-          </p>
-        ) : null}
-        {status === "empty" ? (
-          <p className="mt-8 text-sm text-muted">
-            {locale === "vi"
-              ? "Chưa có môn học trong CMS. Thêm tại Admin → Môn học."
-              : "No subjects in CMS yet. Add them in Admin → Subjects."}
-          </p>
-        ) : null}
-
-        {status === "ok" ? (
-          <div className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3 md:gap-4 lg:grid-cols-4 xl:grid-cols-6">
-            {items.map((item, index) => {
-              const title = locale === "vi" ? item.title_vi : item.title_en
-              const count = locale === "vi" ? item.count_label_vi : item.count_label_en
-              return (
-                <Reveal key={item.id} delay={0.03 * index} className="h-full">
-                  <article className="group flex h-full cursor-pointer flex-col items-center rounded-[3px] bg-surface px-4 pb-7 pt-8 shadow-hairline transition-all duration-300 hover:-translate-y-1 hover:bg-primary hover:shadow-[0_14px_30px_-10px_rgba(30,178,166,0.55)]">
-                    <SubjectIcon item={item} />
-                    <h3 className="mt-5 flex min-h-[3rem] items-center text-base font-bold leading-snug text-foreground transition-colors duration-300 group-hover:text-white md:text-[1.05rem]">
-                      {title}
-                    </h3>
-                    {count ? (
-                      <span className="mt-2 inline-block rounded-[3px] bg-sky px-2.5 py-1 text-xs font-semibold text-primary transition-colors duration-300 group-hover:bg-white">
-                        {count}
-                      </span>
-                    ) : null}
-                  </article>
+        <div className="mt-10 space-y-10 md:mt-12">
+          {rows.map((row, r) => {
+            const href = `${ROUTES.programs}#${row.track}`
+            return (
+              <div key={row.track}>
+                <Reveal delay={0.04 * r} className="mb-4 flex items-end justify-between gap-4 border-b border-border pb-3">
+                  <h3 className="flex items-baseline gap-3 text-lg font-black text-brand-navy md:text-xl">
+                    <span className="text-sm font-bold tabular-nums text-primary">{String(r + 1).padStart(2, "0")}</span>
+                    {row.label[locale]}
+                  </h3>
+                  <Link
+                    href={href}
+                    className="inline-flex shrink-0 items-center gap-1.5 text-sm font-bold text-primary transition-colors hover:text-brand-navy"
+                  >
+                    {cta}
+                    <ArrowRight className="size-4" />
+                  </Link>
                 </Reveal>
-              )
-            })}
-          </div>
-        ) : null}
+
+                <ul className="scrollbar-none -mx-[7.5vw] flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-px-[7.5vw] px-[7.5vw] pb-2 md:gap-4 lg:mx-0 lg:grid lg:grid-cols-6 lg:gap-3 xl:gap-4 lg:overflow-visible lg:px-0 lg:pb-0">
+                  {row.items.map((item, i) => (
+                    <li key={i} className="w-[44%] shrink-0 snap-start sm:w-[30%] md:w-[23%] lg:w-auto">
+                      <Reveal delay={0.03 * i + 0.04 * r} className="h-full">
+                        <Link
+                          href={href}
+                          className="group flex h-full flex-col overflow-hidden rounded-[3px] border border-transparent bg-surface shadow-hairline transition duration-200 hover:-translate-y-1 hover:border-primary"
+                        >
+                          <div className="relative aspect-[4/3] overflow-hidden bg-sky">
+                            <Image
+                              src={item.image}
+                              alt=""
+                              fill
+                              sizes="(min-width: 1024px) 15vw, (min-width: 640px) 30vw, 44vw"
+                              unoptimized={!canOptimizeImage(item.image)}
+                              className="object-cover transition duration-500 group-hover:scale-[1.04]"
+                            />
+                          </div>
+                          <div className="flex flex-1 flex-col px-3 pb-4 pt-3 lg:px-2.5 xl:px-3">
+                            <span className="whitespace-nowrap text-[0.68rem] font-bold uppercase tracking-[0.06em] text-primary lg:text-[0.62rem] lg:tracking-[0.03em] xl:text-[0.68rem] xl:tracking-[0.06em]">
+                              {item.unit}
+                            </span>
+                            <span className="mt-1 text-[0.95rem] font-bold leading-snug text-foreground [text-wrap:balance] md:text-base">
+                              {item.title[locale].replaceAll(" &", "\u00A0&")}
+                            </span>
+                          </div>
+                        </Link>
+                      </Reveal>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )
+          })}
+        </div>
       </div>
     </section>
   )

@@ -156,7 +156,7 @@ export function ProgramsPageView({ settings }: { settings: Record<string, unknow
             <p className="text-sm font-bold uppercase tracking-[0.14em] text-white/90">{story.heroEyebrow}</p>
             <h1 className="@container mt-3 w-full max-w-4xl font-black leading-[1.12] tracking-tight">
               {story.heroTitle.split("\n").map((line) => (
-                <span key={line} className="block whitespace-nowrap text-[clamp(1.15rem,6.6cqi,3.35rem)]">
+                <span key={line} className="block text-balance text-[clamp(1.35rem,5cqi,3.35rem)]">
                   {line}
                 </span>
               ))}

@@ -12,14 +12,25 @@ export type Station = {
   title: string
   subtitle: string
   when: string
+  time: string
+  status: string
   body: string
   marks: string[]
+}
+
+export type BoardingPass = {
+  label: string
+  train: string
+  from: [string, string]
+  to: [string, string]
+  rows: [string, string][]
 }
 
 export type RouteLine = {
   id: RouteId
   name: string
   epithet: string
+  destination: string
   body: string
   points: string[]
 }
@@ -37,14 +48,18 @@ export type PathwayStory = {
   heroLead: string
   scrollHint: string
   stationNav: string
-  journeyEyebrow: string
-  journeyTitle: string
-  journeyLead: string
-  nowAt: string
+  pass: BoardingPass
+  boardTitle: string
+  boardClock: string
+  boardHeads: [string, string, string, string]
+  nextStation: string
+  lastStop: string
+  platform: string
   stations: Station[]
   routesEyebrow: string
   routesTitle: string
   routesLead: string
+  terminus: string
   routes: RouteLine[]
   proofEyebrow: string
   proofTitle: string
@@ -80,11 +95,24 @@ const vi: PathwayStory = {
   heroLead:
     "VMIT là một chuyến tàu mang bạn tới những xứ sở của kiến thức và trải nghiệm phong phú của thế giới học tập suốt đời.",
   scrollHint: "Enter the line",
-  stationNav: "Stations",
-  journeyEyebrow: "Five Stations",
-  journeyTitle: "Từ Station tuổi 18 đến Interchange tuổi 20",
-  journeyLead: "Mỗi Station là một lần chuyển hóa. Bạn giữ nhịp.",
-  nowAt: "Now at",
+  stationNav: "Các ga trên tuyến",
+  pass: {
+    label: "Boarding pass",
+    train: "VMIT Express",
+    from: ["Khởi hành", "Tuổi 18 · Hà\u00A0Nội"],
+    to: ["Điểm đến", "Thế giới"],
+    rows: [
+      ["Hạng vé", "Pearson BTEC"],
+      ["Sân ga", "0"],
+      ["Hành trình", "5\u00A0ga · 2\u00A0năm"],
+    ],
+  },
+  boardTitle: "Bảng giờ tàu · VMIT Express",
+  boardClock: "Tuyến quốc tế",
+  boardHeads: ["Thời điểm", "Ga", "Sân ga", "Trạng thái"],
+  nextStation: "Ga tiếp theo",
+  lastStop: "Đổi tuyến tại đây",
+  platform: "Sân ga",
   stations: [
     {
       id: "ga-0",
@@ -92,6 +120,8 @@ const vi: PathwayStory = {
       title: "Khởi hành",
       subtitle: "Vốn nhẹ, bước xa",
       when: "Mùa hè tuổi 18 · Tốt nghiệp THPT",
+      time: "Tuổi 18",
+      status: "Mời lên tàu",
       body: "Chỉ từ 15 triệu đồng nhập học đợt đầu. Áp lực tài chính tiền tỷ ở lại phía sau. Bạn nhận vé và bước lên Line quốc tế.",
       marks: ["Từ 15 triệu đồng", "Ticket in"],
     },
@@ -101,7 +131,9 @@ const vi: PathwayStory = {
       title: "Foundation",
       subtitle: "Bứt phá tiếng Anh",
       when: "Học kỳ 1 · Tháng 0–6 · Tiếng Anh học thuật và kỹ năng",
-      body: "Nhúng 100% môi trường tiếng Anh thực chiến. Phản xạ giao tiếp và thuyết trình thay cho nỗi sợ. Chuẩn Station này: IELTS 5.5–6.0+.",
+      time: "Tháng 0–6",
+      status: "Đúng giờ",
+      body: "Nhúng 100% môi trường tiếng Anh thực chiến. Phản xạ giao tiếp và thuyết trình thay cho nỗi sợ. Chuẩn Station này: IELTS\u00A05.5–6.0+.",
       marks: ["100% tiếng Anh thực chiến", "IELTS 5.5–6.0+"],
     },
     {
@@ -110,6 +142,8 @@ const vi: PathwayStory = {
       title: "HNC Level 4",
       subtitle: "Nhập môn thực chiến",
       when: "Năm 1 · Học kỳ 2 và 3 · 8 units chuyên ngành chuẩn Anh",
+      time: "Năm 1",
+      status: "Đúng giờ",
       body: "Không thi vẹt. Bạn nhập vai chuyên viên và giải bài toán thật từ case study của tập đoàn đa quốc gia. 70% thời lượng là thực hành.",
       marks: ["8 units chuẩn Anh", "70% thực hành"],
     },
@@ -119,6 +153,8 @@ const vi: PathwayStory = {
       title: "HND Level 5",
       subtitle: "Làm chủ dự án",
       when: "Năm 2 · Học kỳ 4 và 5 · 7 units nâng cao và đồ án",
+      time: "Năm 2",
+      status: "Đúng giờ",
       body: "Chất lượng được thẩm định hai tầng: hội đồng nội bộ và chuyên gia Pearson Anh Quốc. Cuối Station là một portfolio sẵn sàng cho vòng phỏng vấn.",
       marks: ["Thẩm định Pearson UK", "Portfolio phỏng vấn"],
     },
@@ -128,18 +164,22 @@ const vi: PathwayStory = {
       title: "Trung chuyển",
       subtitle: "Tuổi 20 tỏa sáng",
       when: "Cuối năm 2 · Cán đích Cử nhân thực hành",
-      body: "Song bằng trong tay: Cao đẳng chính quy APC và Pearson BTEC HND Level 5. Bạn chọn một trong bốn Line — đi làm ngay, sang Anh, chuyển tiếp toàn cầu, hoặc học năm cuối ngay tại Việt Nam.",
+      time: "Tuổi 20",
+      status: "Đổi tuyến",
+      body: "Song bằng trong tay: Cao đẳng chính quy APC và Pearson BTEC HND Level\u00A05. Bạn chọn một trong bốn Line — đi làm ngay, sang Anh, chuyển tiếp toàn cầu, hoặc học năm cuối ngay tại Việt Nam.",
       marks: ["Song bằng APC + BTEC", "Bốn lối ra"],
     },
   ],
   routesEyebrow: "Four Lines",
   routesTitle: "Bốn Line rời Interchange",
   routesLead: "Cùng một vé HND. Bốn đích khác nhau. Bạn chọn sau khi đã đứng vững.",
+  terminus: "Ga cuối",
   routes: [
     {
       id: "tuyen-do",
       name: "Red Line",
       epithet: "Direct Career Express",
+      destination: "Tập đoàn FDI & đa quốc gia",
       body: "Nhận song bằng chính quy APC và BTEC HND Anh Quốc, rồi bước thẳng vào tập đoàn FDI và doanh nghiệp đa quốc gia ở tuổi 20 — với tác phong làm việc quốc tế.",
       points: ["Song bằng APC + BTEC HND", "Vào việc ở tuổi 20", "Mạng lưới FDI / MNC"],
     },
@@ -147,6 +187,7 @@ const vi: PathwayStory = {
       id: "tuyen-xanh-duong",
       name: "Blue Line",
       epithet: "Sunderland UK Flight",
+      destination: "Sunderland · London, Anh",
       body: "Bay sang Anh học đúng một năm cuối tại campus London hoặc Sunderland. Bằng Cử nhân danh dự của Đại học Sunderland, kèm Graduate Route Visa ở lại Anh hai năm làm việc.",
       points: ["Top-up 1 năm tại Anh", "BA (Hons) hoặc BSc (Hons)", "Graduate Visa 2 năm"],
     },
@@ -154,6 +195,7 @@ const vi: PathwayStory = {
       id: "tuyen-tim",
       name: "Purple Line",
       epithet: "Global Transfer",
+      destination: "300+ đại học toàn cầu",
       body: "Chuyển tiếp sang Thụy Sĩ, Singapore, Hàn Quốc, Mỹ hoặc Úc nhờ mạng lưới hơn 300 trường công nhận trọn 240 tín chỉ của bằng BTEC HND Level 5.",
       points: ["Thụy Sĩ · SHMS", "Singapore · PSB / SIM", "Hàn Quốc · Chosun", "Mỹ · Keiser · Úc · Macquarie"],
     },
@@ -161,6 +203,7 @@ const vi: PathwayStory = {
       id: "tuyen-xanh-la",
       name: "Green Line",
       epithet: "Home top-up",
+      destination: "Cử nhân Sunderland tại Việt Nam",
       body: "Học năm cuối của Đại học Sunderland ngay tại Việt Nam, hình thức hybrid. Ban ngày đi làm, buổi tối học lấy bằng Cử nhân chính quy, giữ lại khoảng 80% chi phí so với sang Anh.",
       points: ["Năm cuối tại Việt Nam", "Ngày làm, tối học", "Tiết kiệm khoảng 80% chi phí"],
     },
@@ -303,26 +346,41 @@ const vi: PathwayStory = {
 }
 
 const en: PathwayStory = {
-  skip: "Skip the journey to the commitments",
+  skip: "Skip the journey, go to our commitments",
   heroEyebrow: "Journey to the World Excellence",
   heroTitle: "A journey out to the open\u00A0sea",
   heroLead:
-    "VMIT is a train that carries you to lands of knowledge, and into the rich experience of a lifelong world of learning.",
-  scrollHint: "Enter the line",
-  stationNav: "Stations",
-  journeyEyebrow: "Five Stations",
-  journeyTitle: "From the platform at 18 to the interchange at 20",
-  journeyLead: "Each station is a transformation. You set the pace.",
-  nowAt: "Now at",
+    "VMIT is a train that carries you to lands of knowledge and the rich experiences of a world of lifelong learning.",
+  scrollHint: "Board the train",
+  stationNav: "Stations on the line",
+  pass: {
+    label: "Boarding pass",
+    train: "VMIT Express",
+    from: ["From", "Age 18 · Hanoi"],
+    to: ["To", "The world"],
+    rows: [
+      ["Class", "Pearson BTEC"],
+      ["Platform", "0"],
+      ["Journey", "5\u00A0stations · 2\u00A0years"],
+    ],
+  },
+  boardTitle: "Departures · VMIT Express",
+  boardClock: "International line",
+  boardHeads: ["When", "Station", "Platform", "Status"],
+  nextStation: "Next station",
+  lastStop: "Change here",
+  platform: "Platform",
   stations: [
     {
       id: "ga-0",
       code: "Station 0",
       title: "Departure",
-      subtitle: "A light fare, a long way",
+      subtitle: "Travel light, go far",
       when: "The summer you turn 18 · High-school graduation",
-      body: "From 15 million VND for the first intake. The billion-dong pressure stays on the platform. You take a ticket onto the international line.",
-      marks: ["From 15 million VND", "Ticket to board"],
+      time: "Age 18",
+      status: "Boarding",
+      body: "Enrol with a first payment from just 15 million VND. Billion-dong financial pressure stays on the platform. You take your ticket and board the international line.",
+      marks: ["From 15 million VND", "Ticket in hand"],
     },
     {
       id: "ga-1",
@@ -330,45 +388,55 @@ const en: PathwayStory = {
       title: "Foundation",
       subtitle: "English, unlocked",
       when: "Semester 1 · Months 0–6 · Academic English and skills",
-      body: "Full immersion in practical English. Conversation and presentations replace the fear. This station’s mark: IELTS 5.5–6.0+.",
-      marks: ["100% practical English", "IELTS 5.5–6.0+"],
+      time: "Months 0–6",
+      status: "On time",
+      body: "Total immersion in real-world English. Confident conversation and presenting replace the fear. The standard at this station: IELTS\u00A05.5–6.0+.",
+      marks: ["100% real-world English", "IELTS 5.5–6.0+"],
     },
     {
       id: "ga-2",
       code: "Station 2",
       title: "HNC Level 4",
-      subtitle: "Practice begins",
-      when: "Year 1 · Semesters 2 and 3 · 8 UK specialist units",
-      body: "No rote exams. You work as a junior specialist on real multinational case studies. Seventy percent of the time is practice.",
-      marks: ["8 UK units", "70% practice"],
+      subtitle: "Hands-on from day one",
+      when: "Year 1 · Semesters 2 and 3 · 8 UK-standard specialist units",
+      time: "Year 1",
+      status: "On time",
+      body: "No rote learning. You step into a specialist’s role and solve real problems from multinational case studies. 70% of study time is hands-on practice.",
+      marks: ["8 UK-standard units", "70% hands-on"],
     },
     {
       id: "ga-3",
       code: "Station 3",
       title: "HND Level 5",
-      subtitle: "You own the project",
+      subtitle: "Mastering the project",
       when: "Year 2 · Semesters 4 and 5 · 7 advanced units and a major project",
-      body: "Two layers of assessment: an internal board and a Pearson UK examiner. You leave with a portfolio ready for interviews.",
-      marks: ["Pearson UK verification", "Interview portfolio"],
+      time: "Year 2",
+      status: "On time",
+      body: "Quality is verified at two levels: an internal board and Pearson UK experts. You reach the end of this station with an interview-ready portfolio.",
+      marks: ["Pearson UK verification", "Interview-ready portfolio"],
     },
     {
       id: "ga-interchange",
       code: "Interchange",
       title: "Interchange",
-      subtitle: "Age 20, in the light",
-      when: "End of year 2 · Practical bachelor milestone",
-      body: "Two awards in hand: the national APC college diploma and a Pearson BTEC HND Level 5. Then one of four lines — work now, fly to the UK, transfer worldwide, or finish the degree in Vietnam.",
-      marks: ["APC + BTEC dual award", "Four exits"],
+      subtitle: "Shining at 20",
+      when: "End of year 2 · Graduate as a Practical Bachelor",
+      time: "Age 20",
+      status: "Change lines",
+      body: "Two qualifications in hand: a formal college diploma and the Pearson BTEC HND Level\u00A05. You choose one of four lines — start work, fly to the UK, transfer worldwide, or complete your final year in Vietnam.",
+      marks: ["College + BTEC dual award", "Four exits"],
     },
   ],
   routesEyebrow: "Four Lines",
   routesTitle: "Four Lines leave the Interchange",
   routesLead: "One HND ticket. Four destinations. You choose once you can stand on your own.",
+  terminus: "Terminus",
   routes: [
     {
       id: "tuyen-do",
       name: "Red Line",
       epithet: "Direct Career Express",
+      destination: "FDI & global\u00A0employers",
       body: "Take the APC diploma and the UK BTEC HND straight into FDI groups and multinational firms at 20, with an international way of working.",
       points: ["APC + BTEC HND", "Into work at 20", "FDI / MNC network"],
     },
@@ -376,6 +444,7 @@ const en: PathwayStory = {
       id: "tuyen-xanh-duong",
       name: "Blue Line",
       epithet: "Sunderland UK Flight",
+      destination: "Sunderland · London, UK",
       body: "One final year in London or Sunderland. An honours degree from the University of Sunderland, plus a two-year Graduate Route visa to work in the UK.",
       points: ["One top-up year in the UK", "BA (Hons) or BSc (Hons)", "2-year Graduate visa"],
     },
@@ -383,6 +452,7 @@ const en: PathwayStory = {
       id: "tuyen-tim",
       name: "Purple Line",
       epithet: "Global Transfer",
+      destination: "300+ universities",
       body: "Move on to Switzerland, Singapore, Korea, the USA or Australia. More than 300 universities accept the full 240 credits of a BTEC HND Level 5.",
       points: ["Switzerland · SHMS", "Singapore · PSB / SIM", "Korea · Chosun", "USA · Keiser · Australia · Macquarie"],
     },
@@ -390,6 +460,7 @@ const en: PathwayStory = {
       id: "tuyen-xanh-la",
       name: "Green Line",
       epithet: "Home top-up",
+      destination: "A Sunderland degree in Vietnam",
       body: "Sunderland’s final year in Vietnam, hybrid. Work by day, study at night, and keep about 80% of the cost of moving to the UK.",
       points: ["Final year in Vietnam", "Work by day, study at night", "About 80% of the cost stays home"],
     },

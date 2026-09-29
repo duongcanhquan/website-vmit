@@ -16,7 +16,8 @@ const fieldClass =
   "h-12 w-full rounded-[3px] border border-border px-4 text-sm outline-none transition duration-300 focus:border-primary focus:ring-2 focus:ring-primary/20"
 
 export function ScholarshipModal({ open, onClose }: ScholarshipModalProps) {
-  const { t } = useLocale()
+  const { t, locale } = useLocale()
+  const vi = locale === "vi"
   const [name, setName] = useState("")
   const [phone, setPhone] = useState("")
   const [email, setEmail] = useState("")
@@ -60,7 +61,7 @@ export function ScholarshipModal({ open, onClose }: ScholarshipModalProps) {
 
         {sent ? (
           <p className="mt-6 rounded-[3px] border border-primary/20 bg-sky p-4 text-sm text-brand-navy">
-            Đã gửi thành công. Đội ngũ VMIT sẽ liên hệ sớm.
+            {t.scholarship.success}
           </p>
         ) : (
           <form
@@ -70,8 +71,8 @@ export function ScholarshipModal({ open, onClose }: ScholarshipModalProps) {
               setLoading(true)
               setError(null)
               void createScholarshipLead({ full_name: name, phone, email })
-                .then(() => setSent(true))
-                .catch((err: unknown) => setError(err instanceof Error ? err.message : "Gửi thất bại"))
+                .then((result) => (result.ok ? setSent(true) : setError(result.error)))
+                .catch(() => setError(vi ? "Gửi thất bại, vui lòng thử lại." : "Something went wrong. Please try again."))
                 .finally(() => setLoading(false))
             }}
           >
@@ -98,7 +99,7 @@ export function ScholarshipModal({ open, onClose }: ScholarshipModalProps) {
             />
             {error ? <p className="text-sm text-red-700">{error}</p> : null}
             <Button type="submit" size="lg" className="w-full" disabled={loading}>
-              {loading ? "Đang gửi…" : t.scholarship.submit}
+              {loading ? (vi ? "Đang gửi…" : "Sending…") : t.scholarship.submit}
             </Button>
           </form>
         )}

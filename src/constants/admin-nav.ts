@@ -18,10 +18,19 @@ export const ADMIN_NAV_GROUPS: AdminNavGroup[] = [
     items: [{ href: "/admin", label: "Bảng điều khiển", hint: "Số liệu & lối tắt" }],
   },
   {
+    id: "leads",
+    label: "Tuyển sinh",
+    items: [
+      { href: "/admin/ho-so", label: "Hồ sơ & đăng ký", hint: "Xét tuyển · học bổng · liên hệ" },
+      { href: "/admin/bai-test", label: "Bài test IELTS", hint: "Điểm placement và bài làm" },
+    ],
+  },
+  {
     id: "site",
     label: "Trang chủ & thương hiệu",
     items: [
-      { href: "/admin/cai-dat", label: "Cài đặt & banner", hint: "Hero VI/EN, nút+link, Facebook/TikTok" },
+      { href: "/admin/trang-chu", label: "Nội dung trang chủ", hint: "Mọi chữ và ảnh, theo từng khối" },
+      { href: "/admin/cai-dat", label: "Cài đặt & banner", hint: "Banner đầu trang, liên hệ, Facebook/TikTok" },
       { href: "/admin/media", label: "Thư viện ảnh / gallery", hint: "Upload, caption, featured" },
       { href: "/admin/tai-lieu", label: "Tài liệu tải về" },
     ],
@@ -31,9 +40,9 @@ export const ADMIN_NAV_GROUPS: AdminNavGroup[] = [
     label: "Đào tạo & lộ trình",
     items: [
       { href: "/admin/chuong-trinh", label: "Chương trình" },
-      { href: "/admin/mon-hoc", label: "Môn học", hint: "Lưới MÔN HỌC trang chủ" },
+      { href: "/admin/trang-chu#khoi-subjects", label: "Môn học", hint: "2 dòng môn học trên trang chủ" },
       { href: "/admin/lo-trinh", label: "Lộ trình quốc tế", hint: "Khối lộ trình trên trang chủ" },
-      { href: "/admin/truong-btec", label: "Trường BTEC", hint: "Danh sách đại học đối tác" },
+      { href: "/admin/truong-btec", label: "Hệ thống BTEC", hint: "Danh sách đại học đối tác" },
       { href: "/admin/tru-cot", label: "Trụ đột phá & số liệu" },
       { href: "/admin/hoc-phi", label: "Học phí" },
     ],
@@ -50,12 +59,9 @@ export const ADMIN_NAV_GROUPS: AdminNavGroup[] = [
     ],
   },
   {
-    id: "leads",
-    label: "Tuyển sinh",
-    items: [
-      { href: "/admin/ho-so", label: "Hồ sơ & form", hint: "Xét tuyển · học bổng · liên hệ" },
-      { href: "/admin/bai-test", label: "Bài test IELTS", hint: "Điểm placement và bài làm" },
-    ],
+    id: "system",
+    label: "Hệ thống",
+    items: [{ href: "/admin/tai-khoan", label: "Tài khoản quản trị", hint: "Người dùng, phân quyền, mật khẩu" }],
   },
 ]
 

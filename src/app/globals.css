@@ -113,6 +113,22 @@ h3 {
   box-shadow: var(--shadow-button);
 }
 
+.wrap-tidy :is(p, li, span):not(.truncate, .whitespace-nowrap) {
+  text-wrap: pretty;
+}
+
+.wrap-tidy :is(h2, h3, li, [data-balance]):not(.truncate, .whitespace-nowrap) {
+  text-wrap: balance;
+}
+
+.scrollbar-none {
+  scrollbar-width: none;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
 .clip-cta {
   clip-path: polygon(10% 0%, 100% 0, 100% 100%, 0% 100%);
 }
@@ -272,4 +288,31 @@ h3 {
 .rich-editor td,
 .rich-editor th {
   position: relative;
+}
+
+/* Admin portal: rounded, easy-to-read type (Nunito). Article bodies keep the public font so the editor previews the live page. */
+.admin-ui {
+  font-family: var(--font-admin), var(--font-roboto), ui-sans-serif, system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.admin-ui .font-display,
+.admin-ui .font-menu,
+.admin-ui h1,
+.admin-ui h2,
+.admin-ui h3 {
+  font-family: inherit;
+  letter-spacing: -0.01em;
+}
+.admin-ui h1 {
+  font-weight: 800;
+}
+.admin-ui .text-muted {
+  color: #5b6168;
+}
+.admin-ui .rich-editor .ProseMirror {
+  font-family: var(--font-body);
 }

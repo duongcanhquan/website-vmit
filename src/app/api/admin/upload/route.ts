@@ -1,6 +1,9 @@
+import { revalidatePath, revalidateTag } from "next/cache"
 import { NextResponse } from "next/server"
 import { requireStaff } from "@/lib/admin/auth"
-import { uploadToR2 } from "@/lib/r2/client"
+import { replaceUrlEverywhere } from "@/lib/admin/media-refs"
+import { deleteFromR2, uploadToR2 } from "@/lib/r2/client"
+import { clearCmsCache } from "@/services/cms"
 
 export const runtime = "nodejs"
 
@@ -19,6 +22,7 @@ export async function POST(request: Request) {
     const captionEn = String(form.get("caption_en") ?? "")
     const isPublished = String(form.get("is_published") ?? "true") !== "false"
     const sortOrder = Number(form.get("sort_order") ?? 0) || 0
+    const replaceId = String(form.get("replace_id") ?? "").trim()
 
     if (!(file instanceof File)) {
       return NextResponse.json({ error: "Thiếu file" }, { status: 400 })
@@ -36,6 +40,26 @@ export async function POST(request: Request) {
       body: buffer,
       contentType: file.type || "application/octet-stream",
     })
+
+    if (replaceId) {
+      const { data: previous } = await supabase.from("media_assets").select("path, url").eq("id", replaceId).maybeSingle()
+      const { data, error } = await supabase
+        .from("media_assets")
+        .update({ path, url, updated_at: new Date().toISOString() })
+        .eq("id", replaceId)
+        .select("*")
+        .single()
+      if (error) return NextResponse.json({ error: error.message }, { status: 500 })
+
+      const updatedRefs = previous?.url ? await replaceUrlEverywhere(supabase, previous.url, url) : 0
+      if (previous?.path && previous.path !== path) {
+        await deleteFromR2(previous.path).catch(() => undefined)
+      }
+      clearCmsCache()
+      revalidateTag("cms")
+      revalidatePath("/", "layout")
+      return NextResponse.json({ asset: data, updatedRefs })
+    }
 
     const { data, error } = await supabase
       .from("media_assets")

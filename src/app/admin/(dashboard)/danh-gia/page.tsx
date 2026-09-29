@@ -29,7 +29,7 @@ export default async function Page() {
         { key: "author_name", label: "Tên", kind: "text" },
         { key: "role", label: "Vai trò", kind: "bilingual", viKey: "author_role_vi", enKey: "author_role_en" },
         { key: "quote", label: "Trích dẫn", kind: "bilingual", viKey: "quote_vi", enKey: "quote_en", multiline: true },
-        { key: "avatar_url", label: "Avatar URL", kind: "url" },
+        { key: "avatar_url", label: "Ảnh người đánh giá", kind: "image", aspect: "square" },
         { key: "rating", label: "Rating (1-5)", kind: "number" },
         { key: "sort_order", label: "Thứ tự", kind: "number" },
         { key: "is_published", label: "Xuất bản", kind: "checkbox" },

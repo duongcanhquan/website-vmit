@@ -52,25 +52,25 @@ const foundationSteps = [
     image: MEDIA.seminar,
     code: { vi: "Trụ 1", en: "Pillar 1" },
     unit: "Academic English & Flipped Classroom",
-    title: { vi: "Tiếng Anh phản xạ", en: "Reflexive English" },
+    title: { vi: "Tiếng Anh phản xạ", en: "Instinctive English" },
     learn: [
       {
         vi: "Bỏ ngữ pháp thụ động. Sinh viên xem micro-video ở nhà, 100% giờ lớp dành cho tranh biện, thuyết trình và đóng vai.",
-        en: "Leave passive grammar behind. Students watch micro-videos at home, and every class hour is debate, presentation and role-play.",
+        en: "Leave passive grammar drills behind. Students watch micro-videos at home, and 100% of class time goes to debate, presentations and role-play.",
       },
       {
         vi: "Luyện phản xạ nói trực tiếp bằng tiếng Anh, để hết sợ nói sai.",
-        en: "Train a direct English reflex, so speaking no longer feels risky.",
+        en: "Build the reflex to speak English on the spot, and lose the fear of making mistakes.",
       },
     ],
     tools: ["ELSA Speak Pro", "Oxford Academic", "Quizlet", "BBC Learning English"],
     application: {
       vi: "Thuyết trình ý tưởng dự án bằng tiếng Anh và đọc case study nguyên bản của Pearson.",
-      en: "Present a project idea in English and read Pearson case studies in the original.",
+      en: "Pitch a project idea in English and read original Pearson case studies.",
     },
     output: {
       vi: "Trình độ tương đương IELTS 5.0–5.5+ / B2 CEFR, kèm video thuyết trình cá nhân.",
-      en: "A level equivalent to IELTS 5.0–5.5+ / CEFR B2, plus a personal presentation video.",
+      en: "English equivalent to IELTS 5.0–5.5+ / CEFR B2, plus a personal presentation video.",
     },
   },
   {
@@ -82,7 +82,7 @@ const foundationSteps = [
     learn: [
       {
         vi: "Biến ChatGPT, Claude và Copilot thành gia sư 1-1, hỗ trợ học 24/7.",
-        en: "Turn ChatGPT, Claude and Copilot into a personal tutor, available around the clock.",
+        en: "Turn ChatGPT, Claude and Copilot into one-to-one tutors that support your learning 24/7.",
       },
       {
         vi: "Học Prompt Engineering và cách điều phối AI Agents để nghiên cứu, tóm tắt và lập kế hoạch.",
@@ -92,11 +92,11 @@ const foundationSteps = [
     tools: ["ChatGPT", "Claude", "Microsoft Copilot", "Notion AI", "Gamma", "Canva AI"],
     application: {
       vi: "Tự động hóa nghiên cứu và soạn thảo, rút ngắn khoảng 70% thời gian làm việc.",
-      en: "Automate research and drafting, and cut the working time by about 70%.",
+      en: "Automate research and drafting, cutting working time by around 70%.",
     },
     output: {
       vi: "Bộ trợ lý AI dùng suốt 2 năm, và một đề án tự động hóa cho doanh nghiệp thật.",
-      en: "A personal AI toolkit for the two-year programme, and an automation brief for a real business.",
+      en: "A personal AI assistant toolkit for all two years, plus an automation proposal for a real business.",
     },
   },
   {
@@ -108,7 +108,7 @@ const foundationSteps = [
     learn: [
       {
         vi: "Rèn phản biện, giải quyết vấn đề, trích dẫn Harvard và phòng đạo văn.",
-        en: "Build critical thinking, Harvard referencing and a habit of original work.",
+        en: "Build critical thinking, problem-solving, Harvard referencing and plagiarism avoidance.",
       },
       {
         vi: "Làm việc nhóm theo Agile/Scrum và quản lý thời gian số.",
@@ -174,7 +174,7 @@ const dataSteps = [
     id: "d-3",
     image: MEDIA.studentsStudy,
     code: { vi: "Học kỳ 3", en: "Term 3" },
-    unit: "Unit 10 · Applied Maths + Data Science Programming",
+    unit: "Unit 14 · Maths for Computing · Unit 8 · Data Analytics",
     title: { vi: "Toán ứng dụng", en: "Applied mathematics" },
     learn: [
       { vi: "Xác suất, kiểm định giả thuyết và A/B testing.", en: "Probability, hypothesis tests and A/B testing." },
@@ -195,7 +195,7 @@ const dataSteps = [
     id: "d-4",
     image: MEDIA.lectureHall,
     code: { vi: "Học kỳ 4", en: "Term 4" },
-    unit: "Unit 17 · Business Intelligence · Unit 6 · Pearson-set Project",
+    unit: "Unit 26 · Big Data Analytics & Visualisation · Unit 6 · Pearson-set Project",
     title: { vi: "Dashboard điều hành", en: "Executive dashboards" },
     learn: [
       { vi: "Kho dữ liệu, data mart và luồng ETL.", en: "Data warehouses, data marts and ETL flows." },
@@ -216,7 +216,7 @@ const dataSteps = [
     id: "d-5",
     image: MEDIA.newsClassroom,
     code: { vi: "Học kỳ 5", en: "Term 5" },
-    unit: "Unit 20 · Applied Machine Learning · Unit 21 · Cloud Computing",
+    unit: "Unit 25 · Machine Learning · Unit 28 · Cloud Computing",
     title: { vi: "Machine learning", en: "Machine learning" },
     learn: [
       { vi: "Học có giám sát và không giám sát: hồi quy, Random Forest, K-Means.", en: "Supervised and unsupervised learning: regression, Random Forest, K-Means." },
@@ -282,7 +282,7 @@ const businessSteps = [
     id: "b-2",
     image: MEDIA.international,
     code: { vi: "Học kỳ 2", en: "Term 2" },
-    unit: "Unit 2 · Marketing Planning · Unit 5 · Management Accounting",
+    unit: "Unit 2 · Marketing Processes & Planning · Unit 5 · Accounting Principles",
     title: { vi: "Marketing và tài chính", en: "Marketing and finance" },
     learn: [
       { vi: "Định vị thương hiệu và phễu digital marketing.", en: "Brand positioning and a digital marketing funnel." },
@@ -303,7 +303,7 @@ const businessSteps = [
     id: "b-3",
     image: MEDIA.campusFacility,
     code: { vi: "Học kỳ 3", en: "Term 3" },
-    unit: "Unit 22 · Operations & Supply Chain · Unit 33 · E-Commerce",
+    unit: "Unit 26 · Principles of Operations Management · Unit 54 · E-Commerce & Strategy",
     title: { vi: "Chuỗi cung ứng và TMĐT", en: "Supply chain and commerce" },
     learn: [
       { vi: "Chuỗi cung ứng tinh gọn: Lean, JIT và quản lý kho EOQ.", en: "A lean supply chain: Lean, JIT and EOQ inventory." },
@@ -345,7 +345,7 @@ const businessSteps = [
     id: "b-5",
     image: MEDIA.campusArchitecture,
     code: { vi: "Học kỳ 5", en: "Term 5" },
-    unit: "Unit 32 · Business Strategy · Unit 8 · Innovation",
+    unit: "Unit 43 · Business Strategy · Unit 8 · Innovation & Commercialisation",
     title: { vi: "Chiến lược tăng trưởng", en: "Growth strategy" },
     learn: [
       { vi: "Đại dương xanh và cạnh tranh bằng khác biệt.", en: "Blue ocean thinking and competing by being different." },
@@ -416,12 +416,12 @@ export function programStory(locale: Locale): ProgramStory {
   return {
     heroEyebrow: "Journey to the World Excellence",
     heroTitle: line(locale, {
-      vi: "Ba chương trình.\nMột cách học bằng sản phẩm.",
-      en: "Three programmes.\nLearning by making the work.",
+      vi: "Ba chương trình.\nMỘT CÁCH HỌC THỰC CHIẾN HIỆU QUẢ",
+      en: "Three programmes.\nONE HANDS-ON WAY TO LEARN THAT WORKS",
     }),
     heroLead: line(locale, {
-      vi: "Học kỳ tiền đề, rồi Data Analytics hoặc Business Management. Song bằng Cao đẳng chính quy APC và Pearson BTEC HND Level 5. Qua môn bằng dự án, không bằng bài thi nhồi nhét.",
-      en: "A foundation term, then Data Analytics or Business Management. A national college diploma from APC and a Pearson BTEC HND Level 5. You pass by the project you ship.",
+      vi: "Song bằng Cao đẳng chính quy và Pearson BTEC Level 5. Qua môn bằng dự án, không bằng bài thi nhồi nhét. Học qua thực hành.",
+      en: "A formal college diploma plus Pearson BTEC Level 5. Pass by projects, not crammed exams. Learn by doing.",
     }),
     scrollHint: line(locale, { vi: "Xem ba chương trình", en: "See the three programmes" }),
     guaranteesTitle: line(locale, { vi: "Bốn điều VMIT giữ", en: "Four things VMIT stands behind" }),

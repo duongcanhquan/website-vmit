@@ -216,7 +216,7 @@ const DATA: ProgramSubject[] = [
   },
   {
     id: "da-03",
-    code: "Unit 10",
+    code: "Unit 14",
     level: "RQF Level 4",
     course: "Applied Mathematics & Quantitative Business Analysis",
     title: { vi: "Toán ứng dụng & Phân tích định lượng trong kinh doanh", en: "Applied maths & quantitative business analysis" },
@@ -251,8 +251,8 @@ const DATA: ProgramSubject[] = [
   },
   {
     id: "da-04",
-    code: "Specialized Module",
-    level: "Computing",
+    code: "Unit 8",
+    level: "RQF Level 4",
     course: "Python for Data Science & Exploratory Data Analysis",
     title: { vi: "Lập trình khoa học dữ liệu & Khai phá khám phá (EDA)", en: "Data science programming & exploratory analysis" },
     hook: {
@@ -286,7 +286,7 @@ const DATA: ProgramSubject[] = [
   },
   {
     id: "da-05",
-    code: "Unit 17",
+    code: "Unit 26",
     level: "RQF Level 5",
     course: "Business Intelligence & Executive Dashboard Design",
     title: { vi: "Trí tuệ kinh doanh (BI) & Thiết kế Executive Dashboard", en: "Business intelligence & executive dashboard design" },
@@ -321,7 +321,7 @@ const DATA: ProgramSubject[] = [
   },
   {
     id: "da-06",
-    code: "Unit 20",
+    code: "Unit 25",
     level: "RQF Level 5",
     course: "Applied Machine Learning & Predictive Modeling",
     title: { vi: "Học máy ứng dụng & Dự báo kinh doanh", en: "Applied machine learning & business forecasting" },
@@ -356,7 +356,7 @@ const DATA: ProgramSubject[] = [
   },
   {
     id: "da-07",
-    code: "Unit 21",
+    code: "Unit 28",
     level: "RQF Level 5",
     course: "Cloud Computing & Big Data Engineering",
     title: { vi: "Điện toán đám mây & Hạ tầng dữ liệu lớn", en: "Cloud computing & big data infrastructure" },
@@ -501,7 +501,7 @@ const BUSINESS: ProgramSubject[] = [
     id: "bm-03",
     code: "Unit 5",
     level: "RQF Level 4",
-    course: "Management Accounting & Cash Flow Control",
+    course: "Accounting Principles & Cash Flow Control",
     title: { vi: "Kế toán quản trị & Kiểm soát dòng tiền cho nhà lãnh đạo", en: "Management accounting & cash flow control for leaders" },
     hook: {
       vi: "Doanh thu là phù phiếm, lợi nhuận là điểm số, dòng tiền mới là sự sống còn. Làm chủ ngôn ngữ tài chính của doanh nghiệp.",
@@ -534,7 +534,7 @@ const BUSINESS: ProgramSubject[] = [
   },
   {
     id: "bm-04",
-    code: "Unit 22",
+    code: "Unit 26",
     level: "RQF Level 5",
     course: "Operations Management & Lean Supply Chain",
     title: { vi: "Quản trị vận hành & Chuỗi cung ứng tinh gọn", en: "Operations management & lean supply chain" },
@@ -569,7 +569,7 @@ const BUSINESS: ProgramSubject[] = [
   },
   {
     id: "bm-05",
-    code: "Unit 33",
+    code: "Unit 54",
     level: "RQF Level 5",
     course: "E-Commerce & Omnichannel Retail Strategy",
     title: { vi: "Thương mại điện tử & Bán lẻ đa kênh (Omnichannel)", en: "E-commerce & omnichannel retail" },
@@ -605,7 +605,7 @@ const BUSINESS: ProgramSubject[] = [
   {
     id: "bm-06",
     code: "Unit 3 & 4",
-    level: "RQF Level 4/5",
+    level: "RQF Level 4",
     course: "Leadership, Human Resource Management & Organizational Culture",
     title: { vi: "Lãnh đạo, Nghệ thuật đắc nhân tâm & Quản trị nhân sự", en: "Leadership, people skills & human resource management" },
     hook: {
@@ -639,8 +639,8 @@ const BUSINESS: ProgramSubject[] = [
   },
   {
     id: "bm-07",
-    code: "Unit 32 & 8",
-    level: "RQF Level 5",
+    code: "Unit 43 & 8",
+    level: "RQF Level 4/5",
     course: "Business Strategy & Innovation Commercialisation",
     title: { vi: "Hoạch định chiến lược kinh doanh & Đổi mới sáng tạo", en: "Business strategy & innovation commercialisation" },
     hook: {

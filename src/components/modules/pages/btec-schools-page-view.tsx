@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { PageShell } from "@/components/common/page-shell"
 import { useLocale } from "@/components/providers/locale-provider"
 import type { BtecSchool } from "@/constants/btec-schools"
@@ -49,10 +50,24 @@ export function BtecSchoolsPageView({
                 {group.items.map((school) => {
                   const detail = locale === "vi" ? school.detail_vi : school.detail_en
                   const body = (
-                    <>
-                      <span className="block text-lg font-bold text-brand-navy">{school.name}</span>
-                      {detail ? <span className="mt-1 block text-sm text-muted">{detail}</span> : null}
-                    </>
+                    <span className="flex h-full items-center justify-between gap-4">
+                      <span className="min-w-0">
+                        <span className="block text-lg font-bold text-brand-navy">{school.name}</span>
+                        {detail ? <span className="mt-1 block text-sm text-muted">{detail}</span> : null}
+                      </span>
+                      {school.logo ? (
+                        <span className="relative h-11 w-20 shrink-0 sm:h-14 sm:w-32">
+                          <Image
+                            src={school.logo}
+                            alt={`${school.name} logo`}
+                            fill
+                            sizes="128px"
+                            unoptimized={school.logo.toLowerCase().endsWith(".svg")}
+                            className="object-contain object-right"
+                          />
+                        </span>
+                      ) : null}
+                    </span>
                   )
                   return (
                     <li key={`${group.region}-${school.name}`}>

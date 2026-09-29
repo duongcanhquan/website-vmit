@@ -1,7 +1,7 @@
 export const SITE = {
   name: "VMIT",
   brandTagline: "Journey to work excellence",
-  heroHeadline: "Học mọi thứ",
+  heroHeadline: "Cử nhân thực hành Anh Quốc",
   accreditationBadge: "PERSON APPROVED CENTER",
   hotlineDisplay: "0999999999",
   hotlineHref: "tel:0999999999",

@@ -5,10 +5,11 @@ export type BtecSchool = {
   detail_vi: string
   detail_en: string
   url: string
+  logo: string
 }
 
 /** Curated from the published pathway network. Admin can replace this list. */
-export const DEFAULT_BTEC_SCHOOLS: BtecSchool[] = [
+const DEFAULT_ROWS: Omit<BtecSchool, "logo">[] = [
   { region_vi: "Vương quốc Anh", region_en: "United Kingdom", name: "University of Sunderland", detail_vi: "Sunderland và London · đúng một năm cuối", detail_en: "Sunderland and London · one final year", url: "https://www.sunderland.ac.uk" },
   { region_vi: "Vương quốc Anh", region_en: "United Kingdom", name: "University of Huddersfield", detail_vi: "Công nhận HND Level 5 vào năm cuối", detail_en: "Accepts HND Level 5 into the final year", url: "" },
   { region_vi: "Vương quốc Anh", region_en: "United Kingdom", name: "Middlesex University", detail_vi: "Công nhận HND Level 5 vào năm cuối", detail_en: "Accepts HND Level 5 into the final year", url: "" },
@@ -40,6 +41,46 @@ export const DEFAULT_BTEC_SCHOOLS: BtecSchool[] = [
   { region_vi: "Châu Đại Dương", region_en: "Oceania", name: "Otago Polytechnic", detail_vi: "New Zealand", detail_en: "New Zealand", url: "" },
 ]
 
+const SCHOOL_LOGOS: Record<string, string> = {
+  "university of sunderland": "sunderland",
+  "university of huddersfield": "huddersfield",
+  "middlesex university": "middlesex",
+  "university of greenwich": "greenwich",
+  "oxford brookes university": "oxford-brookes",
+  "university of northampton": "northampton",
+  shms: "shms",
+  "césar ritz colleges": "cesar-ritz",
+  "hotel institute montreux": "hotel-institute-montreux",
+  "griffith college": "griffith-college",
+  "national college of ireland": "nci",
+  hamk: "hamk",
+  "the hague university of applied sciences": "hague",
+  sim: "sim",
+  "psb academy": "psb",
+  "kaplan singapore": "kaplan-singapore",
+  "chosun university": "chosun",
+  solbridge: "solbridge",
+  "sunway university": "sunway",
+  "taylor's university": "taylors",
+  "keiser university": "keiser",
+  "troy university": "troy",
+  "thompson rivers university": "thompson-rivers",
+  "george brown college": "george-brown",
+  "macquarie university": "macquarie",
+  "deakin university": "deakin",
+  "griffith university": "griffith",
+  "university of waikato": "waikato",
+  "otago polytechnic": "otago-polytechnic",
+}
+
+/** Bundled transparent logo for a known partner, matched by name. */
+export function defaultSchoolLogo(name: string) {
+  const slug = SCHOOL_LOGOS[name.trim().toLowerCase()]
+  return slug ? `/media/schools/${slug}.png` : ""
+}
+
+export const DEFAULT_BTEC_SCHOOLS: BtecSchool[] = DEFAULT_ROWS.map((row) => ({ ...row, logo: defaultSchoolLogo(row.name) }))
+
 function text(value: unknown) {
   return typeof value === "string" ? value.trim() : ""
 }
@@ -60,6 +101,7 @@ export function parseBtecSchools(value: unknown): BtecSchool[] | null {
         detail_vi: text(row.detail_vi),
         detail_en: text(row.detail_en),
         url: text(row.url),
+        logo: text(row.logo) || defaultSchoolLogo(name),
       },
     ]
   })

@@ -25,7 +25,7 @@ export default async function Page() {
       fields={[
         { key: "title", label: "Tiêu đề", kind: "bilingual", viKey: "title_vi", enKey: "title_en" },
         { key: "description", label: "Mô tả", kind: "bilingual", viKey: "description_vi", enKey: "description_en", multiline: true },
-        { key: "file_url", label: "URL file", kind: "url" },
+        { key: "file_url", label: "File tài liệu", kind: "file" },
         { key: "category", label: "Danh mục", kind: "text" },
         { key: "sort_order", label: "Thứ tự", kind: "number" },
         { key: "is_published", label: "Xuất bản", kind: "checkbox" },

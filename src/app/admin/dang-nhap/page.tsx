@@ -20,7 +20,7 @@ function resolveLoginEmail(raw: string): string {
 function mapAuthError(message: string): string {
   const lower = message.toLowerCase()
   if (lower.includes("invalid login") || lower.includes("invalid credentials")) {
-    return "Sai tài khoản hoặc mật khẩu. Thử tạm: admin / admin"
+    return "Sai tài khoản hoặc mật khẩu."
   }
   if (lower.includes("email not confirmed")) {
     return "Email chưa xác nhận. Confirm user trên Supabase Auth."
@@ -34,8 +34,8 @@ function mapAuthError(message: string): string {
 function LoginForm() {
   const search = useSearchParams()
   const queryError = search.get("error")
-  const [account, setAccount] = useState("admin")
-  const [password, setPassword] = useState("admin")
+  const [account, setAccount] = useState("")
+  const [password, setPassword] = useState("")
   const [error, setError] = useState<string | null>(
     queryError === "forbidden"
       ? "Đã đăng nhập nhưng chưa có quyền admin/editor trong app_roles."
@@ -88,9 +88,7 @@ function LoginForm() {
     >
       <p className="text-xs font-extrabold uppercase tracking-[0.16em] text-primary">Cổng quản trị</p>
       <h1 className="mt-2 text-3xl font-black text-brand-navy">Đăng nhập Admin</h1>
-      <p className="mt-2 text-sm text-muted">
-        Tạm thời: <strong>admin</strong> / <strong>admin</strong>
-      </p>
+      <p className="mt-2 text-sm text-muted">Dùng email được cấp quyền quản trị. Quên mật khẩu: nhờ admin đặt lại.</p>
       {error ? (
         <p className="mt-4 rounded-[3px] bg-red-50 px-3 py-2 text-sm font-medium text-red-700">{error}</p>
       ) : null}
@@ -102,7 +100,7 @@ function LoginForm() {
           autoComplete="username"
           value={account}
           onChange={(e) => setAccount(e.target.value)}
-          placeholder="admin"
+          placeholder="ten@vmit.edu.vn"
           className="mt-1 h-12 w-full rounded-[3px] border border-border px-4 transition focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
         />
       </label>
@@ -114,7 +112,6 @@ function LoginForm() {
           autoComplete="current-password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          placeholder="admin"
           className="mt-1 h-12 w-full rounded-[3px] border border-border px-4 transition focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
         />
       </label>

@@ -3,21 +3,6 @@ import type { HomeCmsProps } from "@/types/home-cms"
 
 /** Shown on the home page while the matching CMS table is empty or unreachable. */
 
-export const DEMO_SUBJECTS: HomeCmsProps["subjects"] = [
-  { id: "demo-data", icon_key: "data", title_vi: "Phân tích dữ liệu", title_en: "Data Analytics", count_label_vi: "8 học phần", count_label_en: "8 modules" },
-  { id: "demo-business", icon_key: "business", title_vi: "Quản trị kinh doanh", title_en: "Business Management", count_label_vi: "8 học phần", count_label_en: "8 modules" },
-  { id: "demo-marketing", icon_key: "marketing", title_vi: "Marketing số", title_en: "Digital Marketing", count_label_vi: "6 học phần", count_label_en: "6 modules" },
-  { id: "demo-finance", icon_key: "finance", title_vi: "Tài chính & Kế toán", title_en: "Finance & Accounting", count_label_vi: "5 học phần", count_label_en: "5 modules" },
-  { id: "demo-english", icon_key: "english", title_vi: "Tiếng Anh học thuật", title_en: "Academic English", count_label_vi: "6 cấp độ", count_label_en: "6 levels" },
-  { id: "demo-python", icon_key: "code", title_vi: "Lập trình Python", title_en: "Python Programming", count_label_vi: "4 học phần", count_label_en: "4 modules" },
-  { id: "demo-sql", icon_key: "database", title_vi: "Cơ sở dữ liệu & SQL", title_en: "Databases & SQL", count_label_vi: "4 học phần", count_label_en: "4 modules" },
-  { id: "demo-bi", icon_key: "chart", title_vi: "Trực quan hóa Power BI", title_en: "Power BI Visualisation", count_label_vi: "3 học phần", count_label_en: "3 modules" },
-  { id: "demo-hr", icon_key: "people", title_vi: "Quản trị nhân sự", title_en: "Human Resources", count_label_vi: "4 học phần", count_label_en: "4 modules" },
-  { id: "demo-ecommerce", icon_key: "ecommerce", title_vi: "Thương mại điện tử", title_en: "E-commerce", count_label_vi: "4 học phần", count_label_en: "4 modules" },
-  { id: "demo-project", icon_key: "project", title_vi: "Quản lý dự án", title_en: "Project Management", count_label_vi: "3 học phần", count_label_en: "3 modules" },
-  { id: "demo-career", icon_key: "career", title_vi: "Kỹ năng nghề nghiệp", title_en: "Career Skills", count_label_vi: "5 học phần", count_label_en: "5 modules" },
-].map((item) => ({ ...item, icon_url: null, hover_icon_url: null }))
-
 export const DEMO_TESTIMONIALS: HomeCmsProps["testimonials"] = [
   {
     id: "demo-ha",

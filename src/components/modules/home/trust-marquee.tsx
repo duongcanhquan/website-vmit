@@ -1,34 +1,25 @@
 "use client"
 
 import { useLocale } from "@/components/providers/locale-provider"
+import { homeText } from "@/lib/home-content"
 import type { CmsStatus } from "@/types/home-cms"
 
 export function TrustMarquee({
   partners,
   status,
+  settings = {},
 }: {
   partners: Array<{ id: string; name: string }>
   status: CmsStatus
+  settings?: Record<string, unknown>
 }) {
-  const { t } = useLocale()
-  if (status === "error") {
-    return (
-      <section className="border-y border-border bg-surface py-5 text-center text-sm text-muted">
-        Không tải được danh sách đối tác.
-      </section>
-    )
-  }
-  if (status === "empty" || partners.length === 0) {
-    return (
-      <section className="border-y border-border bg-surface py-5 text-center text-sm text-muted">
-        {t.trust.label}: chưa có dữ liệu.
-      </section>
-    )
-  }
+  const { locale } = useLocale()
+  const label = homeText(settings, "home_partners_label", locale)
+  if (status !== "ok" || partners.length === 0) return null
   const row = [...partners, ...partners]
   return (
-    <section className="overflow-hidden border-y border-border bg-surface py-5" aria-label={t.trust.label}>
-      <p className="mb-3 text-center overline text-muted/70">{t.trust.label}</p>
+    <section className="overflow-hidden border-y border-border bg-surface py-5" aria-label={label}>
+      <p className="mb-3 text-center overline text-muted/70">{label}</p>
       <div className="flex w-max animate-marquee gap-3 px-4">
         {row.map((item, index) => (
           <span

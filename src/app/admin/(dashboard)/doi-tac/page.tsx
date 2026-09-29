@@ -15,7 +15,7 @@ export default async function Page() {
       newDefaults={{ name: "", logo_url: "", website_url: "", sort_order: 0, is_published: true }}
       fields={[
         { key: "name", label: "Tên", kind: "text" },
-        { key: "logo_url", label: "URL logo", kind: "url" },
+        { key: "logo_url", label: "Logo", kind: "image", aspect: "logo", hint: "Nên dùng PNG/SVG nền trong suốt. Bấm vào logo để thay." },
         { key: "website_url", label: "Website", kind: "url" },
         { key: "sort_order", label: "Thứ tự", kind: "number" },
         { key: "is_published", label: "Xuất bản", kind: "checkbox" },

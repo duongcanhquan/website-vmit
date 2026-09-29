@@ -7,8 +7,8 @@ export const messages: Record<"vi" | "en", MessageTree> = {
       programs: "Chương trình",
       pathway: "Lộ trình",
       subjects: "Môn học",
-      btecSchools: "Trường BTEC",
-      englishTest: "Test IELTS",
+      btecSchools: "Hệ thống BTEC",
+      englishTest: "IELTS Test",
       news: "Tin tức",
       tuition: "Học phí",
       studentLife: "Đời sống SV",
@@ -16,8 +16,8 @@ export const messages: Record<"vi" | "en", MessageTree> = {
     },
     hero: {
       slogan: "Journey to work excellence",
-      headline: "Học mọi thứ",
-      support: "Cử nhân thực hành Anh\u00A0Quốc ngay tại Việt\u00A0Nam.",
+      headline: "CỬ NHÂN THỰC HÀNH ANH\u00A0QUỐC",
+      support: "Chương trình học từ Anh với lộ trình học đa dạng và thực\u00A0tiễn.",
       ctaExplore: "Xem hình ảnh",
       ctaScholarship: "Nhận học bổng",
       ctaApply: "Cổng xét tuyển",
@@ -36,7 +36,8 @@ export const messages: Record<"vi" | "en", MessageTree> = {
       counters: [
         { value: "2", label: "bằng chính quy" },
         { value: "70%", label: "tiết kiệm chi phí" },
-        { value: "100%", label: "cam kết việc làm FDI" },
+        { value: "100%", label: "giới thiệu việc làm sau tốt nghiệp" },
+        { value: "+200", label: "trường học chuyển tiếp" },
       ],
       items: [
         {
@@ -44,9 +45,9 @@ export const messages: Record<"vi" | "en", MessageTree> = {
           eyebrow: "Trụ 1 · Song bằng",
           title: "Bằng cấp song tịch danh giá",
           description:
-            "Pearson BTEC HND Level 5 (Anh Quốc) kết hợp bằng Cao đẳng Quốc gia APC — hai văn bằng chính quy trong một lộ trình.",
+            "Pearson BTEC HND Level 5 (Anh Quốc) kết hợp bằng Cao đẳng chính quy — hai văn bằng chính quy trong một lộ trình.",
           featured: true,
-          chips: ["Pearson BTEC HND Level 5 — UK", "Bằng Cao đẳng Quốc gia APC"],
+          chips: ["Pearson BTEC HND Level 5 — UK", "Bằng Cao đẳng chính quy"],
         },
         {
           id: "programs",
@@ -71,7 +72,7 @@ export const messages: Record<"vi" | "en", MessageTree> = {
     programs: {
       eyebrow: "",
       title: "Chương trình",
-      lead: "Học kỳ tiền đề, rồi Data Analytics hoặc Business Management. Song bằng APC và Pearson BTEC HND Level 5.",
+      lead: "Song bằng Cao đẳng chính quy và Pearson BTEC Level 5. Qua môn bằng dự án, không bằng bài thi nhồi nhét. Học qua thực hành.",
       view: "Xem chương trình",
       items: [
         {
@@ -120,12 +121,12 @@ export const messages: Record<"vi" | "en", MessageTree> = {
     scholarship: {
       eyebrow: "Học bổng",
       title: "Nhận học bổng",
-      lead: "Form nhanh ~30 giây. Dữ liệu sẽ nối Supabase khi bật backend.",
+      lead: "Chỉ mất khoảng 30 giây. Tư vấn viên VMIT sẽ gọi lại cho bạn.",
       name: "Họ và tên",
       phone: "Số điện thoại",
       email: "Email (tuỳ chọn)",
       submit: "Đăng ký nhận tư vấn học bổng",
-      success: "Đã ghi nhận (UI). [VMIT: xác nhận gửi server khi có API]",
+      success: "Đã gửi thành công. Đội ngũ VMIT sẽ liên hệ với bạn sớm.",
     },
     footer: {
       nav: "Điều hướng",
@@ -139,8 +140,8 @@ export const messages: Record<"vi" | "en", MessageTree> = {
       programs: "Programmes",
       pathway: "Pathway",
       subjects: "Subjects",
-      btecSchools: "BTEC schools",
-      englishTest: "IELTS test",
+      btecSchools: "BTEC network",
+      englishTest: "IELTS Test",
       news: "News",
       tuition: "Fees",
       studentLife: "Student life",
@@ -148,22 +149,23 @@ export const messages: Record<"vi" | "en", MessageTree> = {
     },
     hero: {
       slogan: "Journey to work excellence",
-      headline: "Learn anything",
-      support: "A UK practice-based bachelor pathway in\u00A0Vietnam.",
-      ctaExplore: "See the visuals",
+      headline: "UK PRACTICE-BASED BACHELOR'S\u00A0DEGREE",
+      support: "UK programmes with diverse, practical learning\u00A0pathways.",
+      ctaExplore: "View the gallery",
       ctaScholarship: "Get a scholarship",
       ctaApply: "Admissions portal",
     },
     trust: {
-      label: "Partners & global network",
+      label: "Partners & international network",
     },
     pillars: {
-      eyebrow: "Four pillars",
+      eyebrow: "Four breakthrough pillars",
       title: "Why choose VMIT",
       counters: [
-        { value: "2", label: "recognised awards" },
-        { value: "70%", label: "cost efficiency" },
-        { value: "100%", label: "FDI career focus" },
+        { value: "2", label: "formal qualifications" },
+        { value: "70%", label: "savings on study costs" },
+        { value: "100%", label: "job referrals after graduation" },
+        { value: "+200", label: "partner universities for transfer" },
       ],
       items: [
         {
@@ -171,9 +173,9 @@ export const messages: Record<"vi" | "en", MessageTree> = {
           eyebrow: "Pillar 1 · Dual award",
           title: "Prestigious dual qualifications",
           description:
-            "Pearson BTEC HND Level 5 (UK) combined with the national APC college award — two formal credentials in one pathway.",
+            "A Pearson BTEC HND Level 5 (UK) combined with a formal college diploma — two recognised qualifications in one pathway.",
           featured: true,
-          chips: ["Pearson BTEC HND Level 5 — UK", "National APC college award"],
+          chips: ["Pearson BTEC HND Level 5 — UK", "Formal college diploma"],
         },
         {
           id: "programs",
@@ -184,51 +186,51 @@ export const messages: Record<"vi" | "en", MessageTree> = {
         {
           id: "pathway",
           eyebrow: "Pillar 3",
-          title: "International bridge",
-          description: "2+1 / 2+2 progression to Keiser (USA), the UK and Australia.",
+          title: "International progression",
+          description: "2+1 / 2+2 transfer to Keiser University (USA) and universities in the UK and Australia.",
         },
         {
           id: "career",
           eyebrow: "Pillar 4",
-          title: "FDI career outcomes",
-          description: "Career guidance connected to partner enterprises.",
+          title: "Careers with FDI companies",
+          description: "Committed career guidance linked to our partner companies.",
         },
       ],
     },
     programs: {
       eyebrow: "",
       title: "Programmes",
-      lead: "A foundation term, then Data Analytics or Business Management. An APC diploma and a Pearson BTEC HND Level 5.",
+      lead: "A formal college diploma plus Pearson BTEC Level 5. Pass by projects, not crammed exams. Learn by doing.",
       view: "View programme",
       items: [
         {
           title: "BTEC Data Analytics",
-          description: "Applied data practice aligned to Pearson HND standards.",
+          description: "Hands-on data analytics to Pearson HND standards.",
         },
         {
           title: "BTEC Business Management",
-          description: "Business leadership framed by the UK education system.",
+          description: "Business management within the UK education framework.",
         },
         {
           title: "Foundation IELTS",
-          description: "Academic English foundation before your specialist route.",
+          description: "A foundation in academic English before you start your specialism.",
         },
       ],
     },
     pathway: {
       eyebrow: "Global pathway",
-      title: "Pathway & awards",
-      lead: "Dual awards on campus plus 2+1 / 2+2 progression to Keiser University (USA), the UK and Australia.",
+      title: "Pathway & qualifications",
+      lead: "Earn two qualifications on campus, then transfer via 2+1 / 2+2 to Keiser University (USA), the UK or Australia.",
       cta: "See the full pathway",
       steps: [
         { step: "01", title: "Foundation / IELTS", note: "Academic foundation" },
-        { step: "02", title: "BTEC HND Level 5", note: "VMIT · APC dual award" },
+        { step: "02", title: "BTEC HND Level 5", note: "Dual award · VMIT · APC" },
         { step: "03", title: "International top-up", note: "2+1 / 2+2 · UK · US · AU" },
       ],
     },
     tuition: {
       eyebrow: "Fees & scholarships",
-      title: "Light investment · Long runway",
+      title: "Invest lightly, go far",
       leadBefore: "Flexible plans from",
       leadAfter: "· talent scholarship fund",
       cta: "Fees & scholarships",
@@ -236,7 +238,7 @@ export const messages: Record<"vi" | "en", MessageTree> = {
     life: {
       eyebrow: "Campus life",
       title: "Spaces to learn and grow",
-      lead: "Campus, seminars, labs — told through photography.",
+      lead: "Campus, seminars and labs — in pictures.",
     },
     apply: {
       eyebrow: "Admissions",
@@ -246,13 +248,13 @@ export const messages: Record<"vi" | "en", MessageTree> = {
     },
     scholarship: {
       eyebrow: "Scholarship",
-      title: "Request a scholarship",
-      lead: "A ~30-second form. Data will connect to Supabase when backend is enabled.",
+      title: "Get a scholarship",
+      lead: "It takes about 30 seconds. A VMIT adviser will call you back.",
       name: "Full name",
       phone: "Phone number",
       email: "Email (optional)",
       submit: "Request scholarship advice",
-      success: "Saved (UI only). [VMIT: wire server confirmation when API is ready]",
+      success: "Thank you! The VMIT team will be in touch with you shortly.",
     },
     footer: {
       nav: "Explore",

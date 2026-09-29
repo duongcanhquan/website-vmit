@@ -20,6 +20,12 @@ function settingUrl(value: unknown, fallback: string): string {
   return text.replaceAll('"', "").trim() || fallback
 }
 
+const SCHOLARSHIP_HREF = "#hoc-bong"
+
+function isScholarshipHref(href: string): boolean {
+  return href === "" || href === SCHOLARSHIP_HREF || href === "#scholarship"
+}
+
 function isExternalHref(href: string): boolean {
   return /^https?:\/\//i.test(href) || href.startsWith("mailto:") || href.startsWith("tel:")
 }
@@ -34,21 +40,17 @@ export function HeroSection({ onOpenScholarship, settings }: HeroSectionProps) {
   const support = settingText(settings.hero_support, locale) || t.hero.support
   const heroImage = settingUrl(settings.hero_image_url, "/media/banners/hero-vmit-student.jpg")
 
-  const primaryLabel =
-    settingText(settings.hero_cta_primary_label, locale) ||
-    (locale === "vi" ? "Bắt đầu ngay" : "Get started now")
-  const primaryHref = settingUrl(settings.hero_cta_primary_href, ROUTES.apply)
+  const primaryLabel = settingText(settings.hero_cta_primary_label, locale) || t.hero.ctaScholarship
+  const primaryHref = settingUrl(settings.hero_cta_primary_href, SCHOLARSHIP_HREF)
 
   const secondaryLabel =
     settingText(settings.hero_cta_secondary_label, locale) ||
-    (locale === "vi" ? "Xem chương trình" : "View course")
+    (locale === "vi" ? "Chương trình học" : "Programmes")
   const secondaryHref = settingUrl(settings.hero_cta_secondary_href, ROUTES.programs)
 
-  const tertiaryLabel =
-    settingText(settings.hero_cta_tertiary_label, locale) || t.hero.ctaScholarship
-  const tertiaryHref = settingUrl(settings.hero_cta_tertiary_href, "#hoc-bong")
-  const tertiaryIsScholarship =
-    tertiaryHref === "#hoc-bong" || tertiaryHref === "#scholarship" || tertiaryHref === ""
+  const tertiaryLabel = settingText(settings.hero_cta_tertiary_label, locale) || t.hero.ctaApply
+  const tertiaryHref = settingUrl(settings.hero_cta_tertiary_href, ROUTES.apply)
+  const showTertiary = !(isScholarshipHref(tertiaryHref) && isScholarshipHref(primaryHref))
 
   function CtaLink({
     href,
@@ -59,6 +61,13 @@ export function HeroSection({ onOpenScholarship, settings }: HeroSectionProps) {
     className: string
     children: ReactNode
   }) {
+    if (isScholarshipHref(href)) {
+      return (
+        <button type="button" onClick={onOpenScholarship} className={className}>
+          {children}
+        </button>
+      )
+    }
     if (isExternalHref(href)) {
       return (
         <a href={href} className={className} target="_blank" rel="noopener noreferrer">
@@ -111,22 +120,14 @@ export function HeroSection({ onOpenScholarship, settings }: HeroSectionProps) {
               {secondaryLabel}
               <ArrowRight className="size-4" />
             </CtaLink>
-            {tertiaryIsScholarship ? (
-              <button
-                type="button"
-                onClick={onOpenScholarship}
-                className="inline-flex h-12 items-center justify-center px-2 text-sm font-semibold text-white underline-offset-4 drop-shadow-[0_1px_2px_rgba(0,0,0,0.65)] transition hover:underline sm:justify-start"
-              >
-                {tertiaryLabel}
-              </button>
-            ) : (
+            {showTertiary ? (
               <CtaLink
                 href={tertiaryHref}
                 className="inline-flex h-12 items-center justify-center px-2 text-sm font-semibold text-white underline-offset-4 drop-shadow-[0_1px_2px_rgba(0,0,0,0.65)] transition hover:underline sm:justify-start"
               >
                 {tertiaryLabel}
               </CtaLink>
-            )}
+            ) : null}
           </div>
         </div>
       </div>

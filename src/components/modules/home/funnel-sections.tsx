@@ -9,28 +9,39 @@ import { programStory } from "@/components/modules/pages/program-story-data"
 import { useLocale } from "@/components/providers/locale-provider"
 import { buttonVariants } from "@/components/ui/button"
 import { ROUTES, SITE } from "@/constants/site"
+import { homeText, readPrograms } from "@/lib/home-content"
 import { pickLocale, settingText } from "@/lib/i18n/locale-text"
+import { canOptimizeImage } from "@/lib/media"
 import { cn } from "@/lib/utils"
 import type { CmsStatus } from "@/types/home-cms"
 
-export function ProgramsPreview() {
-  const { locale, t } = useLocale()
-  const story = programStory(locale)
+export function ProgramsPreview({ settings }: { settings: Record<string, unknown> }) {
+  const { locale } = useLocale()
+  const cards = readPrograms(settings.home_programs)
+  const tracks = programStory(locale).tracks.map((track, i) => ({
+    ...track,
+    name: cards[i]?.name[locale] ?? track.name,
+    promise: cards[i]?.promise[locale] ?? track.promise,
+    salary: cards[i]?.salary[locale] ?? track.salary,
+    image: cards[i]?.image ?? track.image,
+  }))
+  const title = homeText(settings, "home_programs_title", locale)
+  const lead = homeText(settings, "home_programs_lead", locale)
   return (
     <section id="nganh-hoc" className="bg-mist py-16 md:py-20">
       <div className="mx-auto max-w-[85%]">
         <Reveal>
           <h2 className="@container mx-auto w-full max-w-3xl text-center font-black leading-tight tracking-tight text-brand-navy">
-            {story.heroTitle.split("\n").map((line) => (
-              <span key={line} className="block whitespace-nowrap text-[clamp(1.15rem,7cqi,2.25rem)]">
+            {title.split("\n").map((line, i) => (
+              <span key={i} className="block text-balance text-[clamp(1.15rem,7cqi,2.25rem)]">
                 {line}
               </span>
             ))}
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-center text-body-lg text-muted">{story.heroLead}</p>
+          {lead ? <p className="mx-auto mt-4 max-w-2xl text-center text-body-lg text-muted">{lead}</p> : null}
         </Reveal>
         <div className="mt-10 grid gap-5 md:grid-cols-3">
-          {story.tracks.map((track, index) => (
+          {tracks.map((track, index) => (
             <Reveal key={track.id} delay={0.08 * index}>
               <HoverLift className="h-full">
                 <Link
@@ -43,6 +54,7 @@ export function ProgramsPreview() {
                       alt=""
                       fill
                       sizes="(max-width:768px) 100vw, 28vw"
+                      unoptimized={!canOptimizeImage(track.image)}
                       className="object-cover transition duration-500 group-hover:scale-105"
                     />
                     <span className="absolute left-3 top-3 inline-flex size-9 items-center justify-center bg-primary text-sm font-black text-white">
@@ -56,7 +68,7 @@ export function ProgramsPreview() {
                     <p className="mt-3 flex-1 text-sm leading-relaxed text-muted md:text-base">{track.promise}</p>
                     <p className="mt-4 text-sm font-bold text-primary">{track.salary}</p>
                     <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary">
-                      {t.programs.view}
+                      {homeText(settings, "home_programs_card_cta", locale)}
                       <ArrowRight className="size-4 transition group-hover:translate-x-0.5" />
                     </span>
                   </div>
@@ -67,7 +79,7 @@ export function ProgramsPreview() {
         </div>
         <div className="mt-10 text-center">
           <Link href={ROUTES.programs} className={cn(buttonVariants({ variant: "primary", size: "lg" }))}>
-            {locale === "vi" ? "Xem đủ sáu học kỳ" : "See all six terms"}
+            {homeText(settings, "home_programs_cta", locale)}
             <ArrowRight className="size-4" />
           </Link>
         </div>
@@ -80,7 +92,9 @@ export function PathwayPreview({
   steps,
   status,
   campusUrl,
+  settings,
 }: {
+  settings: Record<string, unknown>
   steps: Array<{
     id: string
     step_code: string
@@ -92,18 +106,18 @@ export function PathwayPreview({
   status: CmsStatus
   campusUrl: string
 }) {
-  const { locale, t } = useLocale()
+  const { locale } = useLocale()
   return (
     <section id="lo-trinh" className="bg-mist py-20 md:py-24">
       <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 lg:grid-cols-12">
         <Reveal className="lg:col-span-5">
-          <p className="overline text-accent-cobalt">{t.pathway.eyebrow}</p>
+          <p className="overline text-accent-cobalt">{homeText(settings, "home_pathway_eyebrow", locale)}</p>
           <h2 className="mt-3 font-display text-[clamp(1.9rem,3.5vw,2.85rem)] font-medium tracking-[-0.02em] text-brand-navy">
-            {t.pathway.title}
+            {homeText(settings, "home_pathway_title", locale)}
           </h2>
-          <p className="mt-4 max-w-xl text-body-lg text-muted">{t.pathway.lead}</p>
+          <p className="mt-4 max-w-xl text-body-lg text-muted">{homeText(settings, "home_pathway_lead", locale)}</p>
           <Link href={ROUTES.pathway} className={cn(buttonVariants({ variant: "secondary", size: "lg" }), "mt-8")}>
-            {t.pathway.cta}
+            {homeText(settings, "home_pathway_cta", locale)}
             <ArrowRight className="size-4" />
           </Link>
         </Reveal>
@@ -133,7 +147,13 @@ export function PathwayPreview({
                   ))
                 : (
                     <li className="px-5 py-6 text-sm text-muted">
-                      {status === "error" ? "Không tải lộ trình." : "Chưa có bước lộ trình trong CMS."}
+                      {locale === "vi"
+                        ? status === "error"
+                          ? "Không tải được lộ trình."
+                          : "Chưa có bước lộ trình."
+                        : status === "error"
+                          ? "The pathway could not be loaded."
+                          : "No pathway steps yet."}
                     </li>
                   )}
             </ol>
@@ -168,7 +188,7 @@ export function TuitionTeaser({
             <p className="mt-4 max-w-xl text-base leading-relaxed text-white/85 md:text-lg">
               {status === "ok" && featured
                 ? pickLocale(featured, locale, "description")
-                : `${t.tuition.leadBefore} 15 triệu VND ${t.tuition.leadAfter} ${year}.`}
+                : `${t.tuition.leadBefore} ${locale === "vi" ? "15 triệu VND" : "VND 15 million"} ${t.tuition.leadAfter} ${year}.`}
             </p>
           </Reveal>
           <Reveal delay={0.08}>
@@ -186,22 +206,22 @@ export function TuitionTeaser({
   )
 }
 
-export function ApplyCta() {
-  const { t } = useLocale()
+export function ApplyCta({ settings }: { settings: Record<string, unknown> }) {
+  const { locale } = useLocale()
   return (
     <section id="xet-tuyen" className="bg-mist py-16 md:py-20">
       <div className="mx-auto max-w-[85%]">
         <Reveal>
           <div className="flex flex-col items-start justify-between gap-6 rounded-[3px] border border-border bg-surface px-8 py-10 shadow-hairline md:flex-row md:items-center md:px-12 md:py-12">
             <div>
-              <p className="overline">{t.apply.eyebrow}</p>
+              <p className="overline">{homeText(settings, "home_apply_eyebrow", locale)}</p>
               <h2 className="mt-3 text-[clamp(1.85rem,3vw,2.5rem)] font-black tracking-tight text-brand-navy">
-                {t.apply.title}
+                {homeText(settings, "home_apply_title", locale)}
               </h2>
-              <p className="mt-3 max-w-xl text-muted">{t.apply.lead}</p>
+              <p className="mt-3 max-w-xl text-muted">{homeText(settings, "home_apply_lead", locale)}</p>
             </div>
             <Link href={ROUTES.apply} className={cn(buttonVariants({ size: "lg" }), "shrink-0")}>
-              {t.apply.cta}
+              {homeText(settings, "home_apply_cta", locale)}
               <ArrowRight className="size-4" />
             </Link>
           </div>

@@ -17,7 +17,6 @@ function revalidatePublic() {
   revalidatePath("/about")
   revalidatePath("/apply")
   revalidatePath("/btec-schools")
-  revalidatePath("/admin", "layout")
 }
 
 export async function upsertSetting(key: string, value: unknown) {
@@ -104,22 +103,25 @@ type CrudTable =
   | "posts"
   | "subjects"
 
-export async function upsertRow(table: CrudTable, payload: Record<string, unknown>) {
+export async function upsertRow(
+  table: CrudTable,
+  payload: Record<string, unknown>,
+): Promise<Record<string, unknown>> {
   const { supabase } = await requireStaff()
   const id = typeof payload.id === "string" ? payload.id : undefined
   const row: Record<string, unknown> = { ...payload, updated_at: new Date().toISOString() }
   for (const key of RICH_TEXT_FIELDS[table] ?? []) {
     if (key in row) row[key] = sanitizeRichHtml(row[key])
   }
-  if (!id) {
-    delete row.id
-    const { error } = await supabase.from(table).insert(row)
-    if (error) throw new Error(error.message)
-  } else {
-    const { error } = await supabase.from(table).update(row).eq("id", id)
-    if (error) throw new Error(error.message)
-  }
+  delete row.id
+  delete row.created_at
+  const query = id
+    ? supabase.from(table).update(row).eq("id", id).select("*").single()
+    : supabase.from(table).insert(row).select("*").single()
+  const { data, error } = await query
+  if (error) throw new Error(error.message)
   revalidatePublic()
+  return data as Record<string, unknown>
 }
 
 export async function deleteRow(table: CrudTable, id: string) {
@@ -129,47 +131,30 @@ export async function deleteRow(table: CrudTable, id: string) {
   revalidatePublic()
 }
 
-export async function updateSubmissionStatus(
-  table: "contact_submissions" | "admission_applications" | "scholarship_leads",
-  id: string,
-  status: "new" | "read" | "archived",
-) {
-  const { supabase } = await requireStaff()
-  const { error } = await supabase
-    .from(table)
-    .update({ status, updated_at: new Date().toISOString() })
-    .eq("id", id)
-  if (error) throw new Error(error.message)
-  revalidatePath("/admin/ho-so")
+type PublicResult<T = undefined> = { ok: true; data: T } | { ok: false; error: string }
+
+async function publicAction<T>(run: () => Promise<T>): Promise<PublicResult<T>> {
+  const { LeadInputError } = await import("@/lib/leads")
+  try {
+    return { ok: true, data: await run() }
+  } catch (err) {
+    if (err instanceof LeadInputError) return { ok: false, error: err.message }
+    console.error("[lead]", err)
+    return { ok: false, error: "Chưa gửi được hồ sơ. Vui lòng thử lại hoặc gọi hotline." }
+  }
 }
 
-export async function createAdmissionApplication(input: {
-  full_name: string
-  phone: string
-  email?: string
-  program: string
-}) {
+export async function createAdmissionApplication(input: import("@/lib/leads").AdmissionInput) {
   const { saveAdmission } = await import("@/lib/leads")
-  const saved = await saveAdmission({
-    full_name: input.full_name,
-    phone: input.phone,
-    email: input.email?.trim() || "",
-    program: input.program,
-  })
-  return saved.trackingCode
+  return publicAction(async () => (await saveAdmission(input)).trackingCode)
 }
 
 export async function createScholarshipLead(input: {
   full_name: string
   phone: string
   email?: string
+  website?: string
 }) {
-  const { createClient } = await import("@/lib/supabase/server")
-  const supabase = await createClient()
-  const { error } = await supabase.from("scholarship_leads").insert({
-    full_name: input.full_name,
-    phone: input.phone,
-    email: input.email || null,
-  })
-  if (error) throw new Error(error.message)
+  const { saveScholarship } = await import("@/lib/leads")
+  return publicAction(() => saveScholarship(input))
 }

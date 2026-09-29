@@ -14,16 +14,11 @@ function settingUrl(value: unknown, fallback = ""): string {
 
 export function SiteFooter({ settings = {} }: { settings?: Record<string, unknown> }) {
   const { locale, t } = useLocale()
-  const badge = settingText(settings.accreditation_badge, locale) || SITE.accreditationBadge
   const hotline = settingText(settings.hotline_display, locale) || t.common.hotline
   const email = settingUrl(settings.contact_email, "admissions@vmit.edu.vn")
   const savedAddress = settingText(settings.contact_address, locale).trim()
   const address =
     !savedAddress || savedAddress.includes("[VMIT:") ? SITE.campusAddress : savedAddress
-  const tagline =
-    settingText(settings.tagline, locale) ||
-    settingText(settings.hero_slogan, locale) ||
-    SITE.brandTagline
   const nav = [
     { href: ROUTES.about, label: t.nav.about },
     { href: ROUTES.pathway, label: t.nav.pathway },
@@ -37,23 +32,20 @@ export function SiteFooter({ settings = {} }: { settings?: Record<string, unknow
 
   return (
     <footer className="bg-footer text-brand-navy">
-      <div className="mx-auto grid max-w-[85%] gap-10 py-14 md:grid-cols-[1.4fr_1fr_1fr]">
+      <div className="mx-auto grid max-w-[85%] gap-10 py-14 md:grid-cols-[1fr_1.6fr_1.2fr]">
         <div>
           <Image
             src="/brand/logo-vmit.png"
-            alt={`VMIT — ${tagline}`}
+            alt={SITE.name}
             width={148}
             height={58}
             className="h-auto w-[132px] object-contain"
           />
-          <p className="mt-5 font-bold italic text-primary">{tagline}</p>
-          <p className="mt-3 text-sm text-muted">{badge} · APC</p>
-          <p className="mt-4 text-sm text-muted">{hotline}</p>
           <SocialLinks settings={settings} className="mt-5" linkClassName="text-primary" />
         </div>
         <div>
           <h3 className="mb-6 text-lg font-medium">{t.footer.nav}</h3>
-          <ul className="space-y-4 text-sm font-medium">
+          <ul className="grid grid-cols-2 gap-x-6 gap-y-4 text-sm font-medium">
             {nav.map((item) => (
               <li key={item.href}>
                 <SiteLink

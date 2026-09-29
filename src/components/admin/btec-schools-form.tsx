@@ -2,9 +2,10 @@
 
 import { useState, useTransition } from "react"
 import { saveSettingsBatch } from "@/app/admin/(dashboard)/actions"
+import { ImageField } from "@/components/admin/image-field"
 import { AdminCard, AdminPageHeader, Field, inputClass } from "@/components/admin/ui"
 import { Button } from "@/components/ui/button"
-import type { BtecSchool } from "@/constants/btec-schools"
+import { defaultSchoolLogo, type BtecSchool } from "@/constants/btec-schools"
 
 const emptySchool = (): BtecSchool => ({
   region_vi: "",
@@ -13,6 +14,7 @@ const emptySchool = (): BtecSchool => ({
   detail_vi: "",
   detail_en: "",
   url: "",
+  logo: "",
 })
 
 export function BtecSchoolsForm({ initial }: { initial: BtecSchool[] }) {
@@ -27,8 +29,8 @@ export function BtecSchoolsForm({ initial }: { initial: BtecSchool[] }) {
   return (
     <div>
       <AdminPageHeader
-        title="Trường BTEC"
-        description="Danh sách hiển thị tại menu Trường BTEC. Để trống URL nếu trường chưa có trang riêng."
+        title="Hệ thống BTEC"
+        description="Danh sách hiển thị tại menu Hệ thống BTEC. Để trống URL nếu trường chưa có trang riêng. Logo nên tách nền (PNG/SVG)."
         actions={
           <Button type="button" onClick={() => setSchools((rows) => [...rows, emptySchool()])}>
             Thêm trường
@@ -57,6 +59,15 @@ export function BtecSchoolsForm({ initial }: { initial: BtecSchool[] }) {
               <Field label="Website" className="md:col-span-2">
                 <input className={inputClass} value={school.url} onChange={(e) => patch(index, "url", e.target.value)} placeholder="https://" />
               </Field>
+              <ImageField
+                label="Logo trường (PNG/SVG nền trong suốt)"
+                value={school.logo}
+                fallback={defaultSchoolLogo(school.name)}
+                aspect="logo"
+                folder="schools"
+                onChange={(url) => patch(index, "logo", url)}
+                className="md:col-span-2"
+              />
             </div>
             <button
               type="button"
@@ -84,6 +95,7 @@ export function BtecSchoolsForm({ initial }: { initial: BtecSchool[] }) {
                     detail_vi: school.detail_vi.trim(),
                     detail_en: school.detail_en.trim(),
                     url: school.url.trim(),
+                    logo: school.logo.trim(),
                   }))
                   .filter((school) => school.name)
                 await saveSettingsBatch({ btec_schools: cleaned })
