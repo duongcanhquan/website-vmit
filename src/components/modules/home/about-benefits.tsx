@@ -56,7 +56,7 @@ export function AboutBenefits({
   settings,
   counters,
   countersStatus,
-  imageUrl = MEDIA.campusFacility,
+  imageUrl = MEDIA.aboutStudent,
 }: {
   settings: Record<string, unknown>
   counters: Counter[]
@@ -75,8 +75,19 @@ export function AboutBenefits({
     <>
       <section className="bg-mist py-16 md:py-24">
         <div className="mx-auto grid max-w-[85%] items-stretch gap-0 lg:grid-cols-2">
-          <Reveal className="relative min-h-[380px] lg:min-h-[560px]">
-            <Image src={imageUrl} alt="" fill className="object-cover" sizes="(max-width:1024px) 100vw, 42.5vw" />
+          <Reveal className="relative min-h-[380px] overflow-hidden bg-gradient-to-b from-primary/10 to-primary/30 lg:min-h-[560px]">
+            <div
+              aria-hidden
+              className="absolute left-1/2 top-[12%] aspect-square w-[80%] max-w-[560px] -translate-x-1/2 rounded-full bg-white/50"
+            />
+            <Image
+              src={imageUrl}
+              alt={locale === "vi" ? "Sinh viên VMIT học cùng laptop" : "VMIT student learning on a laptop"}
+              fill
+              quality={85}
+              className="object-contain object-bottom pt-8"
+              sizes="(max-width:1024px) 100vw, 42.5vw"
+            />
           </Reveal>
           <div className="bg-mist px-0 py-10 lg:px-12 lg:py-14">
             <Reveal>

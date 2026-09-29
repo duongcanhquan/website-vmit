@@ -82,7 +82,7 @@ export function HeroSection({ onOpenScholarship, settings }: HeroSectionProps) {
           alt={locale === "vi" ? "Sinh viên VMIT" : "VMIT student"}
           fill
           priority
-          quality={95}
+          quality={85}
           sizes="100vw"
           frameClassName="absolute inset-0 h-full w-full"
           className="object-cover object-[88%_center] md:object-[82%_center]"

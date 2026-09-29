@@ -2,6 +2,7 @@ export const MEDIA = {
   hero: "/media/banners/hero-vmit-student.jpg",
   heroStudent: "/media/banners/hero-vmit-student.jpg",
   heroCampusUk: "/media/banners/hero-campus-uk.jpg",
+  aboutStudent: "/media/banners/about-vmit-student.webp",
   studentsStudy: "/media/banners/students-asian-classroom.jpg",
   campusFacility: "/media/banners/campus-quad.jpg",
   studentsCollab: "/media/banners/students-asian-collab.jpg",

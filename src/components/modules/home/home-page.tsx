@@ -38,7 +38,6 @@ export default function HomePage({ cms }: { cms: HomeCmsProps }) {
           settings={cms.settings}
           counters={cms.counters}
           countersStatus={cms.countersStatus}
-          imageUrl={String(heroSettings.campus_image_url)}
         />
         <ProgramsPreview courses={cms.courses} status={cms.coursesStatus} />
         <SubjectsGrid items={cms.subjects} status={cms.subjectsStatus} />
