@@ -6,9 +6,9 @@ import { getSettingsMap } from "@/services/cms"
 export const DEFAULT_SEO = {
   titleVi: `${SITE.name} | ${SITE.brandTagline}`,
   descriptionVi:
-    "Cao đẳng Việt Mỹ — chương trình cử nhân thực hành Anh Quốc, Pearson BTEC HND, lộ trình 2+1.",
+    "Viet My College — a UK practice-based bachelor programme, Pearson BTEC HND, and a 2+1 pathway.",
   descriptionEn:
-    "Viet My College — a UK practice-based bachelor pathway with Pearson BTEC HND and a 2+1 route.",
+    "Viet My College — a UK practice-based bachelor programme, Pearson BTEC HND, and a 2+1 pathway.",
   keywordsVi: "VMIT, Cao đẳng Việt Mỹ, BTEC, Pearson, cử nhân Anh Quốc, học bổng",
 } as const
 

@@ -15,7 +15,7 @@ export const messages: Record<"vi" | "en", MessageTree> = {
       apply: "Xét tuyển",
     },
     hero: {
-      slogan: "Journey to work excellence",
+      slogan: "Journey to world excellence",
       headline: "CHƯƠNG\u00A0TRÌNH CỬ\u00A0NHÂN ANH\u00A0QUỐC",
       support: "Lộ trình tới TOP 1% đại học Quốc\u00A0tế.",
       ctaExplore: "Xem hình ảnh",
@@ -148,7 +148,7 @@ export const messages: Record<"vi" | "en", MessageTree> = {
       apply: "Apply",
     },
     hero: {
-      slogan: "Journey to work excellence",
+      slogan: "Journey to world excellence",
       headline: "UK BACHELOR'S DEGREE\u00A0PROGRAMME",
       support: "Your pathway to the TOP 1% of international\u00A0universities.",
       ctaExplore: "View the gallery",

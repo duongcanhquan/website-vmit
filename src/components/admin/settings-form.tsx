@@ -90,7 +90,7 @@ export function SettingsForm({ initial }: Props) {
       initial.hero_eyebrow ?? { vi: "Chào mừng đến VMIT", en: "Welcome to VMIT" },
     ),
     hero_slogan: readPair(
-      initial.hero_slogan ?? initial.tagline ?? { vi: "Journey to work excellence", en: "Journey to work excellence" },
+      initial.hero_slogan ?? initial.tagline ?? { vi: "Journey to world excellence", en: "Journey to world excellence" },
     ),
     hero_headline: heroPair("headline", initial.hero_headline),
     hero_support: heroPair("support", initial.hero_support),
@@ -336,7 +336,7 @@ export function SettingsForm({ initial }: Props) {
                 await saveSettingsBatch({
                   hero_eyebrow: form.hero_eyebrow,
                   hero_slogan: form.hero_slogan,
-                  tagline: form.hero_slogan.vi || form.hero_slogan.en || "Journey to work excellence",
+                  tagline: form.hero_slogan.vi || form.hero_slogan.en || "Journey to world excellence",
                   hero_headline: form.hero_headline,
                   hero_support: form.hero_support,
                   hero_cta_primary_label: form.hero_cta_primary_label,
