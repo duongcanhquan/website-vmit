@@ -68,6 +68,7 @@ export function SiteHeader({
     { href: ROUTES.subjects, label: t.nav.subjects },
     { href: ROUTES.btecSchools, label: t.nav.btecSchools },
     { href: ROUTES.englishTest, label: t.nav.englishTest },
+    { href: ROUTES.news, label: t.nav.news },
   ]
 
   const light = overHero && !scrolled
