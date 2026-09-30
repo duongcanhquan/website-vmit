@@ -1,6 +1,6 @@
 export const MEDIA = {
-  hero: "/media/banners/hero-vmit-student.jpg",
-  heroStudent: "/media/banners/hero-vmit-student.jpg",
+  hero: "/media/banners/hero-vmit-student.webp",
+  heroStudent: "/media/banners/hero-vmit-student.webp",
   heroCampusUk: "/media/banners/hero-campus-uk.jpg",
   aboutStudent: "/media/banners/about-vmit-student.webp",
   studentsStudy: "/media/banners/students-asian-classroom.jpg",

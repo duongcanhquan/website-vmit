@@ -15,6 +15,9 @@ export function canOptimizeImage(src: string): boolean {
 export function resolveMediaUrl(value: unknown, fallback: string): string {
   const raw = typeof value === "string" ? value : settingText(value, "vi")
   const cleaned = raw.replaceAll('"', "").trim()
+  if (cleaned === "/media/banners/hero-vmit-student.jpg") {
+    return "/media/banners/hero-vmit-student.webp"
+  }
   if (
     !cleaned ||
     cleaned.startsWith("/media/hero-campus") ||

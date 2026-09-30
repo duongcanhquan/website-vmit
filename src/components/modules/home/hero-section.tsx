@@ -39,10 +39,14 @@ export function HeroSection({ onOpenScholarship, settings }: HeroSectionProps) {
     (locale === "vi" ? "Chào mừng đến VMIT" : "Welcome to VMIT")
   const headline = heroText("headline", settingText(settings.hero_headline, locale), locale)
   const support = heroText("support", settingText(settings.hero_support, locale), locale)
-  const heroImage = settingUrl(settings.hero_image_url, "/media/banners/hero-vmit-student.jpg")
+  const heroImage = settingUrl(settings.hero_image_url, "/media/banners/hero-vmit-student.webp")
 
-  const primaryLabel = settingText(settings.hero_cta_primary_label, locale) || t.hero.ctaScholarship
-  const primaryHref = settingUrl(settings.hero_cta_primary_href, SCHOLARSHIP_HREF)
+  const savedPrimary = settingText(settings.hero_cta_primary_label, locale)
+  const primaryIsLegacy =
+    savedPrimary === "Bắt đầu ngay" || savedPrimary.toLowerCase() === "get started now"
+  const primaryLabel = primaryIsLegacy || !savedPrimary ? t.hero.ctaScholarship : savedPrimary
+  const savedPrimaryHref = settingUrl(settings.hero_cta_primary_href, SCHOLARSHIP_HREF)
+  const primaryHref = primaryIsLegacy ? SCHOLARSHIP_HREF : savedPrimaryHref
 
   const secondaryLabel =
     settingText(settings.hero_cta_secondary_label, locale) ||
