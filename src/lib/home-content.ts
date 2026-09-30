@@ -217,8 +217,13 @@ export const HOME_SECTIONS: HomeSection[] = [
     title: "Kêu gọi xét tuyển",
     fields: [
       { key: "home_apply_eyebrow", label: "Dòng nhỏ phía trên", kind: "text", fallback: pair(vi.apply.eyebrow, en.apply.eyebrow) },
-      { key: "home_apply_title", label: "Tiêu đề", kind: "text", fallback: pair(vi.apply.title, en.apply.title) },
-      { key: "home_apply_lead", label: "Đoạn mô tả", kind: "multiline", fallback: pair(vi.apply.lead, en.apply.lead) },
+      {
+        key: "home_apply_title",
+        label: "Tiêu đề",
+        kind: "text",
+        fallback: pair("Bắt đầu hành trình khám phá ngay bây giờ.", "Start your journey of discovery now."),
+      },
+      { key: "home_apply_lead", label: "Đoạn mô tả", kind: "multiline", fallback: pair("", "") },
       { key: "home_apply_cta", label: "Nút", kind: "text", fallback: pair(vi.apply.cta, en.apply.cta) },
     ],
   },

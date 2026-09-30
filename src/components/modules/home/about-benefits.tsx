@@ -95,20 +95,23 @@ export function AboutBenefits({
           {countersStatus === "ok" && counters.length > 0
             ? counters.map((c) => (
                 <div key={c.id} className="text-center md:text-left">
-                  <p className="text-4xl font-black md:text-5xl">{c.value_text}</p>
+                  <p className="text-3xl font-black leading-tight md:text-4xl lg:text-5xl">{c.value_text}</p>
                   <p className="mt-2 text-lg font-medium">
                     {locale === "vi" ? c.label_vi : c.label_en}
                   </p>
                 </div>
               ))
             : [
-                { v: "2", l: locale === "vi" ? "bằng chính quy" : "recognised awards" },
-                { v: "70%", l: locale === "vi" ? "tiết kiệm chi phí" : "cost efficiency" },
-                { v: "100%", l: locale === "vi" ? "giới thiệu việc làm sau tốt nghiệp" : "job referrals after graduation" },
-                { v: "+200", l: locale === "vi" ? "trường học chuyển tiếp" : "transfer universities" },
+                {
+                  v: "2+1",
+                  l: locale === "vi" ? "2 bằng chính quy, 1 bằng đại học Anh Quốc" : "2 formal qualifications, 1 UK bachelor's degree",
+                },
+                { v: "70%", l: locale === "vi" ? "tiết kiệm chi phí" : "savings on study costs" },
+                { v: "100%", l: locale === "vi" ? "Giới thiệu việc làm" : "Job referrals" },
+                { v: "6,5 IELTS", l: locale === "vi" ? "Sau tốt nghiệp" : "After graduation" },
               ].map((c) => (
                 <div key={c.l} className="text-center md:text-left">
-                  <p className="text-4xl font-black md:text-5xl">{c.v}</p>
+                  <p className="text-3xl font-black leading-tight md:text-4xl lg:text-5xl">{c.v}</p>
                   <p className="mt-2 text-lg font-medium">{c.l}</p>
                 </div>
               ))}

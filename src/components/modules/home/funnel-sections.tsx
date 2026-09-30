@@ -218,7 +218,9 @@ export function ApplyCta({ settings }: { settings: Record<string, unknown> }) {
               <h2 className="mt-3 text-[clamp(1.85rem,3vw,2.5rem)] font-black tracking-tight text-brand-navy">
                 {homeText(settings, "home_apply_title", locale)}
               </h2>
-              <p className="mt-3 max-w-xl text-muted">{homeText(settings, "home_apply_lead", locale)}</p>
+              {homeText(settings, "home_apply_lead", locale) ? (
+                <p className="mt-3 max-w-xl text-muted">{homeText(settings, "home_apply_lead", locale)}</p>
+              ) : null}
             </div>
             <Link href={ROUTES.apply} className={cn(buttonVariants({ size: "lg" }), "shrink-0")}>
               {homeText(settings, "home_apply_cta", locale)}

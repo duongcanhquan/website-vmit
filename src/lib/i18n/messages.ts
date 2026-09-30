@@ -34,10 +34,10 @@ export const messages: Record<"vi" | "en", MessageTree> = {
       eyebrow: "4 trụ đột phá",
       title: "Vì sao chọn VMIT",
       counters: [
-        { value: "2", label: "bằng chính quy" },
+        { value: "2+1", label: "2 bằng chính quy, 1 bằng đại học Anh Quốc" },
         { value: "70%", label: "tiết kiệm chi phí" },
-        { value: "100%", label: "giới thiệu việc làm sau tốt nghiệp" },
-        { value: "+200", label: "trường học chuyển tiếp" },
+        { value: "100%", label: "Giới thiệu việc làm" },
+        { value: "6,5 IELTS", label: "Sau tốt nghiệp" },
       ],
       items: [
         {
@@ -162,10 +162,10 @@ export const messages: Record<"vi" | "en", MessageTree> = {
       eyebrow: "Four breakthrough pillars",
       title: "Why choose VMIT",
       counters: [
-        { value: "2", label: "formal qualifications" },
+        { value: "2+1", label: "2 formal qualifications, 1 UK bachelor's degree" },
         { value: "70%", label: "savings on study costs" },
-        { value: "100%", label: "job referrals after graduation" },
-        { value: "+200", label: "partner universities for transfer" },
+        { value: "100%", label: "Job referrals" },
+        { value: "6.5 IELTS", label: "After graduation" },
       ],
       items: [
         {
