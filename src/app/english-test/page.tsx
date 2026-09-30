@@ -8,7 +8,7 @@ export const revalidate = 120
 export async function generateMetadata(): Promise<Metadata> {
   return buildPageMetadata({
     title: "IELTS placement test",
-    description: "A four-module English placement test modelled on IELTS Academic: Listening, Reading, Writing and Speaking.",
+    description: "A four-module multiple-choice English placement test modelled on IELTS Academic: Listening, Reading, Writing and Speaking.",
     path: "/english-test",
   })
 }

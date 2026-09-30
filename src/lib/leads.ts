@@ -159,21 +159,17 @@ export type EnglishTestRecord = {
   cefr: string
   listening_correct: number
   reading_correct: number
-  writing_task1: string
-  writing_task2: string
-  speaking: string
+  writing_correct: number
+  speaking_correct: number
+  listening_total: number
+  reading_total: number
+  writing_total: number
+  speaking_total: number
   summary: string
 }
 
-export async function saveEnglishTest(record: EnglishTestRecord): Promise<{ mail: MailStatus }> {
+export async function saveEnglishTest(record: EnglishTestRecord) {
   const client = await db()
-  const inbox = await admissionsInbox(client)
-  const mail = await deliverEmail({
-    to: [record.email, inbox],
-    subject: `Your VMIT IELTS placement result — Band ${record.overall_band}`,
-    text: record.summary,
-  })
-
   const row = {
     full_name: record.full_name,
     email: record.email,
@@ -184,14 +180,20 @@ export async function saveEnglishTest(record: EnglishTestRecord): Promise<{ mail
     speaking_band: record.speaking_band,
     overall_band: record.overall_band,
     cefr: record.cefr,
-    writing_task1: record.writing_task1,
-    writing_task2: record.writing_task2,
-    speaking_notes: record.speaking,
-    email_status: mail,
+    writing_task1: "",
+    writing_task2: "",
+    speaking_notes: "",
+    email_status: "pending",
     summary: record.summary,
     detail: {
       listening_correct: record.listening_correct,
       reading_correct: record.reading_correct,
+      writing_correct: record.writing_correct,
+      speaking_correct: record.speaking_correct,
+      listening_total: record.listening_total,
+      reading_total: record.reading_total,
+      writing_total: record.writing_total,
+      speaking_total: record.speaking_total,
     },
   }
 
@@ -210,5 +212,4 @@ export async function saveEnglishTest(record: EnglishTestRecord): Promise<{ mail
 
   revalidatePath("/admin/bai-test")
   revalidatePath("/admin/ho-so")
-  return { mail }
 }

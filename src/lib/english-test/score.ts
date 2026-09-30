@@ -73,6 +73,10 @@ export function scoreSpeaking(parts: string[]) {
   return productionBand(joined, 180, 3)
 }
 
+export function countCorrect(questions: readonly { id: string; answer: number }[], choices: Record<string, number>) {
+  return questions.filter((question) => choices[question.id] === question.answer).length
+}
+
 export function normaliseAnswer(value: string) {
   return value.toLowerCase().replace(/£/g, "").replace(/[^a-z0-9]/g, "")
 }
