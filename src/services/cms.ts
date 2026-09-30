@@ -273,7 +273,8 @@ export async function getPublishedPosts() {
   })
 }
 
-const POST_LIST_COLUMNS = "id, slug, title_vi, title_en, excerpt_vi, excerpt_en, cover_url, author_name, published_at"
+const POST_LIST_COLUMNS =
+  "id, slug, title_vi, title_en, excerpt_vi, excerpt_en, cover_url, author_name, published_at, seo_title_vi, seo_title_en, seo_description_vi, seo_description_en"
 
 export async function getAllPublishedPosts() {
   return remember("getAllPublishedPosts", async () => {

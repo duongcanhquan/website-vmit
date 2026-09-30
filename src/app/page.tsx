@@ -1,4 +1,6 @@
+import type { Metadata } from "next"
 import HomePage from "@/components/modules/home/home-page"
+import { JsonLd } from "@/components/common/json-ld"
 import {
   getPublishedCounters,
   getPublishedCourses,
@@ -12,8 +14,23 @@ import {
   getPublishedTestimonials,
   getSettingsMap,
 } from "@/services/cms"
+import { settingText } from "@/lib/i18n/locale-text"
+import { DEFAULT_SEO, buildPageMetadata, loadSeoContext, organizationJsonLd } from "@/lib/seo"
 
 export const revalidate = 120
+
+export async function generateMetadata(): Promise<Metadata> {
+  const { settings } = await loadSeoContext()
+  const title = settingText(settings.seo_title, "vi") || DEFAULT_SEO.titleVi
+  const description = settingText(settings.seo_description, "vi") || DEFAULT_SEO.descriptionVi
+  const meta = await buildPageMetadata({
+    title,
+    description,
+    path: "/",
+    image: typeof settings.seo_og_image === "string" ? settings.seo_og_image : null,
+  })
+  return { ...meta, title: { absolute: title } }
+}
 
 export default async function Page() {
   const [
@@ -42,8 +59,13 @@ export default async function Page() {
     getPublishedSubjects(),
   ])
 
+  const description = settingText(settings.data.seo_description, "vi") || DEFAULT_SEO.descriptionVi
+  const { origin } = await loadSeoContext()
+
   return (
-    <HomePage
+    <>
+      <JsonLd data={organizationJsonLd(origin, description)} />
+      <HomePage
       cms={{
         settings: settings.data,
         settingsStatus: settings.status,
@@ -70,5 +92,6 @@ export default async function Page() {
         subjectsStatus: subjects.status,
       }}
     />
+    </>
   )
 }

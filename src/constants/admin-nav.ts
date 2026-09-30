@@ -31,6 +31,7 @@ export const ADMIN_NAV_GROUPS: AdminNavGroup[] = [
     items: [
       { href: "/admin/trang-chu", label: "Nội dung trang chủ", hint: "Mọi chữ và ảnh, theo từng khối" },
       { href: "/admin/cai-dat", label: "Cài đặt & banner", hint: "Banner đầu trang, liên hệ, Facebook/TikTok" },
+      { href: "/admin/seo", label: "SEO", hint: "Title, mô tả, sitemap, Google" },
       { href: "/admin/media", label: "Thư viện ảnh / gallery", hint: "Upload, caption, featured" },
       { href: "/admin/tai-lieu", label: "Tài liệu tải về" },
     ],

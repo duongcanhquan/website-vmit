@@ -17,6 +17,8 @@ function revalidatePublic() {
   revalidatePath("/about")
   revalidatePath("/apply")
   revalidatePath("/btec-schools")
+  revalidatePath("/sitemap.xml")
+  revalidatePath("/robots.txt")
 }
 
 export async function upsertSetting(key: string, value: unknown) {

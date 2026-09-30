@@ -75,6 +75,10 @@ export type HomeCmsProps = {
     published_at?: string | null
     body_vi?: string | null
     body_en?: string | null
+    seo_title_vi?: string | null
+    seo_title_en?: string | null
+    seo_description_vi?: string | null
+    seo_description_en?: string | null
   }>
   postsStatus: CmsStatus
   subjects: Array<{

@@ -1,9 +1,11 @@
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
+import { JsonLd } from "@/components/common/json-ld"
 import { NewsDetailView } from "@/components/modules/pages/news-detail-view"
 import { DEMO_POSTS } from "@/constants/demo-content"
 import { toEditorHtml } from "@/lib/plain-text-html"
 import { sanitizeRichHtml } from "@/lib/rich-text"
+import { articleJsonLd, buildPageMetadata, loadSeoContext } from "@/lib/seo"
 import { getAllPublishedPosts, getPublishedPostBySlug, getSettingsMap } from "@/services/cms"
 import type { NewsPost } from "@/types/home-cms"
 
@@ -23,11 +25,16 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   const { slug } = await params
   const post = await loadPost(decodeURIComponent(slug))
   if (!post) return { title: "Tin tức" }
-  return {
-    title: post.title_vi,
-    description: post.excerpt_vi ?? undefined,
-    openGraph: { title: post.title_vi, description: post.excerpt_vi ?? undefined, images: post.cover_url ? [post.cover_url] : undefined },
-  }
+  const title = post.seo_title_vi || post.title_vi
+  const description = post.seo_description_vi || post.excerpt_vi || post.title_vi
+  return buildPageMetadata({
+    title,
+    description,
+    path: `/news/${post.slug || slug}`,
+    image: post.cover_url,
+    type: "article",
+    publishedTime: post.published_at,
+  })
 }
 
 export default async function TinTucDetailPage({ params }: { params: Params }) {
@@ -41,14 +48,30 @@ export default async function TinTucDetailPage({ params }: { params: Params }) {
 
   const pool: NewsPost[] = list.status === "ok" ? list.data : DEMO_POSTS
   const related = pool.filter((item) => item.id !== post.id).slice(0, 3)
+  const { origin } = await loadSeoContext()
+  const headline = post.seo_title_vi || post.title_vi
+  const description = post.seo_description_vi || post.excerpt_vi || post.title_vi
 
   return (
-    <NewsDetailView
-      settings={settings.data}
-      post={post}
-      bodyVi={sanitizeRichHtml(toEditorHtml(post.body_vi || post.body))}
-      bodyEn={sanitizeRichHtml(toEditorHtml(post.body_en))}
-      related={related}
-    />
+    <>
+      <JsonLd
+        data={articleJsonLd({
+          origin,
+          path: `/news/${post.slug || slug}`,
+          headline,
+          description,
+          image: post.cover_url,
+          publishedAt: post.published_at,
+          author: post.author_name,
+        })}
+      />
+      <NewsDetailView
+        settings={settings.data}
+        post={post}
+        bodyVi={sanitizeRichHtml(toEditorHtml(post.body_vi || post.body))}
+        bodyEn={sanitizeRichHtml(toEditorHtml(post.body_en))}
+        related={related}
+      />
+    </>
   )
 }
