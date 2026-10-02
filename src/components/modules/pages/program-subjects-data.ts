@@ -198,288 +198,59 @@ const DATA: ProgramSubject[] = DATA_UNITS.map((unit) => ({
 }))
 
 
-const BUSINESS: ProgramSubject[] = [
-  {
-    id: "bm-01",
-    code: "Unit 1",
-    level: "RQF Level 4",
-    course: "The Contemporary Business Environment in the Digital Age",
-    title: { vi: "Môi trường kinh doanh toàn cầu & Tư duy khởi nghiệp số", en: "The global business environment & digital start-up thinking" },
-    hook: {
-      vi: "Hiểu luật chơi của kinh tế toàn cầu, nhìn thấu thị trường và vẽ mô hình kinh doanh triệu đô trên một trang giấy.",
-      en: "Learn the rules of the global economy, read the market, and sketch a million-dollar business model on one page.",
-    },
-    learn: [
-      {
-        vi: "Phân tích vĩ mô và vi mô: PESTLE, SWOT, mô hình 5 lực lượng cạnh tranh của Porter.",
-        en: "Macro and micro analysis: PESTLE, SWOT and Porter’s Five Forces.",
-      },
-      {
-        vi: "Thiết kế mô hình kinh doanh tinh gọn bằng Business Model Canvas chuẩn Silicon Valley.",
-        en: "Lean business design with the Silicon Valley–style Business Model Canvas.",
-      },
-      {
-        vi: "Ứng dụng AI vận hành văn phòng số: soạn văn bản thương mại, tóm tắt hợp đồng, khảo sát thị trường.",
-        en: "AI for the digital office: drafting business documents, summarising contracts and conducting market research.",
-      },
-    ],
-    benefit: {
-      vi: "Tư duy nhạy bén của nhà sáng lập: đọc vị đối thủ, nhìn ra thị trường ngách và biến ý tưởng sơ khai thành kế hoạch khả thi.",
-      en: "A founder’s instinct: read competitors, spot a niche and turn a rough idea into a workable plan.",
-    },
-    artifact: {
-      vi: "Bản phân tích Business Model Canvas cho một thương hiệu bán lẻ thật, kèm đề án chuyển đổi số văn phòng.",
-      en: "A Business Model Canvas analysis for a real retail brand, plus a digital office transformation proposal.",
-    },
-    tools: ["Business Model Canvas", "Notion AI", "ChatGPT Team", "Miro", "Canva Pro"],
-    image: IMG.canvas,
-  },
-  {
-    id: "bm-02",
-    code: "Unit 2",
-    level: "RQF Level 4",
-    course: "Marketing Planning & Digital Growth Funnel",
-    title: { vi: "Kế hoạch marketing số & Chiến lược tăng trưởng", en: "Digital marketing planning & growth strategy" },
-    hook: {
-      vi: "Khách hàng không mua sản phẩm, họ mua giải pháp cho vấn đề của họ. Học cách dựng cỗ máy thu hút khách hàng tự động.",
-      en: "Customers don’t buy products; they buy solutions to their problems. Learn to build a machine that attracts customers automatically.",
-    },
-    learn: [
-      {
-        vi: "Chân dung khách hàng (Buyer Persona) và bản đồ hành trình trải nghiệm (Customer Journey Map).",
-        en: "Buyer personas and customer journey maps.",
-      },
-      {
-        vi: "Định vị thương hiệu khác biệt và phễu chuyển đổi đa tầng AIDA, TOFU-MOFU-BOFU.",
-        en: "Distinctive brand positioning and multi-stage funnels: AIDA, TOFU-MOFU-BOFU.",
-      },
-      {
-        vi: "Đo hiệu quả chiến dịch bằng CAC, LTV, CTR, CPL và ROAS.",
-        en: "Measure campaigns with CAC, LTV, CTR, CPL and ROAS.",
-      },
-    ],
-    benefit: {
-      vi: "Tiêu từng đồng ngân sách marketing thông minh, tạo chiến dịch thu hút hàng nghìn khách tiềm năng mà không lãng phí.",
-      en: "Spend every penny of your marketing budget wisely and run campaigns that attract thousands of leads without waste.",
-    },
-    artifact: {
-      vi: "Kế hoạch Digital Marketing toàn diện cho sản phẩm mới, kèm bộ thông điệp quảng cáo và ngân sách chi tiết.",
-      en: "A full digital marketing plan for a new product, with ad messaging and a detailed budget.",
-    },
-    tools: ["Google Analytics 4", "Meta Ads Manager", "TikTok Ads", "CapCut", "Mailchimp"],
-    image: IMG.marketing,
-  },
-  {
-    id: "bm-03",
-    code: "Unit 5",
-    level: "RQF Level 4",
-    course: "Accounting Principles & Cash Flow Control",
-    title: { vi: "Kế toán quản trị & Kiểm soát dòng tiền cho nhà lãnh đạo", en: "Management accounting & cash flow control for leaders" },
-    hook: {
-      vi: "Doanh thu là phù phiếm, lợi nhuận là điểm số, dòng tiền mới là sự sống còn. Làm chủ ngôn ngữ tài chính của doanh nghiệp.",
-      en: "Revenue is vanity, profit is the score, cash flow is survival. Master the financial language of business.",
-    },
-    learn: [
-      {
-        vi: "Đọc và phân tích 3 báo cáo cốt lõi: cân đối kế toán, kết quả kinh doanh, lưu chuyển tiền tệ.",
-        en: "Read and analyse the three core statements: balance sheet, income statement and cash flow.",
-      },
-      {
-        vi: "Phân tích điểm hòa vốn (Cost-Volume-Profit) và kiểm soát chi phí cố định, biến đổi.",
-        en: "Break-even (cost-volume-profit) analysis and control of fixed and variable costs.",
-      },
-      {
-        vi: "Lập ngân sách hoạt động và dự báo dòng tiền để ngăn nguy cơ mất thanh khoản.",
-        en: "Operating budgets and cash flow forecasts that head off a liquidity crisis.",
-      },
-    ],
-    benefit: {
-      vi: "Đọc vị sức khỏe tài chính của bất kỳ công ty nào, định giá sản phẩm có lãi và giữ doanh nghiệp không cạn tiền trong khủng hoảng.",
-      en: "Read the financial health of any company, price products at a profit, and keep a business from running dry in a crisis.",
-    },
-    artifact: {
-      vi: "Mô hình tài chính Excel dự toán dòng tiền và điểm hòa vốn cho một dự án kinh doanh mới.",
-      en: "An Excel financial model forecasting cash flow and break-even for a new venture.",
-    },
-    tools: ["Microsoft Excel", "Google Sheets", "Power BI Finance"],
-    image: IMG.finance,
-  },
-  {
-    id: "bm-04",
-    code: "Unit 26",
-    level: "RQF Level 5",
-    course: "Operations Management & Lean Supply Chain",
-    title: { vi: "Quản trị vận hành & Chuỗi cung ứng tinh gọn", en: "Operations management & lean supply chain" },
-    hook: {
-      vi: "Ý tưởng hay chỉ đáng một xu, vận hành trơn tru mới tạo ra hàng triệu đô. Tối ưu từng mắt xích trong cỗ máy doanh nghiệp.",
-      en: "A good idea is worth a penny; smooth operations make millions. Optimise every link in the business machine.",
-    },
-    learn: [
-      {
-        vi: "Sản xuất tinh gọn: Lean Management, 5S, Kaizen và giao hàng đúng hạn Just-In-Time.",
-        en: "Lean production: Lean Management, 5S, Kaizen and Just-in-Time delivery.",
-      },
-      {
-        vi: "Chuỗi cung ứng thông minh: dự báo nhu cầu, tồn kho tối ưu theo EOQ, chọn nhà cung cấp.",
-        en: "A smart supply chain: demand forecasting, EOQ inventory and supplier selection.",
-      },
-      {
-        vi: "Thiết kế và chuẩn hóa quy trình vận hành tiêu chuẩn (SOP), giảm sai sót và lãng phí.",
-        en: "Design and standardise operating procedures (SOPs) to cut errors and waste.",
-      },
-    ],
-    benefit: {
-      vi: "Rà soát và cắt 20–30% chi phí thừa trong vận hành nhà máy hay chuỗi cửa hàng, biến bộ máy cồng kềnh thành cỗ máy tốc độ cao.",
-      en: "Identify and cut 20–30% of excess costs in a factory or store chain, and turn a bloated organisation into a high-speed machine.",
-    },
-    artifact: {
-      vi: "Bộ SOP chuẩn và sơ đồ chuỗi cung ứng chống đứt gãy cho một chuỗi phân phối bán lẻ.",
-      en: "A standard SOP set and a disruption-resistant supply chain map for a retail distribution chain.",
-    },
-    tools: ["ERP Odoo", "Base Wework", "Trello Kanban", "Lucidchart"],
-    image: IMG.supply,
-  },
-  {
-    id: "bm-05",
-    code: "Unit 54",
-    level: "RQF Level 5",
-    course: "E-Commerce & Omnichannel Retail Strategy",
-    title: { vi: "Thương mại điện tử & Bán lẻ đa kênh (Omnichannel)", en: "E-commerce & omnichannel retail" },
-    hook: {
-      vi: "Kinh doanh thời nay không biên giới. Bạn tự tay dựng gian hàng thương mại điện tử chuyên nghiệp bán ra toàn cầu.",
-      en: "Today’s business has no borders. Build your own professional online store that sells worldwide.",
-    },
-    learn: [
-      {
-        vi: "Chiến lược Omnichannel: đồng bộ dữ liệu khách hàng giữa cửa hàng, mạng xã hội và sàn TMĐT.",
-        en: "Omnichannel strategy: one customer view across stores, social media and marketplaces.",
-      },
-      {
-        vi: "Tối ưu chuyển đổi trang đích (CRO) và thiết kế trải nghiệm mua hàng không ma sát.",
-        en: "Landing page conversion optimisation (CRO) and a frictionless buying experience.",
-      },
-      {
-        vi: "Quản trị đóng gói, giao vận (Fulfillment) và chăm sóc khách hàng tự động bằng Chatbot AI.",
-        en: "Packing and delivery (fulfilment) and automated customer care with AI chatbots.",
-      },
-    ],
-    benefit: {
-      vi: "Vận hành gian hàng TMĐT từ A đến Z: kéo traffic miễn phí từ SEO, livestream bán hàng và giữ khách quay lại mua lần 2, lần 3.",
-      en: "Run an online store end to end: drive free traffic through SEO, sell via livestreams, and win repeat customers.",
-    },
-    artifact: {
-      vi: "Gian hàng thực chiến chuẩn SEO trên Shopee/TikTok Shop, đủ quy trình fulfillment và báo cáo tồn kho.",
-      en: "A live, SEO-ready Shopee/TikTok Shop store with a full fulfilment flow and inventory report.",
-    },
-    tools: ["Shopee Seller Center", "TikTok Shop Partner", "Shopify", "ManyChat"],
-    image: IMG.ecommerce,
-  },
-  {
-    id: "bm-06",
-    code: "Unit 3 & 4",
-    level: "RQF Level 4",
-    course: "Leadership, Human Resource Management & Organisational Culture",
-    title: { vi: "Lãnh đạo, Nghệ thuật đắc nhân tâm & Quản trị nhân sự", en: "Leadership, people skills & human resource management" },
-    hook: {
-      vi: "Mọi thất bại trong kinh doanh đều bắt nguồn từ bài toán con người. Học cách dùng người, giữ người và truyền cảm hứng.",
-      en: "Every business failure starts as a people problem. Learn to manage, retain and inspire people.",
-    },
-    learn: [
-      {
-        vi: "Lãnh đạo tình huống (Situational Leadership) và đọc vị tính cách qua DISC, MBTI.",
-        en: "Situational leadership, and reading people with DISC and MBTI.",
-      },
-      {
-        vi: "Tuyển dụng nhân tài Gen Z, đào tạo hội nhập và hệ thống đo hiệu suất KPI/OKR.",
-        en: "Hiring Gen Z talent, onboarding, and KPI/OKR performance systems.",
-      },
-      {
-        vi: "Luật lao động Việt Nam, văn hóa gắn kết và đàm phán giải quyết xung đột Win–Win.",
-        en: "Vietnamese labour law, an engaged workplace culture and win–win conflict negotiation.",
-      },
-    ],
-    benefit: {
-      vi: "Phong thái tự tin của nhà lãnh đạo trẻ: biết lắng nghe, thấu cảm, thúc đẩy tinh thần đội ngũ và giải quyết êm đẹp mâu thuẫn nội bộ.",
-      en: "The presence of a young leader: listen, empathise, lift the team and settle internal conflict gracefully.",
-    },
-    artifact: {
-      vi: "Sổ tay Văn hóa doanh nghiệp và bộ quy chế đánh giá hiệu suất theo OKR cho doanh nghiệp 50 nhân sự.",
-      en: "A company culture handbook and an OKR performance appraisal framework for a 50-person business.",
-    },
-    tools: ["DISC Assessment", "HRM System", "OKR Dashboard"],
-    image: MEDIA.studentsCollab,
-  },
-  {
-    id: "bm-07",
-    code: "Unit 43 & 8",
-    level: "RQF Level 4/5",
-    course: "Business Strategy, Innovation & Commercialisation",
-    title: { vi: "Hoạch định chiến lược kinh doanh & Đổi mới sáng tạo", en: "Strategic business planning & innovation" },
-    hook: {
-      vi: "Đừng lao vào đại dương đỏ đầy đối thủ. Học cách tạo ra khoảng thị trường mới chưa ai cạnh tranh.",
-      en: "Don’t fight in a red ocean full of rivals. Learn to create new market space where no one is competing yet.",
-    },
-    learn: [
-      {
-        vi: "Chiến lược cấp công ty: Đại dương xanh (Blue Ocean), ma trận Ansoff, ma trận BCG.",
-        en: "Corporate strategy: Blue Ocean, the Ansoff matrix and the BCG matrix.",
-      },
-      {
-        vi: "Design Thinking: thấu cảm người dùng, xác định vấn đề, làm mẫu thử nhanh (Prototyping).",
-        en: "Design thinking: empathise with users, define the problem and prototype fast.",
-      },
-      {
-        vi: "Đánh giá khả thi thương mại và định giá chim mồi (Decoy Pricing) khi thâm nhập thị trường mới.",
-        en: "Commercial feasibility and decoy pricing for entering a new market.",
-      },
-    ],
-    benefit: {
-      vi: "Tầm nhìn chiến lược của một CEO: biết khi nào tấn công, khi nào phòng thủ, và tung sản phẩm đổi mới khiến thị trường bất ngờ.",
-      en: "A CEO’s strategic view: know when to attack, when to defend, and how to launch an innovation that surprises the market.",
-    },
-    artifact: {
-      vi: "Đề án Chiến lược tăng trưởng & Thương mại hóa sản phẩm đổi mới sáng tạo trình Ban Giám hiệu.",
-      en: "A growth and innovation commercialisation strategy presented to the college leadership.",
-    },
-    tools: ["Design Thinking Miro", "BCG Matrix", "Ansoff Matrix", "Strategy Canvas"],
-    image: IMG.strategy,
-  },
-  {
-    id: "bm-08",
-    code: "Unit 19",
-    level: "RQF Level 5 · 30 credits",
-    course: "Enterprise Capstone Project & Executive Internship",
-    title: { vi: "Đề án khởi nghiệp thực chiến & Thực tập điều hành 80 giờ", en: "Enterprise capstone & 80-hour executive internship" },
-    hook: {
-      vi: "Bài kiểm tra cuối cùng là một dự án kinh doanh thật: gọi vốn trước nhà đầu tư, hoặc nhận việc quản lý tập sự ngay sau khi bảo vệ.",
-      en: "The final test is a real business project: pitch to investors, or step into a management trainee role right after your defence.",
-    },
-    learn: [
-      {
-        vi: "Đề án nghiên cứu kinh doanh thực tế theo chuẩn khảo thí quốc tế của Pearson Anh Quốc.",
-        en: "A real business research project to Pearson UK’s international assessment standard.",
-      },
-      {
-        vi: "80 giờ thực tập quản trị tại doanh nghiệp đối tác, tập đoàn đa quốc gia và hệ sinh thái EQuest.",
-        en: "An 80-hour management internship with partner companies, multinationals and the EQuest ecosystem.",
-      },
-      {
-        vi: "Thuyết trình gọi vốn (Pitch Deck) và đàm phán hợp đồng với nhà đầu tư, đối tác chiến lược.",
-        en: "Investor pitches (pitch decks) and contract negotiation with investors and strategic partners.",
-      },
-    ],
-    benefit: {
-      vi: "Rời giảng đường như một nhà quản trị trưởng thành: đã va chạm thương trường, có portfolio thuyết phục và thư giới thiệu từ lãnh đạo cấp cao.",
-      en: "Leave as a seasoned manager: tested in real business, with a convincing portfolio and a reference from senior leaders.",
-    },
-    artifact: {
-      vi: "Hồ sơ đề án quản trị bảo vệ thành công trước Hội đồng Pearson và doanh nghiệp, kèm thư mời làm việc.",
-      en: "A management project successfully defended before a Pearson panel and the business, plus a job offer letter.",
-    },
-    tools: ["Pitch Deck", "Feasibility Report", "EQuest network", "Live business setting"],
-    image: IMG.pitching,
-  },
+const BIZ_UNITS: {
+  id: string
+  code: string
+  level: string
+  course: string
+  title: L
+  hours: string
+  note: L
+  image: string
+}[] = [
+  { id: "bm-01", code: "H/650/2917", level: "Level 4 · HNC", course: "Business and the Business Environment", title: { vi: "Môi trường kinh doanh đương đại", en: "Business and the Business Environment" }, hours: "60", note: { vi: "Môn nền HNC.", en: "An HNC foundation unit." }, image: IMG.canvas },
+  { id: "bm-02", code: "A/618/5033", level: "Level 4 · HNC", course: "Marketing Processes and Planning", title: { vi: "Kế hoạch và quy trình Marketing", en: "Marketing Processes and Planning" }, hours: "60", note: { vi: "Môn nền HNC.", en: "An HNC foundation unit." }, image: IMG.marketing },
+  { id: "bm-03", code: "J/650/2918", level: "Level 4 · HNC", course: "Human Resource Management", title: { vi: "Quản trị nguồn nhân lực", en: "Human Resource Management" }, hours: "60", note: { vi: "Môn nền HNC.", en: "An HNC foundation unit." }, image: IMG.pitching },
+  { id: "bm-04", code: "L/618/5036", level: "Level 4 · HNC", course: "Leadership and Management", title: { vi: "Lãnh đạo và quản trị", en: "Leadership and Management" }, hours: "60", note: { vi: "Môn nền HNC.", en: "An HNC foundation unit." }, image: IMG.strategy },
+  { id: "bm-05", code: "Y/618/5038", level: "Level 4 · HNC", course: "Accounting Principles", title: { vi: "Nguyên lý kế toán tài chính", en: "Accounting Principles" }, hours: "60", note: { vi: "Môn nền HNC.", en: "An HNC foundation unit." }, image: IMG.finance },
+  { id: "bm-06", code: "D/618/5039", level: "Level 4 · Pearson-set", course: "Managing a Successful Business Project", title: { vi: "Quản trị dự án kinh doanh", en: "Managing a Successful Business Project" }, hours: "60", note: { vi: "Đồ án do Pearson ra đề ở bậc 4.", en: "A Pearson-set project at Level 4." }, image: MEDIA.lectureHall },
+  { id: "bm-07", code: "H/617/0736", level: "Level 4 · Recommended", course: "Business Law", title: { vi: "Luật kinh doanh", en: "Business Law" }, hours: "60", note: { vi: "Môn khuyến nghị ở bậc 4.", en: "A recommended Level 4 unit." }, image: MEDIA.library },
+  { id: "bm-08", code: "A/618/5078", level: "Level 4 · Management foundation", course: "Operations Management", title: { vi: "Quản trị vận hành doanh nghiệp", en: "Operations Management" }, hours: "60", note: { vi: "Môn nền tảng của chuyên ngành Quản trị.", en: "A foundation unit for the Management pathway." }, image: IMG.supply },
+  { id: "bm-09", code: "R/650/2920", level: "Level 5 · HND", course: "Organisational Behaviour", title: { vi: "Hành vi tổ chức", en: "Organisational Behaviour" }, hours: "60", note: { vi: "Môn chuyên sâu được nêu trong mô tả ngành.", en: "A specialist area named in the programme description." }, image: MEDIA.studentsCollab },
+  { id: "bm-10", code: "T/618/5080", level: "Level 5 · Specialist", course: "Business Strategy", title: { vi: "Chiến lược kinh doanh", en: "Business Strategy" }, hours: "60", note: { vi: "Môn chuyên ngành bắt buộc bậc 5.", en: "A mandatory Level 5 specialist unit." }, image: IMG.strategy },
+  { id: "bm-11", code: "F/618/5096", level: "Level 5 · Specialist", course: "Operations and Supply Chain Management", title: { vi: "Quản trị vận hành và chuỗi cung ứng", en: "Operations and Supply Chain Management" }, hours: "60", note: { vi: "Môn chuyên ngành bắt buộc bậc 5.", en: "A mandatory Level 5 specialist unit." }, image: IMG.supply },
+  { id: "bm-12", code: "M/618/5098", level: "Level 5 · Specialist", course: "Developing Individuals, Teams and Organisations", title: { vi: "Phát triển cá nhân, nhóm và tổ chức", en: "Developing Individuals, Teams and Organisations" }, hours: "60", note: { vi: "Môn chuyên ngành bắt buộc bậc 5.", en: "A mandatory Level 5 specialist unit." }, image: IMG.pitching },
+  { id: "bm-13", code: "T/650/2921", level: "Level 5 · Option", course: "Understanding and Leading Change", title: { vi: "Hiểu và dẫn dắt sự thay đổi", en: "Understanding and Leading Change" }, hours: "60", note: { vi: "Môn tự chọn bậc 5.", en: "A Level 5 optional unit." }, image: MEDIA.newsClassroom },
+  { id: "bm-14", code: "M/618/5076", level: "Level 5 · Option", course: "Global Business Environment", title: { vi: "Môi trường kinh doanh toàn cầu", en: "Global Business Environment" }, hours: "60", note: { vi: "Môn tự chọn bậc 5.", en: "A Level 5 optional unit." }, image: MEDIA.international },
+  { id: "bm-15", code: "H/618/5060", level: "Level 5 · Pearson-set · 30 credits", course: "Research Project", title: { vi: "Dự án nghiên cứu kinh doanh tốt nghiệp", en: "Research Project" }, hours: "120", note: { vi: "Đồ án Pearson-set, 30 tín chỉ.", en: "A Pearson-set project worth 30 credits." }, image: MEDIA.newsCareer },
 ]
+
+const BUSINESS: ProgramSubject[] = BIZ_UNITS.map((unit) => ({
+  id: unit.id,
+  code: unit.code,
+  level: `${unit.level} · ${unit.hours} GLH`,
+  course: unit.course,
+  title: unit.title,
+  hook: {
+    vi: `${unit.title.vi} (${unit.course}). Mã Ofqual ${unit.code}. ${unit.note.vi}`,
+    en: `${unit.title.en}. Ofqual code ${unit.code}. ${unit.note.en}`,
+  },
+  learn: [
+    { vi: `${unit.hours} giờ học có hướng dẫn trong tổng 960 giờ của chương trình.`, en: `${unit.hours} guided learning hours, within the programme total of 960.` },
+    { vi: unit.note.vi, en: unit.note.en },
+    { vi: "Đánh giá bằng bài tập và đồ án theo chuẩn Pearson, không thi lý thuyết nhồi nhét.", en: "Assessed by Pearson assignments and projects, not by crammed theory exams." },
+  ],
+  benefit: {
+    vi: "Năng lực điều hành trên chuẩn BTEC Level 5 HND in Business, chuyên ngành Quản trị.",
+    en: "Management ability on the BTEC Level 5 HND in Business, Management pathway.",
+  },
+  artifact: {
+    vi: unit.hours === "120" ? "Đồ án nghiên cứu kinh doanh, 120 giờ, 30 tín chỉ, Pearson-set." : "Bài đánh giá Pearson của môn, 60 giờ có hướng dẫn.",
+    en: unit.hours === "120" ? "A 120-hour, 30-credit Pearson-set business research project." : "The Pearson assessment for this 60-hour unit.",
+  },
+  tools: [unit.level, `${unit.hours} GLH`],
+  image: unit.image,
+}))
 
 export const PROGRAM_SUBJECTS: Record<SubjectTrackId, ProgramSubject[]> = {
   foundation: FOUNDATION,

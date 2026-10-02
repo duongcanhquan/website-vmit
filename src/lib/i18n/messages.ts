@@ -81,7 +81,7 @@ export const messages: Record<"vi" | "en", MessageTree> = {
         },
         {
           title: "BTEC Business Management",
-          description: "Quản trị doanh nghiệp theo khung giáo dục Anh Quốc.",
+          description: "BTEC Level 5 HND in Business, chuyên ngành Quản trị.",
         },
         {
           title: "Foundation IELTS",
@@ -209,7 +209,7 @@ export const messages: Record<"vi" | "en", MessageTree> = {
         },
         {
           title: "BTEC Business Management",
-          description: "Business management within the UK education framework.",
+          description: "BTEC Level 5 HND in Business, Management pathway.",
         },
         {
           title: "Foundation IELTS",

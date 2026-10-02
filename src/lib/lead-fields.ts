@@ -21,7 +21,7 @@ export const LEAD_STATUS_FLOW: Record<LeadTable, LeadStatus[]> = {
 
 export const PROGRAM_OPTIONS: Option[] = [
   { value: "Data Analytics", label: { vi: "Data Analytics · Phân tích dữ liệu", en: "Data Analytics" } },
-  { value: "Business Management", label: { vi: "Business Management · Quản trị kinh doanh số", en: "Business Management" } },
+  { value: "Business Management", label: { vi: "Business Management · Quản trị", en: "Business Management" } },
   { value: "Cần tư vấn", label: { vi: "Chưa chọn, cần tư vấn thêm", en: "Not sure yet, I need advice" } },
 ]
 

@@ -329,11 +329,11 @@ const vi: PathwayStory = {
   majors: [
     {
       title: "Data Analytics",
-      body: "Phân tích dữ liệu kinh doanh, BI, Python, SQL và AI.",
+      body: "BTEC Level 5 HND in Computing: 15 môn, 240 tín chỉ RQF, học máy và đồ án nghiên cứu Pearson.",
     },
     {
       title: "Business Management",
-      body: "Quản trị kinh doanh số, tài chính, marketing đa kênh và khởi nghiệp.",
+      body: "BTEC Level 5 HND in Business: 15 môn, 240 tín chỉ RQF, chiến lược, chuỗi cung ứng và đồ án nghiên cứu Pearson.",
     },
   ],
   commitmentsTitle: "Bốn cam kết",
@@ -581,7 +581,7 @@ const en: PathwayStory = {
   closeLead: "Choose your programme and journey on. Four commitments travel with you, all the way to lands of knowledge.",
   majors: [
     { title: "Data Analytics", body: "BTEC Level 5 HND in Computing: 15 units, 240 RQF credits, machine learning and a Pearson research project." },
-    { title: "Business Management", body: "Digital business management, finance, multi-channel marketing and entrepreneurship." },
+    { title: "Business Management", body: "BTEC Level 5 HND in Business: 15 units, 240 RQF credits, strategy, supply chain and a Pearson research project." },
   ],
   commitmentsTitle: "Four commitments",
   commitments: [

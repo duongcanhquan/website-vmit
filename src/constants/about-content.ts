@@ -377,10 +377,10 @@ export const MAJORS: { code: string; title: L; en: string; body: L; skills: stri
     title: { vi: "Quản trị Kinh doanh", en: "Business Management" },
     en: "Business Management",
     body: {
-      vi: "Tư duy quản trị hiện đại: chiến lược, tài chính doanh nghiệp, digital marketing, quản lý dự án – sẵn sàng làm trợ lý ban giám đốc, quản trị vận hành hoặc khởi nghiệp.",
-      en: "Modern management thinking: strategy, corporate finance, digital marketing and project management – ready to work as an executive assistant or in operations management, or to launch your own start-up.",
+      vi: "Chuẩn BTEC Level 5 HND in Business, chuyên ngành Quản trị. Hai năm, 15 môn, 240 tín chỉ: chiến lược, vận hành và chuỗi cung ứng, phát triển tổ chức, hành vi tổ chức và đồ án nghiên cứu Pearson.",
+      en: "The BTEC Level 5 HND in Business, Management pathway. Two years and 15 units, 240 credits: strategy, operations and supply chain, organisational development, organisational behaviour and a Pearson research project.",
     },
-    skills: ["Strategy", "Finance", "Digital Marketing", "Project Mgmt", "Leadership"],
+    skills: ["Business Strategy", "Supply Chain", "Organisational Behaviour", "Leading Change", "Global Business", "Research Project"],
     image: ABOUT_MEDIA.pitching,
   },
 ]

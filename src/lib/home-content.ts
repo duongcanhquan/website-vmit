@@ -86,14 +86,14 @@ export const DEFAULT_SUBJECT_ROWS: SubjectRow[] = [
   },
   {
     track: "business-management",
-    label: pair("Quản trị kinh doanh", "Business Management"),
+    label: pair("Quản trị", "Business Management"),
     items: [
-      subject("Môi trường kinh doanh", "Business environment", "Unit 1 · Level 4", "/media/subjects/business-canvas.jpg"),
-      subject("Marketing & kế hoạch", "Marketing & planning", "Unit 2 · Level 4", "/media/subjects/marketing.jpg"),
-      subject("Nguyên\u00A0lý kế\u00A0toán", "Accounting principles", "Unit 5 · Level 4", "/media/subjects/finance.jpg"),
-      subject("Quản trị vận hành", "Operations management", "Unit 26 · Level 5", "/media/subjects/supply-chain.jpg"),
-      subject("Chiến lược kinh doanh", "Business strategy", "Unit 43 · Level 5", "/media/subjects/strategy.jpg"),
-      subject("Thương\u00A0mại điện\u00A0tử", "E-commerce & strategy", "Unit 54 · Level 5", "/media/subjects/ecommerce.jpg"),
+      subject("Chiến lược kinh doanh", "Business Strategy", "T/618/5080 · Level 5", "/media/subjects/strategy.jpg"),
+      subject("Vận hành & chuỗi cung ứng", "Operations & Supply Chain", "F/618/5096 · Level 5", "/media/subjects/supply-chain.jpg"),
+      subject("Phát triển tổ chức", "Developing Teams & Organisations", "M/618/5098 · Level 5", "/media/subjects/business-canvas.jpg"),
+      subject("Hành vi tổ chức", "Organisational Behaviour", "R/650/2920 · Level 5", "/media/subjects/marketing.jpg"),
+      subject("Dẫn dắt sự thay đổi", "Understanding & Leading Change", "T/650/2921 · Level 5", "/media/subjects/pitching.jpg"),
+      subject("Môi trường kinh doanh toàn cầu", "Global Business Environment", "M/618/5076 · Level 5", "/media/subjects/ecommerce.jpg"),
     ],
   },
 ]
