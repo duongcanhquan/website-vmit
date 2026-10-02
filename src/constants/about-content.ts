@@ -366,10 +366,10 @@ export const MAJORS: { code: string; title: L; en: string; body: L; skills: stri
     title: { vi: "Phân tích Dữ liệu", en: "Data Analytics" },
     en: "Computing – Data Analytics",
     body: {
-      vi: "Ứng dụng AI, Python, SQL, Tableau/Power BI trong phân tích dữ liệu kinh doanh: xử lý dữ liệu lớn, khai phá xu hướng tiêu dùng, dự báo kinh doanh cho công ty công nghệ, ngân hàng, bán lẻ.",
-      en: "Apply AI, Python, SQL and Tableau/Power BI to business data analysis: big-data processing, consumer-trend mining and business forecasting for tech firms, banks and retailers.",
+      vi: "Chuẩn BTEC Level 5 HND in Computing. Hai năm, 15 môn, 240 tín chỉ: lập trình, cơ sở dữ liệu, phân tích dữ liệu, học máy, dữ liệu lớn và đồ án nghiên cứu Pearson.",
+      en: "The BTEC Level 5 HND in Computing. Two years and 15 units, 240 credits: programming, databases, data analytics, machine learning, big data and a Pearson research project.",
     },
-    skills: ["AI", "Python", "SQL", "Power BI", "Tableau", "Forecasting"],
+    skills: ["Data Analytics", "Machine Learning", "Big Data", "Databases", "Programming", "Research Project"],
     image: MEDIA.newsAnalytics,
   },
   {

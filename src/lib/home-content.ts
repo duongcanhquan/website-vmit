@@ -76,12 +76,12 @@ export const DEFAULT_SUBJECT_ROWS: SubjectRow[] = [
     track: "data-analytics",
     label: pair("Phân tích dữ liệu", "Data Analytics"),
     items: [
-      subject("Lập trình Python", "Python programming", "Unit 1 · Level 4", "/media/subjects/python.jpg"),
-      subject("Thiết kế CSDL & SQL", "Database design & SQL", "Unit 4 · Level 4", "/media/subjects/sql.jpg"),
-      subject("Phân tích dữ liệu", "Data analytics", "Unit 8 · Level 4", "/media/subjects/eda.jpg"),
-      subject("Học máy", "Machine learning", "Unit 25 · Level 5", "/media/subjects/ml.jpg"),
-      subject("Dữ liệu lớn & trực quan hóa", "Big data & visualisation", "Unit 26 · Level 5", "/media/subjects/bi-dashboard.jpg"),
-      subject("Điện toán đám mây", "Cloud computing", "Unit 28 · Level 5", "/media/subjects/cloud.jpg"),
+      subject("Phân tích dữ liệu nền tảng", "Data Analytics", "F/618/7415 · Level 4", "/media/subjects/eda.jpg"),
+      subject("Lập trình nâng cao", "Advanced Programming", "H/618/5723 · Level 5", "/media/subjects/python.jpg"),
+      subject("Học máy", "Machine Learning", "H/618/7438 · Level 5", "/media/subjects/ml.jpg"),
+      subject("Dữ liệu lớn & trực quan hóa", "Big Data Analytics & Visualisation", "F/618/5664 · Level 5", "/media/subjects/bi-dashboard.jpg"),
+      subject("Thiết kế & phát triển CSDL", "Database Design & Development", "A/618/7400 · Level 4", "/media/subjects/sql.jpg"),
+      subject("Mô hình phân tích ứng dụng", "Applied Analytical Models", "L/618/7448 · Level 5", "/media/subjects/cloud.jpg"),
     ],
   },
   {

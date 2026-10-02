@@ -77,7 +77,7 @@ export const messages: Record<"vi" | "en", MessageTree> = {
       items: [
         {
           title: "BTEC Data Analytics",
-          description: "Phân tích dữ liệu thực chiến với chuẩn Pearson HND.",
+          description: "BTEC Level 5 HND in Computing, chuyên ngành Phân tích dữ liệu.",
         },
         {
           title: "BTEC Business Management",
@@ -205,7 +205,7 @@ export const messages: Record<"vi" | "en", MessageTree> = {
       items: [
         {
           title: "BTEC Data Analytics",
-          description: "Hands-on data analytics to Pearson HND standards.",
+          description: "BTEC Level 5 HND in Computing, Data Analytics pathway.",
         },
         {
           title: "BTEC Business Management",

@@ -143,288 +143,60 @@ const FOUNDATION: ProgramSubject[] = [
   },
 ]
 
-const DATA: ProgramSubject[] = [
-  {
-    id: "da-01",
-    code: "Unit 1",
-    level: "RQF Level 4",
-    course: "Programming with Python & AI Code Assistants",
-    title: { vi: "Lập trình Python thực chiến & Trợ lý code AI", en: "Hands-on Python programming & AI coding assistants" },
-    hook: {
-      vi: "Bắt đầu từ con số 0. Không cần giỏi toán để viết code: bạn học tư duy logic và biến AI thành cộng sự lập trình 24/7.",
-      en: "Start from zero. You don’t need to be a maths whizz to code: learn logical thinking and make AI your 24/7 coding partner.",
-    },
-    learn: [
-      {
-        vi: "Cấu trúc dữ liệu và giải thuật căn bản: biến, vòng lặp, hàm, chuỗi và danh sách.",
-        en: "Core data structures and algorithms: variables, loops, functions, strings and lists.",
-      },
-      {
-        vi: "Viết mã sạch (Clean Code), gỡ lỗi và quản lý phiên bản với Git/GitHub.",
-        en: "Clean code, debugging and version control with Git/GitHub.",
-      },
-      {
-        vi: "Tự động hóa: script cào dữ liệu web và xử lý tệp Excel/CSV hàng trăm nghìn dòng trong tích tắc.",
-        en: "Automation: web-scraping scripts, and processing Excel/CSV files with hundreds of thousands of rows in seconds.",
-      },
-    ],
-    benefit: {
-      vi: "Biến việc thủ công mất hàng tuần thành một nút bấm chạy vài giây. Làm chủ ngôn ngữ phổ biến nhất thế giới về dữ liệu và AI.",
-      en: "Turn weeks of manual work into a single click that runs in seconds, and master the world’s most popular language for data and AI.",
-    },
-    artifact: {
-      vi: "Ứng dụng Python tự cào giá hàng nghìn sản phẩm trên Shopee/Lazada và gửi báo cáo phân tích về Telegram.",
-      en: "A Python app that scrapes prices for thousands of Shopee/Lazada products and sends analysis reports to Telegram.",
-    },
-    tools: ["Python 3.12", "VS Code", "GitHub", "Beautiful Soup", "GitHub Copilot"],
-    image: IMG.python,
-  },
-  {
-    id: "da-02",
-    code: "Unit 4",
-    level: "RQF Level 4",
-    course: "Database Design & Development with Advanced SQL",
-    title: { vi: "Thiết kế & Quản trị cơ sở dữ liệu SQL doanh nghiệp", en: "Enterprise SQL database design & management" },
-    hook: {
-      vi: "90% bài test tuyển Data Analyst bắt đầu bằng SQL. Đây là chìa khóa mở cửa vào kho dữ liệu khổng lồ của doanh nghiệp.",
-      en: "90% of data analyst recruitment tests start with SQL. It is the key that unlocks a company’s vast data stores.",
-    },
-    learn: [
-      {
-        vi: "Thiết kế mô hình quan hệ (ERD) và chuẩn hóa dữ liệu từ 1NF đến 3NF, chống trùng lặp.",
-        en: "Relational modelling (ERD) and normalisation from 1NF to 3NF to prevent duplication.",
-      },
-      {
-        vi: "SQL từ cơ bản đến chuyên sâu: JOIN nhiều bảng, GROUP BY, Subqueries, CTE và Window Functions.",
-        en: "SQL from basics to advanced: multi-table JOINs, GROUP BY, subqueries, CTEs and window functions.",
-      },
-      {
-        vi: "Tối ưu hiệu năng truy vấn (Index Tuning) trên hệ thống phục vụ hàng triệu người dùng.",
-        en: "Query performance tuning (index tuning) on systems that serve millions of users.",
-      },
-    ],
-    benefit: {
-      vi: "Nói chuyện trôi chảy với kho dữ liệu doanh nghiệp, trích xuất tức thì mọi số liệu kinh doanh phức tạp mà Giám đốc tài chính hay Marketing cần.",
-      en: "Speak fluently with company databases and instantly pull any complex business figure the CFO or Marketing Director needs.",
-    },
-    artifact: {
-      vi: "CSDL bán lẻ chuẩn hóa với 500.000 bản ghi thực tế, kèm kho 50 câu SQL nghiệp vụ phục vụ quản trị.",
-      en: "A normalised retail database of 500,000 real records, plus a bank of 50 business SQL queries for management.",
-    },
-    tools: ["PostgreSQL", "MySQL", "DBeaver", "Lucidchart", "Supabase"],
-    image: IMG.sql,
-  },
-  {
-    id: "da-03",
-    code: "Unit 14",
-    level: "RQF Level 4",
-    course: "Applied Mathematics & Quantitative Business Analysis",
-    title: { vi: "Toán ứng dụng & Phân tích định lượng trong kinh doanh", en: "Applied maths & quantitative business analysis" },
-    hook: {
-      vi: "Không học toán lý thuyết trừu tượng. Đây là thứ toán giúp sàn thương mại điện tử biết khách hàng sẽ mua gì tiếp theo.",
-      en: "No abstract maths theory. This is the maths that tells an online marketplace what a customer will buy next.",
-    },
-    learn: [
-      {
-        vi: "Thống kê mô tả và suy diễn: trung bình, trung vị, độ lệch chuẩn, phân phối chuẩn.",
-        en: "Descriptive and inferential statistics: mean, median, standard deviation and the normal distribution.",
-      },
-      {
-        vi: "Kiểm định giả thuyết kinh doanh và thiết kế A/B Testing để tối ưu chuyển đổi.",
-        en: "Business hypothesis testing and A/B test design to optimise conversion.",
-      },
-      {
-        vi: "Đại số tuyến tính căn bản và ma trận tương quan, nền tảng của các thuật toán AI.",
-        en: "Basic linear algebra and correlation matrices, the foundation of AI algorithms.",
-      },
-    ],
-    benefit: {
-      vi: "Tư duy dựa trên bằng chứng: dùng con số chứng minh một chiến dịch marketing thành công hay thất bại, không đoán mò theo cảm tính.",
-      en: "Evidence-based thinking: use numbers to prove whether a marketing campaign succeeded or failed, instead of relying on gut feeling.",
-    },
-    artifact: {
-      vi: "Báo cáo định lượng đo hiệu quả A/B Testing giữa hai mẫu trang thanh toán thương mại điện tử.",
-      en: "A quantitative report measuring an A/B test between two e-commerce checkout pages.",
-    },
-    tools: ["Python (SciPy, Statsmodels)", "Jupyter Notebook", "Excel Data Analysis Toolpak"],
-    image: MEDIA.newsAnalytics,
-  },
-  {
-    id: "da-04",
-    code: "Unit 8",
-    level: "RQF Level 4",
-    course: "Python for Data Science & Exploratory Data Analysis",
-    title: { vi: "Lập trình khoa học dữ liệu & Khai phá khám phá (EDA)", en: "Data science programming & exploratory data analysis (EDA)" },
-    hook: {
-      vi: "Biến những bảng tính khổng lồ hỗn độn thành bức tranh biết kể chuyện, lộ ra xu hướng kinh doanh ẩn giấu.",
-      en: "Turn huge, messy spreadsheets into visuals that tell a story and reveal hidden business trends.",
-    },
-    learn: [
-      {
-        vi: "Thành thạo NumPy (xử lý mảng số) và Pandas (thao tác bảng dữ liệu triệu dòng).",
-        en: "Fluency in NumPy for numeric arrays and Pandas for million-row tables.",
-      },
-      {
-        vi: "Làm sạch dữ liệu thực tế (Data Wrangling): dữ liệu khuyết thiếu, nhiễu và ngoại lai.",
-        en: "Real-world data wrangling: missing values, noise and outliers.",
-      },
-      {
-        vi: "Trực quan hóa khám phá bằng heatmap, scatter plot với Matplotlib và Seaborn.",
-        en: "Exploratory visualisation with heatmaps and scatter plots in Matplotlib and Seaborn.",
-      },
-    ],
-    benefit: {
-      vi: "Trực giác sắc bén với dữ liệu: nhìn tập dữ liệu thô là biết cách dọn sạch và tìm ra insight đắt giá mà đối thủ không thấy.",
-      en: "A sharp instinct for data: look at a raw dataset, know how to clean it, and find the insight competitors miss.",
-    },
-    artifact: {
-      vi: "Bộ Notebook phân tích hành vi mua sắm của 50.000 khách hàng, chỉ rõ lý do khách bỏ giỏ hàng.",
-      en: "A set of notebooks analysing the shopping behaviour of 50,000 customers and pinpointing why they abandon their carts.",
-    },
-    tools: ["NumPy", "Pandas", "Matplotlib", "Seaborn", "Google Colab", "Kaggle Datasets"],
-    image: IMG.eda,
-  },
-  {
-    id: "da-05",
-    code: "Unit 26",
-    level: "RQF Level 5",
-    course: "Business Intelligence & Executive Dashboard Design",
-    title: { vi: "Trí tuệ kinh doanh (BI) & Thiết kế Executive Dashboard", en: "Business intelligence & executive dashboard design" },
-    hook: {
-      vi: "Kỹ năng được săn đón nhất trong phòng họp điều hành: bảng điều khiển giúp Tổng Giám đốc ra quyết định trong 3 giây.",
-      en: "The most sought-after skill in the boardroom: a dashboard that lets a CEO decide in three seconds.",
-    },
-    learn: [
-      {
-        vi: "Kiến trúc kho dữ liệu: Data Warehouse, Data Mart và ETL Pipeline chuẩn doanh nghiệp.",
-        en: "Data warehouse architecture: data warehouses, data marts and enterprise-grade ETL pipelines.",
-      },
-      {
-        vi: "Mô hình đa chiều Star Schema, Snowflake Schema và công thức tính toán phức tạp bằng DAX.",
-        en: "Multidimensional star and snowflake schemas, and complex calculations in DAX.",
-      },
-      {
-        vi: "Tâm lý học thị giác: chọn đúng biểu đồ, phối màu tương phản, phân tầng thông tin cho lãnh đạo.",
-        en: "Visual psychology: choosing the right chart, strong contrast and a clear information hierarchy for leaders.",
-      },
-    ],
-    benefit: {
-      vi: "Trở thành cánh tay phải của Ban lãnh đạo: thay tệp Excel dài bằng dashboard sống, bấm đâu số liệu nhảy theo thời gian thực tới đó.",
-      en: "Become the leadership team’s right hand: replace long Excel files with a live dashboard that updates in real time wherever they click.",
-    },
-    artifact: {
-      vi: "Executive BI Dashboard tương tác giám sát dòng tiền, doanh thu bán lẻ và KPI nhân viên theo thời gian thực.",
-      en: "An interactive executive BI dashboard tracking cash flow, retail revenue and staff KPIs in real time.",
-    },
-    tools: ["Microsoft Power BI", "Tableau Desktop", "DAX Studio", "Power Query"],
-    image: IMG.bi,
-  },
-  {
-    id: "da-06",
-    code: "Unit 25",
-    level: "RQF Level 5",
-    course: "Applied Machine Learning & Predictive Modelling",
-    title: { vi: "Học máy ứng dụng & Dự báo kinh doanh", en: "Applied machine learning & business forecasting" },
-    hook: {
-      vi: "Nâng cấp từ phân tích chuyện đã qua sang dự đoán chuyện sắp tới: dạy máy tính nhìn thấu hành vi tương lai của khách hàng.",
-      en: "Move from explaining the past to predicting what comes next: teach a computer to read future customer behaviour.",
-    },
-    learn: [
-      {
-        vi: "Học có giám sát: hồi quy tuyến tính, Decision Tree, Random Forest.",
-        en: "Supervised learning: linear regression, decision trees and random forests.",
-      },
-      {
-        vi: "Phân cụm khách hàng bằng K-Means để cá nhân hóa chiến dịch bán lẻ.",
-        en: "Customer segmentation with K-Means clustering to personalise retail campaigns.",
-      },
-      {
-        vi: "Đánh giá và tối ưu mô hình: Confusion Matrix, Precision/Recall, ROC-AUC.",
-        en: "Model evaluation and tuning: confusion matrix, precision/recall, ROC-AUC.",
-      },
-    ],
-    benefit: {
-      vi: "Xây thuật toán dự báo rủi ro tín dụng, hoặc nhận ra khách hàng sắp hủy dịch vụ để doanh nghiệp kịp giữ chân.",
-      en: "Build models that forecast credit risk, or flag customers about to cancel so the business can retain them in time.",
-    },
-    artifact: {
-      vi: "Mô hình Machine Learning dự báo khách hàng rời bỏ (Customer Churn Prediction) đạt độ chính xác trên 88%.",
-      en: "A machine learning churn prediction model with more than 88% accuracy.",
-    },
-    tools: ["Scikit-Learn", "XGBoost", "Streamlit", "Joblib"],
-    image: IMG.ml,
-  },
-  {
-    id: "da-07",
-    code: "Unit 28",
-    level: "RQF Level 5",
-    course: "Cloud Computing & Big Data Engineering",
-    title: { vi: "Điện toán đám mây & Hạ tầng dữ liệu lớn", en: "Cloud computing & big data infrastructure" },
-    hook: {
-      vi: "Khi dữ liệu lên tới hàng triệu gigabyte, laptop không tải nổi. Môn học dạy bạn chỉ huy siêu máy tính trên mây.",
-      en: "When data reaches millions of gigabytes, a laptop can’t cope. Learn to command supercomputers in the cloud.",
-    },
-    learn: [
-      {
-        vi: "Kiến trúc đám mây IaaS, PaaS, SaaS và lưu trữ quy mô lớn (AWS S3, Google Cloud Storage).",
-        en: "Cloud architecture (IaaS, PaaS, SaaS) and large-scale storage on AWS S3 and Google Cloud Storage.",
-      },
-      {
-        vi: "Truy vấn dữ liệu lớn trên BigQuery / Amazon Redshift, quét hàng tỷ dòng trong vài giây.",
-        en: "Big data queries on BigQuery and Amazon Redshift that scan billions of rows in seconds.",
-      },
-      {
-        vi: "Bảo mật dữ liệu, phân quyền truy cập và tuân thủ chuẩn an toàn thông tin quốc tế (GDPR).",
-        en: "Data security, access control and compliance with international standards such as GDPR.",
-      },
-    ],
-    benefit: {
-      vi: "Tự tin ứng tuyển vào tập đoàn và kỳ lân công nghệ, làm chủ hạ tầng đám mây hiện đại mà nhiều chương trình truyền thống chưa dạy.",
-      en: "Apply with confidence to major corporations and tech unicorns, with command of modern cloud infrastructure that many traditional programmes still don’t teach.",
-    },
-    artifact: {
-      vi: "Data Pipeline tự động đẩy dữ liệu bán hàng lên Cloud Data Warehouse và kích hoạt phân tích tự động.",
-      en: "A data pipeline that automatically pushes sales data into a cloud data warehouse and triggers automated analysis.",
-    },
-    tools: ["Amazon Web Services", "Google Cloud Platform", "BigQuery", "Docker"],
-    image: IMG.cloud,
-  },
-  {
-    id: "da-08",
-    code: "Unit 16",
-    level: "RQF Level 5 · 30 credits",
-    course: "Computing Research Project & 80-Hour On-the-Job Training",
-    title: { vi: "Đồ án nghiên cứu công nghệ & Thực tập FDI", en: "Computing research project & FDI internship" },
-    hook: {
-      vi: "Không thi tốt nghiệp. Bạn trải qua 80 giờ giải bài toán thật tại doanh nghiệp FDI và bảo vệ dự án trước hội đồng Pearson UK.",
-      en: "No graduation exam. Spend 80 hours solving real problems inside an FDI company, then defend your project before a Pearson UK panel.",
-    },
-    learn: [
-      {
-        vi: "Quy trình dự án nghiên cứu độc lập: khảo sát, thu thập mẫu, phân tích và đề xuất giải pháp kỹ thuật.",
-        en: "The independent research process: surveys, data sampling, analysis and technical recommendations.",
-      },
-      {
-        vi: "80 giờ On-job training tại tập đoàn đối tác như Samsung, Viettel, FPT, Foxconn.",
-        en: "80 hours of on-the-job training with partners such as Samsung, Viettel, FPT and Foxconn.",
-      },
-      {
-        vi: "Viết báo cáo kỹ thuật chuẩn quốc tế và thuyết trình trước hội đồng thẩm định độc lập của Pearson Anh Quốc.",
-        en: "International-standard technical reports and a presentation to an independent Pearson UK assessment panel.",
-      },
-    ],
-    benefit: {
-      vi: "Tốt nghiệp không chỉ với tấm bằng, mà với portfolio hoàn chỉnh, kinh nghiệm làm việc thật và cơ hội hợp đồng lao động chính thức.",
-      en: "Graduate with more than a qualification: a complete portfolio, real work experience and a chance at a permanent employment contract.",
-    },
-    artifact: {
-      vi: "Portfolio công khai trên GitHub/LinkedIn, cùng đồ án giải bài toán dữ liệu thật cho doanh nghiệp FDI đối tác.",
-      en: "A public GitHub/LinkedIn portfolio and a project that solves a real data problem for an FDI partner.",
-    },
-    tools: ["Full Data Stack", "GitHub", "LinkedIn", "FDI workplace"],
-    image: MEDIA.newsCareer,
-  },
+const DATA_UNITS: {
+  id: string
+  code: string
+  level: string
+  course: string
+  title: L
+  hours: string
+  note: L
+  image: string
+}[] = [
+  { id: "da-01", code: "H/618/7388", level: "Level 4 · HNC", course: "Programming", title: { vi: "Lập trình căn bản", en: "Programming" }, hours: "60", note: { vi: "Môn nền HNC.", en: "An HNC foundation unit." }, image: IMG.python },
+  { id: "da-02", code: "M/618/7393", level: "Level 4 · HNC", course: "Networking", title: { vi: "Quản trị và thiết kế mạng", en: "Networking" }, hours: "60", note: { vi: "Môn nền HNC.", en: "An HNC foundation unit." }, image: IMG.cloud },
+  { id: "da-03", code: "L/618/7398", level: "Level 4 · HNC", course: "Professional Practice", title: { vi: "Thực hành nghề nghiệp", en: "Professional Practice" }, hours: "60", note: { vi: "Môn nền HNC.", en: "An HNC foundation unit." }, image: MEDIA.studentsStudy },
+  { id: "da-04", code: "A/618/7400", level: "Level 4 · HNC", course: "Database Design & Development", title: { vi: "Thiết kế và phát triển cơ sở dữ liệu", en: "Database Design & Development" }, hours: "60", note: { vi: "Môn chuyên sâu được nêu trong mô tả ngành.", en: "A specialist area named in the programme description." }, image: IMG.sql },
+  { id: "da-05", code: "D/618/7406", level: "Level 4 · HNC", course: "Security", title: { vi: "Bảo mật hệ thống thông tin", en: "Security" }, hours: "60", note: { vi: "Môn nền HNC.", en: "An HNC foundation unit." }, image: MEDIA.library },
+  { id: "da-06", code: "H/618/7407", level: "Level 4 · Pearson-set", course: "Planning a Computing Project", title: { vi: "Lập kế hoạch dự án CNTT", en: "Planning a Computing Project" }, hours: "60", note: { vi: "Đồ án do Pearson ra đề ở bậc 4.", en: "A Pearson-set project at Level 4." }, image: MEDIA.lectureHall },
+  { id: "da-07", code: "F/618/7415", level: "Level 4 · Specialist", course: "Data Analytics", title: { vi: "Phân tích dữ liệu nền tảng", en: "Data Analytics" }, hours: "60", note: { vi: "Môn chuyên ngành bậc 4.", en: "A Level 4 specialist unit." }, image: IMG.eda },
+  { id: "da-08", code: "R/618/7421", level: "Level 4 · Recommended", course: "Maths for Computing", title: { vi: "Toán ứng dụng trong tin học", en: "Maths for Computing" }, hours: "60", note: { vi: "Môn khuyến nghị ở bậc 4.", en: "A recommended Level 4 unit." }, image: MEDIA.newsAnalytics },
+  { id: "da-09", code: "A/618/7428", level: "Level 5 · HND", course: "Business Process Support", title: { vi: "Hỗ trợ quy trình nghiệp vụ", en: "Business Process Support" }, hours: "60", note: { vi: "Môn HND bậc 5.", en: "A Level 5 HND unit." }, image: MEDIA.studentsCollab },
+  { id: "da-10", code: "H/618/5723", level: "Level 5 · Specialist", course: "Advanced Programming", title: { vi: "Lập trình nâng cao cho phân tích dữ liệu", en: "Advanced Programming for Data Analysis" }, hours: "60", note: { vi: "Môn chuyên ngành bậc 5.", en: "A Level 5 specialist unit." }, image: IMG.python },
+  { id: "da-11", code: "H/618/7438", level: "Level 5 · Specialist", course: "Machine Learning", title: { vi: "Học máy và mô hình thuật toán", en: "Machine Learning" }, hours: "60", note: { vi: "Môn chuyên ngành bậc 5.", en: "A Level 5 specialist unit." }, image: IMG.ml },
+  { id: "da-12", code: "F/618/5664", level: "Level 5 · Specialist", course: "Big Data Analytics & Visualisation", title: { vi: "Dữ liệu lớn và trực quan hóa", en: "Big Data Analytics & Visualisation" }, hours: "60", note: { vi: "Môn chuyên ngành bậc 5.", en: "A Level 5 specialist unit." }, image: IMG.bi },
+  { id: "da-13", code: "L/618/7448", level: "Level 5 · Option", course: "Applied Analytical Models", title: { vi: "Mô hình phân tích ứng dụng", en: "Applied Analytical Models" }, hours: "60", note: { vi: "Môn tự chọn bậc 5.", en: "A Level 5 optional unit." }, image: IMG.cloud },
+  { id: "da-14", code: "J/618/7450", level: "Level 5 · Option", course: "Analytical Methods", title: { vi: "Phương pháp phân tích giải tích", en: "Analytical Methods" }, hours: "60", note: { vi: "Môn tự chọn bậc 5.", en: "A Level 5 optional unit." }, image: MEDIA.newsClassroom },
+  { id: "da-15", code: "K/618/7425", level: "Level 5 · Pearson-set · 30 credits", course: "Computing Research Project", title: { vi: "Dự án nghiên cứu CNTT tốt nghiệp", en: "Computing Research Project" }, hours: "120", note: { vi: "Đồ án Pearson-set, 30 tín chỉ.", en: "A Pearson-set project worth 30 credits." }, image: MEDIA.newsCareer },
 ]
+
+const DATA: ProgramSubject[] = DATA_UNITS.map((unit) => ({
+  id: unit.id,
+  code: unit.code,
+  level: `${unit.level} · ${unit.hours} GLH`,
+  course: unit.course,
+  title: unit.title,
+  hook: {
+    vi: `${unit.title.vi} (${unit.course}). Mã Ofqual ${unit.code}. ${unit.note.vi}`,
+    en: `${unit.title.en}. Ofqual code ${unit.code}. ${unit.note.en}`,
+  },
+  learn: [
+    { vi: `${unit.hours} giờ học có hướng dẫn trong tổng 960 giờ của chương trình.`, en: `${unit.hours} guided learning hours, within the programme total of 960.` },
+    { vi: unit.note.vi, en: unit.note.en },
+    { vi: "Đánh giá bằng bài tập và đồ án theo chuẩn Pearson, không thi lý thuyết nhồi nhét.", en: "Assessed by Pearson assignments and projects, not by crammed theory exams." },
+  ],
+  benefit: {
+    vi: "Năng lực thực hành trên chuẩn BTEC Level 5 HND in Computing, chuyên ngành Phân tích dữ liệu.",
+    en: "Practical ability on the BTEC Level 5 HND in Computing, Data Analytics pathway.",
+  },
+  artifact: {
+    vi: unit.hours === "120" ? "Đồ án nghiên cứu CNTT, 120 giờ, 30 tín chỉ, Pearson-set." : "Bài đánh giá Pearson của môn, 60 giờ có hướng dẫn.",
+    en: unit.hours === "120" ? "A 120-hour, 30-credit Pearson-set computing research project." : "The Pearson assessment for this 60-hour unit.",
+  },
+  tools: [unit.level, `${unit.hours} GLH`],
+  image: unit.image,
+}))
+
 
 const BUSINESS: ProgramSubject[] = [
   {

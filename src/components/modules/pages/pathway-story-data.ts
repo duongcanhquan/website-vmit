@@ -580,7 +580,7 @@ const en: PathwayStory = {
   closeTitle: "Two programmes. Four commitments. One open sea.",
   closeLead: "Choose your programme and journey on. Four commitments travel with you, all the way to lands of knowledge.",
   majors: [
-    { title: "Data Analytics", body: "Business data analytics, BI, Python, SQL and AI." },
+    { title: "Data Analytics", body: "BTEC Level 5 HND in Computing: 15 units, 240 RQF credits, machine learning and a Pearson research project." },
     { title: "Business Management", body: "Digital business management, finance, multi-channel marketing and entrepreneurship." },
   ],
   commitmentsTitle: "Four commitments",
